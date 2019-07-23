@@ -7,121 +7,46 @@
 		
 		<meta name="viewport" content="width=device-width">
 		<!--link rel="stylesheet" href="script.css"-->
-		<title>Rekoshed</title>
-		<style>
+		<title>Идентификаторы CSS</title>
+		<link rel="stylesheet" href="index.css">
 		
-		
-		* {
-		box-sizing: border-box;
-		}
-		 div, span, h1, h2, h3, h4, h5, h6, p, a{
-		
-		margin: 0;
-		padding: 0;
-		border: 0;
-		font-size: 100%;
-		vertical-align: baseline;
-		}
-		span {color:red;}
-		a:link    {color:white; text-decoration:none}
-		a:visited {color:pink; text-decoration:none}
-		a:hover   {color:red; text-decoration:underline}
-		a:active  {color:yellow; text-decoration:underline}
-		
-			div{
-				
-				padding: 10px;
-				border: 1px solid #222;
-			}
-			#header{
-			z-index:1;
-			position: fixed;
-			width: 92%;
-			
-			
-			height: 80px;
-			background-color: rgb(150, 90, 90);
-			}
-	#header>h3 {font-size: 20px;}
-			#main{
-			position:relative;
-			top:100px;
-			height:450px;
-			width:96%;
-				font-size: 20px;
-				
-				background-color: #eee;
-				overflow: auto;
-				
-			
-			}
-			#footer{
-			    margin-top: 10px;
-				height: 80px;
-				width: 100%;
-				background-color: #ccc;
-			}
-			#main p{
-			font-size: 16px;
-			}
-			#footer p{
-			font-size: 13px;
-			}
-			.article > p{
-			
-			color: red;
-			}
-			
-			
-			.content {
-			display: flex;
-			
-			flex-direction: column;
-			padding: 0;
-			margin: 0;
-			font-family: verdana, arial, sans-serif;
-			}
-			
-			.toolbar{
-			position: fixed;
-			top: 0;
-			left: 0;
-			right: 0;
-			background-color: #222;
-		 height: 5em;
-			}
-			
-			.content {
-			color: #fff;
-			display: flex;
-			padding: 1em;
-			flex-direction: column;
-			}
-		
-			.item1 {background-color: #455a64; flex-basis: auto; width:auto;}
-			.item2 {background-color: #607d8b; flex-basis: auto; width:auto;}
-			
-			@media screen and (min-width: 600px) {
-			
-			.content {
-			flex-direction: row;
-			justify-content: space-between;
-			}
-			
-			.item1 {background-color: #9BC850; flex-grow:2;}
-			.item2 {background-color: #A62E5C; flex-grow:1;}
-			
-			}
-		</style>
 	</head>
 	<body>
 		<div id="header">
 		
-		<h3>Rekoshed</h3>
-		<p>
-		 Это мой первый сайт на Github
-		</p>
+		<h1><span>R</span>ekoshed</h1>
+		<h4> официальный сайт</h4>
+		
 		</div>
+		<div id="main">
+		
+		
+	
+		
+		<div class="toolbar">
+		
+		</div>
+		
+		
+	
+		<div class="content">
+		<div class="item1">
+		<h3>Конспекты</h3>
+		<ul>
+		<li><a href="HTMLStudent/HTMLMain.html" ><h2>HTML</h2></a></li>
+		<li><a href="CssStudent/CSSmain.html" ><h2>CSS</h2></a></li>
+		<li><a href="ScriptStudent/ScriptMain.html" ><h2>JS</h2></a></li>
+		
+		</ul>
+		
+		</div>
+		
+		<div class="item2">
+		</div>
+	</div>
+		
+		 
+		 
 		
 		<div id="footer">
 		
