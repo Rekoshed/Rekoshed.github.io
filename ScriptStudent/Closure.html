@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Java Script</title>
+		<link  href="script.css" rel="stylesheet">
+		
+	</head>
+	<body>
+	<div class="toolbar">
+	<a href="ScriptMain.html">Главная</a>
+	<a href="#">Блог</a>
+	<a href="#">Контакты</a>
+	<a href="#">О сайте</a>
+	</div>
+	<div class="content">
+	<h3>Замыкания</h3>
+	<p>
+	Рассмотрим замыкания на простейшем примере:
+	</p>
+
+	<pre id="kod">
+	function outer(){
+	let x = 5;
+	function inner(){
+	x++;
+	console.log(x);
+	};
+	return inner;
+	}
+	let fn = outer();	// fn = inner, так как функция outer возвращает функцию inner
+	// вызываем внутреннюю функцию inner
+	fn();	// 6
+	fn();	// 7
+	</pre>
+<p>
+
+Поскольку функция outer возвращает функцию inner, то переменная fn будет хранить ссылку на функцию inner. При этом эта функция запомнила свое окружение - то есть внешнюю переменную x.
+И может её использовать. В этом суть замыканий.
+</p>
+<p>
+Рассмотрим еще один пример:
+</p>
+<pre id="kod">
+function multiply(n){
+	var x = n;
+	return function(m){ return x * m;};
+}
+var fn1 = multiply(5);
+var result1 = fn1(6); // 30
+console.log(result1); // 30
+
+var fn2= multiply(4);
+var result2 = fn2(6); // 24
+console.log(result2); // 24
+</pre>
+<p>
+То есть <span>fn1 — это замыкание</span>, которое содержит и внутреннюю функцию <span>function(m){ return x * m;}</span>, и переменную <span>x</span>, которая существовала во время создания замыкания.
+
+При создании двух замыканий:<span> fn1 и fn2</span>, для каждого из этих замыканий создается свое окружение.
+
+При этом важно не запутаться в параметрах. При определении замыкания:
+
+<span id="kod">var fn1 = multiply(5);</span>
+Число <span>5 </span>передается для параметра <span>n </span>функции <span>multiply</span>.
+
+При вызове внутренней функции:
+
+<span id="kod">var result1 = fn1(6);</span>
+Число 6 передается для параметра m во внутреннюю функцию:
+ <span>function(m){ return x * m;};</span>.
+</p>
+<p>
+Также мы можем использовать другой вариант для вызова замыкания:
+</p>
+<pre id="kod">
+function multiply(n){
+	var x = n;
+	return function(m){ return x * m;};
+}
+var result = multiply(5)(6); // 30
+console.log(result);
+</pre>
+<h3>
+Самовызывающиеся функции</h3>
+
+<p>
+Мы также можем создать такие функции, которые будут вызываться сразу при определении. 
+Такие функции еще называют <span class="blue">Immediately Invoked Function Expression (IIFE)</span>.
+<br>
+Т.е. функция представленая ниже уже вывела результат в консоль:
+</p>
+<pre id="kod">
+(function(){
+	console.log("Привет мир");
+}());
+
+(function (n){
+	
+	var result = 1;
+	for(var i=1; i<=n; i++)
+		result *=i;
+	console.log("Факториал числа " + n + " равен " + result);
+}(4));
+</pre>
+<script type="text/javascript">
+(function(){
+	console.log("Привет мир");
+}());
+
+(function (n){
+	
+	var result = 1;
+	for(var i=1; i<=n; i++)
+		result *=i;
+	console.log("Факториал числа " + n + " равен " + result);
+}(4));</script>
+<p>
+Подобные функции заключаются в скобки, и после определения функции идет в скобках передача параметров.
+</p>
+	<input type="button" onklick="(function())(5)" value="Вывести в консоль">
+
+  </div>
+ </body>
+</html>

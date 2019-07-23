@@ -1,0 +1,120 @@
+
+	* {
+	box-sizing: border-box;
+	}
+	 div, span, h1, h2, h3, h4, h5, h6, p, a{
+	
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	}
+	span {color:red;}
+	a:link    {color:white; text-decoration:none}
+	a:visited {color:pink; text-decoration:none}
+	a:hover   {color:red; text-decoration:underline}
+	a:active  {color:yellow; text-decoration:underline}
+	
+		div{
+			
+			padding: 10px;
+			border: 1px solid #222;
+		}
+		#header{
+		margin-top: 22px;
+		z-index:1;
+		position: fixed;
+		width: 92%;
+		
+		
+		height: 80px;
+		background-color: rgb(150, 90, 90);
+		}
+#header>h3 {font-size: 20px;}
+#header>h1 {
+font-size: 28px;
+font-family:Lucida Sans Unicode;
+
+}
+		#main{
+		position:relative;
+		top:100px;
+		height:450px;
+		width:96%;
+			font-size: 20px;
+			
+			background-color: #eee;
+			overflow: auto;
+			
+		
+		}
+		#footer{
+		    margin-top: 10px;
+			height: 80px;
+			width: 100%;
+			background-color: #ccc;
+		}
+		#main p{
+		font-size: 16px;
+		}
+		#footer p{
+		font-size: 13px;
+		}
+		.article > p{
+		
+		color: red;
+		}
+		
+		
+		.content {
+		display: flex;
+		
+		flex-direction: column;
+		padding: 0;
+		margin: 0;
+		font-family: verdana, arial, sans-serif;
+		}
+		
+		.toolbar{
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		background-color: #222;
+	 height: 6.1em;
+		}
+		.toolbar a{
+		color: #eee;
+		display: inline-block;
+		padding-right: 1em;
+		padding-left:1em;
+		text-decoration: none;
+		font-family: Verdana;
+		font-size:14px;
+		}
+		.toolbar a:hover{
+		background-color: red;
+		color: #f4f4f4;
+		}
+		.content {
+		color: #fff;
+		display: flex;
+		padding: 1em;
+		flex-direction: column;
+		}
+	
+		.item1 {background-color: #455a64; flex-basis: auto; width:auto;}
+		.item2 {background-color: #607d8b; flex-basis: auto; width:auto;}
+		
+		@media screen and (min-width: 600px) {
+		
+		.content {
+		flex-direction: row;
+		justify-content: space-between;
+		}
+		
+		.item1 {background-color: #9BC850; flex-grow:2;}
+		.item2 {background-color: #A62E5C; flex-grow:1;}
+		
+		}

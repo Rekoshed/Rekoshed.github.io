@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Java Script</title>
+		<link  href="script.css" rel="stylesheet">
+		
+	</head>
+	<body>
+	<div class="toolbar">
+	<a href="ScriptMain.html">Главная</a>
+	<a href="#">Блог</a>
+	<a href="#">Контакты</a>
+	<a href="#">О сайте</a>
+	</div>
+	<div class="content">
+	
+
+<h3>Стрелочные функции</h3>
+<p>
+Стрелочные функции <span>(arrow functions) </span>представляют сокращенную версию обычных функций. Стрелочные функции образуются с помощью знака стрелки <span>(=>)</span>,
+ перед которым в скобках идут параметры функции, а после - собственно тело функции. Например:
+</p>
+<pre id="block">
+let sum = (x, y) => x + y;
+let a = sum(4, 5);
+console.log(a); 		// 9
+let b = sum(10, 5);	
+console.log(b);     	// 15
+</pre>
+<p>
+В данном случае функция <span>(x, y) => x + y </span>осуществляет сложение двух чисел и присваивается переменной <span>sum</span>.
+ Поскольку после стрелки фактически идет конкретное значение,
+  функция возвращает это значение.
+   И мы можем через переменную <span>sum</span> вызвать данную функцию.
+<br>
+<br>
+Если после стрелки идет операция или выражение,
+ которое возвращает значение, то это значение фактически возвращается из стрелочной функции.
+  Но в качестве тела функции может примяться выражение, 
+  которое ничего не возвращает и просто выполняет некоторое действие:
+</p>
+<pre id="block">
+let sum = (x, y) => console.log(x + y);
+sum(4, 5);		// 9
+sum(10, 5);		// 15
+</pre>
+<p>
+Если функция принимает один параметр, то скобки вокруг него можно опустить:
+</p>
+<pre id="block"> 
+var square = n => n * n;
+
+console.log(square(5));		// 25
+console.log(square(6));		// 36
+console.log(square(-7));	// 49
+</pre>
+<p>
+Если тело функции представляет набор выражений, 
+то они облекаются в фигурные скобки:
+</p>
+<pre id="block">
+var square = n => {
+	let result = n * n;
+	return result;
+}
+
+console.log(square(5));		// 25
+</pre>
+<p>
+Для возвращения результата из функции в таком случае применяется стандартный оператор <span>return</span>.
+<br>
+<br>
+Особо следует остановиться на случае, когда стрелочная функция возвращает объект:
+</p>
+<pre id="block">
+let user = (userName, userAge) => ({name: userName, age: userAge});
+
+let tom = user("Tom", 34);
+let bob = user("Bob", 25);
+
+console.log(tom.name, tom.age);		// "Tom", 34
+console.log(bob.name, bob.age);		// "Bob", 25
+</pre>
+<p>
+Объект также определяется с помощью фигурных скобок, но при этом он заключается в круглые скобки.
+<br>
+Если стрелочная функция не принимает никаких параметров, то ставятся пустые скобки:
+</p>
+<pre id="block">
+var hello = ()=> console.log("Hello World");
+hello();	// Hello World
+hello();	// Hello World
+</pre>
+	<input type="button" onklick="displaySquare()" value="Вывести в консоль">
+
+  </div>
+ </body>
+</html>

@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Java Script</title>
+		<link  href="../script.css" rel="stylesheet">
+		<script type="text/javascript">
+		document.write("<h4>  Метод get и set </h4>")
+	function User (name, age) {
+	this.name = name;
+	var _age = age;
+	this.displayInfo = function(){
+	document.write("<p>Имя: " + this.name + "; возраст: " + this.age + "<br/></p>");
+	};
+	this.getAge = function() {
+	return _age;
+	}
+	this.setAge = function(age) {
+	if(typeof age === "number" && age >0 && age<110){
+	_age = age;
+	} else {
+	document.write("<p>Недопустимое значение</p>");
+	}
+	}
+	}
+	
+	var tom = new User("Том", 26);
+	document.writeln("<br> <span>(age = 26)tom._age</span>  " + tom._age); // undefined - _age - локальная переменная
+	document.writeln("<br> <span>tom.getAge </span> " + tom.getAge()); // 26
+	tom.setAge(32);
+	document.write("<br> <span>(tom.setAge(32))tom.getAge </span> " + tom.getAge()); // 32
+	tom.setAge("54"); // Недопустимое значение
+			</script>
+		
+		
+	</head>
+	<body>
+	<div class="toolbar">
+	<a href="../../ScriptMain.html">Главная</a>
+	<a href="../GetSet.html">Назад</a>
+	<a href="#">Контакты</a>
+	<a href="#">О сайте</a>
+	</div>
+	<div class="content">
+
+  </div>
+ </body>
+</html>

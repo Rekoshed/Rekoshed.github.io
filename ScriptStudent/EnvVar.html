@@ -1,0 +1,196 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Java Script</title>
+		<link  href="script.css" rel="stylesheet">
+		<script src ="./js/AddScript.js"></script>
+		<script src ="./js/StudentScript.js"></script>
+		
+	</head>
+	<body>
+	<div class="toolbar">
+	<a href="ScriptMain.html">Главная</a>
+	<a href="#">Блог</a>
+	<a href="#">Контакты</a>
+	<a href="#">О сайте</a>
+	</div>
+	<div class="content">
+	
+	<h3>Область видимости переменных</h3>
+	<h3>
+	Глобальные переменные
+	</h3>
+	<p>
+	Все переменные, которые объявлены вне функций, являются глобальными:
+	</p>
+	<pre id="kod">
+	<.script>
+	var x = 5;
+	let d = 8;
+	function displaySquare(){
+	
+	var z = x * x;
+	console.log(z);
+	}
+	<./script>
+	</pre>
+	<script>
+	var x = 5;
+	let d = 8;
+	function displaySquare(){
+	
+	var z = x * x;
+	console.log(z);
+	}
+	</script>
+	<input type="button" onklick="displaySquare()" value="Вывести в консоль">
+	<p>
+	Здесь переменные x и d доступны из любого места программы.
+	
+	А вот переменная z глобальной не является.
+	</p>
+	<h3>
+	Локальные переменные
+	</h3>
+	<p>
+	Переменная, определенная внутри функции, является локальной:
+	</p>
+	<pre id="kod">
+	function displaySquare(){
+	
+	var z = 10;
+	console.log(z);
+	
+	let b = 8;
+	console.log(b);
+	}
+	</pre>
+	<p>
+	Переменные z и b являются локальными, они существуют только в пределах функции. Вне функции их нельзя использовать:
+	</p>
+	<pre id="kod">
+	function displaySquare(){
+	
+	var z = 10;
+	console.log(z);
+	}
+	console.log(z); //ошибка, так как z не определена
+	</pre>
+	<p>
+	Когда функция заканчивает свою работу, то все переменные, определенные в функции, уничтожаются.
+	</p>
+<h3>	Сокрытие переменных</h3>
+<pre id="kod">
+	var z = 89;
+	function displaySquare(){
+	
+	var z = 10;
+	console.log(z); // 10
+	}
+	displaySquare(); // 10
+</pre>
+
+
+<h3>var или let</h3>
+<p>
+При использовании оператора <span>let</span> каждый блок кода определяет новую область видимости, в которой существует переменная:
+</p>
+<pre id="kod">
+let z = 10;
+function displayZ(){
+ 
+    let z = 20;
+	
+	{
+		let z = 30;
+		console.log("Block:", z);
+	}
+	
+	console.log("Function:", z);
+}
+
+displayZ();
+console.log("Global:", z);
+</pre>
+
+<p>
+С помощью оператора <span>var</span> мы не можем определить одновременно переменную с одним и тем же именем и в функции, и в блоке кода в этой функции:
+</p>
+<pre id="kod">
+function displaySquare(){
+ 
+    var z = 20;
+	
+	{
+		var z = 30;	// Ошибка ! Переменная z уже определена
+		console.log("Block:", z);
+	}
+	console.log("Function:", z);
+}
+</pre>
+
+<h3> Константы</h3>
+<p> Область видимости <span>const</span> аналогична переменным <span>let</span>:
+<pre id="kod">
+const z = 10;
+function displayZ(){
+ 
+    const z = 20;
+	
+	{
+		const z = 30;
+		console.log("Block:", z);	// 30
+	}
+	console.log("Function:", z);	// 20
+}
+
+displayZ();
+console.log("Global:", z);	// 10
+</pre>
+
+
+<h3>Необъявленные переменные</h3>
+<p>
+Если мы не используем  ключевое слово при определении переменной в функции, то такая переменная будет глобальной. Например:
+</p>
+<pre id="kod">
+function bar(){
+	foo = "25";
+}
+bar();
+console.log(foo);	// 25
+</pre>
+
+
+<h3>strict mode</h3>
+<p>
+Определение глобальных переменных в функциях может вести к потенциальным ошибкам. Чтобы их избежать используется строгий режим или <span>strict mode</span>:
+</p>
+<pre id="kod">
+"use strict";
+function bar(){
+    foo = "25";
+}
+ 
+bar();
+console.log(foo);
+</pre>
+
+<p>
+Установить режим <span>strict mode</span> можно двумя способами:
+</p>
+<ul>
+<li>
+добавить выражение <span>"use strict" </span>в начало кода JavaScript, тогда <span>strict mode</span> будет применяться для всего кода
+</li>
+<li>
+добавить выражение <span>"use strict" </span>в начало тела функции, тогда <span>strict mode</span> будет применяться только для этой функции
+ </li> 
+  
+  
+  </div>
+ </body>
+</html>

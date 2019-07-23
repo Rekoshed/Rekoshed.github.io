@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Java Script</title>
+		<link  href="script.css" rel="stylesheet">
+		
+	</head>
+	<body>
+	<div class="toolbar">
+	<a href="../ScriptMain.html">Главная</a>
+	<a href="#">Блог</a>
+	<a href="#">Контакты</a>
+	<a href="#">О сайте</a>
+	</div>
+	<div class="content">
+	
+<h3>
+Вложенные объекты и массивы в объектах
+</h3>
+<p>
+Объекты могут содержать в качестве свойств другие объекты. Например,объект страны, у которой можно выделить ряд свойств. Одно из этих свойств может представлять столицу. Но у столицы мы также можем выделить свои свойства, например, название, численность населения, год основания:
+</p>
+<pre id="kod">
+var country = {
+
+	name: "Германия",
+	language: "немецкий",
+	capital:{
+	
+		name: "Берлин",
+		population: 3375000,
+		year: 1237
+	}
+};
+console.log("Столица: " + country.capital.name); // Берлин
+console.log("Население: " + country["capital"]["population"]); // 3375000
+console.log("Год основания: " + country.capital["year"]); // 1237
+</pre>
+<a href="Test/Test.html" id="out">Output</a>
+	
+<p>
+Для доступа к свойствам таких вложенных объектов мы можем использовать стандартную нотацию точки:
+<span id="block">
+country.capital.name
+</span>
+Либо обращаться к ним как к элементам массивов:
+<span id="block">
+country["capital"]["population"]
+</span>
+Также допустим смешанный вид обращения:
+<span id="block">
+country.capital["year"]
+</span>
+В качестве свойств также могут использоваться массивы, в том числе массивы других объектов:
+</p>
+<pre id="kod">
+<span>
+// декарируем заголовки синим шрифтом
+</span>
+document.write('<.style type="text/css">h3{color:blue;}<./style>');
+	
+var country = {
+
+	name: "Швейцария",
+	languages: ["немецкий", "французский", "итальянский"],
+	capital:{
+	
+		name: "Берн",
+		population: 126598
+	},
+	cities: [
+		{ name: "Цюрих", population: 378884},
+		{ name: "Женева", population: 188634},
+		{ name: "Базель", population: 164937}
+	]
+};
+
+
+<span>// вывод всех элементов из country.languages</span>
+document.write("<.h3>Официальные языки Швейцарии<./h3>");
+for(var i=0; i <. country.languages.length; i++)
+	document.write(country.languages[i] + "<.br/>");
+	
+<span>// вывод всех элементов из country.cities</span>
+document.write("<.h3>Города Швейцарии<./h3>");
+for(var i=0; i < .country.cities.length; i++)
+	document.write(country.cities[i].name + "<.br/>");
+	</pre>
+	<a href="Test/Test2.html" id="out">Output</a>
+	
+	<p>
+В объекте <span>country</span> имеется свойство <span>languages,</span> содержащее массив строк, а также свойство <span>cities</span>, хранящее массив однотипных объектов.
+
+С этими массивами мы можем работать также, как и с любыми другими, например, перебрать с помощью цикла <span class="blue">for</span>.
+
+При переборе массива объектов каждый текущий элемент будет представлять отдельный объект, поэтому мы можем обратиться к его свойствам и методам:
+
+<span class="blockSpan">country.cities[i].name</span>
+В итоге браузер выведет содержимое этих массивов:
+</p>
+
+
+	<input type="button" onklick="cantri()" value="Вывести в консоль">
+
+  </div>
+ </body>
+</html>

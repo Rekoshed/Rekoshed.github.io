@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Java Script</title>
+		<link  href="script.css" rel="stylesheet">
+		
+	</head>
+	<body>
+	<div class="toolbar">
+	<a href="ScriptMain.html">Главная</a>
+	<a href="#">Блог</a>
+	<a href="#">Контакты</a>
+	<a href="#">О сайте</a>
+	</div>
+	<div class="content">
+	
+	<h3>Переопределение функций</h3>
+	<p>
+	Функции обладают возможностью для переопределения поведения. Переопределение происходит с помощью присвоения анонимной функции переменной, которая называется так же, как и переопределяемая функция:
+	</p>
+	<pre id="kod">
+	function display(){
+	console.log("Доброе утро");
+	display = function(){
+	console.log("Добрый день");
+	}
+	}
+	
+	display(); // Доброе утро
+	display(); // Добрый день
+	</pre>
+	<p>
+	При первом срабатывании функции действует основной блок операторов функции, в частности, 
+	в данном случае выводится сообщение <span class="blue">"Доброе утро"</span>. И при первом срабатывании функции <span>display</span> также происходит ее переопределение. Поэтому при всех последующих вызовах функции срабатывает ее переопределенная версия, а на консоль будет выводиться сообщение "Добрый день".
+	<br>
+	Но при переопределении функции надо учитывать некоторые нюансы. В частности, попробуем присвоить ссылку на функцию переменной и через эту переменную вызвать функцию:
+	</p>
+	<pre id="kod">
+	function display(){
+	console.log("Доброе утро");
+	display = function(){
+	console.log("Добрый день");
+	}
+	}
+	// присвоение ссылки на функцию до переопределения
+	var displayMessage = display;
+	display(); // Доброе утро
+	display(); // Добрый день
+	displayMessage(); // Доброе утро
+	displayMessage(); // Доброе утро
+	</pre>
+	<p>
+	Здесь переменная <span class="blue">displayMessage</span> получает ссылку на функцию <span>display </span>до ее переопределения. 
+	
+	Поэтому при вызове <span class="blue">displayMessage()</span> будет вызываться непереопределенная версия функции <span>display</span>.
+	<br>
+	Но допустим, мы определили переменную <span class="blue">displayMessage</span> уже после вызова функции <span>display</span>:
+	</p>
+	<pre id="kod">
+	display(); // Доброе утро
+	display(); // Добрый день
+	var displayMessage = display;
+	displayMessage(); // Добрый день
+	displayMessage(); // Добрый день
+	</pre>
+	<p>
+	В этом случае переменная <span class="blur">displayMessage </span>будет указывать на переопределенную версию функции <span>display</span>.
+</p>
+	<input type="button" onklick="displaySquare()" value="Вывести в консоль">
+
+  </div>
+ </body>
+</html>

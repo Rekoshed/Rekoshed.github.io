@@ -1,0 +1,223 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Java Script</title>
+		<link  href="script.css" rel="stylesheet">
+		<script src ="./js/AddScript.js"></script>
+		<script src ="./js/StudentScript.js"></script>
+		
+	</head>
+	<body>
+	<div class="toolbar">
+	<a href="ScriptMain.html">Главная</a>
+	<a href="#">Блог</a>
+	<a href="#">Контакты</a>
+	<a href="#">О сайте</a>
+	</div>
+	<div class="content">
+	<h3>Функции</h3>
+	<p>
+	Определим простейшую функцию:
+	</p>
+	<pre id="kod">
+	function display(){
+	
+	document.write("функция в JavaScript");
+	}
+</pre>
+<input type="button" onclick="display()( './js/StudentScript.js' )" value="Вывести в консоль" />
+ 
+<p>
+Можно использовать анонимные функции:
+</p>
+<pre id="kod">
+var display = function(){  // определение функции
+
+	document.write("функция в JavaScript");
+}
+display();
+</pre>
+<input type="button" onclick="display1()( './js/StudentScript.js' )" value="Вывести в консоль" />
+ 
+<p>
+
+Также мы можем динамически присваивать функции для переменной:
+</p>
+<pre id="kod">
+function goodMorning(){
+
+	document.write("Доброе утро");
+}
+function goodEvening(){
+
+	document.write("Добрый вечер");
+}
+var message = goodMorning;
+message(); // Доброе утро
+message = goodEvening;
+message(); // Добрый вечер
+</pre>
+<input type="button" onclick="display2()( './js/StudentScript.js' )" value="Вывести в консоль" />
+ 
+<p>
+
+Рассмотрим передачу параметров:
+</p>
+<pre id="kod">
+function display3(x){  // определение функции
+
+	var z = x * x;
+    document.write(x + " в квадрате равно " + z);
+}
+
+display(5); // вызов функции
+</pre>
+<input type="button" onclick="display3()( './js/StudentScript.js' )" value="Вывести в консоль" />
+ 
+
+<p>
+С помощью spread-оператора <span>... </span>мы можем передать набор значений для этих параметров из массива:
+</p>
+<pre id="kod">
+function sum(a, b, c){
+	let d = a + b + c;
+	console.log(d);
+}
+sum(1, 2, 3);
+let nums = [4, 5, 6];
+sum(...nums);
+</pre>
+
+<input type="button" onclick="display4()( './js/StudentScript.js' )" value="Вывести в консоль" />
+ 
+<p> Параметры по умолчанию:</p>
+<pre id="kod">
+function display(x, y){
+
+	if(y === undefined) y = 5;
+	if(x === undefined) x = 8;
+    let z = x * y;
+    console.log(z);
+}
+display();	// 40
+display(6); // 30
+display(6, 4) // 24
+</pre>
+<input type="button" onclick="display5()( './js/StudentScript.js' )" value="Вывести в консоль" />
+ 
+
+<p> Параметры по умолчанию:</p>
+<pre id="kod">
+function display(x = 5, y = 10){
+    let z = x * y;
+    console.log(z);
+}
+display();		// 50
+display(6); 	// 60
+display(6, 4) 	// 24
+</pre>
+<input type="button" onclick="display6()( './js/StudentScript.js' )" value="Вывести в консоль" />
+ 
+<p>
+
+При необходимости мы можем получить все переданные параметры через глобально доступный массив arguments:
+</p>
+<pre id="kod">
+function display(){
+	var z = 1;
+	for(var i=0; i<.arguments.length; i++)
+		z *= arguments[i];
+    console.log(z);
+}
+display(6); // 6
+display(6, 4) // 24
+display(6, 4, 5) // 120
+</pre>
+<input type="button" onclick="display7()( './js/StudentScript.js' )" value="Вывести в консоль" />
+ 
+<p>
+переменное количество значений:
+</p>
+<pre id="kod">
+function display(season, ...temps){
+	console.log(season);
+	for(index in temps){
+		console.log(temps[index]);
+	}
+}
+display("Весна", -2, -3, 4, 2, 5);
+display("Лето", 20, 23, 31);
+</pre>
+<input type="button" onclick="display8()( './js/StudentScript.js' )" value="Вывести в консоль" />
+ 
+<p>
+
+Функция может возвращать результат. Для этого используется оператор return:
+</p>
+<pre id="kod">
+var y = 5;
+var z = square(y);
+document.write(y + " в квадрате равно " + z);
+
+function square(x) {
+  return x * x;
+}
+</pre>
+<input type="button" onclick="display9()( './js/StudentScript.js' )" value="Вывести в консоль" />
+ 
+<p>
+
+Функции могут выступать в качестве параметров других функций:
+</p>
+<pre id="kod">
+function sum(x, y){
+	return x + y;
+}
+
+function subtract(x, y){
+	return x - y;
+}
+
+function operation(x, y, func){
+ 
+	var result = func(x, y);
+	console.log(result);
+}
+
+console.log("Sum");
+operation(10, 6, sum);	// 16
+
+console.log("Subtract");
+operation(10, 6, subtract);	// 4
+</pre>
+<input type="button" onclick="display10()( './js/StudentScript.js' )" value="Вывести в консоль" />
+ 
+<p>
+
+Одна функция может возвращать другую функцию:
+</p>
+<pre id="kod">
+function menu(n){
+ 
+	if(n==1) return function(x, y){ return x+y;}
+	else if(n==2) return function(x, y){ return x - y;}
+	else if(n==3) return function(x, y){ return x * y;}
+	return undefined;
+}
+
+for(var i=1; i <. 5; i++){
+	var action = menu(i);
+	if(action!==undefined){
+		var result = action(5, 4);
+		console.log(result);
+	}
+}
+</pre>
+<input type="button" onclick="display11()( './js/StudentScript.js' )" value="Вывести в консоль" />
+ 
+  </div>
+ </body>
+</html>

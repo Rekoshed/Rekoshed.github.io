@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Java Script</title>
+		<link  href="script.css" rel="stylesheet">
+		
+	
+		<script src ="./js/StudentScript.js"></script>
+		
+	</head>
+	<body>
+	<div class="toolbar">
+	<a href="ScriptMain.html">Главная</a>
+	<a href="#">Блог</a>
+	<a href="#">Контакты</a>
+	<a href="#">О сайте</a>
+	</div>
+	<div class="content">
+	
+	<h3>Рекурсивные функции</h3>
+	<p>
+	Их суть состоит в том, что функция вызывает саму себя.
+	<br>
+	Например факториал числа:
+	</p>
+	<pre id="kod">
+	function getFactorial(n){
+	if (n === 1){
+	return 1;
+	}
+	else{
+	
+	return n * getFactorial(n - 1);
+	}
+	}
+	var result = getFactorial(4); 
+	console.log(result); // 24
+	</pre>
+	
+		<input type="button" onclick="Fact(4)( './js/StudentScript.js' )" value="проверка" />
+	
+	<p>
+	Функция <span>getFactorial()</span> возвращает значение 1, 
+	если параметр n равен 1, либо возвращает результат опять же функции <span>getFactorial</span>, 
+	то в нее передается значение <span>n-1</span>. Например, 
+	при передаче числа 4, у нас образуется следующая цепочка вызовов:
+	<span class="blue">
+	<br><br>
+	var result = 4 * getFactorial(3);
+	<br>
+	var result = 4 * 3 * getFactorial(2);
+	<br>
+	var result = 4 * 3 * 2 * getFactorial(1);
+	<br>
+	var result = 4 * 3 * 2 * 1; // 24
+	</span>
+	</p>
+	<p>
+	Другой пример - определение чисел Фибоначчи:
+	</p>
+	<pre id="kod">
+	function getFibonachi(n)
+	{
+	if (n == 0){
+	return 0;
+	}
+	if (n == 1){
+	return 1;
+	}
+	else{
+	return getFibonachi(n - 1) + getFibonachi(n - 2);
+	}
+	}
+	var result = getFibonachi(8); //21 
+	console.log(result); // 21
+</pre>
+<script type="text/javascript">
+function fiba(){
+
+	function getFibonachi(n)
+	{
+	if (n == 0){
+	return 0;
+	}
+	if (n == 1){
+	return 1;
+	}
+	else{
+	return getFibonachi(n - 1) + getFibonachi(n - 2);
+	}
+	}
+	var result = getFibonachi(8); //21 
+	console.log(result); // 21
+	}</script>
+	<input type="button" onklick="fiba()" value="Вывести в консоль">
+
+  </div>
+ </body>
+</html>

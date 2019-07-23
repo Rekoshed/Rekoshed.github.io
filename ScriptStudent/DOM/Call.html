@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Java Script</title>
+		<link  href="script.css" rel="stylesheet">
+		
+	</head>
+	<body>
+	<div class="toolbar">
+	<a href="../ScriptMain.html">Главная</a>
+	<a href="#">Блог</a>
+	<a href="#">Контакты</a>
+	<a href="#">О сайте</a>
+	</div>
+	<div class="content">
+	<h3>
+	Функция как объект. Методы call и apply
+	</h3>
+	<p>
+	В JavaScript функция тоже является объектом - объектом <span>Function </span>и тоже имеет прототип, свойства, методы. 
+	Все функции, которые используются в программе, являются объектами <span>Function</span> и имеют все его свойства и методы.
+	<br><br>
+	Например, мы можем создать функцию с помощью конструктора <span>Function</span>:
+	</p>
+	<pre id="b">
+	var square = new Function('n', 'return n * n;');
+	console.log(square(5));
+	<p>
+	В конструктор Function может передаваться ряд параметров.
+	 Последний параметр представляет собой само тело функции в виде строки.
+	  Фактически строка содержит код javascript. 
+	  Предыдущие аргументы содержат названия параметров. 
+	  В данном случае определяется функция возведения числа в квадрат, которая имеет один параметр n.
+	<br><br>
+	Среди свойств объекта Function можно выделить следующие:
+	</p>
+	arguments: массив аргументов, передаваемых в функцию
+	
+	length: определяет количество аргументов, которые ожидает функция
+	
+	caller: определяет функцию, вызвавшую текущую выполняющуюся функцию
+	
+	name: имя функции
+	
+	prototype: прототип функции
+	
+	С помощью прототипа мы можем определить дополнительные свойства:
+	
+	function display(){
+	
+	console.log("привет мир");
+	}
+	Function.prototype.program ="Hello";
+	
+	console.log(display.program); // Hello
+	Среди методов надо отметить методы call() и apply().
+	
+	Метод call() вызывает функцию с указанным значением this и аргументами:
+	
+	function add(x, y){
+	
+	return x + y;
+	}
+	var result = add.call(this, 3, 8);
+	
+	console.log(result); // 11
+	this указывает на объект, для которого вызывается функция - в данном случае это глобальный объект window. После this передаются значения для параметров.
+	
+	При передаче объекта через первый параметр, мы можем ссылаться на него через ключевое слово this:
+	
+	function User (name, age) {
+	this.name = name;
+	this.age = age;
+	}
+	var tom = new User("Том", 26);
+	function display(){
+	console.log("Ваше имя: " + this.name);
+	}
+	display.call(tom); // Ваше имя: Том
+	В данном случае передается только одно значение, поскольку функция display не принимает параметров. То есть функция будет вызываться для объекта tom.
+	
+	Если нам не важен объект, для которого вызывается функция, то можно передать значение null:
+	
+	function add(x, y){
+	
+	return x + y;
+	}
+	var result = add.call(null, 3, 8);
+	
+	console.log(result); // 11
+	На метод call() похож метод apply(), который также вызывает функцию и в качестве первого параметра также получает объект, для которого функция вызывается. Только теперь в качестве второго параметра передается массив аргументов:
+	
+	function add(x, y){
+	
+	return x + y;
+	}
+	var result = add.apply(null, [3, 8]);
+	
+	console.log(result); // 11
+
+
+	<a href="Test/DesignerTest.html" id="out">Output</a>
+	
+  </div>
+ </body>
+</html>

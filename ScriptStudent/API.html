@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Java Script</title>
+		<link  href="script.css" rel="stylesheet">
+		
+	</head>
+	<body>
+	<div class="toolbar">
+	<a href="ScriptMain.html">Главная</a>
+	<a href="#">Блог</a>
+	<a href="#">Контакты</a>
+	<a href="#">О сайте</a>
+	</div>
+	<div class="content">
+	
+	<h3>Паттерн Модуль</h3>
+	<p>
+	<span>Паттерн "Модуль" </span>базируется на замыканиях и состоит из двух компонентов: внешняя функция, которая определяет лексическое окружение, и возвращаемый набор внутренних функций, которые имеют доступ к этому окружению.
+	<br>
+	Определим простейший модуль:
+	</p>
+	<pre id="kod">
+	let foo = (function(){
+	let obj = {greeting: "hello"};
+	
+	return {
+	display: function(){
+	console.log(obj.greeting);
+	}
+	}
+	})();
+	foo.display();	// hello
+	
+	</pre>
+	<script type="text/javascript">
+	function displai(){
+	
+	var foo = (function(){
+	var obj = {greeting: "hello"};
+	
+	return {
+	display: function(){
+	document.write(obj.greeting);
+	}
+	}
+	})();
+	foo.display();	// hello
+	
+	}
+	</script>
+	   <input type="button" onklick="displai()" value="Вывести в консоль">
+	   
+	<p>
+	Здесь определена переменная <span class="blue">foo</span>, которая представляет результат анонимной функции. Внутри подобной функции определен объект <span class="blue">obj</span> с некоторыми данными.
+	<br>
+	Сама анонимная функция возвращает объект, который определяет функцию <span>display</span>. Возвращаемый объект определяет общедоступый API, через который мы можем обращаться к данным, определенным внутри модуля.
+	<span id="kod">
+	return {
+	display: function(){
+	console.log(obj.greeting);
+	}
+	}
+	</span>
+	Такая конструкция позволяет закрыть некоторый набор данных в рамках функции-модуля и опосредовать доступ к ним через определенный API - возвращаемые внутренние функции.
+	<br>
+	Рассмотрим чуть более сложный пример:
+	</p>
+	<pre id="kod">
+	let calculator = (function(){
+	let data = { number: 0};
+	
+	return {
+	sum: function(n){
+	data.number += n;
+	},
+	subtract: function(n){
+	data.number -= n;
+	},
+	display: function(){
+	console.log("Result: ", data.number);
+	}
+	}
+	})();
+	calculator.sum(10);
+	calculator.sum(3);
+	calculator.display();	// Result: 13
+	calculator.subtract(4);
+	calculator.display();	// Result: 9
+	</pre>
+	<p>
+	Данный модуль представляет примитивный калькулятор, который выполняет три операции: сложение, вычитание и вывод результата.
+	<br>
+	Все данные инкапсулированы в объекте <span>data</span>, который хранит результат операции. Все операции представлены тремя возвращаемыми функциями: <span>sum, subtract и display</span>. Через эти функции мы можем управлять результатом калькулятора извне.
+</p>
+<script type="text/javascript">
+function calk() {
+
+	var calculator = (function(){
+	var data = { number: 0};
+	
+	return {
+	sum: function(n){
+	data.number += n;
+	},
+	subtract: function(n){
+	data.number -= n;
+	},
+	display: function(){
+	console.log("Result: ", data.number);
+	}
+	}
+	})();
+	calculator.sum(10);
+	calculator.sum(3);
+	calculator.display();	// Result: 13
+	calculator.subtract(4);
+	calculator.display();	// Result: 9
+	}
+</script>
+
+	<input type="button" onklick="calk()" value="Вывести в консоль">
+
+  </div>
+ </body>
+</html>

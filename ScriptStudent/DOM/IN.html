@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Java Script</title>
+		<link  href="script.css" rel="stylesheet">
+		
+	</head>
+	<body>
+	<div class="toolbar">
+	<a href="../ScriptMain.html">Главная</a>
+	<a href="#">Блог</a>
+	<a href="#">Контакты</a>
+	<a href="#">О сайте</a>
+	</div>
+	<div class="content">
+	
+<h3>
+Проверка наличия и перебор методов и свойств
+</h3>
+<p>
+При динамическом определении в объекте новых свойств и методов важно проверить, а есть ли уже такие методы и свойства. Для этого в javascript может использоваться оператор <span>in</span>:
+</p>
+<pre id="kod">
+var user = {};
+user.name = "Tom";
+user.age = 26;
+user.display = function(){
+	
+	console.log(user.name);
+	console.log(user.age);
+};
+var hasNameProp = "name" in user;
+console.log(hasNameProp); // true - свойство name есть в user
+var hasWeightProp = "weight" in user;
+console.log(hasWeightProp); // false - в user нет свойства или метода под названием weight
+</pre>
+
+<a href="" id="out" >Output</a>
+
+
+
+<p>
+Оператор <span>in</span> имеет следующий синтаксис: <span>"свойство|метод" in объект</span> - в кавычках идет название свойства или метода, а после <span>in</span> - название объекта.
+ Если свойство или метод с подобным именем имеется, то оператор возвращает <span>true</span>. Если нет - то возвращается <span>false</span>.
+</p>
+
+
+<p>
+Альтернативный способ заключается на значение <span>undefined</span>. Если свойство или метод равен <span>undefined</span>, то эти свойство или метод не определены:
+</p>
+<pre id="block">
+var hasNameProp = user.name!==undefined;
+console.log(hasNameProp); // true
+var hasWeightProp = user.weight!==undefined;
+console.log(hasWeightProp); // false
+</pre>
+<p>
+И так как объекты представляют тип <span>Object</span>, а значит, имеет все его методы и свойства, то объекты также могут использовать метод <span class="blue">hasOwnProperty()</span>, который определен в типе <span>Object</span>:
+</p>
+<pre id="block">
+var hasNameProp = user.hasOwnProperty('name');
+console.log(hasNameProp); // true
+var hasDisplayProp = user.hasOwnProperty('display');
+console.log(hasDisplayProp); // true
+var hasWeightProp = user.hasOwnProperty('weight');
+console.log(hasWeightProp); // false
+</pre>
+
+<h3>
+Перебор свойств и методов
+</h3>
+<p>
+С помощью цикла <span>for</span> мы можем перебрать объект как обычный массив и получить все его свойства и методы и их значения:
+</p>
+<pre id="kod">
+var user = {};
+user.name = "Tom";
+user.age = 26;
+user.display = function(){
+	
+	console.log(user.name);
+	console.log(user.age);
+};
+for(var key in user) {
+	console.log(key + " : " + user[key]);
+}
+</pre>
+<p>
+И при запуске консоль браузера отобразит следующий вывод:
+</p>
+<pre>
+<span id="block">
+name : Tom
+age : 26
+display : function (){
+	
+	console.log(user.name);
+	console.log(user.age);
+}
+</span>
+</pre>
+	<input type="button" onklick="cantri()" value="Вывести в консоль">
+
+  </div>
+ </body>
+</html>

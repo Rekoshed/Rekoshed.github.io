@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Java Script</title>
+		<link  href="script.css" rel="stylesheet">
+		
+	</head>
+	<body>
+	<div class="toolbar">
+	<a href="ScriptMain.html">Главная</a>
+	<a href="#">Блог</a>
+	<a href="#">Контакты</a>
+	<a href="#">О сайте</a>
+	</div>
+	<div class="content">
+	<h3>Массивы данных</h3>
+<p>Для создания массива применяется выражение <span>new Array():</span>
+
+<span id="kod">var myArray = new Array();</span>
+Существует также более короткий способ инициализации массива:
+
+<span id="kod">var myArray = [];</span>
+<p>данные:
+<span id="kod">
+var people = ["Tom", "Alice", "Sam"];
+console.log(people);
+</span>
+</p>
+
+<p>
+Для обращения к отдельным элементам массива используются индексы:
+</p>
+<pre>
+<span id="kod">
+var people = ["Tom", "Alice", "Sam"];
+console.log(people[0]); // Tom
+var person3 = people[2]; // Sam
+console.log(person3); // Sam
+</span>
+</pre>
+<p>
+установка значений для элементов массива:
+</p>
+<pre id="kod">
+var people = ["Tom", "Alice", "Sam"];
+console.log(people[0]); // Tom
+people[0] = "Bob";
+console.log(people[0]); // Bob
+</pre>
+<p>
+Даже если индекс изначально не установлен:
+</p>
+<pre id="kod">
+var people = ["Tom", "Alice", "Sam"];
+console.log(people[7]); // Tom
+people[0] = "Bob";
+console.log(people[7]); // Bob
+</pre>
+
+<p>
+Oдин массив может хранить данные разных типов:
+</p>
+<pre id="kod">
+var objects = ["Tom", 12, true, 3.14, false];
+console.log(objects);
+</pre>
+
+
+<p>
+Mногомерный массив:
+</p>
+<pre id="kod">
+var numbers1 = [0, 1, 2, 3, 4, 5 ]; // одномерный массив
+var numbers2 = [[0, 1, 2], [3, 4, 5] ]; // двумерный массив
+</pre>
+
+<p>
+Рассмотрим еще один двумерный массив, наглядно видно структуру твблицы:
+</p>
+<pre id="kod">
+var people = [
+		["Tom", 25, false],
+		["Bill", 38, true],
+		["Alice", 21, false]
+];
+
+console.log(people[0]); // ["Tom", 25, false]
+console.log(people[1]); // ["Bill", 38, true]
+</pre>
+
+<p>
+Что бы получить отдельный элемент массива, также используется индекс:
+</p>
+<pre id="kod">
+var tomInfo = people[0];
+Теперь переменная <span>tomInfo</span> будет представлять массив:
+
+console.log("Имя: " + people[0][0]); // Tom
+console.log("Возраст: " + people[0][1]); // 25
+</pre>
+
+<p>
+Tакже можем использовать массивы больших размерностей:
+</p>
+<pre id="kod">
+var numbers = [];
+numbers[0] = []; // теперь numbers - двумерный массив
+numbers[0][0]=[]; // теперь numbers - трехмерный массив
+numbers[0][0][0] = 5; // первый элемент трехмерного массива равен 5
+console.log(numbers[0][0][0]);
+</pre>
+
+<h3>spread-оператор ...</h3>
+<p>
+spread-оператор <span>...</span> позволяет взять значения из массива по отдельности:
+</p>
+<pre id="kod">
+let numbers = [1, 2, 3, 4];
+console.log(...numbers);	// 1 2 3 4
+console.log(numbers);		// [1, 2, 3, 4]
+</pre>
+
+  </div>
+ </body>
+</html>

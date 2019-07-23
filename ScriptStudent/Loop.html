@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Java Script</title>
+		<link  href="script.css" rel="stylesheet">
+		<script src ="./js/AddScript.js"></script>
+		<script src ="./js/StudentScript.js"></script>
+		
+	</head>
+	<body>
+	<div class="toolbar">
+	<a href="ScriptMain.html">Главная</a>
+	<a href="#">Блог</a>
+	<a href="#">Контакты</a>
+	<a href="#">О сайте</a>
+	</div>
+	<div class="content">
+	<p>
+В JavaScript имеются следующие виды циклов:
+</p>
+<ul class="blue">
+
+<li>for</li>
+
+<li>for..in</li>
+
+<li>for..of</li>
+
+<li>while</li>
+
+<li>do..while</li>
+</ul>
+
+<h3>Цикл for</h3>
+<pre id="kod">
+
+  var people = ["Tom", "Alice", "Bob", "Sam"];
+  for(var i = 0; i <. people .length; i++){
+	
+	console.log(people[i]);
+}
+</pre>
+
+<input type="button" onclick="forout()( './js/StudentScript.js' )" value="Вывести в консоль" />
+ 
+<h3>for..in</h3>
+<p>Цикл <span>for..in</span> предназначен для перебора массивов и объектов. Его формальное определение:
+<span class="blockSpan">
+for (индекс in массив) {
+	// действия
+}</span>
+Например, переберем элементы массива:</p>
+<pre id="kod">
+var people = ["Tom", "Alice", "Bob", "Sam"];
+for(var index in people){
+	
+	console.log(people[index]);
+}
+</pre>
+ <script>
+ function foroutin () {
+ var people = ["Tom", "Alice", "Bob", "Sam"];
+ for(var index in people){
+ 
+ document.write(people[index]);
+ }
+ }
+ </script>
+ <input type="button" onclick="foroutin()" value="Start sorce" />
+ 
+<h3>Цикл for...of</h3>
+<p>
+
+Цикл <span>for...of</span> похож на цикл for...in и предназначен для перебора коллекций, например, массивов:
+</p>
+<pre id="kod">
+let users = ["Tom", "Bob", "Sam"];
+for(let val of users)
+	console.log(val);
+</pre>
+<script type="text/javascript">
+let users = ["Tom", "Bob", "Sam"];
+for(let val of users)
+	document.write(val);
+	</script>
+<input type="button" onclick="foroutin()" value="Start sorce" />
+ 
+
+<h3>Цикл while</h3>
+<p>
+Цикл <span>while </span>выполняется до тех пор, пока некоторое условие истинно:
+</p>
+<pre id="kod">
+var people = ["Tom", "Alice", "Bob", "Sam"];
+var index = 0;
+while(index <. people.length){
+	
+	console.log(people[index]);
+	index++;
+}
+</pre>
+
+<h3>do..while</h3>
+<p>
+В цикле <span>do </span>сначала выполняется код цикла, а потом происходит проверка условия в инструкции <span>while</span>:
+</p>
+<pre id="kod">
+var x = 1;
+do{
+	console.log(x * x);
+	x++;
+}while(x <. 10)
+</pre>
+
+
+<h3>Операторы continue и break</h3>
+<p>
+Что бы выйти из цикла до его завершения используется оператор <span>break</span>:
+</p>
+<pre id="kod">
+var array = [ 1, 2, 3, 4, 5, 12, 17, 6, 7 ];
+for (var i = 0; i < .array.length; i++)
+{
+    if (array[i] > 10)
+        break;
+    document.write(array[i] + "</br>");
+}
+</pre>
+
+<p>
+И нам надо просто пропустить итерацию,применяем оператор <span>continue</span>:
+</p>
+<pre id="kod">
+var array = [ 1, 2, 3, 4, 5, 12, 17, 6, 7 ];
+for (var i = 0; i <. array.length; i++)
+{
+    if (array[i] > 10)
+        continue;
+    document.write(array[i] + "<./br>");
+}
+</pre>
+  </div>
+ </body>
+</html>

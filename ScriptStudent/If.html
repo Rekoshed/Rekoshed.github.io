@@ -1,0 +1,182 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Java Script</title>
+		<link  href="script.css" rel="stylesheet">
+		<script src ="./js/AddScript.js"></script>
+		<script src ="./js/StudentScript.js"></script>
+		
+	</head>
+	<body>
+	<div class="toolbar">
+	<a href="ScriptMain.html">Главная</a>
+	<a href="#">Блог</a>
+	<a href="#">Контакты</a>
+	<a href="#">О сайте</a>
+	</div>
+	<div class="content">
+<h3>	Выражение if</h3>
+<p>
+ Общая форма конструкции if:
+</p>
+<pre>	
+<span>if</span>(условие) действия;
+Например:
+<span id="kod">
+var income = 100;
+if(income > 50) alert("доход больше 50");
+	</span>
+</pre>
+<p>
+Набор инструкций помещаются в блок из фигурных скобок:
+</p>
+<pre id="kod">
+var income = 100;
+if(income > 50){
+
+	var message = "доход больше 50";
+	alert(message);
+}
+</pre>
+<p>
+Причем условия могут быть сложными:
+</p>
+<pre id="kod">
+var income = 100;
+var age = 19;
+if(income < 150 && age > 18){
+
+	var message = "доход больше 50";
+	alert(message);
+}
+</pre>
+<p>
+Конструкция if позволяет проверить наличие значения. Например:
+</p>
+<pre id="kod">
+var myVar = 89;
+if(myVar){
+	// действия
+}
+</pre>
+
+<p>
+Блок else. Данный блок содержит инструкции, которые выполняются, если условие после if равно false:
+</p>
+<pre id="kod">
+var age = 17;
+if(age >= 18){
+
+	alert("Вы допущены к программе кредитования");
+}
+else{
+	alert("Вы не можете участвовать в программе, так как возраст меньше 18");
+}
+</pre>
+<p>
+С помощью конструкции <span>else if </span>мы можем добавить альтернативное условие к блоку <span>if</span>:
+</p>
+<pre id="kod">
+var income = 300;
+if(income < 200){
+
+	alert("Доход ниже среднего");
+}
+else if(income >= 200 && income <= 400){
+	
+	alert("Средний доход");
+}
+else{
+	
+	alert("Доход выше среднего");
+}
+</pre>
+<p>
+При необходимости мы можем использовать несколько блоков else if с разными условиями:
+</p>
+
+<pre id="kod">
+    if(income < 200){
+
+	alert("Доход ниже среднего");
+     }
+     else if(income>=200 && income<300){
+	
+	alert("Чуть ниже среднего");
+     }
+    else if(income >=300 && income< 400){
+	
+	alert("Средний доход");
+     }
+     else{
+	alert("Доход выше среднего");
+      }
+</pre>
+
+
+<h3>
+Конструкция switch..case
+</h3>
+<p>
+Конструкция switch..case является альтернативой использованию конструкции if..else if..else и также позволяет обработать сразу несколько условий:
+</p>
+<pre id="kod">
+var income = 300;
+switch(income){
+
+	case 100 : 
+		console.log("Доход равен 100");
+		break;
+	case 200 : 
+		console.log("Доход равен 200");
+		break;
+	case 300 : 
+		console.log("Доход равен 300");
+		break;
+}
+</pre>
+
+<p>
+
+Если мы хотим также обработать ситуацию, когда совпадения не будет найдено, то можно добавить блок default:
+</p>
+<pre id="kod">
+var income = 300;
+switch(income){
+
+	case 100 : 
+		console.log("Доход равен 100");
+		break;
+	case 200 : 
+		console.log("Доход равен 200");
+		break;
+	case 300 : 
+		console.log("Доход равен 300");
+		break;
+	default: 
+        console.log("Доход неизвестной величины");
+        break;
+}
+<input type="button" onclick="ifswich()( './js/StudentScript.js' )" value="Вывести в консоль" />
+ 
+</pre>
+  
+  
+<h3>  Тернарная операция</h3>
+ <p> Тернарная операция состоит из трех операндов и имеет следующее определение:
+ <span class="blockSpan"> [первый операнд - условие] ? [второй операнд - true] : [третий операнд - false]</span>
+ </p> 
+ 
+ <pre id="kod">
+ var a = 1;
+ var b = 2;
+ var result = a < b ? a + b : a - b;
+ console.log(result); // 3
+ </pre>
+ 
+ </div>
+ </body>
+</html>

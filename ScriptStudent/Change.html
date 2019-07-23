@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Java Script</title>
+		<link  href="script.css" rel="stylesheet">
+		
+	</head>
+	<body>
+	<div class="toolbar">
+	<a href="ScriptMain.html">Главная</a>
+	<a href="#">Блог</a>
+	<a href="#">Контакты</a>
+	<a href="#">О сайте</a>
+	</div>
+	<div class="content">
+	
+
+<h2>Передача параметров по значению и по ссылке</h2>
+<h3>Передача параметров по значению</h3>
+<p>
+Строки, числа, логические значения передаются в функцию по значению. Иными словами при передаче значения в функцию, эта функция получает копию данного значения. 
+Рассмотрим, что это значит в практическом плане:
+</p>
+<pre id="kod">
+function change(x){
+	x = 2 * x;
+	console.log("x in change:", x);
+}
+
+var n = 10;
+console.log("n before change:", n);	// n before change: 10
+change(n);							// x in change: 20
+console.log("n after change:", n);	// n after change: 10
+</pre>
+<p>
+Функция <span class="blur">change </span>получает некоторое число и увеличивает его в два раза. 
+При вызове функции <span>change</span> ей передается число <span>n</span>. Однако после вызова функции мы видим, что число <span>n</span> не изменилось, хотя в самой функции произошло увеличение значения параметра. 
+Потому что при вызове функция <span>change</span> получает копию значения переменной <span>n</span>. И любые изменения с этой копией никак не затрагивают саму переменную <span>n</span>.
+</p>
+
+<h3>Передача по ссылке</h3>
+<p>
+Объекты и массивы передаются по ссылке. 
+То есть функция получает сам объект или массив, а не их копию.
+</p>
+<pre id="kof">
+function change(user){
+	user.name = "Tom";
+}
+
+var bob ={ 
+	name: "Bob"
+};
+console.log("before change:", bob.name);	// Bob
+change(bob);
+console.log("after change:", bob.name);		// Tom
+</pre>
+<p>
+В данном случае функция <span>change</span> получает объект и меняет его свойство <span>name</span>. 
+В итоге мы увидим, что после вызова функции изменился оригинальный объект <span>bob</span>, 
+который передавался в функцию.
+<br>
+Однако если мы попробуем переустановить объект или массив полностью,
+ оригинальное значение не изменится.
+</p>
+<pre id="kod">
+function change(user){
+	// полная переустановка объекта
+	user= {
+		name:"Tom"
+	};
+}
+
+var bob ={ 
+	name: "Bob"
+};
+console.log("before change:", bob.name);	// Bob
+change(bob);
+console.log("after change:", bob.name);		// Bob
+</pre>
+<p>
+То же самое касается массивов:
+</p>
+<pre id="kod">
+function change(array){
+	array[0] = 8;
+}
+function changeFull(array){
+	array = [9, 8, 7];
+}
+
+var numbers = [1, 2, 3];
+
+console.log("before change:", numbers);		// [1, 2, 3]
+change(numbers);
+console.log("after change:", numbers);		// [8, 2, 3]
+changeFull(numbers);
+console.log("after changeFull:", numbers);
+</pre>
+	<input type="button" onklick="displaySquare()" value="Вывести в консоль">
+
+  </div>
+ </body>
+</html>

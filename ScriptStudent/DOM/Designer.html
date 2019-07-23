@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Java Script</title>
+		<link  href="script.css" rel="stylesheet">
+		
+	</head>
+	<body>
+	<div class="toolbar">
+	<a href="../ScriptMain.html">Главная</a>
+	<a href="#">Блог</a>
+	<a href="#">Контакты</a>
+	<a href="#">О сайте</a>
+	</div>
+	<div class="content">
+	
+<h3>
+Конструкторы объектов
+</h3>
+<p>
+Кроме создания новых объектов JavaScript предоставляет нам возможность создавать новые типы объектов с помощью конструкторов.
+Так, одним из способов создания объекта является применение конструктора типа <span>Object</span>:
+<code id="block">
+var tom = new Object();
+</code>
+После создания переменной <span>tom</span> она будет вести себя как объект типа <span>Object</span>.
+<br><br>
+Конструктор позволяет определить новый тип объекта. Тип представляет собой абстрактное описание или шаблон объекта. 
+<br><br>
+
+Определение типа может состоять из функции конструктора, методов и свойств.
+<br><br>
+Для начала определим конструктор:
+</p>
+<pre id="kod">
+function User(pName, pAge) {
+	this.name = pName;
+	this.age = pAge;
+	this.displayInfo = function(){
+		document.write("Имя: " + this.name + "; возраст: " + this.age + "<br/>");
+	};
+}
+</pre>
+<p>
+Конструктор - это обычная функция за тем исключением, что в ней мы можем установить свойства и методы. Для установки свойств и методов используется ключевое слово <span>this</span>:
+
+<span id="b">
+this.name = pName;
+</span>
+
+В данном случае устанавливаются два свойства 
+<span>name</span> и <span>age</span> и один метод <span>displayInfo</span>.
+<br><br>
+Как правило, названия конструкторы в отличие от названий обычных функций начинаются с большой буквы.
+<br><br>
+После этого в программе мы можем определить объект типа <span>User</span> и использовать его свойства и методы:
+</p>
+<pre id="kod">
+var tom = new User("Том", 26);
+console.log(tom.name); // Том
+tom.displayInfo();
+</pre>
+<p>
+Чтобы вызвать конструктор, то есть создать объект типа <span>User</span>, 
+надо использовать ключевое слово <span>new</span>.
+<br><br>
+Подобным образом мы можем определить и другие типы и использовать их вместе:
+</p>
+<pre id="kod">
+// конструктор типа Car
+function Car(mName, mYear){
+	this.name = mName;
+	this.year = mYear;
+	this.getCarInfo = function(){
+		document.write("Модель: " + this.name + "  Год выпуска: " + this.year + "<br/>");
+	};
+};
+// конструктор типа User
+function User(pName, pAge) {
+	this.name = pName;
+	this.age = pAge;
+	this.driveCar = function(car){
+		document.write(this.name + " ведет машину " + car.name + "<br/>");
+	};
+	this.displayInfo = function(){
+		document.write("Имя: " + this.name + "; возраст: " + this.age + "<br/>");
+	};
+};
+
+var tom = new User("Том", 26);
+tom.displayInfo();
+var bently = new Car("Бентли", 2004);
+tom.driveCar(bently);
+</pre>
+
+<h3>
+Оператор instanceof
+</h3>
+<p>
+Оператор instanceof позволяет проверить, с помощью какого конструктора создан объект. Если объект создан с помощью определенного конструктора, то оператор возвращает true:
+</p>
+<pre id="kod">
+var tom = new User("Том", 26);
+
+var isUser = tom instanceof User;
+var isCar = tom instanceof Car;
+console.log(isUser); 	// true
+console.log(isCar); 	// false
+</pre>
+<a href="Test/DesignerTest.html" id="out">Output</a>
+
+	
+  </div>
+ </body>
+</html>
