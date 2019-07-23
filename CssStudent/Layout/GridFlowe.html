@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Grid Layout в CSS3</title>
+		<link  href="layout.css" rel="stylesheet">
+		
+	</head>
+	<body>
+	<div class="toolbar">
+	<a href="../CSSmain.html">Главная</a>
+	<a href="#">Блог</a>
+	<a href="#">Контакты</a>
+	<a href="#">О сайте</a>
+	</div>
+	<div class="content">
+    
+      
+      <style>
+      *{
+      box-sizing: border-box;
+      }
+      html, body{
+      margin:0;
+      padding:0;
+      }
+      .grid-container {
+      height: 72vh;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      }
+      .row {
+      grid-auto-flow: row;
+      }
+      
+      .clmn {
+      grid-auto-flow: column;
+      }
+      .grid-item {
+      text-align:center;
+      font-size: 1.1em;
+      padding: 1.5em;
+      color: white;
+      }
+      
+      </style>
+      <h3>
+      Направление и порядок элементов
+      Свойство <span>grid-auto-flow</span></h3>
+      <p>
+      <span>row:</span> значение по умолчанию, элементы располагаются в строку друг за другом, если места в строке не хватает, элементы переносятся на следующую строку
+      </p>
+      
+      <div class="grid-container row">
+      <div class="grid-item color1">Grid Item 1</div>
+      <div class="grid-item color2">Grid Item 2</div>
+      <div class="grid-item color3">Grid Item 3</div>
+      <div class="grid-item color4">Grid Item 4</div>
+      <div class="grid-item color1">Grid Item 5</div>
+      <div class="grid-item color4">Grid Item 6</div>
+      <div class="grid-item color5">Grid Item 7</div>
+      </div>
+      
+      <p><span>column:</span> элементы располагаются в столбик, если места в столбце не хватает, то элементы переходят в следующий столбец
+      </p>
+        
+        <div class="grid-container clmn">
+        <div class="grid-item color1">Grid Item 1</div>
+        <div class="grid-item color2">Grid Item 2</div>
+        <div class="grid-item color3">Grid Item 3</div>
+        <div class="grid-item color4">Grid Item 4</div>
+        <div class="grid-item color1">Grid Item 5</div>
+        <div class="grid-item color4">Grid Item 6</div>
+        <div class="grid-item color5">Grid Item 7</div>
+        </div>
+        
+  </div>
+ </body>
+</html>

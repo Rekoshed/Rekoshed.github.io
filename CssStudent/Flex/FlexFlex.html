@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Flexbox в CSS3</title>
+		<link  href="flex.css" rel="stylesheet">
+		
+	</head>
+	<body>
+	<div class="toolbar">
+	<a href="../CSSmain.html">Главная</a>
+	<a href="#">Блог</a>
+	<a href="#">Контакты</a>
+	<a href="#">О сайте</a>
+	</div>
+	<div class="content">
+    
+    <style>
+    .flex-container {
+    display: flex;
+    border:1px #ccc solid;
+    
+    }
+    .flex-item {
+    text-align:center;
+    font-size: 16px;
+    padding: 10px 0;
+    color: white;
+    }
+    .item1 {background-color: #675BA7; width: 70px; flex: 0 0 auto }
+    .item2 {background-color: #9BC850; width: 70px; flex: 1 0 auto;}
+    .item3 {background-color: #A62E5C; width: 70px; flex: 0 1 auto;}
+    .item4 {background-color: #2A9FBC; width: 70px; flex: 1 1 auto;}
+    </style>
+    </head>
+    <body>
+    <p>
+    
+    Свойство <span>flex</span> является объединением свойств <span>flex-basis, flex-shrink </span>и <span>flex-grow</span> и имеет следующий формальный синтаксис:
+    <br><br>
+    <span class="green">flex: [flex-grow] [flex-shrink] [flex-basis]</span>
+    </p>
+    <h3>width: 280px. </h3>
+    <div class="flex-container" style="width: 280px">
+    <div class="flex-item item1">Flex Item 1</div>
+    <div class="flex-item item2">Flex Item 2</div>
+    <div class="flex-item item3">Flex Item 3</div>
+    <div class="flex-item item4">Flex Item 4</div>
+    </div>
+     <h3>width: auto. </h3>
+    <div class="flex-container" style="width: auto;">
+    <div class="flex-item item1">Flex Item 1</div>
+    <div class="flex-item item2">Flex Item 2</div>
+    <div class="flex-item item3">Flex Item 3</div>
+    <div class="flex-item item4">Flex Item 4</div>
+    </div>
+       <h3>width: 380px. </h3>
+      <div class="flex-container" style="width: 380px">
+      <div class="flex-item item1">Flex Item 1</div>
+      <div class="flex-item item2">Flex Item 2</div>
+      <div class="flex-item item3">Flex Item 3</div>
+      <div class="flex-item item4">Flex Item 4</div>
+      </div>
+         <h3>width: 200px. </h3>
+        <div class="flex-container" style="width: 200px">
+        <div class="flex-item item1">Flex Item 1</div>
+        <div class="flex-item item2">Flex Item 2</div>
+        <div class="flex-item item3">Flex Item 3</div>
+        <div class="flex-item item4">Flex Item 4</div>
+        </div>
+  </div>
+ </body>
+</html>

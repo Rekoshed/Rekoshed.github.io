@@ -1,0 +1,66 @@
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Псевдоклассы в CSS3</title>
+        <style>
+    #content {
+    	margin: 6px;
+    	border: 1px solid #222;
+    	background-color: white;
+    	font-size: 15px;
+    	}
+    article  {margin: 10px;
+    border: 1px solid #222;
+    background-color: #eee;
+    font-size: 12px;
+    }	 
+    .text::first-letter { color:red; font-size: 25px; }
+    .text::first-line { font-size: 20px; }
+   .warning::before{ content: "Важно! "; font-weight: bold; }
+   .warning::after { content: " Будьте осторожны!"; font-weight: bold;}
+   .slction::selection {
+      color: red;
+      background-color: black;
+      }
+        </style>
+    </head>
+    <body>
+    <article>
+    	<p>Стилизуем текст, используя псевдоэлементы first-letter и first-line:</p>
+    	<div id="content">
+        <p class="text">Но он ничего не видал. Над ним не было ничего уже, кроме неба, — высокого неба, не ясного, но все-таки неизмеримо высокого, с тихо ползущими по нем серыми облаками.</p>
+    	</div>
+    </article>
+    <article>
+    	<p>Используем псевдоэлементы before и after:</p>
+    	<div id="content">
+    	<p><span class="warning">Не пытайтесь засунуть язык в электрическую розетку.</span></p>
+    	</div>
+    </article>
+    <article>
+    <p>
+    Используем псевдоэлемент selection для стилизации выбранных элементов:
+    </p>
+    <div id="content">
+    <p class="slction">Пседвоэлементы в CSS3 позволяют форматировать текст.</p>
+    </div>
+    </article>
+    <article>
+    	<p></p>
+    	 <div id="content">
+    	 <p></p>
+    	 </div>
+    </article>
+    
+    <div style="margin: 10px; border: 1px solid #222; height: 12%; width:90%; background-color: #eee"> 
+    <p>Footer<br>
+    
+    На главную 
+    <a href="CSSmain.html" ><button type="submit" > Main</button></a>
+    </p>
+    </div>
+    </body>
+</html>

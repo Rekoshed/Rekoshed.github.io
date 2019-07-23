@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Canvas в HTML5</title>
+	</head>
+	<body>
+		<canvas id="myCanvas" width="300" height="200" 
+			style="background-color:#eee; border:1px solid #ccc;">
+			Ваш браузер не поддерживает Canvas
+		</canvas>
+		<script>
+			var canvas = document.getElementById("myCanvas"), 
+				context = canvas.getContext("2d"),
+				gradient = context.createLinearGradient(50, 30, 150, 150);
+			gradient.addColorStop(0, "blue");
+			gradient.addColorStop(1, "white");
+			context.fillStyle = gradient;
+			context.fillRect(50, 30, 150, 150);
+			context.strokeRect(50, 30, 150, 150);
+		</script>
+
+<p>
+Совпадение x-координат начальной и конечной точек создает горизонтальный градиент:
+</p>
+<p>
+gradient = context.createLinearGradient(50, 30, 50, 150);
+</p>
+	
+	<canvas id="gorizont" width="300" height="200" 
+	style="background-color:#eee; border:1px solid #ccc;">
+	Ваш браузер не поддерживает Canvas
+	</canvas>
+	<script>
+	var canvas = document.getElementById("gorizont"), 
+	context = canvas.getContext("2d"),
+	gradient = context.createLinearGradient(50, 30, 50, 150);
+	gradient.addColorStop(0, "blue");
+	gradient.addColorStop(1, "white");
+	context.fillStyle = gradient;
+	context.fillRect(50, 30, 150, 150);
+	context.strokeRect(50, 30, 150, 150);
+	</script>
+	
+<p>	
+	А совпадение y-координат начальной и конечной точек создает горизонтальный градиент:
+</p>
+<p>
+	gradient = context.createLinearGradient(50, 30, 150, 30);
+</p>	
+
+		<canvas id="vertikal" width="300" height="200" 
+			style="background-color:#eee; border:1px solid #ccc;">
+			Ваш браузер не поддерживает Canvas
+		</canvas>
+		<script>
+			var canvas = document.getElementById("vertikal"), 
+				context = canvas.getContext("2d"),
+				gradient = context.createLinearGradient(50, 30, 150, 30);
+			gradient.addColorStop(0, "blue");
+			gradient.addColorStop(1, "white");
+			context.fillStyle = gradient;
+			context.fillRect(50, 30, 150, 150);
+			context.strokeRect(50, 30, 150, 150);
+		</script>
+	
+	
+	<p>
+	Радиальный градиент создается с помощью метода 
+	</p>
+	<p>
+	createRadialGradient(x0, y0, r0, x1, y1, r1), 
+	</p>
+	
+	
+	<canvas id="radial" width="300" height="200" 
+	style="background-color:#eee; border:1px solid #ccc;">
+	Ваш браузер не поддерживает Canvas
+	</canvas>
+	<script>
+	var canvas = document.getElementById("radial"), 
+	context = canvas.getContext("2d"),
+	gradient = context.createRadialGradient(120,100,80,120,100,0);
+	gradient.addColorStop(0, "blue");
+	gradient.addColorStop(0.5,"red");
+	gradient.addColorStop(1, "white");
+	context.fillStyle = gradient;
+	context.fillRect(50, 30, 150, 150);
+	context.strokeRect(50, 30, 150, 150);
+	</script>
+	</body>
+</html>

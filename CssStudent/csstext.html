@@ -1,0 +1,132 @@
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Идентификаторы CSS</title>
+		<style>
+		
+		
+		h1{
+		text-shadow: 5px 4px 3px #999;
+		}
+		
+		p.smallLetterSpace {
+		letter-spacing: -1px;
+		}
+		p.bigLetterSpace {
+		letter-spacing: 1px;
+		}
+		p.smallWordSpace{
+		word-spacing: -1px;
+		}
+		p.bidWordSpace{
+		word-spacing: 1px;
+		}
+		p.under {
+		text-decoration: underline;
+		}
+		p.over {
+		text-decoration: overline;
+		}
+		p.line {
+		text-decoration: line-through;
+		}
+		p.mixed {
+		text-decoration: underline line-through;
+		}
+		a.none {
+		text-decoration: none;
+		}
+		
+		p.lowercase {text-transform: lowercase;}
+		p.uppercase {text-transform: uppercase;}
+		p.capitalize { text-transform: capitalize;}
+			div{
+				margin: 10px;
+				border: 1px solid #222;
+			}
+			#header{
+				height: 80px;
+				background-color: #ccc;
+			}
+			#main{
+				font-size: 20px;
+				
+				background-color: #eee;
+			}
+			#footer{
+				height: 80px;
+				background-color: #ccc;
+			}
+			#main p{
+			font-size: 16px;
+			}
+			#footer p{
+			font-size: 13px;
+			}
+			.article > p{
+			
+			color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="header"><h1>Шапка сайта</h1></div>
+		<div id="main">Основное содержимое
+		 <p> Первый абзац</p>
+		 <p> Второй абзац</p>
+		 	
+		 	<div class="article">
+		 	<p>text-decoration</p>
+		 	<div class="content">
+		 
+		 <p class="under">Это подчеркнутый текст.</p>
+		 <p class="over">Это надчеркнутый текст</p>
+		 <p class="line">Это зачеркнутый текст</p>
+		 <p class="mixed">Это подчеркнутый и зачеркнутый текст</p>
+		 <p>Не подчеркнутая <a href="index.php" class="none">ссылка<a></p>
+		 </div>
+		 	</div>
+		 	
+		 	<div class="article">
+		 	<p> Межсимвольные интервалы</p>
+		 	<div class="content">
+		 
+		 <h3>Обычный текст</h3>
+		 <p>Над ним не было ничего уже, кроме неба...</p>
+		 <h3>letter-spacing: -1px;</h3>
+		 <p class="smallLetterSpace">Над ним не было ничего уже, кроме неба...</p>
+		 <h3>letter-spacing: 1px;</h3>
+		 <p class="bigLetterSpace">Над ним не было ничего уже, кроме неба...</p>
+		 <h3>word-spacing: -1px</h3>
+		 <p class="smallWordSpace">Над ним не было ничего уже, кроме неба...</p>
+		 <h3>word-spacing: 1px</h3>
+		 <p class="bigWordSpace">Над ним не было ничего уже, кроме неба...</p>
+		 </div>
+		 	</div>
+		 	
+		 	</div>
+		 	
+		 	<div class="article">
+		 	<p>
+		 	Форматирование текста
+		 	text-transform</p>
+		 	<div class="content">
+		 
+		 <p class="capitalize">Текст использует значение capitalize</p>
+		 <p class="lowercase">Текст использует значение lowercase</p>
+		 <p class="uppercase">Текст использует значение uppercase</p>
+		 </div>
+		 	</div>
+		 	
+		</div>
+		<div style="margin: 10px; border: 1px solid #222; height: 14%;  background-color: #eee">Footer
+		<p>
+		На главную 
+		<a href="CSSmain.html" ><button type="submit"> Main</button></a>
+		</p>
+		</div>
+	</body>
+</html>

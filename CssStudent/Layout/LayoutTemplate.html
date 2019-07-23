@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Grid Layout в CSS3</title>
+		<link  href="layout.css" rel="stylesheet">
+		<style>
+		.tColum {grid-template-rows: 4em 5em;}
+		
+		</style>
+	</head>
+	<body>
+	<div class="toolbar">
+	<a href="../CSSmain.html">Главная</a>
+	<a href="#">Блог</a>
+	<a href="#">Контакты</a>
+	<a href="#">О сайте</a>
+	</div>
+	<div class="content">
+   
+     <style>
+     .grid-containerColum {
+     border: solid 2px #000;
+     display: grid;
+     grid-template-columns: 8em 8em;
+     }
+     
+     .colums>.grid-item {
+     box-sizing: border-box;
+     text-align:center;
+     font-size: 1.1em;
+     padding: 1.5em;
+     color: white;
+     }
+    
+     </style>
+     <h3>grid-template-columns: </h3>
+    <p><span>grid-template-columns</span>: настраивает столбцы</p>
+     <div class="grid-containerColum colums">
+     <div class="grid-item color1">Grid Item 1</div>
+     <div class="grid-item color2">Grid Item 2</div>
+     <div class="grid-item color3">Grid Item 3</div>
+     <div class="grid-item color4">Grid Item 4</div>
+     <div class="grid-item color1">Grid Item 5</div>
+     </div>
+     
+     
+     <style>
+     .grid-containerRows {
+     border: solid 2px #000;
+     display: grid;
+     grid-template-rows: 4em 5em ;
+     }
+     .grid-containerRows>.grid-item {width: 8em;}
+     </style>
+     <h3>grid-template-rows: </h3>
+     <p><span>grid-template-rows</span>: настраивает строки.  
+     Свойству <span>grid-template-rows </span>передается высота каждой из строк. Так, в данном случае высота первой строки составляет <span class="blue">4em</span>, а второй - <span class="blue">5em</span>.</p>
+     <div class="grid-containerRows">
+     <div class="grid-item color1">Grid Item 1</div>
+     <div class="grid-item color2">Grid Item 2</div>
+     <div class="grid-item color3">Grid Item 3</div>
+     <div class="grid-item color4">Grid Item 4</div>
+     <div class="grid-item color1">Grid Item 5</div>
+     <div class="grid-item color4">Grid Item 6</div>
+     <div class="grid-item color3">Grid Item 7</div>
+     </div>
+     <style type="text/css">
+     .template>.grid-container {
+     border: solid 2px #000;
+     display: grid;
+     grid-template-columns: 8em 8em 8em;
+     grid-template-rows: 5em 5em 5em 5em;
+     }
+     
+     .grid-item {
+     text-align:center;
+     font-size: 1.1em;
+     padding: 1.5em;
+     color: white;
+     </style>
+     
+     <p>В то же время, если элементов больше, чем ячеек грида, то образуются дополнительные строки (как в случае со столбцами). Поэтому, несмотря на то, что выше были определены настройки только для двух строк, в реальности строк в гриде будет три строки, причем, как видно на скриншоте, высота третьей строки необязательно будет <span class="blue">5em</span, как у других строк, она будет вычисляться автоматически.</p>
+     <div class="grid-container template">
+     <div class="grid-item color1">Grid Item 1</div>
+     <div class="grid-item color2">Grid Item 2</div>
+     <div class="grid-item color3">Grid Item 3</div>
+     <div class="grid-item color4">Grid Item 4</div>
+     <div class="grid-item color5">Grid Item 5</div>
+     <div class="grid-item color6">Grid Item 6</div>
+     <div class="grid-item color3">Grid Item 7</div>
+     </div>
+     
+     </body>
+     </html>
+      
+        
+  </div>
+ </body>
+</html>

@@ -1,0 +1,169 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Canvas в HTML5</title>
+		<link  href="toolbar.css" rel="stylesheet">
+		
+	</head>
+	<body>
+	<div class="toolbar">
+	<a href="../CSSmain.html">Главная</a>
+	<a href="#">Блог</a>
+	<a href="#">Контакты</a>
+	<a href="#">О сайте</a>
+	</div>
+	<div class="content">
+	
+	<p>
+	
+	Перемещение осуществляется с помощью метода <span>translate():</span>
+	<br>
+	<br>
+	<span>translate(x, y)</span>
+	</p>
+	<canvas id="myCanvas" width="360" height="250"> 
+	not
+	</canvas>
+	
+<script type="text/javascript">
+
+var canvas = document.getElementById("myCanvas"), 
+    context = canvas.getContext("2d");
+                 
+context.fillStyle = "blue";
+context.fillRect(50, 50, 100, 100);
+			
+context.translate(100, 50);	// смещение на 100 пикселей вправо и 50px вниз
+
+context.globalAlpha = 0.5;
+context.fillStyle = "red";
+context.fillRect(50, 50, 100, 100);
+</script>
+
+<p>
+	
+	 Для поворота фигур применяется метод <span>rotate():</span>
+	<br>
+	<br>
+	<span>rotate(angle)</span>
+	</p>
+	<canvas id="angle" width="360" height="250"> 
+	not
+	</canvas>
+	
+<script type="text/javascript">
+
+var canvas = document.getElementById("angle"), 
+    context = canvas.getContext("2d");
+                 
+context.fillStyle = "blue";
+context.fillRect(100, 50, 100, 100);
+			
+context.rotate(0.52);	// поворот на 0.52 радиан или 30 градусов
+//применяется для всех последующих фигур
+
+context.globalAlpha = 0.5;
+context.fillStyle = "red";
+context.fillRect(100, 50, 100, 100);
+</script>
+
+<p> 
+	 Для масштабирования фигур применяется метод <span>scale()</span>:
+	 <br>
+	 <br>
+	 <span class="green">scale(xScale, yScale)</span>
+	</p>
+	<canvas id="scale" width="360" height="250"> 
+	not
+	</canvas>
+	
+<script type="text/javascript">
+
+var canvas = document.getElementById("scale"), 
+    context = canvas.getContext("2d");
+                 
+context.fillStyle = "blue";
+context.fillRect(100, 50, 100, 100);
+			
+
+			
+context.scale(1.5, 1.3); // растяжение по ширине в 1.5 раза и сжатие по высоте в 1.3 раза
+
+//применяется для всех последующих фигур
+
+context.globalAlpha = 0.5;
+context.fillStyle = "red";
+context.fillRect(100, 50, 100, 100);
+</script>
+
+<p> 
+	 
+	 Но контекст элемента canvas также предоставляет метод <span>transform()</span>, который позволяет задать матрицу преобразования:
+	 
+	 <span class="green">transform(a, b, c, d, e, f)</span>
+	 </p>
+	 <ul>	  
+	<li> <span>a</span>: масштабирование по оси X</li>
+	 
+	<li> <span>b</span>: поворот вокруг оси X</li>
+	 
+	 <li><span>c</span>: поворот вокруг оси Y</li>
+	 
+	 <li><span>d</span>: масштабирование по оси Y</li>
+	 
+	 <li><span>e</span>: горизонтальное смещение</li>
+	 
+	 <li><span>f</span>: вертикальное смещение</li>
+	</ul>
+	<canvas id="trans" width="360" height="250"> 
+	not
+	</canvas>
+	
+<script type="text/javascript">
+
+var canvas = document.getElementById("trans"), 
+    context = canvas.getContext("2d");
+                 
+context.fillStyle = "blue";
+context.fillRect(100, 50, 100, 100);	
+	context.transform(	
+	Math.cos(Math.PI/6), Math.sin(Math.PI/6), -1 * Math.sin(Math.PI/6), 
+	Math.cos(Math.PI/6), 0, 0);
+	
+//применяется для всех последующих фигур
+
+context.globalAlpha = 0.5;
+context.fillStyle = "red";
+context.fillRect(100, 50, 100, 100);
+</script>
+
+<p>
+Для замены параметра трансформации последующих фигур
+ применяется метод <span>setTransform()</span>:
+<br>
+<br>
+<span>setTransform(a, b, c, d, e, f)</span>
+Его параметры представляют матрицу преобразования, и в целом его применение аналогино применению метода <span>transform()</span>. 
+</p>
+<canvas id="set" width="360" height="250">	
+not</canvas>
+<script type="text/javascript">
+var canvas = document.getElementById("set"), 
+    context = canvas.getContext("2d");
+var k = 0;
+for (var x = 0; x < 30; x++) {
+	k = Math.floor(255 / 34 * x);
+	context.fillStyle = "rgb(" + k + "," + k + "," + k + ")";
+	context.fillRect(50, 50, 200, 100);
+	context.setTransform(1, 0, 0, 1, x, x);
+}</script>
+	
+	<p>
+	Сброс общей трансформации осуществляется методом <span> resetTransform()</span>;
+	</p>
+	</div>
+	</body>
+</html>

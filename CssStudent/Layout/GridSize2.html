@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Grid Layout в CSS3</title>
+		<link  href="layout.css" rel="stylesheet">
+		
+	</head>
+	<body>
+	<div class="toolbar">
+	<a href="../CSSmain.html">Главная</a>
+	<a href="#">Блог</a>
+	<a href="#">Контакты</a>
+	<a href="#">О сайте</a>
+	</div>
+	<div class="content">
+    
+      
+      <style>
+      *{
+      box-sizing: border-box;
+      }
+      html, body{
+      margin:0;
+      padding:0;
+      }
+      div  {
+      border: solid 2px #000;
+      }
+      .grid-container {
+      
+      display: grid;
+      grid-template-areas: "header header header header header"
+      ". . . . ."
+      "menu . content . sidebar"
+      ". . . . ."
+      "footer footer footer footer footer";
+      grid-template-columns: 130px 5px 1fr 5px 130px;
+      grid-template-rows: 90px 5px 1fr 5px 90px;
+      }
+      .header { grid-area: header; background-color: #bbb; }
+      .menu { grid-area: menu; background-color: #ccc; }
+      .sidebar { grid-area: sidebar; background-color: #ccc; }
+      .content { grid-area: content; background-color: #eee; }
+      .footer { grid-area: footer; background-color: #bbb; }
+      </style>
+      </head>
+      <body>
+      <div class="grid-container">
+      <div class="header"></div>
+      <div class="content">
+      <p>Теперь грид содержит 5 строк и 5 столбцов, то есть в совокупности 25 ячеек, которые размещают 5 областей: <span class="blue">header, menu, sidebar, content и footer</span>.</p>
+      <p>
+      Свойство <span>grid-template-areas</span> в стилях <span>grid</span>-контейнера опять же содержит определение того, как все эти области сопоставляются с ячейками. 
+      Например, элемент <span class="blue">header</span> должен занимать все пять ячеек первой строки: <span class="green">"header header header header header"</span>. Но определение второй строки, высота которой 5px, выглядит уже необычно: <span class="green">". . . . ."</span>. 
+      Точка означает, что данная ячейка не будет принадлежать ни одной области и останется незаполненной. Если надо оставить 5 незаполненных ячеек, то указывается пять точек, между которыми ставятся пробелы. В итоге мы получим пять областей, между которыми будут располагаться незаполненные пространства:
+      </p>
+      </div>
+      <div class="menu">menu</div>
+      <div class="sidebar">sidbar</div>
+      <div class="footer">footer</div>
+      </div>
+      
+      
+      
+  </div>
+ </body>
+</html>

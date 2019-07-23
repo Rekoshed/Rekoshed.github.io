@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        
+        <title>Flexbox в CSS3</title>
+        <style>
+			*{
+				box-sizing: border-box;
+			}
+			html,
+			.content {
+				padding: 0;
+				margin: 0;
+				font-family: verdana, arial, sans-serif;
+			}
+
+			.toolbar{
+				position: fixed;
+				top: 0;
+				left: 0;
+				right: 0;
+				background-color: #222;
+				border-bottom: 1px solid #ccc;
+			}
+			.toolbar a{
+				color: #eee;
+				display: inline-block;
+				padding: 10px;
+				text-decoration: none;
+				font-family: Verdana;
+			}
+			.toolbar a:hover{
+			background-color: red;
+			color: #f4f4f4;
+			}
+			.content {
+				display: flex;
+				padding: 1em;
+				flex-direction: column;
+			}
+
+			.item {
+				background-color: #455a64;
+				color: #fff;
+				font-size: 1.1em;
+				padding: 1em;
+				flex: 1;
+			}
+
+			.item:nth-child(even) {
+				background-color: #607d8b;
+			}
+			@media screen and (min-width: 600px) {
+    
+				 .content {
+					flex-direction: row;
+				}
+				
+			}
+        </style>
+    </head>
+    <body>
+    
+    <div class="toolbar">
+    <a href="../CSSmain.html">Главная</a>
+    <a href="#">Блог</a>
+    <a href="#">Контакты</a>
+    <a href="#">О сайте</a>
+    </div>
+    
+    
+		<div class="content" >
+		
+		<div class="item">
+		<h2>Что такое Lorem Ipsum?</h2>
+		<p>Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является 
+		стандартной "рыбой" для текстов на латинице с начала XVI века...</p>
+		</div>
+		
+		<div class="item">
+		<h2>Откуда он появился?</h2>
+		<p>Многие думают, что Lorem Ipsum - взятый с потолка псевдо-латинский набор слов, но это не совсем так. 
+		Его корни уходят в один фрагмент классической латыни 45 года н.э...</p>
+		</div>
+	</div>
+	</body>
+</html>

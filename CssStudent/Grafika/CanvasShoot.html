@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Canvas в HTML5</title>
+		<link  href="toolbar.css" rel="stylesheet">
+		
+	</head>
+	<body>
+	<div class="toolbar">
+	<a href="../CSSmain.html">Главная</a>
+	<a href="#">Блог</a>
+	<a href="#">Контакты</a>
+	<a href="#">О сайте</a>
+	</div>
+	<div class="content">
+	
+
+	<video id="myVideo" src="Nik.mp4" width="300" height="200" controls ></video>
+	
+        <canvas id="myCanvas" width="300" height="200" 
+			style="background-color:#eee; border:1px solid #ccc;">
+            Ваш браузер не поддерживает Canvas
+        </canvas>
+		<div>
+			<button id="snap">Сделать снимок</button>
+		</div>
+        <script>
+            var canvas = document.getElementById("myCanvas"), 
+                context = canvas.getContext("2d");
+            var video = document.getElementById("myVideo");
+			document.getElementById("snap").onclick = function(e) {
+				context.drawImage(video, 0, 0, 300, 200);
+			}
+        </script>
+        <p>
+        По нажати на кнопку canvas будет получать текущий кадр воспроизводимого видео и фиксировать его в качестве изображения. При этом в метод <span>drawImage</span> в качестве первого параметра передается сам элемент, используемый как источник изображения.
+        </p>
+	</div>
+	</body>
+</html>

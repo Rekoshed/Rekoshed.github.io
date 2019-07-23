@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Блочная модель в CSS3</title>
+        <style>
+			div{
+				margin: 15px; /* внешний отступ */
+				padding: 11px; /* внутренний отступ */
+				border: 3px solid red; /* границы шириной в 3 пикселя сплошной красной линией */
+			}
+        </style>
+    </head>
+    <body>
+		<div>
+			<p>Первый блок</p>
+		</div>
+		<div>
+			<p>Второй блок</p>
+		</div>
+    </body>
+    
+    
+    
+   
+    <style>
+    div.outer{
+    
+    
+    margin: 25px;
+    
+    padding-top:30px;
+    padding-right: 25px;
+    padding-bottom: 35px;
+    padding-left: 28px;
+    
+    border: 2px solid red;
+    border-right-color: orange;
+    }
+    div.inner{
+    
+    height: 50px;
+    background-color:MediumPurple;
+    }
+    </style>
+   
+    <div class="outer">
+    <div class="inner">padding: 30px 25px 35px 28px;</div>
+    </div>
+    
+   
+    <style>
+    .radius {
+    
+    border: 2px solid red;
+    
+    border-radius: 15px 30px 5px 40px;
+    }
+    </style>
+    <div class="radius">
+    если несколько элементов у нас соприкасаются, то браузер выбирает наибольший отступ элемента, который затем и используется
+    </div>
+    
+    <style>
+    .div>div {
+    width: 250px;
+    height: 200px;
+    margin: 10px;
+    background-image: url(im.jpg);
+    }
+    
+    .colored{
+    background-color: Moccasin;
+    background-position: 10px 25px;
+    background-repeat: no-repeat;
+    }
+    
+    .imaged{
+    
+    
+    background-size: cover;
+    color:Thistle;
+    }
+    
+    .imaged2{
+    
+    background-size: 140px 110px;
+    }
+    </style>
+    
+ <div class="div">
+    <div class="colored">Первый блок</div>
+    <div class="imaged">Второй блок</div>
+    <div class="imaged2">Третий блок</div>
+ </div>
+ 
+ 
+ <style>
+ .cat>div{
+ width: 200px;
+ height: 200px;
+ margin: 10px;
+ display: inline-block;	/* располагаем блоки в ряд */
+ color: Magenta;
+ 
+ padding:15px;
+ border: 15px solid rgba(23,23,23,0.2);
+ 
+ background-image: url(cat.jpg);
+ background-size: cover;
+ background-repeat: no-repeat;
+ }
+ .borderBox {background-origin: border-box;}
+ .paddingBox {background-origin: padding-box;}
+ .contentBox {background-origin: content-box;}
+ .singl {background: #eee no-repeat border-box local url(cat.jpg);
+ 		color: #f0e68c;
+ }
+ </style>
+ <div class="cat">
+ 
+ <div class="borderBox">
+ Вся власть - котикам!
+ </div>
+ <div class="paddingBox">
+ Вся власть - котикам!
+ </div>
+ <div  class="contentBox">
+ Вся власть - котикам!
+ </div>
+ </div>
+ <div class="singl"> Singl</div>
+    
+    <div style="margin: 10px; border: 1px solid #222; height: 14%;  background-color: #eee">Footer
+    <p>
+    На главную 
+    <a href="CSSmain.html" ><button type="submit"> Main</button></a>
+    </p>
+    </div>
+    
+    
+</html>

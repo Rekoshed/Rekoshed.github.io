@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Flexbox в CSS3</title>
+		<link  href="flex.css" rel="stylesheet">
+		
+	</head>
+	<body>
+	<div class="toolbar">
+	<a href="../CSSmain.html">Главная</a>
+	<a href="#">Блог</a>
+	<a href="#">Контакты</a>
+	<a href="#">О сайте</a>
+	</div>
+	<div class="content">
+	<p>
+	Для управления направлением элементов CSS3 предоставляет свойство <span>flex-direction</span>
+	</p>
+    <style type="text/css">.row {
+    flex-direction: row;
+    }
+    .row-reverse {
+    flex-direction: row-reverse;
+    }
+    </style>
+        
+        <h3>flex-direction:Row</h3>
+        <div class="flex-container row">
+        <div class="flex-item color1">Flex Item 1</div>
+        <div class="flex-item color2">Flex Item 2</div>
+        <div class="flex-item color3">Flex Item 3</div>
+        </div>
+        
+        <h3>flex-direction:Row-reverse</h3>
+        <div class="flex-container row-reverse">
+        <div class="flex-item color1">Flex Item 1</div>
+        <div class="flex-item color2">Flex Item 2</div>
+        <div class="flex-item color3">Flex Item 3</div>
+        </div>
+        <style type="text/css">
+        .column {
+        flex-direction: column;
+        }
+        .column-reverse {
+        flex-direction: column-reverse;
+        }</style>
+        
+        <h3>flex-direction:Column</h3>
+        <div class="flex-container column">
+        <div class="flex-item color1">Flex Item 1</div>
+        <div class="flex-item color2">Flex Item 2</div>
+        <div class="flex-item color3">Flex Item 3</div>
+        </div>
+        
+        <h3>flex-direction:Column-reverse</h3>
+        <div class="flex-container column-reverse">
+        <div class="flex-item color1">Flex Item 1</div>
+        <div class="flex-item color2">Flex Item 2</div>
+        <div class="flex-item color3">Flex Item 3</div>
+        </div>
+  </div>
+ </body>
+</html>

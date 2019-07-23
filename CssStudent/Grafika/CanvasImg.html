@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Canvas в HTML5</title>
+	</head>
+	<body>
+		<canvas id="myCanvas" width="300" height="200" 
+				style="background-color:#eee; border:1px solid #ccc;">
+			Ваш браузер не поддерживает Canvas
+		</canvas>
+		<script>
+			var canvas = document.getElementById("myCanvas"), 
+				context = canvas.getContext("2d");
+				
+			var img = new Image();
+			img.src = "Nik.jpg";
+			img.onload = function() {
+				
+				var pattern = context.createPattern(img, "repeat");
+				context.fillStyle = pattern;
+				context.fillRect(10, 10, 150, 150);
+				context.strokeRect(10, 10, 150, 150);
+			};
+		</script>
+		
+		
+	</body>
+</html>

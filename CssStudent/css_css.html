@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Каскадность стилей в CSS3</title>
+        <style>
+			a {font-size: 18px;}
+			.nav li a {color: red;}	 /* красный цет текста */
+			#menu a {color: navy;}	 /* темно-синий цет текста */
+			.nav .menuItem {color: green;}	/* зеленый цет текста */
+			a.menuItem:not(.newsLink) {color: orange;}	/* оранжевый цет текста */
+			div ul li a {color: gray; }	/* серый цет текста */
+        	#text p {color:orange}
+        	
+        </style>
+    </head>
+    <body>
+		<div id="menu">
+			<ul class="nav">
+				<li><a class="menuItem">Главная</a></li>
+				<li><a class="menuItem">Форум</a></li>
+				<li><a class="menuItem">Блог</a></li>
+				<li><a class="menuItem">О сайте</a></li>
+			</ul>
+		</div>
+		<div id="text">
+			<p>
+			
+			
+			
+			Для определения стиля к элементу могут применяться различные селекторы, и важность каждого селектора оценивается в баллах. Чем больше у селектора пунктов, тем он важнее, и тем больший приоритет его стили имеют над стилями других селекторов.<br>
+			
+			Селекторы тегов имеют важность, оцениваемую в 1 балл
+			<br>
+			Селекторы классов, атрибутов и псевдоклассов оцениваются в 10 баллов
+			<br>
+			Селекторы идентификаторов оцениваются в 100 баллов
+			<br>
+			Встроенные inline-стили (задаваемые через атрибут style) оцениваются в 1000 баллов
+			</p>
+			<pre>
+			
+			
+Рассмотрим, как у нас будут суммироваться баллы 
+по каждому из пяти селекторов:
+			</pre>
+	<table>
+	<tr><td>Селектор</td><td>Идентефикаторы </td><td>Классы</td><td>Теги</td><td>Сумма</td></tr>
+	<tr><td>.nav li a</td><td>0</td><td>1</td><td>2</td><td>12</td></tr>
+	<tr><td>#menu a</td><td>1</td><td>0</td><td>1</td><td>101</td></tr>
+	<tr><td>.nav .menuItem</td><td>0</td><td>2</td><td>0</td><td>20</td></tr>
+	<tr><td>a.menuItem:not(.newsLink)</td><td>0</td><td>2</td><td>1</td><td>21</td></tr>
+	<tr><td>div ul li a</td><td>0</td><td>0</td><td>4</td><td>4</td></tr>
+	
+	</table>
+	<p>
+	CSS предоставляет возможность полностью отменить значимость стилей. Для этого в конце стиля указывается значение !important:
+	</p>
+		</div>
+		
+		<div style="margin: 10px; border: 1px solid #222; height: 12%; width:90%; background-color: #eee"> 
+		<p>Footer<br>
+		
+		На главную 
+		<a href="CSSmain.html" ><button type="submit" > Main</button></a>
+		</p>
+		</div>
+		
+    </body>
+</html>
+

@@ -1,0 +1,84 @@
+
+			*{
+				box-sizing: border-box;
+			}
+
+span{
+		color: red;
+		}
+		.blockSpan{
+		display: block;
+		}
+		<style>
+		body{ 
+		margin:0;
+		padding:0;
+		}
+		.toolbar{
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		background-color: #222;
+		border-bottom: 1px solid #ccc;
+		}
+		.toolbar a{
+		color: #eee;
+		display: inline-block;
+		padding: 10px;
+		text-decoration: none;
+		font-family: Verdana;
+		}
+		.content{
+		margin-top: 50px;
+		padding: 10px;
+		}
+		.toolbar a:hover{
+		background-color: red;
+		color: #f4f4f4;
+		}
+		
+		
+		.blue {color:blue;}
+		.green {color:green;}
+		.black>p {color:black;}
+		
+		.roundgreen {background-color: green;}
+		
+		.color1 {background-color: #675BA7;}
+		.color2 {background-color: #9BC850;}
+		.color3 {background-color: #A62E5C;}
+		.color4 {background-color: #2A9FBC;}
+		.color5 {background-color: #F15B2A;}
+		.color6 {background-color: black;}
+	canvas{
+	background-color:#eee; 
+	border:1px solid #ccc;
+	}
+	.flex-container {
+	display: flex;
+	border: solid 0.25em #000;
+	width: 100%;
+	height:8.25em;
+	flex-wrap:nowrap;
+	}
+	
+	.flex-item {
+	text-align:center;
+	font-size: 1em;
+	padding-top: 1.5em;
+	color: white;
+	opacity: 0.8;
+	}
+	.inline-flex-container {
+	display: inline-flex;
+	border:2px solid #ccc;
+	margin-top:10px;
+	}
+	
+.row {flex-direction: row;}
+.row-reverse {flex-direction: row-reverse;}
+.column {flex-direction: column;
+padding-top:0em;}
+.column-reverse {flex-direction: column-reverse;
+padding-top:0em;}

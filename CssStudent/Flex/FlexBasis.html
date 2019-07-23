@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Flexbox в CSS3</title>
+		<link  href="flex.css" rel="stylesheet">
+		
+	</head>
+	<body>
+	<div class="toolbar">
+	<a href="../CSSmain.html">Главная</a>
+	<a href="#">Блог</a>
+	<a href="#">Контакты</a>
+	<a href="#">О сайте</a>
+	</div>
+	<div class="content">
+    
+      
+      <style>
+      .flex-container {
+      display: flex;
+      border:1px #ccc solid;
+      }
+      .flex-item {
+      text-align:center;
+      font-size: 1em;
+      padding: 1.2em;
+      color: white;
+      }
+      .item1 {background-color: #675BA7; flex-basis: auto; width:150px;}
+      .item2 {background-color: #9BC850; flex-basis: auto; width:auto;}
+      .item3 {background-color: #A62E5C; flex-basis: 200px;width:150px;}
+      
+      .shrink {width:400px;}
+      .item4 {background-color: #675BA7; flex-basis: 200px; flex-shrink:1;}
+      .item5 {background-color: #9BC850; flex-basis: 200px; flex-shrink:2;}
+      .item6 {background-color: #A62E5C; flex-basis: 200px; flex-shrink:3;}
+      
+      .grow {width: 120%;}
+      .item7 {background-color: #675BA7; flex-grow:0;}
+      .item8 {background-color: #9BC850; flex-grow:1;}
+      .item9 {background-color: #A62E5C; flex-grow:2;}
+      
+      </style>
+      </style>
+      
+      <h3>Flex-basis</h3>
+      <p><span>flex-basis</span>: определяет начальный размер <span>flex</span>-элемента
+      </p>
+      
+      <div class="flex-container shrink">
+      <div class="flex-item item1">flex-basis: auto; width:150px;</div>
+      <div class="flex-item item2">flex-basis: auto; width:auto;</div>
+      <div class="flex-item item3">200px;width:150px;</div>
+      </div>
+      
+      
+      <h3>Flex-shrink</h3>
+      <p><span> flex-shrink</span>: определяет, как <span>flex-элемент</span> будет уменьшаться относительно других <span>flex</span>-элементов во <span>flex</span>-контейнере
+      
+      </p>
+      
+      <div class="flex-container">
+      <div class="flex-item item4">flex-basis: 200px; flex-shrink:1; </div>
+      <div class="flex-item item5">flex-basis: 200px;  flex-shrink:2;</div>
+      <div class="flex-item item6">flex-basis: 200px; flex-shrink:3;</div>
+      </div>
+        
+        <h3>flex-grow</h3>
+        <p>
+        <span>flex-grow</span>: определяет, как <span>flex</span>-элемент будет увеличиваться относительно других <span>flex</span>-элементов во <span>flex</span>-контейнере
+        </p>
+        
+        
+        <div class="flex-container grow">
+        <div class="flex-item item7">flex-grow:0</div>
+        <div class="flex-item item8">flex-grow:1</div>
+        <div class="flex-item item9">flex-grow:2</div>
+        </div>
+        
+  </div>
+ </body>
+</html>

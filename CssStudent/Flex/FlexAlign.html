@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Flexbox в CSS3</title>
+		<link  href="flex.css" rel="stylesheet">
+		
+	</head>
+	<body>
+	<div class="toolbar">
+	<a href="../CSSmain.html">Главная</a>
+	<a href="#">Блог</a>
+	<a href="#">Контакты</a>
+	<a href="#">О сайте</a>
+	</div>
+	<div class="content">
+    
+    <style>
+    
+    .flex-container {
+    display: flex;
+    border:1px #ccc solid;
+    height:5em;
+    }
+    .flex-start{
+    align-items: flex-start;
+    }
+    .flex-end{
+    align-items: flex-end;
+    }
+    .center{
+    align-items: center;
+    }
+    .baseline{
+    align-items: baseline;
+    }
+    .flex-item {
+    text-align:center;
+    font-size: 1em;
+    padding: 1.2em;
+    color: white;
+    
+    }
+    .largest-item{ 
+    padding-top:2em;
+    }
+    .color1 {background-color: #675BA7;}
+    .color2 {background-color: #9BC850;}
+    .color3 {background-color: #A62E5C;}
+    .color4 {background-color: #2A9FBC;}
+    </style>
+    <p>
+    Свойство <span>align-items</span> также выравнивает элементы, но уже по поперечной оси (<span class="blue">cross axis</span>) 
+    </p>
+    
+    <h3>Flex-start</h3>
+    <div class="flex-container flex-start">
+    <div class="flex-item color1">Flex Item 1</div>
+    <div class="flex-item color2">Flex Item 2</div>
+    <div class="flex-item color3">Flex Item 3</div>
+    <div class="flex-item color4">Flex Item 4</div>
+    </div>
+    <h3>Flex-end</h3>
+    <div class="flex-container flex-end">
+    <div class="flex-item color1">Flex Item 1</div>
+    <div class="flex-item color2">Flex Item 2</div>
+    <div class="flex-item color3">Flex Item 3</div>
+    <div class="flex-item color4">Flex Item 4</div>
+    </div>
+    <h3>Center</h3>
+    <div class="flex-container center">
+    <div class="flex-item color1">Flex Item 1</div>
+    <div class="flex-item color2">Flex Item 2</div>
+    <div class="flex-item color3">Flex Item 3</div>
+    <div class="flex-item color4">Flex Item 4</div>
+    </div>
+    <h3>Baseline</h3>
+    <div class="flex-container baseline">
+    <div class="flex-item color1">Flex Item 1</div>
+    <div class="flex-item color2 largest-item">Flex Item 2</div>
+    <div class="flex-item color3">Flex Item 3</div>
+    <div class="flex-item color4">Flex Item 4</div>
+    </div>
+      
+        
+  </div>
+ </body>
+</html>

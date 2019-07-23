@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Grid Layout в CSS3</title>
+		<link  href="layout.css" rel="stylesheet">
+		<style>
+		.tColum {grid-template-rows: 4em 5em;}
+		
+		</style>
+	</head>
+	<body>
+	<div class="toolbar">
+	<a href="../CSSmain.html">Главная</a>
+	<a href="#">Блог</a>
+	<a href="#">Контакты</a>
+	<a href="#">О сайте</a>
+	</div>
+	<div class="content">
+   
+     <style>
+    
+     
+     .grid-item {
+     box-sizing: border-box;
+     text-align:center;
+     font-size: 1.1em;
+     padding: 1.5em;
+     color: white;
+     }
+    
+    .grid-container {
+    border: solid 2px #000;
+    display: grid;
+    grid-template-columns: repeat(3, 8em);
+    grid-template-rows: repeat(4, 5em);
+    }
+    
+    </style>
+    <h3>Repeat</h3>
+    <p>
+    Свойство <span>grid-template-columns: repeat(3, 8em); </span>говорит, что необходимо определить 3 столбца шириной в 8em.
+    
+    Выражение <span>grid-template-rows: repeat(4, 5em)</span> определяет 4 строки высотой по 5em.
+     </p>
+     
+     <div class="grid-container">
+     <div class="grid-item color1">Grid Item 1</div>
+     <div class="grid-item color2">Grid Item 2</div>
+     <div class="grid-item color3">Grid Item 3</div>
+     <div class="grid-item color4">Grid Item 4</div>
+     <div class="grid-item color1">Grid Item 5</div>
+    
+     <div class="grid-item color1">Grid Item 1</div>
+     <div class="grid-item color2">Grid Item 2</div>
+     <div class="grid-item color3">Grid Item 3</div>
+     <div class="grid-item color4">Grid Item 4</div>
+     <div class="grid-item color5">Grid Item 5</div>
+     <div class="grid-item color6">Grid Item 6</div>
+     <div class="grid-item color3">Grid Item 7</div>
+     </div>
+     
+     <style type="text/css">
+     .grid-containerRepead {
+     border: solid 2px #000;
+     display: grid;
+     grid: repeat(4, 5em) / repeat(3, 8em);
+     }</style>
+     <h3>
+     grid: repeat(4, 5em) / repeat(3, 8em);
+     </h3>
+     <div class="grid-containerRepead">
+     <div class="grid-item color1">Grid Item 1</div>
+     <div class="grid-item color2">Grid Item 2</div>
+     <div class="grid-item color3">Grid Item 3</div>
+     <div class="grid-item color4">Grid Item 4</div>
+     <div class="grid-item color1">Grid Item 5</div>
+     
+     <div class="grid-item color1">Grid Item 1</div>
+     <div class="grid-item color2">Grid Item 2</div>
+     <div class="grid-item color3">Grid Item 3</div>
+     <div class="grid-item color4">Grid Item 4</div>
+     <div class="grid-item color5">Grid Item 5</div>
+     <div class="grid-item color6">Grid Item 6</div>
+     <div class="grid-item color3">Grid Item 7</div>
+     </div>
+     </body>
+     </html>
+      
+        
+  </div>
+ </body>
+</html>

@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Grid Layout в CSS3</title>
+		<link  href="layout.css" rel="stylesheet">
+		
+	</head>
+	<body>
+	<div class="toolbar">
+	<a href="../CSSmain.html">Главная</a>
+	<a href="#">Блог</a>
+	<a href="#">Контакты</a>
+	<a href="#">О сайте</a>
+	</div>
+	<div class="content">
+    
+      
+      
+      <style>
+      *{
+      box-sizing: border-box;
+      }
+      html, body{
+      margin:0;
+      padding:0;
+      }
+      .grid-container {
+      height:100vh;
+      display: grid;
+      grid-template-columns: 10px repeat(3, [column] 1fr [colgutter] 10px);
+      grid-template-rows: 10px repeat(2, [row] 1fr [rowgutter] 10px);
+      }
+      
+      .grid-item {
+      background-color: #ddd;
+      }
+      
+      .special-item{
+      grid-column: column 2;
+      grid-row: row 1;
+      background-color: #bbb;
+      }
+      .item1{
+      grid-column: column 1;
+      grid-row: row 1;
+      }
+      .item2{
+      grid-column: column 3;
+      grid-row: row 1;
+      }
+      .item3{
+      grid-column: column 1;
+      grid-row: row 2;
+      }
+      .item4{
+      grid-column: column 2;
+      grid-row: row 2;
+      }
+      </style>
+      <h3>Именованные grid-линии и функция repeat</h3>
+      <p>
+      При определении стиля элементов, используя имя grid-линий и их порядковый номер, мы можем явным образом указать с помощью свойств grid-column и grid-row, где именно должен располагаться элемент:
+      </p>
+      <pre><span class="green">
+      .special-item{
+      grid-column: column 2;	/* второй столбец с именем column */
+      grid-row: row 1;		/* первая строка с именем row */
+      background-color: #bbb;
+      }</span>
+      </pre>
+      <div class="grid-container">
+      <div class="grid-item special-item"></div>
+      <div class="grid-item item1"></div>
+      <div class="grid-item item2"></div>
+      <div class="grid-item item3"></div>
+      <div class="grid-item item4"></div>
+      </div>
+        
+        <p>
+        И более того мы можем дополнительно добавлять новые именованные грид-линии вне функции <span>repeat:</span>
+        </p>
+  
+  <style>
+  *{
+  box-sizing: border-box;
+  }
+  html, body{
+  margin:0;
+  padding:0;
+  }
+  .grid-container {
+  height:100vh;
+  display: grid;
+  grid-template-columns: 10px repeat(3, [column] 1fr [colgutter] 10px) 
+  [sidebarstart] 150px [sidebarend] 10px;
+  grid-template-rows: 10px repeat(2, [row] 1fr [rowgutter] 10px);
+  }
+  
+  .grid-item {
+  background-color: #ddd;
+  }
+  
+  .special-item{
+  grid-column: column 2;
+  grid-row: row 1;
+  background-color: #bbb;
+  }
+  .item1{
+  grid-column: column 1;
+  grid-row: row 1;
+  }
+  .item2{
+  grid-column: column 3;
+  grid-row: row 1;
+  }
+  .item3{
+  grid-column: column 1;
+  grid-row: row 2;
+  }
+  .item4{
+  grid-column: column 2;
+  grid-row: row 2;
+  }
+  .sidebar{
+  grid-column: sidebarstart / sidebarend;
+  grid-row: 2 / 5;
+  background-color: #ccc;
+  }
+  </style>
+  
+  
+  <div class="grid-container">
+  <div class="grid-item special-item"></div>
+  <div class="grid-item item1"></div>
+  <div class="grid-item item2"></div>
+  <div class="grid-item item3"></div>
+  <div class="grid-item item4"></div>
+  <div class="grid-item sidebar"></div>
+  </div>
+  
+  
+  </div>
+ </body>
+</html>

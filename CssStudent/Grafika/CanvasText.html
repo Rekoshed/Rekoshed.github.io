@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Canvas в HTML5</title>
+		<link  href="toolbar.css" rel="stylesheet">
+		
+	</head>
+	<body>
+	<div class="toolbar">
+	<a href="../CSSmain.html">Главная</a>
+	<a href="#">Блог</a>
+	<a href="#">Контакты</a>
+	<a href="#">О сайте</a>
+	</div>
+	<div class="content">
+	<p>
+	Установим для контекста canvas свойство font:
+	<span class="blockSpan"> 
+	var canvas=document.getElementById("myCanvas"),  
+	context=canvas.getContext("2d"); 
+	context.font = "22px Verdana"; 
+	</span>
+	Свойство font в качестве значения принимает опредление шрифта. 
+	</p>
+		<canvas id="myCanvas" width="300" height="100" 
+			style="background-color:#eee; border:1px solid #ccc;">
+			Ваш браузер не поддерживает Canvas
+		</canvas>
+		<script>
+			var canvas = document.getElementById("myCanvas"), 
+				context = canvas.getContext("2d");
+			context.font = "22px Verdana";
+			context.fillText("Hello HTML5!", 20, 50);
+		</script>
+		
+	<p>
+	метод <span>strokeText()</span>
+	</p>
+	<canvas id="stroke" width="300" height="100" 
+	style="background-color:#eee; border:1px solid #ccc;">
+	Ваш браузер не поддерживает Canvas
+	</canvas>
+	<script type="text/javascript">
+	
+	var canvas = document.getElementById("stroke"), 
+	context = canvas.getContext("2d");
+	context.font = "30px Verdana";
+	context.strokeStyle = "red";
+	context.strokeText("Hello HTML5!", 20, 50);
+	</script>
+	
+	
+	<p>
+	Свойство <span>lineWidth</span> задает ширину линии текста:	
+	</p>
+	<canvas id="width" width="300" height="100" 
+	style="background-color:#eee; border:1px solid #ccc;">
+	Ваш браузер не поддерживает Canvas
+	</canvas>
+	<script type="text/javascript">
+	
+	var canvas = document.getElementById("width"), 
+	context = canvas.getContext("2d");
+	context.font = "30px Verdana";
+	context.strokeStyle = "red";
+	
+	context.lineWidth = 2;
+	context.strokeText("Hello HTML5!", 20, 50)
+	</script>
+	
+	<p>
+	Свойство <span>textAlign</span>
+	</p>
+	<canvas id="align" width="300" height="170" 
+	style="background-color:#eee; border:1px solid #ccc;">
+	Ваш браузер не поддерживает Canvas
+	</canvas>
+	<script type="text/javascript">
+	var canvas = document.getElementById("align"), 
+	context = canvas.getContext("2d");
+	context.font = "22px Verdana";
+	context.textAlign = "right";
+	context.fillText("Right Text", 120, 30);
+	context.textAlign = "left";
+	context.fillText("Left Text", 120, 60);
+	context.textAlign = "center";
+	context.fillText("Center Text", 120, 90);
+	context.textAlign = "start";
+	context.fillText("Start Text", 120, 120);
+	context.textAlign = "end";
+	context.fillText("End Text", 120, 150);
+	</script>
+	
+	<p>
+	Свойство <span>textBaseline</span> задает выравнивание текста по базовой линии. 
+	</p>
+	<canvas id="baseline" width="350" height="100" 
+	style="background-color:#eee; border:1px solid #ccc;">
+	Ваш браузер не поддерживает Canvas
+	
+	<script type="text/javascript">
+	
+	var canvas = document.getElementById("baseline"), 
+	context = canvas.getContext("2d");
+	context.font = "18px Verdana";
+	context.textBaseline="top";
+	context.fillText("Top",15,50);
+	context.textBaseline="bottom";
+	context.fillText("Bottom",55,50);
+	context.textBaseline="middle";
+	context.fillText("Middle",120,50);
+	context.textBaseline="alphabetic";
+	context.fillText("Alphabetic",185,50);
+	context.textBaseline="hanging";
+	context.fillText("Hanging",280,50);</script>
+	</canvas>
+	</div>
+	</body>
+</html>

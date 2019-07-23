@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Flexbox в CSS3</title>
+		<link  href="flex.css" rel="stylesheet">
+		
+	</head>
+	<body>
+	<div class="toolbar">
+	<a href="../CSSmain.html">Главная</a>
+	<a href="#">Блог</a>
+	<a href="#">Контакты</a>
+	<a href="#">О сайте</a>
+	</div>
+	<div class="content">
+    <style type="text/css">
+    .flow { flex-flow: row wrap;}
+    </style>
+    
+    <p>
+    
+    Свойство <span>flex-flow</span>  позволяет установить значения сразу для обоих свойств <span>flex-direction</span> и <span>flex-wrap</span>. Оно имеет следующий формальный синтаксис:
+    <br><br>
+    <span class="green">flex-flow: [flex-direction] [flex-wrap]</span>
+    </p>
+    <div class="flex-container flow">
+    <div class="flex-item color1">Flex Item 1</div>
+    <div class="flex-item color2">Flex Item 2</div>
+    <div class="flex-item color3">Flex Item 3</div>
+    <div class="flex-item color4">Flex Item 4</div>
+    <div class="flex-item color5">Flex Item 5</div>
+    </div>
+    
+    <style type="text/css">group1{
+    order:-1;
+    }
+    .group2{
+    order:1;
+    }</style>
+    
+    <p>
+    Свойство <span>order</span> позволяет установить группу для <span>flex</span>-элемента,
+    </p>
+    
+    <div class="flex-container">
+    <div class="flex-item color1">Flex Item 1<br> order 0</div>
+    <div class="flex-item color2 group2">Flex Item 2 <br>order 1</div>
+    <div class="flex-item color3 group2">Flex Item 3<br> order 1</div>
+    <div class="flex-item color4">Flex Item 4 <br>order 0</div>
+    <div class="flex-item color5 group1">Flex Item 5 <br>order -1</div>
+    </div>
+      <p>
+      элементы в <span class="blue">группе 0 </span>располагаются перед элементами с <span class="blue">группой 1</span>, а элементы с <span class="blue">группой 1</span> располагаются перед элементами с <span class="blue">группой 2</span> и так далее.
+      </p>
+        
+  </div>
+ </body>
+</html>

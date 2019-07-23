@@ -1,0 +1,43 @@
+i
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Псевдоклассы в CSS3</title>
+        <style>
+            a:link    {color:blue; text-decoration:none}
+            a:visited {color:pink; text-decoration:none}
+            a:hover   {color:red; text-decoration:underline}
+            a:active  {color:yellow; text-decoration:underline}
+			input:hover {border:2px solid red;}	
+			section {
+			margin: 10px;
+			border: 1px solid #eee;
+			}
+			:lang(ru) {
+			color: red;
+			}
+        </style>
+    </head>
+    <body>
+    <section>
+        <a href="index.html">Учебник по CSS3</a>
+		<input type="text" />
+    </section>
+    
+    <section>
+    	<form>
+    	<p lang="ru-RU">Я изучаю CSS3</p>
+    	<p lang="en-US">I study CSS3</p>
+    	<p lang="de-DE">Ich lerne CSS3</p>
+    	</form>
+    </section>
+    </body>
+    <div style="margin: 10px; border: 1px solid #222; height: 14%; width:90%; background-color: #eee">Footer
+    <p>
+    На главную 
+    <a href="CSSmain.html" ><button type="submit"> Main</button></a>
+    </p>
+    </div>
+</html>

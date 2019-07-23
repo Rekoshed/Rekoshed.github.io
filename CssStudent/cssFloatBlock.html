@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Блочная верстка в HTML5</title>
+        <style>
+        
+        
+        
+        *{
+        box-sizing: border-box;
+        }
+        html, body, div, span, h1, h2, h3, h4, h5, h6, p, a, img, dl, dt, dd, 
+        ol, ul, li, form, table, caption, tr, th, td, article, aside, footer, header{
+        
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        vertical-align: baseline;
+        }
+        #header{
+        background-color: #eee;
+        }
+        #header h1{
+        font-size: 1.3em;
+        padding: 15px;
+        }
+        #nav{
+        background-color: #f4f4f4;
+        border-top: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+        }
+        #nav ul{
+        margin-left: 0px;
+        padding-left: 0px;
+        list-style: none;
+        }
+        #nav li { 
+        float: left;
+        }
+        #nav ul a {
+        display: block;
+        width: 7em;
+        padding: 10px;
+        border-left: 1px solid #ccc;
+        text-decoration: none;
+        color: #333;
+        text-align: center;
+        }
+        #nav ul li:last-child a {
+        
+        border-right: 1px solid #ccc;
+        }
+        #nav ul a:hover{
+        background-color: #aaa;
+        color: #f4f4f4;
+        }
+        #nav ul:after {
+        content: " ";
+        display: table;
+        clear: both;
+        }
+        #content{
+        clear: both;
+        }
+       
+            #sidebar{
+				float: left;
+				width: 25%;
+				padding: 10px;
+			}
+			#main{
+				border-left: 1px solid #ccc;
+				width:75%;
+				padding: 15px;
+				margin-left: 25%; 
+			}
+			h2 { font-size: 20px;}
+        </style>
+    </head>
+    <body>
+    <div id="header">
+    <h1>Добро пожаловать на сайт</h1>
+    <div id="nav">
+    <ul>
+    <li><a href="#">Главная</a></li>
+    <li><a href="#">Блог</a></li>
+    <li><a href="#">Контакты</a></li>
+    <li><a href="#">О сайте</a></li>
+    </ul>
+    </div>
+    </div>
+   
+        <div id="sidebar">
+			<h2>The standard Lorem Ipsum passage</h2>
+			<p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do 
+				eiusmod tempor incididunt ut labore et dolore...</p>
+		</div>
+        <div id="main">
+			<h2>What is Lorem Ipsum?</h2>
+			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry...</p>
+			<p>В частности, у всех элементов по умолчанию для свойства box-sizing используется значение content-box, то есть при определении ширины и высоты элемента браузер будет прибавлять к значению свойств width и height также и внутренние отступы padding и ширину границы. В итоге это может привести к выпадению плавающих элементов из тех блоков, которые для них предназначены. Поэтому часто для всех элементов рекомендуется устанавливать для свойства box-sizing значение border-box, чтобы все элементы измерялись одинаково, а их ширина представляла только значение свойства width. Поэтому нередко в стилях добавляется следующий стиль:
+			
+			* {
+			box-sizing: border-box;
+			}</p>
+		</div>
+		
+		<div style="margin: 10px; border: 1px solid #222; height: 14%;  background-color: #eee">Footer
+		<p>
+		
+		<a href="CSSmain.html" ><button type="submit"> На главную</button></a>
+		</p>
+		</div>
+    </body>
+</html>

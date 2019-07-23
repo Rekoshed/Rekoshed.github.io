@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Canvas в HTML5</title>
+	</head>
+	<body>
+	<pre> 
+strokeRekt - контур. 
+fullRect - заливка. 
+Значения по умолчанию
+</pre>
+		<canvas id="myCanvas" width="350" height="200" 
+				style="background-color:#eee; border: 1px solid #ccc;">
+			Ваш браузер не поддерживает Canvas
+		</canvas>
+		<script>
+			var canvas = document.getElementById("myCanvas"), 
+				context = canvas.getContext("2d");
+				
+			context.strokeRect(50, 40, 100, 100);
+			context.fillRect(200, 40, 100, 100);
+		</script>
+		
+		<pre>
+context.strokeStyle = "red";
+context.fillStyle = "blue";
+context.lineWidth = 6.5;
+		</pre>
+		
+		<canvas id="myCanvasTwo" width="350" height="200"
+		style="background-color:#eee; border: 1px solid #ccc;">
+		Ваш браузер не поддерживает Canvas
+		</canvas>
+		<script>
+		var canvas = document.getElementById("myCanvasTwo"), 
+		context = canvas.getContext("2d");
+		
+		context.strokeStyle = "red";
+		context.fillStyle = "blue";
+		context.lineWidth = 6.5;
+		context.strokeRect(50, 40, 100, 100);
+		context.fillRect(200, 40, 100, 100);
+		</script>
+		
+		<pre>
+context.strokeStyle = "red";
+		
+context.setLineDash([15,5]);
+context.strokeRect(5, 40, 100, 100);
+		
+context.strokeStyle = "blue";
+context.setLineDash([2,5,6]);
+context.strokeRect(125, 40, 100, 100);
+		
+context.strokeStyle = "green";
+context.setLineDash([2]);
+context.strokeRect(245, 40, 100, 100);
+		</pre>
+		
+		<canvas id="myCanvasDash" width="350" height="200"
+		style="background-color:#eee; border: 1px solid #ccc;">
+		Ваш браузер не поддерживает Canvas
+		</canvas>
+		<script>
+		var canvas = document.getElementById("myCanvasDash"), 
+		context = canvas.getContext("2d");
+		
+		context.strokeStyle = "red";
+		
+		context.setLineDash([15,5]);
+		context.strokeRect(5, 40, 100, 100);
+		
+		context.strokeStyle = "blue";
+		context.setLineDash([2,5,6]);
+		context.strokeRect(125, 40, 100, 100);
+		
+		context.strokeStyle = "green";
+		context.setLineDash([2]);
+		context.strokeRect(245, 40, 100, 100);
+		</script>
+		<pre>
+context.lineJoin = "miter";
+context.strokeRect(5, 40, 100, 100);
+context.lineJoin = "bevel";
+context.strokeRect(122, 40, 100, 100);
+context.lineJoin = "round";
+context.strokeRect(240, 40, 100, 100);
+		</pre>
+		<canvas id="myCanvasJoin" width="350" height="200" 
+		style="background-color:#eee; border: 1px solid #ccc;">
+		Ваш браузер не поддерживает Canvas
+		</canvas>
+		<script>
+		var canvas = document.getElementById("myCanvasJoin"), 
+		context = canvas.getContext("2d");
+		
+		context.strokeStyle = "red";
+		context.fillStyle = "blue";
+		
+		context.lineWidth = 15;
+		context.lineJoin = "miter";
+		context.strokeRect(5, 40, 100, 100);
+		context.lineJoin = "bevel";
+		context.strokeRect(122, 40, 100, 100);
+		context.lineJoin = "round";
+		context.strokeRect(240, 40, 100, 100);
+		</script>
+		<p>
+		context.globalAlpha = 0.5;
+		</p>
+		<canvas id="myCanvasAlpha" width="350" height="200"
+		style="background-color:#eee; border: 1px solid #ccc;">
+		Ваш браузер не поддерживает Canvas
+		</canvas>
+		
+		<script type="text/javascript">
+		
+		var canvas = document.getElementById("myCanvasAlpha"), 
+		context = canvas.getContext("2d");
+		
+		context.fillStyle = "blue";
+		context.fillRect(50, 50, 100, 100);
+		
+		context.globalAlpha = 0.5;
+		context.fillStyle = "red";
+		context.fillRect(100, 100, 100, 100);
+		</script>
+		
+		
+		<div style="margin: 10px; border: 1px solid #222; height:50px; width:96%; background-color: #eee">Footer	
+		<a href="CSSmain.html" ><button type="submit"> На главную</button></a>
+		
+		
+		
+	</body>
+</html>

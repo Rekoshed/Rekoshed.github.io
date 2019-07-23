@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Grid Layout в CSS3</title>
+		<link  href="layout.css" rel="stylesheet">
+		
+	</head>
+	<body>
+	<div class="toolbar">
+	<a href="../CSSmain.html">Главная</a>
+	<a href="#">Блог</a>
+	<a href="#">Контакты</a>
+	<a href="#">О сайте</a>
+	</div>
+	<div class="content">
+    
+      <style type="text/css">
+      *{
+      box-sizing: border-box;
+      }
+      html, body{
+      margin:0;
+      padding:0;
+      }
+      .grid-container {
+      height: 100vh;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      grid-column-gap: 10px;
+      grid-row-gap: 10px;
+      }
+      
+      </style>
+      </style>
+
+<h3>Отступы между столбцами и строками</h3>
+<p>Для создания отступов между столбцами и строками применяются свойства 
+<span>grid-column-gap</span> и <span>grid-row-gap</span> соответственно.
+</p>      
+      <div class="grid-container">
+      <div class="grid-item color1">Grid Item 1</div>
+      <div class="grid-item color2">Grid Item 2</div>
+      <div class="grid-item color3">Grid Item 3</div>
+      <div class="grid-item color4">Grid Item 4</div>
+      <div class="grid-item color1">Grid Item 5</div>
+      <div class="grid-item color4">Grid Item 6</div>
+      <div class="grid-item color5">Grid Item 7</div>
+      </div>
+      <p>
+      Если значения свойств <span>grid-column-gap</span> и <span>grid-row-gap</span> совпадают, 
+      то вместо них можно определить одно свойство <span>grid-gap</span>, 
+      которое установит оба отступа:
+      </p>
+      <pre><span class="green">
+      .grid-container {
+      height: 100vh;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      grid-gap: 10px;
+      }</span>
+        </pre>
+  </div>
+ </body>
+</html>

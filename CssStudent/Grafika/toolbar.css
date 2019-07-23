@@ -1,0 +1,43 @@
+span{
+		color: red;
+		}
+		.blockSpan{
+		display: block;
+		}
+		<style>
+		body{ 
+		margin:0;
+		padding:0;
+		}
+		.toolbar{
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		background-color: #222;
+		border-bottom: 1px solid #ccc;
+		}
+		.toolbar a{
+		color: #eee;
+		display: inline-block;
+		padding: 10px;
+		text-decoration: none;
+		font-family: Verdana;
+		}
+		.content{
+		margin-top: 50px;
+		padding: 10px;
+		}
+		.toolbar a:hover{
+		background-color: red;
+		color: #f4f4f4;
+		}
+		.blue{
+		color:blue;
+		}
+		.green {
+		color:green;}
+	canvas{
+	background-color:#eee; 
+	border:1px solid #ccc;
+	}

@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Анимация в CSS3</title>
+		<style>
+			@keyframes backgroundColorAnimation {
+				from {
+					background-color: red;
+				}
+				to {
+					background-color: blue;
+				}
+			}
+			.animate{
+				width: 100px;
+				height: 100px;
+				margin: 40px 30px;
+				border: 1px solid #333;
+				
+				background-color: #ccc;
+				animation-name: backgroundColorAnimation;
+				animation-duration: 5s;
+			}
+			
+			
+			@keyframes backgroundColorAnimationTwo {
+			from {
+			background-color: red;
+			}
+			to {
+			background-color: blue;
+			}
+			}
+			.animatehover{
+			width: 100px;
+			height: 100px;
+			margin: 40px 30px;
+			border: 1px solid #333;
+			background-color: #ccc;
+			}
+			.aninatehover:hover{
+			
+			animation-name: backgroundColorAnimationTwo;
+			animation-duration: 2s;
+			}
+		</style>
+    </head>
+    <body>
+		<div class="animate"></div>
+		
+		<div class="animatehover"></div>
+    </body>
+</html>

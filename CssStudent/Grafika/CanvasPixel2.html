@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Canvas в HTML5</title>
+		<link  href="toolbar.css" rel="stylesheet">
+		
+	</head>
+	<body>
+	<div class="toolbar">
+	<a href="../CSSmain.html">Главная</a>
+	<a href="#">Блог</a>
+	<a href="#">Контакты</a>
+	<a href="#">О сайте</a>
+	</div>
+	<div class="content">
+	
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Canvas в HTML5</title>
+	</head>
+	<body>
+	<p>	
+	Метод <span>createImageData()</span> создает новый объект <span class="green">ImageData</span>, который затем может использоваться на canvas. 
+	Метод <span>createImageData()</span> имеет две формы:
+	<br>
+	<br>
+	<span>createImageData(width, height);
+	createImageData(imagedata);</span>
+	</p>
+		<canvas id="myCanvas" width="360" height="450" 
+			style="background-color:#eee; border:1px solid #ccc;">
+			Ваш браузер не поддерживает Canvas
+		</canvas>
+		<script>
+		var canvas = document.getElementById("myCanvas"), 
+		context = canvas.getContext("2d");
+		
+		var img = new Image();
+		img.src = "img.jpg";
+		img.onload = function() {
+		
+		context.drawImage(img, 0, 0, 360, 220);
+		var imageData = context.getImageData(0,0, img.width, img.height);
+		var newImageData = context.createImageData(imageData);
+		
+		for (var i = 0; i < newImageData.data.length; i++) {
+		
+		newImageData.data[i] = imageData.data[i];
+		// если это альфа-компонента
+		if( (i+1)%4===0){
+		
+		newImageData.data[i] = 120;
+		}
+		}
+		context.putImageData(newImageData, 0, 230);
+		};
+		
+		
+		</script>
+		
+		<p>
+		
+		В данном случае создаем новый объект <span>newImageData</span>, 
+		в этот объект копируем все данные из текущего <span class="green">imageData</span>, 
+		который представляет изображение на canvas. 
+		При этом при копировании значения альфа-компоненты, 
+		которая отвечает за прозрачность, 
+		устанавливаем ей значение 120, 
+		то есть делаем пиксель полупрозрачным.
+		</p>
+	</body>
+</html>
+	</div>
+	</body>
+</html>

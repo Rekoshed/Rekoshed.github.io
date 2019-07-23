@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Flexbox в CSS3</title>
+		<link  href="flex.css" rel="stylesheet">
+		
+	</head>
+	<body>
+	<div class="toolbar">
+	<a href="../CSSmain.html">Главная</a>
+	<a href="#">Блог</a>
+	<a href="#">Контакты</a>
+	<a href="#">О сайте</a>
+	</div>
+	<div class="content">
+    
+    <style>
+    
+    
+    .flex-end{
+    justify-content: flex-end;
+    }
+    .center{
+    justify-content: center;
+    }
+    .space-between{
+    justify-content: space-between;
+    }
+    .space-around{
+    justify-content: space-around;
+    }
+     </style>
+    
+    <p>
+    
+    Выравнивание для расположения элементов в виде строки
+    методом <span>justify-content</span>
+    </p>
+    <h3>Flex-end</h3>
+    <div class="flex-container flex-end">
+    <div class="flex-item color1">Flex Item 1</div>
+    <div class="flex-item color2">Flex Item 2</div>
+    <div class="flex-item color3">Flex Item 3</div>
+    <div class="flex-item color4">Flex Item 4</div>
+    </div>
+    <h3>Center</h3>
+    <div class="flex-container center">
+    <div class="flex-item color1">Flex Item 1</div>
+    <div class="flex-item color2">Flex Item 2</div>
+    <div class="flex-item color3">Flex Item 3</div>
+    <div class="flex-item color4">Flex Item 4</div>
+    </div>
+    <h3>Space-between</h3>
+    <div class="flex-container space-between">
+    <div class="flex-item color1">Flex Item 1</div>
+    <div class="flex-item color2">Flex Item 2</div>
+    <div class="flex-item color3">Flex Item 3</div>
+    <div class="flex-item color4">Flex Item 4</div>
+    </div>
+    <h3>Space-around</h3>
+    <div class="flex-container space-around">
+    <div class="flex-item color1">Flex Item 1</div>
+    <div class="flex-item color2">Flex Item 2</div>
+    <div class="flex-item color3">Flex Item 3</div>
+    <div class="flex-item color4">Flex Item 4</div>
+    </div>
+      
+        <p>        
+        Выравнивание для расположения элементов в виде столбца
+        методом <span>justify-content</span>
+        </p>
+        <style type="text/css"> .c>div {height:300px;
+        }
+        .h {
+        height: 4em;
+        margin-bottom:10px;}</style>
+        
+        <div class="flex-container space-around h">
+        <div class="flex-item black color2"><p>Flex-end</p></div>
+        <div class="flex-item black color2"><p>Center</p></div>
+        <div class="flex-item black color2"><p>Space-between</p></div>
+        <div class="flex-item black color2" ><p>Space-around</p></div>
+        </div>
+        
+        <div class="flex-container c " style="height:320px">
+        <div class="flex-container flex-end column">
+        <div class="flex-item color1">Flex Item 1</div>
+        <div class="flex-item color2">Flex Item 2</div>
+        <div class="flex-item color3">Flex Item 3</div>
+        <div class="flex-item color4">Flex Item 4</div>
+        </div>
+        
+        <div class="flex-container center column">
+        <div class="flex-item color1">Flex Item 1</div>
+        <div class="flex-item color2">Flex Item 2</div>
+        <div class="flex-item color3">Flex Item 3</div>
+        <div class="flex-item color4">Flex Item 4</div>
+        </div>
+        
+        <div class="flex-container space-between column">
+        <div class="flex-item color1">Flex Item 1</div>
+        <div class="flex-item color2">Flex Item 2</div>
+        <div class="flex-item color3">Flex Item 3</div>
+        <div class="flex-item color4">Flex Item 4</div>
+        </div>
+        
+        <div class="flex-container space-around column">
+        <div class="flex-item color1">Flex Item 1</div>
+        <div class="flex-item color2">Flex Item 2</div>
+        <div class="flex-item color3">Flex Item 3</div>
+        <div class="flex-item color4">Flex Item 4</div>
+        </div>
+        </div>
+  </div>
+ </body>
+</html>

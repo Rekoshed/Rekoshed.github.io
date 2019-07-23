@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Canvas в HTML5</title>
+		<link  href="toolbar.css" rel="stylesheet">
+		
+	</head>
+	<body>
+	<div class="toolbar">
+	<a href="../CSSmain.html">Главная</a>
+	<a href="#">Блог</a>
+	<a href="#">Контакты</a>
+	<a href="#">О сайте</a>
+	</div>
+	<div class="content">
+	
+
+        <canvas id="myCanvas" width="350" height="250"
+                style="background-color:#eee; border: 1px solid #ccc; margin:10px;">
+            Ваш браузер не поддерживает Canvas
+        </canvas>
+        <script>
+            var canvas = document.getElementById("myCanvas"), 
+                context = canvas.getContext("2d"),
+				w = canvas.width,
+				h=canvas.height;
+				
+			var mouse = { x:0, y:0};
+			var draw = true;
+			
+			canvas.addEventListener("mousedown", function(e){
+				
+				mouse.x = e.pageX - this.offsetLeft;
+				mouse.y = e.pageY - this.offsetTop;
+				draw = true;
+				context.beginPath();
+				context.moveTo(mouse.x, mouse.y);
+			});
+			canvas.addEventListener("mousemove", function(e){
+				
+				if(draw==true){
+				
+					mouse.x = e.pageX - this.offsetLeft;
+					mouse.y = e.pageY - this.offsetTop;
+					context.lineTo(mouse.x, mouse.y);
+					context.stroke();
+				}
+			});
+			canvas.addEventListener("mouseup", function(e){
+				
+				mouse.x = e.pageX - this.offsetLeft;
+				mouse.y = e.pageY - this.offsetTop;
+				context.lineTo(mouse.x, mouse.y);
+				context.stroke();
+				context.closePath();
+				draw = true;
+			});
+        </script>
+        
+        <p>
+        
+        Для обработки движения мыши для элемента canvas определены три обработчика - нажатия мыши, перемещения и отпускания мыши. При нажатии мыши мы устанавливаем переменную <span class="blue">draw</span> равным <span>true</span>. То есть идет рисование. Также при нажатии мы фиксируем точку, с которой будет идти рисование.
+        <br>
+        <br>
+        При перемещении мыши получаем точку, на которую переместился указатель, и рисуем линию. При отпускании указателя закрываем графический путь методом <span>context.closePath()</span> и сбрасываем переменную <span class="blue">draw</span> в <span>false</span>.
+        <br>
+        <br>
+        В данном коде внесены изменения в бинарных переменных для теста на тачпаде.
+        Переменная <span class="blue">drow </span>переопределена в <span>trure</span> при иницилизации и закрытии.
+        Соответственно нужно заменить на <span>false</span> при использомании мышки.
+        </p>
+    </body>
+</html>
+	</div>
+	</body>
+</html>

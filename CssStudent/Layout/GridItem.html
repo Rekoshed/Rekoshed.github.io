@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Grid Layout в CSS3</title>
+		<link  href="layout.css" rel="stylesheet">
+		
+	</head>
+	<body>
+	<div class="toolbar">
+	<a href="../CSSmain.html">Главная</a>
+	<a href="#">Блог</a>
+	<a href="#">Контакты</a>
+	<a href="#">О сайте</a>
+	</div>
+	<div class="content">
+    
+      
+      <style>
+      *{
+      box-sizing: border-box;
+      }
+      .grid-container {
+     
+      border: solid 2px #000;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(3, 5em);
+      }
+      .special-item{
+      grid-column-start:2;
+      grid-column-end: 5;
+      }
+      </style>
+      </head>
+      <body>
+      <h3>Позиционирование элементов</h3>
+      <p>Здесь определено четыре столбца, причем второму элементу присвоен особый класс 
+      <span>special-item</span>, который располагается, начиная со <span>2 grid</span>-линии или 2-го столбца (<span class="blue"> grid-column-start: 2</span>) до 5-й вертикальной
+       <span>grid</span>-линии (<span>grid-column-end: 5</span>).
+       </p>
+      <div class="grid-container">
+      <div class="grid-item color1">Grid Item 1</div>
+      <div class="grid-item color2 special-item">Grid Item 2</div>
+      <div class="grid-item color3">Grid Item 3</div>
+      <div class="grid-item color4">Grid Item 4</div>
+      <div class="grid-item color5">Grid Item 5</div>
+      <div class="grid-item color1">Grid Item 6</div>
+      <div class="grid-item color4">Grid Item 7</div>
+      </div>
+        
+        <p>
+        Второй элемент необязательно должен начинаться 
+        со второго столбца, это может быть любой другой: и 1-й, и 3-й и т.д.
+         Например, если мы поместим второй элемент, начиная с 3-го столбца, то на месте второго столбца образуется пустота:
+        
+        <pre class="green">.special-item{
+        grid-column-start: 3;
+        grid-column-end: 5;
+        }
+        </pre></p>
+        
+        <style type="text/css">.special2-item{
+        grid-column-start: 3;
+        grid-column-end: 5;
+        }</style>
+        <div class="grid-container">
+        <div class="grid-item color1">Grid Item 1</div>
+        <div class="grid-item color2 special2-item">Grid Item 2</div>
+        <div class="grid-item color3">Grid Item 3</div>
+        <div class="grid-item color4">Grid Item 4</div>
+        <div class="grid-item color5">Grid Item 5</div>
+        <div class="grid-item color1">Grid Item 6</div>
+        <div class="grid-item color4">Grid Item 7</div>
+        </div>
+  </div>
+ </body>
+</html>
