@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Java Script</title>
+		<link  href="../script.css" rel="stylesheet">
+		
+	</head>
+	<body>
+	<div class="toolbar">
+	<a href="../ScriptMain.html">Главная</a>
+	<a href="#">Блог</a>
+	<a href="#">Контакты</a>
+	<a href="#">О сайте</a>
+	</div>
+	<div class="content">
+	
+
+<h3>Декомпозиция</h3>
+<p>
+Декомпозиция (destructuring) позволяет извлечь из объекта отдельные значения в переменные:
+</p>
+<pre id="kod">
+let user = {
+	name: "Tom",
+	age: 24,
+	phone: "+367438787",
+	email: "tom@gmail.com"
+};
+let {name, email} = user;
+console.log(name);		// Tom
+console.log(email);		// tom@gmail.com
+</pre>
+<input type="button" onclick="dest1()" value="Вывести" />
+ 
+<p>
+Для декомпозиции объекта переменные помещаются в фигурные скобки и им присваивается объект. Сопоставление между свойствами объекта и переменными идет по имени.
+<br><br>
+Мы можем указать, что мы хотим получить значения свойств объекта в переменные с другим именем:
+</p>
+<pre id="kod">
+let user = {
+	name: "Tom",
+	age: 24,
+	phone: "+367438787",
+	email: "tom@gmail.com"
+};
+let {name: userName, email: mailAddress} = user;
+console.log(userName);		// Tom
+console.log(mailAddress);		// tom@gmail.com
+</pre>
+<p>
+В данном случае свойство name сопоставляется с переменной userName, а поле email - с переменной mailAddress.
+</p>
+
+<h3>Декомпозиция массивов</h3>
+<p>
+Также можно декомпозировать массивы:
+</p>
+<pre id="kod">
+let users = ["Tom", "Sam", "Bob"];
+let [a, b, c] = users;
+
+console.log(a);		// Tom
+console.log(b);		// Sam
+console.log(c);		// Bob
+</pre>
+<p>
+Для декомпозиции массива переменные помещаются в квадратные скобки и последовательно получают значения элементов массива.
+<br><br>
+При эом мы можем пропустить ряд элементов массива, оставив вместо имен переменных пропуски:
+</p>
+<pre id="kod">
+let users = ["Tom", "Sam", "Bob", "Ann", "Alice", "Kate"];
+let [first,,,,fifth] = users;
+
+console.log(first);		// Tom
+console.log(fifth);		// Alice
+</pre>
+<p>
+Выражение <span>first,,,,fifth</span> указывает, что мы хотим получить первый элемент массива в переменную first, затем пропустить три элемента и получить пятый элемент в переменную fifth.
+<br><br>
+Подобным образом можно получить, например, второй и четвертый элементы:
+</p>
+<pre id="kod">
+let users = ["Tom", "Sam", "Bob", "Ann", "Alice", "Kate"];
+let [,second,,forth] = users;
+
+console.log(second);		// Sam
+console.log(forth);			// Ann
+</pre>
+<p>
+Можно совместить получение данных из массива и объекта:
+</p>
+<pre id="kod">
+let people = [
+	{name: "Tom", age: 34},
+	{name: "Bob", age: 23},
+	{name: "Sam", age: 32}
+];
+let [,{name}] = people;
+
+console.log(name);		// Bob
+</pre>
+<p>
+В данном случае получаем значение свойства name второго объекта в массиве.
+</p>
+<h3>
+Декомпозиция параметров
+</h3>
+<p>
+Если в функцию в качестве параметра передается массив или объект, то его также можно подобным образом декомпозировать:
+</p>
+<pre id="kod">
+function display({name:userName, age:userAge}){
+	console.log(userName, userAge);
+}
+function sum([a, b, c]){
+	var result = a + b + c;
+	console.log(result);
+}
+let user = {name:"Alice", age:33, email: "alice@gmail.com"};
+
+
+let numbers = [3, 5, 7, 8];
+
+display(user);	// Alice 33
+sum(numbers);	// 15
+</pre>
+
+	<a href="Test/DesignerTest.html" id="out">Output</a>
+	
+  </div>
+ </body>
+ <script type="text/javascript">
+ var user = {
+ name: "Tom",
+ age: 24,
+ phone: "+367438787",
+ email: "tom@gmail.com"
+ };
+ let {name, email} = user;
+ function dest1(){
+ alert (name + ":  " + email);
+ };	
+ </script>
+</html>

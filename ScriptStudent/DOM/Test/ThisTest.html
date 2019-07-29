@@ -8,6 +8,20 @@
 		<link  href="../../script.css" rel="stylesheet">
 		<script type="text/javascript">
 		
+		var school ={
+		title: "Oxford: ",
+		courses: ["JavaScript", "TypeScript", "Java", "Go"],
+		printCourses: function(){
+		var that = this;
+		this.courses.forEach(function(course){
+		document.writeln(that.title, course + "<br>");
+		})
+		}
+		}
+		
+		document.write("<p>")
+		school.printCourses();
+		document.write("</p>")
 		</script>
 		
 		
@@ -15,7 +29,7 @@
 	<body>
 	<div class="toolbar">
 	<a href="../../ScriptMain.html">Главная</a>
-	<a href="../InObject.html">Назад</a>
+	<a href="../This.html">Назад</a>
 	<a href="#">Контакты</a>
 	<a href="#">О сайте</a>
 	</div>

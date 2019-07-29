@@ -5,22 +5,32 @@
 span{
 		color: red;
 		}
-		.blockSpan{
+		.blockSpan, .bs{
 		display: block;
 		}
 	#kod{
 	display:block;
 	color:green;
-	font-size:0.8em;
+	
 	margin:10px;
-	font-family:Courier New;
-	letter-spacing: 10px;
+	letter-spacing: 1px;
 	}
-	#block{
+	#block, #b{
 	display:block;
 	color:blue;
-	font-size:1.2em;
+	
 	margin:6px;
+	}
+	#out{
+	text-decoration: none;
+	font-style:bolt;
+	font-family:Arial;
+	font-size:18px;
+	border: 1px;
+	background-color: red;
+	color:white;
+	
+	
 	}
 		
 		body{ 
@@ -47,7 +57,6 @@ span{
 		.content{
 		margin-top: 30px;
 		padding: 10px;
-		
 		}
 		.toolbar a:hover{
 		background-color: red;

@@ -69,7 +69,7 @@ font-family:Lucida Sans Unicode;
 		
 		.content {
 		display: flex;
-		
+		color: #fff;
 		flex-direction: column;
 		padding: 0;
 		margin: 0;
@@ -97,12 +97,7 @@ font-family:Lucida Sans Unicode;
 		background-color: red;
 		color: #f4f4f4;
 		}
-		.content {
-		color: #fff;
-		display: flex;
-		padding: 1em;
-		flex-direction: column;
-		}
+		
 	
 		.item1 {background-color: #455a64; flex-basis: auto; width:auto;}
 		.item2 {background-color: #607d8b; flex-basis: auto; width:auto;}

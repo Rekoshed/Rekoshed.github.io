@@ -1,0 +1,474 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>JS Встроенные объекты</title>
+		<link  href="../script.css" rel="stylesheet">
+		
+	</head>
+	<body>
+	<div class="toolbar">
+	<a href="../ScriptMain.html">Главная</a>
+	<a href="#">Блог</a>
+	<a href="#">Контакты</a>
+	<a href="#">О сайте</a>
+	</div>
+	<div class="content">
+	
+
+<h3>Объект Array. Работа с массивами</h3>
+<p>
+Объект <span>Array</span> представляет массив и предоставляет ряд свойств и методов,
+ с помощью которых мы можем управлять массивом.
+</p>
+<h3>Инициализация массива</h3>
+<p>
+Можно создать пустой массив,
+ используя квадратные скобки или конструктор <span>Array</span>:
+<pre id="kod">
+var users = new Array();
+var people = [];
+
+console.log(users);	// Array[0]
+console.log(people); // Array[0]
+</pre>
+
+Можно сразу же инициализировать массив некоторым количеством элементов:
+<pre id="kod">
+var users = new Array("Tom", "Bill", "Alice");
+var people = ["Sam", "John", "Kate"];
+
+alert("users: " + users + "\npeople" + people);
+
+<input type="button" onclick="array0()" value="Вывести" />
+ </pre>
+Можно определить массив и по ходу определять в него новые элементы:
+<pre id="kod">
+var car = new Array();
+car[1] = "Nissan";
+car[2] = "Ford";
+
+alert("Car[1]: " + car[1] + "n\Car[2]" + car[2]);
+
+<input type="button" onclick="array1()" value="Вывести" />
+
+</pre>
+При этом не важно, что по умолчанию массив создается с нулевой длиной.
+ С помощью индексов мы можем подставить на конкретный индекс в массиве тот или иной элемент.
+</p>
+<h3>length</h3>
+<p>
+Чтобы узнать длину массива, используется свойство length:
+<pre id="kod">
+var fruit = new Array();
+fruit[0] = "яблоки";
+fruit[1] = "груши";
+fruit[2] = "сливы";
+
+document.write("В массиве fruit " + fruit.length + " элемента: <.br/>");
+for(var i=0; i < .fruit.length; i++)
+	document.write(fruit[i] + "<.br/>");
+</pre>
+По факту длиной массива будет индекс последнего элемента с добавлением единицы. Например:
+<pre id="kod">
+var users = new Array(); // в массиве 0 элементов
+users[0] = "Tom";
+users[1] = "Kate";
+users[4] = "Sam";
+for(var i=0; i<.users.length;i++)
+	console.log(users[i]);
+<span>Вывод браузера:
+
+Tom
+Kate
+undefined
+undefined
+Sam</span>
+</pre>
+Несмотря на то, что для индексов 2 и 3 мы не добавляли элементов, но длиной массива в данном случае будет число 5. Просто элементы с индексами 2 и 3 будут иметь значение undefined.
+</p>
+<h3>Копирование массива. slice()</h3>
+<p>
+Копирование массива может быть поверхностным или неглубоким (shallow copy) и глубоким (deep copy).
+<br><br>
+При неглубоком копировании достаточно присвоить переменной значение другой переменной, которая хранит массив:
+<pre id="kod">
+var users = ["Tom", "Sam", "Bill"];
+console.log(users);		//	["Tom", "Sam", "Bill"]
+var people = users;		//	неглубокое копирование
+
+people[1] = "Mike";		//	изменяем второй элемент
+console.log(users);		//	["Tom", "Mike", "Bill"]
+</pre>
+В данном случае переменная <span class="blue">people</span> после копирования будет указывать на тот же массив, что и переменная users.
+ Поэтому при изменении элементов в people, изменятся элементы и в users, так как фактически это один и тот же массив.
+<br><br>
+Такое поведение не всегда является желательным.
+ Например, мы хотим, чтобы после копирования переменные указывали на отдельные массивы.
+  И в этом случае можно использовать глубокое копирование с помощью метода <span>slice()</span>:
+<pre>
+var users = ["Tom", "Sam", "Bill"];
+console.log(users);				//	["Tom", "Sam", "Bill"]
+var people = users.slice();		//	глубокое копирование
+
+people[1] = "Mike";				//	изменяем второй элемент
+console.log(users);				//	["Tom", "Sam", "Bill"]
+console.log(people);			//	["Tom", "Mike", "Bill"]
+</pre>
+В данном случае после копирования переменные будут указывать на разные массивы, 
+и мы сможем изменять их отдельно друг от друга.
+<br><br>
+Также метод <span>slice()</span> позволяет скопировать часть массива:
+<pre id="kod">
+var users = ["Tom", "Sam", "Bill", "Alice", "Kate"];
+var people = users.slice(1, 4);
+console.log(people);		// ["Sam", "Bill", "Alice"]
+</pre>
+В метод <span>slice()</span> передается начальный и конечный индексы,
+ которые используются для выборки значений из массива. 
+ То есть в данном случае выборка в новый массив идет начиная с 1 индекса по индекс 4 не включая. 
+</p>
+<h3>push()</h3>
+<p>
+Метод <span>push()</span> добавляет элемент в конец массива:
+<pre id="kod">
+var fruit = [];
+fruit.push("яблоки");
+fruit.push("груши");
+fruit.push("сливы");
+fruit.push("вишня","абрикос");
+
+document.write("В массиве fruit " + fruit.length + " элемента: <br/>");
+document.write(fruit); // яблоки,груши,сливы,вишня,абрикос
+</pre>
+</p>
+<h3>pop()</h3>
+<p>
+Метод <span>pop()</span> удаляет последний элемент из массива:
+<pre id="kod">
+var fruit = ["яблоки", "груши", "сливы"];
+
+var lastFruit = fruit.pop(); // извлекаем из массива последний элемент
+document.write(lastFruit + "<.br/>");
+document.write("В массиве fruit " + fruit.length + " элемента: <br/>");
+for(var i=0; i <.fruit.length; i++)
+	document.write(fruit[i] + "<.br/>");
+<span>Вывод браузера:
+
+сливы
+В массиве fruit 2 элемента: 
+яблоки
+груши</span>
+</pre>
+</p>
+<h3>shift()</h3>
+<p>
+Метод <span>shift()</span> извлекает и удаляет первый элемент из массива:
+<pre>
+var fruit = ["яблоки", "груши", "сливы"];
+
+var firstFruit = fruit.shift();
+document.write(firstFruit + "<.br/>");
+document.write("В массиве fruit " + fruit.length + " элемента: <br/>");
+for(var i=0; i <.fruit.length; i++)
+	document.write(fruit[i] + "<.br/>");
+<span>Вывод браузера:
+
+яблоки
+В массиве fruit 2 элемента: 
+груши
+сливы</span>
+</pre>
+</p>
+<h3>unshift()</h3>
+<p>
+Метод unshift() добавляет новый элемент в начало массива:
+<pre id="kod">
+var fruit = ["яблоки", "груши", "сливы"];
+fruit.unshift("абрикосы");
+document.write(fruit);
+
+<span>
+Вывод браузера:
+
+абрикосы,яблоки,груши,сливы
+</span>
+</pre>
+</p>
+<h3>Удаление элемента по индексу. splice()</h3>
+<p>
+Метод <span>splice()</span> удаляет элементы с определенного индекса. Например, удаление элементов с третьего индекса:
+<pre id="kod">
+var users = ["Tom", "Sam", "Bill", "Alice", "Kate"];
+var deleted = users.splice(3);
+console.log(deleted);		// [ "Alice", "Kate" ]
+console.log(users);			// [ "Tom", "Sam", "Bill" ]
+</pre>
+Метод slice возвращает удаленные элементы.
+<br><br>
+В данном случае удаление идет с начала массива. Если передать отрицательный индекс, то удаление будет производиться с конца массива. Например, удалим последний элемент:
+<pre id="kod">
+var users = ["Tom", "Sam", "Bill", "Alice", "Kate"];
+var deleted = users.splice(-1);
+console.log(deleted);		// [ "Kate" ]
+console.log(users);			// [ "Tom", "Sam", "Bill", "Alice" ]
+</pre>
+Дополнительная версия метода позволяет задать конечный индекс для удаления.
+ Например, удалим с первого по третий индекс:
+<pre id="kod">
+var users = ["Tom", "Sam", "Bill", "Alice", "Kate"];
+var deleted = users.splice(1,3);
+console.log(deleted);		// [ "Sam", "Bill", "Alice" ]
+console.log(users);			// [ "Tom", "Kate" ]
+</pre>
+Еще одна версия метода splice позволяет вставить вместо удаляемых элементов новые элементы:
+<pre id="kod">
+var users = ["Tom", "Sam", "Bill", "Alice", "Kate"];
+var deleted = users.splice(1,3, "Ann", "Bob");
+console.log(deleted);		// [ "Sam", "Bill", "Alice" ]
+console.log(users);			// [ "Tom", "Ann", "Bob", "Kate" ]
+</pre>
+В данном случае удаляем три элемента с 1-й по 3-й индексы и вместо них вставляем два элемента.
+</p>
+<h3>concat()</h3>
+<p>
+Метод concat() служит для объединения массивов:
+<pre id="kod">
+var fruit = ["яблоки", "груши", "сливы"];
+var vegetables = ["помидоры", "огурцы", "картофель"];
+var products = fruit.concat(vegetables);
+
+for(var i=0; i <. products.length; i++)
+	document.write(products[i] + "<.br/>");
+</pre>
+При этом необязательно объединять только однотипные массивы. 
+Можно и разнотипные:
+<pre id="kod">
+var fruit = ["яблоки", "груши", "сливы"];
+var prices = [20, 30, 80];
+var products = fruit.concat(prices);
+</pre>
+</p>
+<h3>join()</h3>
+<p>
+Метод <span>join()</span> объединяет все элементы массива в одну строку:
+<pre id="kod">
+var fruit = ["яблоки", "груши", "сливы", "абрикосы", "персики"];
+var fruitString = fruit.join(", ");
+document.write(fruitString);
+</pre>
+В метод join() передается разделитель между элементами массива. В данном случае в качестве разделителя будет использоваться запятая и пробел (", ").
+</p>
+<h3>sort()</h3>
+<p>
+Метод sort() сортирует массив по возрастанию:
+<pre id="kod">
+var fruit = ["яблоки", "груши", "сливы", "абрикосы", "персики"];
+fruit.sort();
+
+for(var i=0; i < fruit.length; i++)
+	document.write(fruit[i] + "<br/>");
+<span>
+Вывод в браузере:
+
+абрикосы
+груши
+персики
+сливы
+яблоки
+</span>
+</pre>
+</p>
+<h3>reverse()</h3>
+<p>
+Метод <span>reverse() </span>переворачивает массив задом наперед:
+<pre id="kod">
+var fruit = ["яблоки", "груши", "сливы", "абрикосы", "персики"];
+fruit.reverse();
+
+for(var i=0; i <. fruit.length; i++)
+	document.write(fruit[i] + "<.br/>");
+<span>
+Вывод в браузере:
+
+персики
+абрикосы
+сливы
+груши
+яблоки
+</span>
+</pre>
+В сочетании с методом sort() можно отсортировать массив по убыванию:
+<pre id="kod">
+var fruit = ["яблоки", "груши", "сливы", "абрикосы", "персики"];
+fruit.sort().reverse();
+
+for(var i=0; i < fruit.length; i++)
+	document.write(fruit[i] + "<br/>");
+Вывод в браузере:
+
+яблоки
+сливы
+персики
+груши
+абрикосы
+Поиск индекса элемента
+</pre>
+
+Методы indexOf() и lastIndexOf() возвращают индекс первого и последнего включения элемента в массиве. Например:
+<pre id="kod">
+var fruit = ["яблоки", "груши", "сливы", "яблоки", "груши"];
+
+var firstIndex = fruit.indexOf("яблоки");
+var lastIndex = fruit.lastIndexOf("яблоки");
+var otherIndex = fruit.indexOf("вишни");
+document.write(firstIndex); // 0
+document.write(lastIndex);  // 3
+document.write(otherIndex); // -1
+</pre>
+firstIndex имеет значение 0, так как первое включение стоки "яблоки" в массиве приходится на индекс 0, а последнее на индекс 3.
+<br><br>
+Если же элемент отсутствует в массиве, то в этом случае методы indexOf() и lastIndexOf() возвращают значение -1.
+
+<h3>every()</h3>
+<p>
+Метод every() проверяет, все ли элементы соответствуют определенному условию:
+<pre id="kod">
+var numbers = [ 1, -12, 8, -4, 25, 42 ];
+function condition(value, index, array) {
+	var result = false;
+	if (value > 0) {
+		result = true;
+	}
+	return result;
+};
+var passed = numbers.every(condition);
+document.write(passed); // false
+</pre>
+В метод every() в качестве параметра передается функция,
+ представляющая условие. Эта функция принимает три параметра:
+<span id="b">
+function condition(value, index, array) {
+
+}
+</span>
+
+Параметр value представляет текущий перебираемый элемент массива,
+ параметр index представляет индекс этого элемента, 
+ а параметр array передает ссылку на массив.
+<br><br>
+В этой функции мы можем проверить переданное значение элемента на соответствие какому-нибудь условию.
+ Например, в данном примере мы проверяем каждый элемент массива,
+  больше ли он нуля. 
+  Если больше, то возвращаем значение true, то есть элемент соответствует условию. Если меньше, то возвращаем false - элемент не соответствует условию.
+<br><br>
+В итоге, когда происходит вызов метода numbers.every(condition) он перебирает все элементы массива numbers и по очереди передает их в функцию condition. 
+Если эта функция возвращает значение true для всех элементов, 
+то и метод every() возвращает true.
+ Если хотя бы один элемент не соответствует условию, то метод every() возвращает значение false.
+
+<h3>some()</h3>
+<p>
+Метод some() похож на метод every(), только он проверяет, соответствует ли хотя бы один элемент условию. И в этом случае метод some() возвращает true. Если элементов, соответствующих условию, в массиве нет, то возвращается значение false:
+<pre id="kod">
+var numbers = [ 1, -12, 8, -4, 25, 42 ];
+function condition(value, index, array) {
+	var result = false;
+	if (value === 8) {
+		result = true;
+	}
+	return result;
+};
+var passed = numbers.some(condition); // true
+</pre>
+</p>
+<h3>filter()</h3>
+<p>
+Метод filter(), как some() и every(), принимает функцию условия. Но при этом возвращает массив тех элементов, которые соответствуют этому условию:
+<pre id="kod">
+var numbers = [ 1, -12, 8, -4, 25, 42 ];
+function condition(value, index, array) {
+	var result = false;
+	if (value > 0) {
+		result = true;
+	}
+	return result;
+};
+var filteredNumbers = numbers.filter(condition);
+
+for(var i=0; i <. filteredNumbers.length; i++)
+	document.write(filteredNumbers[i] + "<.br/>");
+<span>
+Вывод в браузере:
+
+1
+8
+25
+42
+</span>
+</pre>
+</p>
+<h3>forEach() и map()</h3>
+<p>
+Методы <span>forEach() и map()</span> осуществляют перебор элементов и выполняют с ними определенный операции. 
+Например, для вычисления квадратов чисел в массиве можно использовать следующий код:
+<pre id="kod">
+var numbers = [ 1, 2, 3, 4, 5, 6];
+for(var i = 0; i<.numbers.length; i++){
+	
+	var result = numbers[i] * numbers[i];
+	
+	document.write("Квадрат числа " + numbers[i] + " равен " + result + "<br/>");
+}
+</pre>
+Но с помощью метода forEach() можно упростить эту конструкцию:
+<pre id="kid">
+var numbers = [ 1, 2, 3, 4, 5, 6];
+
+function square(value, index, array) {
+
+	var result = value * value;
+	document.write("Квадрат числа " + value + " равен " + result + "<br/>");
+};
+
+numbers.forEach(square);
+</pre>
+Метод forEach() в качестве параметра принимает все ту же функцию, в которую при переборе элементов передается текущий перебираемый элемент и над ним выполняются операции.
+<br><br>
+Метод map() похож на метод forEach, он также в качестве параметра принимает функцию, с помощью которой выполняются операции над перебираемыми элементами массива, но при этом метод map() возвращает новый массив с результатами операций над элементами массива.
+<br><br>
+Например, применим метод map к вычислению квадратов чисел массива:
+<pre id="kod">
+var numbers = [ 1, 2, 3, 4, 5, 6];
+
+function square(value, index, array) {
+	
+	return result = value * value;
+};
+
+var squareArray = numbers.map(square);
+document.write(squareArray);
+</pre>
+Функция, которая передается в метод map() получает текущий перебираемый элемент, выполняет над ним операции и возвращает некоторое значение. Это значение затем попадает в результирующий массив squareArray
+</p>
+	<a href="Test/NewTest.html" id="out">Output</a>
+	
+  </div>
+ </body>
+ <script type="text/javascript">
+ var users = new Array("Tom", "Bill", "Alice");
+ var people = ["Sam", "John", "Kate"];
+ 
+ function array0(){
+ alert("users: " + users + "\npeople" + people);
+ }
+ var car = new Array();
+ car[1] = "Nissan";
+ car[2] = "Ford";
+ function array1(){
+ alert("Car[1]: " + car[1] + "n\Car[2]" + car[2]);
+ }
+ </script>
+</html>
