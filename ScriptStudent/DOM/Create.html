@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>JS работа с DOM</title>
+		<link  href="../script.css" rel="stylesheet">
+		
+	</head>
+	<body>
+	<div class="toolbar">
+	<a href="../ScriptMain.html">Главная</a>
+	<a href="#">Блог</a>
+	<a href="#">Контакты</a>
+	<a href="#">О сайте</a>
+	</div>
+	<div class="content">
+<h3>Создание, добавление и удаление элементов веб-станицы</h3>
+<p>
+Для создания элементов объект <b>document</b> имеет следующие методы:
+<ul>
+<li><span>createElement(elementName): </span>создает элемент <b>html</b>, тег которого передается в качестве параметра.
+ Возвращает созданный элемент</li>
+
+<li><span>createTextNode(text): </span>создает и возвращает текстовый узел.
+ В качестве параметра передается текст узла.</li>
+</ul>
+<pre id="kod">
+var elem = document.createElement("div");
+var elemText = document.createTextNode("Привет мир");
+</pre>
+Таким образом, переменная <b>elem</b> будет хранить ссылку на элемент <b>div</b>.
+ Однако одного создания элементов недостаточно, их еще надо добавить на веб-страницу.
+<br><br>
+Для добавления элементов мы можем использовать один из методов объекта <span>Node:</span>
+<ul>
+<li><span>appendChild(newNode):</span> добавляет новый узел newNode в конец коллекции дочерних узлов</li>
+
+<li><span>insertBefore(newNode, referenceNode): </span>добавляет новый узел newNode перед узлом <b>referenceNode</b></li>
+</ul>
+Используем метод <span>appendChild:</span>
+
+	<div class="article">
+		<h3>Заголовок статьи</h3>
+		<p>Первый абзац</p>
+		<p>Второй абзац</p>
+	</div>
+<script>
+var articleDiv = document.querySelector("div.article");
+// создаем элемент
+var elem = document.createElement("h2");
+// создаем для него текст
+var elemText = document.createTextNode("Привет мир");
+// добавляем текст в элемент в качестве дочернего элемента
+elem.appendChild(elemText);
+// добавляем элемент в блок div
+articleDiv.appendChild(elem);
+</script>
+<br><br>
+Сначала создаем обычный элемент заголовка <b>h2</b> и текстовый узел. 
+Затем текстовый узел добавляем в элемент заголовка.
+ Затем заголовок добавляем в один из элементов веб-страницы:
+</p>
+
+<h3>Добавление элемента в JavaScript</h3>
+<p>
+Однако нам необязательно для определения текста внутри элемента создавать дополнительный текстовый узел, 
+так как мы можем воспользоваться свойством <b>textContent</b> и напрямую ему присвоить текст:
+<pre id="kod">
+var elem = document.createElement("h2");
+elem.textContent = "Привет мир";
+</pre>
+
+В этом случае текстовый узел будет создан неявно при установке текста.
+<br><br>
+Теперь рассмотрим, как аналогичный элемент добавить в начало коллекции дочерних узлов блока <b>div</b>:
+<pre id="kod">
+var articleDiv = document.querySelector("div.article");
+// создаем элемент
+var elem = document.createElement("h2");
+// создаем для него текст
+var elemText = document.createTextNode("Привет мир");
+// добавляем текст в элемент в качестве дочернего элемента
+elem.appendChild(elemText);
+// получаем первый элемент, перед которым будет идти добавление
+var firstElem = articleDiv.firstChild.nextSibling;
+// добавляем элемент в блок div перед первым узлом
+articleDiv.insertBefore(elem, firstElem);
+</pre>
+Если нам надо вставить новый узел на второе, 
+третье или любое другое место, то нам надо найти узел, 
+перед которым надо вставлять, с помощью комбинаций свойств <span>firstChild/lastChild и nextSibling/previousSibling.</span>
+</p>
+
+<h3>Копирование элемента</h3>
+<p>
+Иногда элементы бывают довольно сложными по составу,
+ и гораздо проще их скопировать, чем с помощью отдельных вызовов создавать из содержимое.
+  Для копирования уже имеющихся узлов у объекта<span> Node </span>можно использовать метод <span>cloneNode():</span>
+<pre id="kod">
+var articleDiv = document.querySelector("div.article");
+// клонируем элемент articleDiv
+var newArticleDiv = articleDiv.cloneNode(true);
+// добавляем в конец элемента body
+document.body.appendChild(newArticleDiv);
+</pre>
+В метод <span>cloneNode()</span> в качестве параметра передается логическое значение:
+ если передается <b>true</b>, то элемент будет копироваться со всеми дочерними узлами; 
+ если передается <b>false </b>- то копируется без дочерних узлов.
+  То есть в данном случае мы копируем узел со всем его содержимым и потом добавляем в конец элемента <b>body</b>.
+</p>
+
+<h3>Удаление элемента</h3>
+<p>
+Для удаления элемента вызывается метод <span>removeChild() </span>объекта <span>Node</span>.
+ Этот метод удаляет один из дочерних узлов:
+<pre id="kod">
+var articleDiv = document.querySelector("div.article");
+// находим узел, который будем удалять - первый параграф
+var removableNode = document.querySelectorAll("div.article p")[0];
+// удаляем узел
+articleDiv.removeChild(removableNode);
+</pre>
+В данном случае удаляется первый параграф из блока <b>div</b>
+</p>
+<h3>Замена элемента</h3>
+<p>
+Для замены элемента применяется метод <span>replaceChild(newNode, oldNode) </span>объекта <span>Node</span>.
+ Этот метод в качестве первого параметра принимает новый элемент, 
+ который заменяет старый элемент <span>oldNode</span>,
+  передаваемый в качестве второго параметра.
+<pre id="kod">
+var articleDiv = document.querySelector("div.article");
+// находим узел, который будем заменять - первый параграф
+var oldNode = document.querySelectorAll("div.article p")[0];
+// создаем элемент
+var newNode = document.createElement("h2");
+// создаем для него текст
+var elemText = document.createTextNode("Привет мир");
+// добавляем текст в элемент в качестве дочернего элемента
+newNode.appendChild(elemText);
+// заменяем старый узел новым
+articleDiv.replaceChild(newNode, oldNode);
+</pre>
+В данном случае заменяем первый параграф заголовком <b>h2</b>:
+
+
+
+	<a href="Test/DesignerTest.html" id="out">Output</a>
+	
+  </div>
+ </body>
+</html>

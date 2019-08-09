@@ -1,0 +1,139 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>JS работа с DOM</title>
+		<link  href="../script.css" rel="stylesheet">
+		
+	</head>
+	<body>
+	<div class="toolbar">
+	<a href="../ScriptMain.html">Главная</a>
+	<a href="#">Блог</a>
+	<a href="#">Контакты</a>
+	<a href="#">О сайте</a>
+	</div>
+	<div class="content">
+
+<h3>Изменение стиля элементов</h3>
+<p>
+Для работы со стилевыми свойствами элементов в <b>JavaScript</b>
+ применяются, главным образом, два подхода:
+
+<li>Изменение свойства <span>style</span></li>
+
+<li>Изменение значения атрибута <span>class</span>
+</li>
+<h3>Свойство style</h3>
+<p>
+Свойство <span>style</span> представляет сложный объект 
+для управления стилем и напрямую сопоставляется с атрибутом
+ <b>style html</b>-элемента. 
+ Этот объект содержит набор свойств <b>CSS</b>: <span>element.style.свойствоCSS</span>.
+  <br>
+  Например, установим цвет шрифта:
+<pre id="kod">
+var root = document.documentElement;
+// устанавливаем стиль
+root.style.color = "blue";
+// получаем значение стиля
+document.write(root.style.color); // blue
+</pre>
+В данном случае название свойства <b>color </b>совпадает со свойством <b>css</b>.
+ Аналогично мы могли бы установить цвет с помощью <span>css:</span>
+<pre id="kod">
+html{
+	color:blue;
+}
+</pre>
+
+Однако ряд свойств <b>css</b> в названиях имеют дефис, 
+например, <b>font-family</b>. 
+В JavaScript для этих свойств дефис не употребляется. 
+Только первая буква, которая идет после дефиса, переводится в верхний регистр:
+<pre id="kod">
+var root = document.documentElement;
+root.style.fontFamily = "Verdana";
+</pre>
+</p>
+<h3>Свойство className</h3>
+<p>
+С помощью свойства <span>className</span> можно установить
+ атрибут <b>class</b> элемента <b>html</b>. Например:
+<br>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<style>
+	.blueStyle{
+		color:blue;
+		font-family:Verdana;
+	}
+	.article{
+		font-size:20px;
+	}
+	</style>
+</head>
+<body>
+<div class="article">
+<h3>Заголовок статьи</h3>
+<p>Первый абзац</p>
+<p>Второй абзац</p>
+</div>
+<script>
+var articleDiv = document.querySelector("div.article");
+// установка нового класса
+articleDiv.className = "blueStyle";
+// получаем название класса
+document.write(articleDiv.className);
+</script>
+</body>
+</html>
+<br>
+Благодаря использованию классов не придется настраивать
+ каждое отдельное свойство <b>css </b>с помощью свойства <b>style</b>.
+<br><br>
+Но при этом надо учитывать, что прежнее значение атрибута <b>class</b> удаляется. 
+Поэтому, если нам надо добавить класс,
+ надо объединить его название со старым классом:
+<span id="b">
+articleDiv.className = articleDiv.className + " blueStyle";
+</span>
+
+И если надо вовсе удалить все классы, то можно присвоить свойству пустую строку:
+<span id="b">
+articleDiv.className = "";
+</span>
+
+<h3>Свойство classList</h3>
+<p>
+Выше было рассмотрено, как добавлять классы к элементу, 
+однако для управления множеством классов гораздо удобнее использовать свойство <span>classList</span>.
+ Это свойство представляет объект, реализующий следующие методы:
+<ul>
+<li><span>add(className):</span> добавляет класс <b>className</b></li>
+
+<li><span>remove(className):</span> удаляет класс <b>className</b></li>
+
+<li><span>toggle(className):</span> переключает у элемента класс на <b>className</b>. 
+Если класса нет, то он добавляется, если есть, то удаляется</li>
+</ul>
+
+Например:
+<pre id="kod">
+var articleDiv = document.querySelector("div.article");
+// удаляем класс
+articleDiv.classList.remove("article");
+// добавляем класс
+articleDiv.classList.add("blueStyle");
+// переключаем класс
+articleDiv.classList.toggle("article");
+</pre>
+	<a href="Test/DesignerTest.html" id="out">Output</a>
+	
+  </div>
+ </body>
+</html>

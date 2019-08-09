@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Объективная модель браузера.</title>
+		<link  href="../script.css" rel="stylesheet">
+		
+	</head>
+	<body>
+	<div class="toolbar">
+	<a href="../ScriptMain.html">Главная</a>
+	<a href="../.html">Блог</a>
+	<a href="#">Контакты</a>
+	<a href="#">О сайте</a>
+	</div>
+	<div class="content">
+<h3>Таймеры</h3>
+<p>
+Для выполнения действий через определенные промежутки времени
+ в объекте <span>window</span> предусмотрены функции таймеров. 
+ Есть два типа таймеров: одни выполняются только один раз, а другие постоянно через промежуток времени.
+</p>
+<h3>Функция <span>setTimeout</span></h3>
+<p>
+Для одноразового выполнения действий через промежуток 
+времени предназначена функция<span> setTimeout().</span>
+ Она может принимать два параметра:
+<span id="b">
+var timerId = setTimeout(someFunction, period)
+</span>
+Параметр <span>period</span> указывает на промежуток, 
+через который будет выполняться функция из параметра <span>someFunction</span>.
+ А в качестве результата функция возвращает id таймера.
+<pre id="kod">
+function timerFunction() {
+	document.write("выполнение функции setTimeout");
+}
+setTimeout(timerFunction, 3000);
+</pre>
+В данном случае через 3 секунды после загрузки
+ страницы произойдет срабатывание функции <span>timerFunction.</span>
+<br><br>
+Для остановки таймера применяется функция <span>clearTimeout().</span>
+<pre id="kod">
+function timerFunction() {
+	document.write("выполнение функции setTimeout");
+}
+var timerId = setTimeout(timerFunction, 3000);
+clearTimeout(timerId);
+</pre>
+</p>
+<h3>Функция setInterval</h3>
+<p>
+Функции <span>setInterval()</span> и <span>clearInterval()</span>
+ работают аналогично функциям <span>setTimeout() и clearTimeout() </span>с той лишь разницей,
+  что<span> setInterval()</span> постоянно выполняет определенную функцию через промежуток времени.
+<br><br>
+Например, напишем небольшую программу для вывода текущего времени:
+</p>
+<div id="time" class="color2 blue"></div>
+<script>
+function updateTime() {
+	document.getElementById("time").innerHTML = new Date().toTimeString();
+}
+setInterval(updateTime, 1000);
+</script>
+<p>
+Здесь через каждую секунду (1000 миллисекунд) вызывается функция <span>updateTime()</span>,
+ которая обновляет содержимое поля <.div id="time" >, 
+ устанавливая в качестве его кода html текущее вемя.
+</p>
+<h3>requestAnimationFrame()</h3>
+<p>
+Метод <span>requestAnimationFrame()</span> действует аналогично <span>setInterval()</span>
+ за тем исключением, что он больше заточен под анимации,
+  работу с графикой и имеет ряд оптимизаций, 
+  которые улучшают его производительность.
+</p>
+	<style>
+	#rect {
+		margin: 100px;
+		width: 100px;
+		height: 100px;
+		background: #50c878;
+	}
+	</style>
+
+<div id="rect"></div>
+<script>
+var square = document.getElementById("rect");
+var angle = 0;
+function rotate() {
+	angle = (angle + 2)%360;
+	square.style.transform = "rotate(" + angle + "deg)";
+	window.requestAnimationFrame(rotate);
+}
+var id = window.requestAnimationFrame(rotate);
+</script>
+<p>
+В метод <span>window.requestAnimationFrame()</span> передается функция, 
+которая будет вызываться определенное количество раз (обычно 60) в секунду. 
+В данном случае в этот метод передается функция <span class="blue">rotate</span>,
+ которая изменяет угол поворота блока на странице и затем обращается опять же к методу <span>window.requestAnimationFrame(rotate).</span>
+ <br><br>
+В качестве возвращаемого результата метод <span>window.requestAnimationFrame()</span> возвращает уникальный id, 
+который может потом использоваться для остановки анимации:
+<span id="b">
+window.cancelAnimationFrame(id);
+</span>
+	<a href="Test/TimerTest.html" id="out">Output</a>
+	
+  </div>
+ </body>
+</html>

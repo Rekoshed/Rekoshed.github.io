@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>JS Строки.Тест</title>
+		<link  href="../../script.css" rel="stylesheet">
+		
+	</head>
+	<body>
+	<div class="toolbar">
+	<a href="../../ScriptMain.html">Главная</a>
+	<a href="../ExpMeta.html">Назад</a>
+	<a href="#">Контакты</a>
+	<a href="#">О сайте</a>
+	</div>
+	<div class="content">
+<script type="text/javascript">
+
+
+	/*var stWith ="<h3>Метод <span>startsWith()</span></h3> ";
+	var esWith ="<h3>Метод <span>endsWith()</span></h3> ";
+	var swith ="startsWith: ";
+	var ewith ="endsWith: ";
+	var hello = "let me speak from my heart";
+		
+	document.write(stWith);
+	document.write('<span id="kod">' + hello + "</span>");
+	document.write("<p>'let' " + swith + hello.startsWith("let") + "</p>");
+	document.write("<p>'Let' " + swith + hello.startsWith("Let") + "</p>");
+	document.write("<p>'lets' " + swith + hello.startsWith("lets") + "</p>");
+    
+    document.write(esWith);
+	
+	document.write("<p>'beart' " + ewith + hello.endsWith("beart") + "</p>");
+	document.write("<p>'heart' " + ewith + hello.endsWith("heart") + "</p>");
+	
+	*/
+	var initialText = '<.img src= "picture.png" />;<.img src= "image.png" />'; 
+	document.write("<h3> Первое включение</h3>")
+	var exp = /[a-z]+\.(png|jpg)/i; // поиск независимо от регистра.
+	var result = initialText.match(exp); 
+	result.forEach(function(value, index, array){
+	
+	document.write(value + "<br/>");
+	})
+	document.write("<h3>Глобальный поиск</h3>")
+	var exp = /[a-z]+\.(png|jpg)/ig; // поиск всех включений независимо от регистра.
+	var result = initialText.match(exp); 
+	result.forEach(function(value, index, array){
+	
+	document.write(value + "<br/>");
+	})
+	
+	</script>
+  </div>
+ </body>
+</html>

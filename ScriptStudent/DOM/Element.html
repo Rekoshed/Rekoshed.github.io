@@ -1,0 +1,180 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>JS работа с DOM</title>
+		<link  href="../script.css" rel="stylesheet">
+		
+	</head>
+	<body>
+	<div class="toolbar">
+	<a href="../ScriptMain.html">Главная</a>
+	<a href="#">Блог</a>
+	<a href="#">Контакты</a>
+	<a href="#">О сайте</a>
+	</div>
+	<div class="content">
+<h3>Объект <span>Element</span>. Управление элементами</h3>
+<p>
+Кроме методов и свойств объекта <span>Node</span> в <b>JavaScript</b> мы можем использовать свойства и методы объектов <span>Element</span>.
+ Важно не путать эти два объекта: <span>Node</span> и <span>Element</span>.
+ <span> Node </span>представляет все узлы веб-станицы, 
+ в то время как объект <span>Element</span> представляет непосредственно только <b>html</b>-элементы. 
+ То есть объекты <span>Element</span> - это фактически те же самые узлы - объекты <span>Node</span>,
+  у которых тип узла (свойство <b>nodeType</b>) равно 1.
+<br><br>
+Одним из ключевых свойств объекта <span>Element</span> является свойство <b>tagName</b>,
+ которое возвращает тег элемента. 
+ Например, получим все элементы, которые есть на странице:
+
+<div class="article">
+<h3>Заголовок статьи</h3>
+<p>Первый абзац</p>
+<p>Второй абзац</p>
+</div>
+<script>
+function getChildren(elem){
+	
+	for(var i in elem.childNodes){
+	
+		if(elem.childNodes[i].nodeType===1){
+		
+			console.log(elem.childNodes[i].tagName);
+			getChildren(elem.childNodes[i]);
+		}
+	}
+}
+var root = document.documentElement;
+console.log(root.tagName);
+getChildren(root);
+</script>
+<br><br>
+Здесь вначале получаем те корневого элемента <b><.html></b>
+ и затем с помощью рекурсивной функции <span>getChildren </span>
+ получаем все вложенные элементы:
+</p>
+<h3>Свойства <span>innerText</span> и <span>innerHTML</span></h3>
+<p>
+Для получения или установки текстового содержимого элемента 
+мы можем использовать свойство <span>innerText</span>,
+ а для получения или установки кода <b>html</b> - свойство <span>innerHTML:</span>
+<br>
+<div class="article">
+<h3>Заголовок статьи</h3>
+<p>Первый абзац</p>
+<p>Второй абзац</p>
+</div>
+<script>
+var articleDiv = document.querySelector("div.article");
+console.log(articleDiv.innerText);
+console.log("_______________________");
+console.log(articleDiv.innerHTML);
+</script>
+<br><br>
+Надо отметить, что свойство <span>innerText </span>
+во многом аналогично свойству <span>textContent</span>.
+ То есть следующие вызовы будут равноценны:
+<pre id="kod">
+var pElement = document.querySelectorAll("div.article p")[0];
+pElement.innerText = "hello";
+pElement.textContent = "hello";
+<span id="b">
+Установка кода html у элемента:
+</span>
+var articleDiv = document.querySelector("div.article");
+articleDiv.innerHTML ="<.h2>Hello World!!!<./h2><.p>bla bla bla<./p>";
+</pre>
+<h3>Методы объекта Element</h3>
+<p>
+Среди методов объекта <span>Element</span> можно отметить методы управления атрибутами:
+<ul>
+<li><span>getAttribute(attr):</span> возвращает значение атрибута <b>attr</b></li>
+
+<li><span>setAttribute(attr, value): </span>устанавливает для атрибута <b>attr </b>значение <b>value</b>. </li>
+Если атрибута нет, то он добавляется
+
+<li><span>removeAttribute(attr): </span>удаляет атрибут <b>attr </b>и его значение</li>
+</ul>
+Работа с атрибутами:
+
+<div class="article" style="color:red;">
+<h3>Заголовок статьи</h3>
+<p>Первый абзац</p>
+<p>Второй абзац</p>
+</div>
+<script>
+var articleDiv = document.querySelector("div.article");
+// получаем атрибут style
+var styleValue = articleDiv.getAttribute("style");
+console.log("До изменения атрибута: " + styleValue);
+// удаляем атрибут
+articleDiv.removeAttribute("style");
+// добавляем заново атрибут style
+articleDiv.setAttribute("style", "color:blue;");
+styleValue = articleDiv.getAttribute("style");
+console.log("После изменения атрибута: " + styleValue);
+</script>
+<br>
+</p>
+<h3>Размеры и позиция элементов</h3>
+<p>
+Элементы имеют ряд свойств, которые позволяют определить размер элемента. 
+Но важно понимать разницу между всеми этими свойствами
+<br><br>
+Свойства <span>offsetWidth</span> и <span>offsetHeight</span>
+ определяют соответственно ширину и высоту элемента в пикселях. 
+ В ширину и высоту включается граница элемента.
+<br><br>
+Свойства <span>clientWidth</span> и <span>clientHeight</span>
+ также определяют ширину и высоту элемента в пикселях, 
+ но уже без учета границы:
+<br>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<style>
+	#rect {
+		width: 100px;
+		height: 100px;
+		background: #50c878;
+		border: 3px solid silver;
+	}
+	</style>
+</head>
+<body>
+<div id="rect"></div>
+<script>
+var rect = document.getElementById("rect");
+console.log("offsetHeight: " + rect.offsetHeight);
+console.log("offsetWidth: " + rect.offsetWidth);
+console.log("clientHeight: " + rect.clientHeight);
+console.log("clientWidth: " + rect.clientWidth);
+</script>
+</body>
+</html>
+<br>
+Поскольку у блока <b>div</b> определена граница в 3 пикселя, 
+то по сравнению с <span>clientHeight/clientWidth</span> к <span>offsetHeight/offsetWidth</span>
+ добавляет по 6 пикселей.
+<br><br>
+Для определения позиции элемента наиболее эффективным способом 
+является метод <span>getBoundingClientRect()</span>.
+<br><br>
+Этот метод возвращает объект со свойствами <b>top, bottom, left, right,</b>
+ которые указывают на смещение элемента относительно верхнего левого угла браузера:
+<pre id="kod">
+var rect = document.getElementById("rect");
+var clientRect  = rect.getBoundingClientRect();
+console.log("top: " + clientRect.top);
+console.log("bottom: " + clientRect.bottom);
+console.log("left: " + clientRect.left);
+console.log("right: " + clientRect.right);
+</pre>
+	<a href="Test/DesignerTest.html" id="out">Output</a>
+	
+  </div>
+ </body>
+</html>

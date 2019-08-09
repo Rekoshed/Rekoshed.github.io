@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>JS работа с DOM</title>
+		<link  href="../script.css" rel="stylesheet">
+		
+	</head>
+	<body>
+	<div class="toolbar">
+	<a href="../ScriptMain.html">Главная</a>
+	<a href="#">Блог</a>
+	<a href="#">Контакты</a>
+	<a href="#">О сайте</a>
+	</div>
+	<div class="content">
+<h3>Объект Node. Навигация по DOM</h3>
+<p>
+Каждый отдельный узел, будь то <b>html</b>-элемент, 
+его атрибут или текст, в структуре <b>DOM</b> представлен 
+объектом <span>Node</span>.
+ Этот объект предоставляет ряд свойств, с помощью которых мы можем получить информацию о данном узле:
+<ul>
+<li><span>childNodes:</span> содержит коллекцию дочерних узлов</li>
+
+<li><span>firstChild:</span> возвращает первый дочерний узел текущего узла</li>
+
+<li><span>lastChild:</span> возвращает последний дочерний узел текущего узла</li>
+
+<li><span>previousSibling:</span> возвращает предыдущий элемент, который находится на одном уровне с текущим</li>
+
+<li><span>nextSibling:</span> возвращает следующий элемент, который находится на одном уровне с текущим</li>
+
+<li><span>ownerDocument:</span> возвращает корневой узел документа</li>
+
+<li><span>parentNode:</span> возвращает элемент, который содержит текущий узел</li>
+
+<li><span>nodeName:</span> возвращает имя узла</li>
+
+<li><span>nodeType:</span> возвращает тип узла в виде числа</li>
+
+<li><span>nodeValue:</span> возвращает или устанавливает значение узла в виде простого текста</li>
+</ul>
+<br>
+Перебирем все дочерние узлы элемента:
+
+	<div class="article">
+		<h3>Заголовок статьи</h3>
+		<p>Первый абзац</p>
+		<p>Второй абзац</p>
+	</div>
+<script>
+var articleDiv = document.querySelector("div.article");
+var nodes = articleDiv.childNodes;
+for(var i=0; i<nodes.length;i++){
+
+	var type = "";
+	if(nodes[i].nodeType===1)
+		type="элемент";
+	else if(nodes[i].nodeType===2)
+		type="атрибут";
+	else if(nodes[i].nodeType===3)
+		type="текст";
+		
+	console.log(nodes[i].nodeName + ": " + type);
+}
+</script>
+
+	<a href="Test/NodeTest.html" id="out">Output</a>
+	
+<br>
+С помощью метода <span>document.querySelector("div.article") </span>
+выбираем элемент <b>div </b>с классом <b>article </b>
+и пробегаемся по его дочерним узлам.
+ И в цикле выводим имя узла и его тип с помощью свойств <span>nodeName и nodeType.</span>
+  Каждому типу соответствует определенное число:
+
+
+Но несмотря на то, что в блоке <b>div</b>
+ на странице только три узла: h3 и 2 параграфа,
+  но консоль отобразит нам пять узлов.
+
+  </div>
+ </body>
+</html>

@@ -1,0 +1,170 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Java Script</title>
+		<link  href="../script.css" rel="stylesheet">
+		
+	</head>
+	<body>
+	<div class="toolbar">
+	<a href="../ScriptMain.html">Главная</a>
+	<a href="#">Блог</a>
+	<a href="#">Контакты</a>
+	<a href="#">О сайте</a>
+	</div>
+	<div class="content">	
+
+<h3>Классы</h3>
+<p>
+Для определения класса используется ключевое слово <span>class</span>:
+<code id="b">
+class Person{
+}
+</code>
+
+Также можно определить анонимный класс и присвоить его переменной:
+<code id="b">
+let Person = class{}
+</code>
+После этого мы можем создать объекты класса с помощью конструктора:
+</p>
+<pre id="kod">
+class Person{}
+
+let tom = new Person();
+let bob = new Person();
+</pre>
+<p>
+Для создания объекта с помощью конструктора сначала ставится ключевое слово new. 
+Затем  идет вызов конструктора - по сути вызов функции по имени класса. 
+По умолчанию классы имеют один конструктор без параметров. 
+Поэтому в данном случае при вызове конструктора в него не передается никаких аргументов.
+<br><br>
+Мы можем определить в классе свои конструкторы. 
+Также класс может содержать свойства и методы:
+</p>
+<pre id="kod">
+class Person{
+	constructor(name, age){
+		this.name = name;
+		this.age = age;
+	}
+	display(){
+		console.log(this.name, this.age);
+	}
+}
+
+let tom = new Person("Tom", 34);
+tom.display();			// Tom 34
+console.log(tom.name);	// Tom
+</pre>
+<p>
+Конструктор определяется с помощью метода с именем <span>constructor</span>.
+ По сути это обычный метод, который может принимать параметры.
+  Основная цель конструктора - инициализировать объект начальными данными.
+   И в данном случае в конструктор передаются два значения - для имени и возраста пользователя.
+<br><br>
+Для хранения состояния в классе определяются свойства.
+ Для их определения используется ключевое слово <span>this</span>. 
+ В данном случае в классе два свойства: <span class="blue">name и age</span>.
+<br><br>
+Поведение класса определяют методы. 
+В данном случае определен метод <span class="blue">display()</span>, который выводит значения свойств на консоль.
+<br><br>
+Cоответственно мы можем передать в конструктор значения для инициализации объекта: <span clasd="blue">new Person("Tom", 34)</span>.
+</p>
+
+<h3>Наследование</h3>
+<p>
+ Oпределим следеющие классы:
+</p>
+<pre id="kod">
+class Person{
+	constructor(name, age){
+		this.name = name;
+		this.age = age;
+	}
+	display(){
+		console.log(this.name, this.age);
+	}
+}
+class Employee extends Person{
+	constructor(name, age, company){
+		super(name, age);
+		this.company = company;
+	}
+	display(){
+		super.display();
+		console.log("Employee in", this.company);
+	}
+	work(){
+		console.log(this.name, "is hard working");
+	}
+}
+
+let tom = new Person("Tom", 34);
+let bob = new Employee("Bob", 36, "Google");
+tom.display();
+bob.display();
+bob.work();
+</pre>
+<p>
+Для наследования одного класса от другого в определении класса применяется оператор <span>extends</span>, 
+после которого идет название базового класса.
+ То есть в данном случае класс <span class="blue">Employee</span> наследуется от класса <span class="blue">Person</span>. 
+ Класс Person еще называется базовым классом, классом-родителем, суперклассом, а класс Employee - классом-наследником, подклассом, производным классом.
+<br><br>
+Производный класс, как и базовый, может определять конструкторы, свойства, методы. 
+Вместе с тем с помощью слова <span>super</span> производный класс может ссылаться на функционал, 
+определенный в базовом.
+ Например, в конструкторе <span class="blue">Employee</span> можно вручную не устанавливать свойства <span class="blue">name</span> и <span class="blue">age</span>, 
+ а с помощью выражения <span class="blue">super(name, age)</span>; 
+ вызвать конструктор базового класса и тем самым передать работу по установке этих свойств базовому классу.
+<br><br>
+Подобным образом в методе <span>display </span>в классе <span class="blue">Employee </span>через вызов <span>super.display()</span> можно обратиться к реализации метода <span>display</span> класса <span>Person</span>.
+<br><br>
+Консольный вывод программы:
+</p>
+<pre id="kod">
+Tom 34
+Bob 36
+Employee in Google
+Bob is hard working
+</pre>
+
+<h3>Статические методы</h3>
+<p>
+Статические методы вызываются для всего класса вцелом, а не для отедельного объекта. 
+Для их определения применяется оператор <span>static</span>. Например:
+</p>
+<pre id="kod">
+class Person{
+	constructor(name, age){
+		this.name = name;
+		this.age = age;
+	}
+	static nameToUpper(person){
+		return person.name.toUpperCase();
+	}
+	display(){
+		console.log(this.name, this.age);
+	}
+}
+let tom = new Person("Tom Soyer", 34);
+let personName = Person.nameToUpper(tom);
+console.log(personName);		// TOM SOYER
+</pre>
+<p>
+В данном случае определен статический метод <span>nameToUpper()</span>. 
+В качестве параметра он принимает объект <span>Person</span> и переводит его имя в верхний регистр. 
+Поскольку статический метод относится классу вцелом, а не к объекту, 
+то мы НЕ можем использовать в нем ключевое слово <span>this</span> и через него обращаться к свойствам объекта.
+</p>
+	<a href="Test/DesignerTest.html" id="out">Output</a>
+	
+  </div>
+ </body>
+</html>

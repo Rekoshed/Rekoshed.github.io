@@ -1,0 +1,259 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Java Script</title>
+		<link  href="../script.css" rel="stylesheet">
+		
+	</head>
+	<body>
+	<div class="toolbar">
+	<a href="../ScriptMain.html">Главная</a>
+	<a href="#">Блог</a>
+	<a href="#">Контакты</a>
+	<a href="#">О сайте</a>
+	</div>
+	<div class="content">
+	
+
+
+
+<h3>Объекты</h3>
+<script type="text/javascript">
+function test(){
+document.body.div = "<p>Some text</p>";
+}
+</script>
+<input type="button" onklick="test()" value="Тест">
+<p>
+
+<h3>Создание нового объекта</h3>
+<p>
+Есть несколько способов создания нового объекта.
+<br>
+
+Первый способ заключается в использовании конструктора <span>Object</span>:
+<span id="block">var user = new Object();</span>
+В данном случае объект называется <span>user</span>. 
+Он определяется также, как и любая обычная переменная с помощью ключевого слова <span>var</span>.
+<br>
+Выражение <span>new Object()</span> представляет вызов конструктора - функции, 
+создающей новый объект. 
+<br>
+Второй способ создания объекта представляет использование фигурных скобок:
+<span id="block">
+var user = {};
+</span>
+На сегодняшний день более распространенным является второй способ.
+</p>
+
+<h3>Свойства объекта</h3>
+<p>
+После создания объекта мы можем определить в нем свойства. 
+Чтобы определить свойство, надо после названия объекта через точку указать имя свойства и присвоить ему значение:
+</p>
+<pre id="block">
+var user = {};
+user.name = "Tom";
+user.age = 26;
+</pre>
+<p>
+После этого мы можем использовать эти свойства, например, вывести их значения в консоли:
+</p>
+<pre id="kod">
+console.log(user.name);
+console.log(user.age);
+</pre>
+<p>
+Также можно определить свойства при определении объекта:
+</p>
+<pre id="block">
+var user = {
+ 
+    name: "Tom",
+    age: 26
+};
+</pre>
+<p>
+В этом случае для присвоения значения свойству используется символ двоеточия, а после определения свойства ставится запятая (а не точка с запятой).
+<br>
+Cокращенный способ определения свойств:
+</p>
+<pre id="kod">
+var name = "Tom";
+var age = 34;
+var user = {name, age};
+console.log(user.name);		// Tom
+console.log(user.age);		// 34
+</pre>
+<p>
+В данном случае названия переменных также являются и названиями свойств объекта. И таким образом можно создавать более сложные конструкции:
+</p>
+<pre id="kod">
+var name = "Tom";
+var age = 34;
+var user = {name, age};
+
+var teacher = {user, course: "JavaScript"};
+console.log(teacher.user);		// {name: "Tom", age: 34}
+console.log(teacher.course);	// JavaScript
+</pre>
+
+<h3>Методы объекта</h3>
+<p>
+Методы представляют собой функции:
+</p>
+<pre id="kod">
+var user = {};
+user.name = "Tom";
+user.age = 26;
+user.display = function(){
+	
+	console.log(user.name);
+	console.log(user.age);
+};
+
+// вызов метода
+user.display();
+</pre>
+<p>
+Как и в случае с функциями методы сначала определяются, а потом уже вызываются.
+<br><br>
+Также методы могут определяться непосредственно при определении объекта:
+</p>
+<pre id="kod">
+var user = {
+ 
+    name: "Tom",
+    age: 26,
+    display: function(){
+     
+        console.log(this.name);
+        console.log(this.age);
+    }
+};
+</pre>
+<p>
+Как и свойствам, методу присваивается ссылка на функцию с помощью знака двоеточия.
+<br><br>
+Чтобы обратиться к свойствам или методам объекта внутри этого объекта, используется ключевое слово <span>this</span>.
+
+Также можно использовать сокращенный способ определения методов, когда <span class="blue">двоеточие</span> и слово <span class="blue">function</span> опускаются:
+<pre id="kod">
+var user = {
+ 
+    name: "Tom",
+    age: 26,
+    display(){
+     
+        console.log(this.name, this.age);
+    },
+	move(place){
+		console.log(this.name, "goes to", place);
+	}
+};
+user.display();	// Tom 26
+user.move("the shop");	// Tom goes to the shop
+</pre>
+
+
+<h3>Синтаксис массивов</h3>
+
+
+
+<p>
+Aльтернативный способ определения свойств и методов с помощью синтаксиса массивов:
+</p>
+<pre id="kod">
+var user = {};
+user["name"] = "Tom";
+user["age"] = 26;
+user["display"] = function(){
+	
+	console.log(user.name);
+	console.log(user.age);
+};
+
+// вызов метода
+user["display"]();
+</pre>
+<p>
+При обращении к этим свойствам и методам можно использовать либо нотацию точки (user.name), либо обращаться так: user["name"]
+</p>
+<h3>Строки в качестве свойств и методов</h3>
+<p>
+ Hазвания свойств и методов объекта всегда представляют строки.
+  То есть мы могли предыдущее определение объекта переписать так:
+</p>
+<pre id="kod">
+var user = {
+	"name": "Tom",
+	"age": 26,
+	"display": function(){
+	
+		console.log(user.name);
+		console.log(user.age);
+	}
+};
+// вызов метода
+user.display();
+</pre>
+<p>
+С одной стороны, разницы никакой нет, но бывают случаи, где заключение названия в строку могут помочь. Например, если название свойства состоит из двух слов, разделенных пробелом:
+</p>
+<pre id="kod">
+var user = {
+	name: "Tom",
+	age: 26,
+	"full name": "Tom Johns",
+	"display info": function(){
+	
+		console.log(user.name);
+		console.log(user.age);
+	}
+};
+console.log(user["full name"]);
+user["display info"]();
+</pre>
+<p>
+B этом случае для обращении к подобным свойствам и методам мы должны использовать синтаксис массивов.
+</p>
+
+<h3>Удаление свойств</h3>
+<p>
+И как и в случае с добавлением мы можем удалять свойства двумя способами. 
+<br><br>
+Певый способ - использование нотации точки:
+<span id="block">
+delete объект.свойство
+</span>
+Либо использовать синтаксис массивов:
+<span id="block">
+delete объект["свойство"]
+</span>
+Например, удалим свойство:
+</p>
+<pre id="kod">
+var user = {};
+user.name = "Tom";
+user.age = 26;
+user.display = function(){
+	
+	console.log(user.name);
+	console.log(user.age);
+};
+
+console.log(user.name); // Tom
+delete user.name; // удаляем свойство
+// альтернативный вариант
+// delete user["name"];
+console.log(user.name); // undefined
+</pre>
+
+	<input type="button" onklick="displaySquare()" value="Вывести в консоль">
+
+  </div>
+ </body>
+</html>

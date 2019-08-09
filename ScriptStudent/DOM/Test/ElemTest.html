@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>DOM.Test</title>
+		<link  href="../../script.css" rel="stylesheet">
+		
+	</head>
+	<body>
+	<div class="toolbar">
+	<a href="../../ScriptMain.html">Главная</a>
+	<a href="../Elem.html">Назад</a>
+	<a href="#">Контакты</a>
+	<a href="#">О сайте</a>
+	</div>
+	<div class="content">
+	<b>
+	<span>Найдем элемент по id:</span>
+	</b>
+	<div>
+	<h3 id="header">Block Header неизменим</h3>
+	<b>Text</b>
+	</div>
+	<script>
+	var headerElement = document.getElementById("header");
+	document.write("Текст заголовка: " + headerElement.innerText);
+	</script>
+  </div>
+  <b><span>
+  Поиск по определенному тегу:
+  </span></b>
+  
+  <div>
+  <h3>Заголовок</h3>
+  <p>Первый абзац</p>
+  <p>Второй абзац</p>
+  </div>
+  <script>
+  var pElements = document.getElementsByTagName("p");
+  
+  for (var i = 0; i < pElements.length; i++) {
+  document.write("Текст параграфа: " + pElements[i].innerText + "<br/>");
+  }
+  </script>
+  <br><br>
+<b><span>
+  Получение элемента по классу:
+  </span></b>
+  
+  <div class="article">
+  <h3>Заголовок статьи</h3>
+  <p class="text">Первый абзац</p>
+  <p class="text">Второй абзац</p>
+  </div>
+  <script>
+  var articleDiv = document.getElementsByClassName("article")[0];
+  console.log(articleDiv);
+  var textElems = document.getElementsByClassName("text");
+  for (var i = 0; i < textElems.length; i++) {
+  document.write(textElems[i] + "<br>");
+  }
+  </script>
+  <br><br>
+  <b><span>
+  Выбор по селектору css:
+  </span></b>
+  <div class="annotation">
+  <p>Аннотация статьи</p>
+  </div>
+  <div class="text">
+  <p>Первый абзац</p>
+  <p>Второй абзац</p>
+  </div>
+  <script>
+  var elem = document.querySelector(".annotation p");
+  document.write("Текст селектора: " + elem.innerText);
+  </script>
+  <br><br>
+  <b>
+  <span>
+получить все элементы по селектору, 
+</span></b>
+  <div class="annotation">
+  <p>Аннотация статьи</p>
+  </div>
+  <div class="texts">
+  <p>Третий абзац</p>
+  <p>Четвёртый абзац</p>
+  </div>
+  <script>
+  var elems = document.querySelectorAll(".texts p");
+  
+  for (var i = 0; i < elems.length; i++) {
+  document.write("Текст селектора " + i + ": " + elems[i].innerText + "<br/>");
+  }
+  </script>
+ </body>
+</html>

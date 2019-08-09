@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>JS работа с DOM</title>
+		<link  href="../script.css" rel="stylesheet">
+		
+	</head>
+	<body>
+	<div class="toolbar">
+	<a href="../ScriptMain.html">Главная</a>
+	<a href="#">Блог</a>
+	<a href="#">Контакты</a>
+	<a href="#">О сайте</a>
+	</div>
+	<div class="content">
+<h3>Объект document. Поиск элементов</h3>
+<p>
+Для работы со структурой <span>DOM</span> в <b>JavaScript</b> предназначен объект <span>document</span>,
+ который определен в глобальном объекте <span>window.</span> 
+ Объект <span>document</span> предоставляет ряд свойств и методов для управления элементами страницы.
+</p>
+<h3>Поиск элементов</h3>
+<p>
+Для поиска элементов на странице применяются следующие методы:
+<ul>
+<li><span>getElementById(value):</span> выбирает элемент, у которого атрибут id равен value</li>
+
+<li><span>getElementsByTagName(value):</span> выбирает все элементы, у которых тег равен value</li>
+
+<li><span>getElementsByClassName(value): </span>выбирает все элементы, которые имеют класс value</li>
+
+<li><span>querySelector(value):</span> выбирает первый элемент, который соответствует css-селектору value</li>
+
+<li><span>querySelectorAll(value):</span> выбирает все элементы, которые соответствуют css-селектору value</li>
+</ul>
+Например, найдем элемент по id:
+	<div>
+		<h3 id="header">Block Header неизменим</h3>
+		<p>Text</p>
+	</div>
+<script>
+var headerElement = document.getElementById("header");
+document.write("Текст заголовка: " + headerElement.innerText);
+</script>
+<br><br>
+С помощью вызова <span>document.getElementById("header") </span>находим элемент, у которого <span class="blue">id="header"</span>. 
+А с помощью свойства <span>innerText</span> можно получить текст найденного элемента.
+<br><br>
+Поиск по определенному тегу:
+
+
+	<div>
+		<h3>Заголовок</h3>
+		<p>Первый абзац</p>
+		<p>Второй абзац</p>
+	</div>
+<script>
+var pElements = document.getElementsByTagName("p");
+
+for (var i = 0; i < pElements.length; i++) {
+	document.write("Текст параграфа: " + pElements[i].innerText + "<br/>");
+}
+</script>
+<br><br>
+С помощью вызова <span>document.getElementsByTagName("p")</span> находим все элементы параграфов. 
+Этот вызов возвращает массив найденных элементов. 
+Поэтому, чтобы получить отдельные элементы массива, 
+необходимо пробежаться по ним в цикле.
+<br><br>
+Если нам надо получить только первый элемент, 
+то можно к первому элементу найденной коллекции объектов:
+<pre id="kod">
+var pElement = document.getElementsByTagName("p")[0];
+document.write("Текст параграфа: " + pElement.innerText);
+</pre>
+</p>
+<h3>Получение элемента по классу:</h3>
+
+	<div class="article">
+		<h3>Заголовок статьи</h3>
+		<p class="text">Первый абзац</p>
+		<p class="text">Второй абзац</p>
+	</div>
+<script>
+var articleDiv = document.getElementsByClassName("article")[0];
+	console.log(articleDiv);
+var textElems = document.getElementsByClassName("text");
+for (var i = 0; i < textElems.length; i++) {
+	console.log(textElems[i]);
+}
+</script>
+
+<h3>Выбор по селектору css:</h3>
+
+	<div class="annotation">
+		<p>Аннотация статьи</p>
+	</div>
+	<div class="text">
+		<p>Первый абзац</p>
+		<p>Второй абзац</p>
+	</div>
+<script>
+var elem = document.querySelector(".annotation p");
+document.write("Текст селектора: " + elem.innerText);
+</script>
+<br><br>
+Выражение <span>document.querySelector(".annotation p") </span>находит элемент, 
+который соответствует селектору <span>.annotation p. </span>
+Если на странице несколько элементов, соответствующих селектору,
+ то метод выберет первый из них. 
+ <br><br>
+
+Чтобы получить все элементы по селектору, 
+можно подобным образом использовать метод 
+<span>document.querySelectorAll,</span>
+ который возвращает массив найденных элементов:
+
+	<div class="annotation">
+		<p>Аннотация статьи</p>
+	</div>
+	<div class="text">
+		<p>Первый абзац</p>
+		<p>Второй абзац</p>
+	</div>
+<script>
+var elems = document.querySelectorAll(".text p");
+
+for (var i = 0; i < elems.length; i++) {
+	document.write("Текст селектора " + i + ": " + elems[i].innerText + "<br/>");
+}
+</script>
+
+
+	<a href="Test/ElemTest.html" id="out">Output</a>
+	
+  </div>
+ </body>
+</html>

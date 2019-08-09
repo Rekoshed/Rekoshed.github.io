@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Navigator.Test</title>
+		<link  href="../../script.css" rel="stylesheet">
+		
+	</head>
+	<body>
+	<div class="toolbar">
+	<a href="../../ScriptMain.html">Главная</a>
+	<a href="../Navigator.html">Назад</a>
+	<a href="#">Контакты</a>
+	<a href="#">О сайте</a>
+	</div>
+	<div class="content">
+	<script type="text/javascript">
+	/*var result = confirm("Завершить выполнение программы?");
+	if(result===true)
+	document.write("Работа программы завершена");
+	else
+	document.write("Программа продолжает работать");
+	
+	document.write("<h3> <span id="b">Navigator</span></h3>");
+	*/
+	function success(position) {
+	var latitude = position.coords.latitude;
+	var longitude = position.coords.longitude;
+	var altitude = position.coords.altitude;
+	var speed = position.coords.speed;
+	
+	document.write("<p>Широта: " + latitude + "<br/>");
+	document.write("Долгота: " + longitude + "<br/>");
+	document.write("Высота: " + altitude + "<br/>");
+	document.write("Скорость перемещения: " + speed + "<br/></p>");
+	};
+	
+	function error(obj) {
+	document.write("Ошибка при определении положения");
+	};
+	navigator.geolocation.getCurrentPosition(success, error);
+	
+	
+	</script>
+	<input type="button" onklick="setTimeout(closeWindow, 10000);" value="open">
+	
+  </div>
+ </body>
+</html>

@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>JS Строки.Тест</title>
+		<link  href="../script.css" rel="stylesheet">
+		
+	</head>
+	<body>
+	<div class="toolbar">
+	<a href="../ScriptMain.html">Главная</a>
+	<a href="../.html">Назад</a>
+	<a href="#">Контакты</a>
+	<a href="#">О сайте</a>
+	</div>
+	<div class="content">
+	
+
+<h3>Объект RegExp. Регулярные выражения</h3>
+<p>
+Регулярные выражения представляют шаблон,
+ который используется для поиска или модификации строки. 
+ Для работы с регулярными выражениями в JavaScript определен объект <span class="blue"> RegExp </span>.
+<br><br>
+Определить регулярное выражение можно двумя способами:
+<pre id="kod">
+var myExp = /hello/;
+var myExp = new RegExp("hello");
+</pre>
+Используемое здесь регулярное выражение довольно простое:
+ оно состоит из одного слова <span>"hello"</span>.
+  В первом случае выражение помещается между двумя косыми чертами, 
+  а во втором случае используется конструктор RegExp, 
+  в который выражение передается в виде строки.
+</p>
+<h3>Методы RegExp</h3>
+<p>
+Чтобы определить, соответствует ли регулярное выражение строке,
+ в объекте RegExp определен метод <span>test()</span>.
+  Этот метод возвращает <span>true</span>,
+   если строка соответствует регулярному выражению, 
+   и <span>false</span>, если не соответствует.
+<pre id="kod">
+var initialText = "hello world!";
+var exp = /hello/;
+var result = exp.test(initialText);
+document.write(result + "<.br/>"); // true
+
+initialText = "beautifull wheather";
+result = exp.test(initialText);
+document.write(result); // false - в строке initialText нет "hello"
+</pre>
+Аналогично работает метод <span>exec </span>- он также проверяет,
+ соответствует ли строка регулярному выражению, 
+ только теперь данный метод возвращает ту часть строки, которая соответствует выражению.
+  Если соответствий нет, то возвращается значение <span>null</span>.
+<pre id="kod">
+var initialText = "hello world!";
+var exp = /hello/;
+var result = exp.exec(initialText);
+document.write(result + "<.br/>"); // hello
+
+initialText = "beautifull wheather";
+result = exp.exec(initialText);
+document.write(result); // null
+</pre>
+</p>
+<h3>Группы символов</h3>
+<p>
+Регулярное выражение не обязательно состоит из обычных строк,
+ но также может включать специальные элементы синтаксиса регулярных выражений.
+  Один из таких элементов представляют группы символов, 
+  заключенные в квадратные скобки. Например:
+<pre id="kod">
+var initialText = "обороноспособность";
+var exp = /[абв]/;
+var result = exp.test(initialText);
+document.write(result + "<.br/>"); // true
+
+initialText = "город";
+result = exp.test(initialText);
+document.write(result); // false
+</pre>
+Выражение <span>[абв]</span> указывает на то, что строка должна иметь одну из трех букв.
+<br><br>
+Если нам надо определить наличие в строке буквенных символов из определенного диапазона, 
+то можно разу задать этот диапазон:
+<pre id="kod">
+var initialText = "обороноспособность";
+var exp = /[а-я]/;
+var result = exp.test(initialText);
+document.write(result + "<.br/>"); // true
+
+initialText = "3di0789";
+result = exp.test(initialText);
+document.write(result); // false
+</pre>
+В данном случае строка должна содержать хотя бы один символ из диапазона <span>а-я</span>.
+<br><br>
+Если, наоборот, не надо, чтобы строка имела только определенные символы,
+ то необходимо в квадратных скобках перед перечислением символов ставить знак<span> ^</span>:
+<pre id="kod">
+var initialText = "обороноспособность";
+var exp = /[^а-я]/;
+var result = exp.test(initialText);
+document.write(result + "<.br/>"); // false
+
+initialText = "3di0789";
+exp = /[^0-9]/;
+result = exp.test(initialText);
+document.write(result); // true
+</pre>
+В первом случае строка не должна иметь только символы из диапазона <span>а-я</span>,
+ но поскольку строка "обороноспособность" состоит только из символов из этого диапазона, то метод <span>test()</span> возвращает <span>false</span>, 
+ то есть регулярное выражение не соответствует стоке.
+<br><br>
+Во втором случае <span>("3di0789")</span> строка не должна состоять только из цифровых символов. Но так как в строке также есть и буквы, то строка соответствует регулярному выражению, поэтому метод test возвращает значение true.
+<br><br>
+При необходимости мы можем собирать комбинации выражений:
+<pre id="kod">
+var initialText = "дома";
+var exp = /[дт]о[нм]/;
+var result = exp.test(initialText);
+document.write(result); // true
+</pre>
+Выражение <span>[дт]о[нм]</span> указывает на те строки, которые могут содержать подстроки "дом", "том", "дон", "тон".
+</p>
+<h3>Свойства выражений</h3>
+<p>
+<ul>
+<li>Свойство <span>global</span> позволяет найти все подстроки, которые соответствуют регулярному выражению. По умолчанию при поиске подстрок регулярное выражение выбирает первую попавшуюся подстроку из строки, которая соответствует выражению. Хотя в строке может быть множество подстрок, которые также соответствуют выражению. Для этого применяется данное свойство в виде символа <span>g</span> в выражениях</li>
+
+<li>Свойство <span>ignoreCase</span> позволяет найти подстоки, которые соответствуют регулярному выражению, вне зависимости от регистра символов в строке. Для этого в регулярных выражениях применяется символ <span>i</span>
+</li>
+<li>Свойство <span>multiline</span> позволяет найти подстроки, которые соответствуют регулярному выражению, в многострочном тексте. Для этого в регулярных выражениях применяется символ <span>m</span>
+</li>
+</ul>
+Например:
+<pre id="kod">
+var initialText = "привет Мир";
+var exp = /мир/;
+var result = exp.test(initialText); // false
+</pre>
+Здесь совпадения строки с выражением нет,
+ так как "Мир" отличается от "мир" по регистру.
+  В этом случае надо изменить регулярное выражение, 
+  добавив в него свойство <span>ignoreCase</span>:
+<span id="b">
+var exp = /мир/i;
+</span>
+Ну и также мы можем использовать сразу несколько свойств:
+<span id="b">
+var exp = /мир/ig;
+</span>
+	<a href="Test/RegExpTest.html" id="out">Output</a>
+	
+  </div>
+ </body>
+</html>

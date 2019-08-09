@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Таймеры.Test</title>
+		<link  href="../../script.css" rel="stylesheet">
+		
+	</head>
+	<body>
+	<div class="toolbar">
+	<a href="../../ScriptMain.html">Главная</a>
+	<a href="../Timer.html">Назад</a>
+	<a href="#">Контакты</a>
+	<a href="#">О сайте</a>
+	</div>
+	<div id="time" class="color2 blue"></div>
+	<script>
+	function updateTime() {
+	document.getElementById("time").innerHTML = new Date().toTimeString();
+	}
+	setInterval(updateTime, 1000);
+	</script>
+	<div class="content">
+	
+	<style>
+	#rect {
+	margin: 100px;
+	width: 100px;
+	height: 100px;
+	background: #50c878;
+	}
+	</style>
+	
+	<div id="rect"></div>
+	<script>
+	var square = document.getElementById("rect");
+	var angle = 0;
+	function rotate() {
+	angle = (angle + 2)%360;
+	square.style.transform = "rotate(" + angle + "deg)";
+	window.requestAnimationFrame(rotate);
+	}
+	var id = window.requestAnimationFrame(rotate);
+	document.getElementById("rotate").innerHTML = new Date().toTimeString();
+	
+	</script>
+	
+	<input type="button" onklick="setTimeout(closeWindow, 10000);" value="open">
+	
+  </div>
+ </body>
+</html>

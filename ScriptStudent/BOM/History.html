@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Объективная модель браузера.</title>
+		<link  href="../script.css" rel="stylesheet">
+		
+	</head>
+	<body>
+	<div class="toolbar">
+	<a href="../ScriptMain.html">Главная</a>
+	<a href="../.html">Блог&</a>
+	<a href="#" >Контакты</a>
+	<a href="#">О сайте</a>
+	</div>
+	<div class="content">
+<h3>История браузера. Объект history</h3>
+<p>
+Объект <span>history</span> предназначен для хранения истории посещений веб-страниц в браузере. 
+Нам этот объект доступен через объект <span>window</span>.
+<br><br>
+Все сведения о посещении пользователя хранятся в специальном стеке <span>(history stack)</span>.
+ С помощью свойства <span>length</span> можно узнать, как много веб-станиц хранится в стеке:
+<pre id="b">
+document.write("В истории " + history.length + " станиц");
+</pre>
+Для перемещения по страницам в истории в объекте <span>history</span> определены методы <span>back()</span> (перемещение к прошлой посмотренной странице) и <span>forward()</span> (перемещение к следующей просмотренной странице)
+<pre id="b">
+history.back(); // перемещение назад
+</pre>
+Также в объекте <span>history </span>определен специальный метод <span>go()</span>,
+ который позволяет перемещаться вперед и назад по истории на определенное число страниц. 
+ Например, переместимся на 2 страницы назад:
+<pre id="b">
+history.go(-2);
+
+Соответственно если надо переместиться на три страницы вперёд:
+<pre id="b">
+history.go(3);
+</pre>
+	<a href="Test/HistoryTest.html" id="out">Output</a>
+	
+  </div>
+ </body>
+</html>

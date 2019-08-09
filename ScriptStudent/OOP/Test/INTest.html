@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Java Script</title>
+		<link  href="../script.css" rel="stylesheet">
+		<script type="text/javascript">
+			
+			var user = {};
+			user.name = "Tom";
+			user.age = 26;
+			user.display = function(){
+			
+			document.write(user.name);
+			document.write(user.age);
+			};
+			document.write('<h3> Пример 1 </h3>');
+			var hasNameProp = "name" in user;
+			document.write('name: ' + hasNameProp + '<br/> '); // true - свойство name есть в user
+			var hasWeightProp = "weight" in user;
+			document.write('weight ' + hasWeightProp + '<br/> '); // false - в user нет свойства или метода под названием weight
+			
+			document.write('<br/><h3>Пример2</h3><br/>');
+			var hassNameProp = user.name!==undefined;			
+			document.write('name: ' + hassNameProp + '<br/> '); // true - свойство name есть в user
+			var hassWeightProp = user.weight!==undefined;
+			document.write('weight: ' + hassWeightProp); // false
+			
+			document.write('<br/><h3>Пример3</h3><br/><p> вывод смотрите в консоли</p>');
+			var hasNameProp = user.hasOwnProperty('name');
+			console.log(hasNameProp); // true
+			var hasDisplayProp = user.hasOwnProperty('display');
+			console.log(hasDisplayProp); // true
+			var hasWeightProp = user.hasOwnProperty('weight');
+			console.log(hasWeightProp); // false
+			
+			</script>
+		
+		
+	</head>
+	<body>
+	<div class="toolbar">
+	<a href="../../ScriptMain.html">Главная</a>
+	<a href="../InObject.html">Назад</a>
+	<a href="#">Контакты</a>
+	<a href="#">О сайте</a>
+	</div>
+	<div class="content">
+
+  </div>
+ </body>
+</html>

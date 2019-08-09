@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>JS работа с DOM</title>
+		<link  href="../script.css" rel="stylesheet">
+		
+	</head>
+	<body>
+	<div class="toolbar">
+	<a href="../ScriptMain.html">Главная</a>
+	<a href="#">Блог</a>
+	<a href="#">Контакты</a>
+	<a href="#">О сайте</a>
+	</div>
+	<div class="content">
+<h3>Свойства объекта document</h3>
+<p>
+Кроме ранее рассмотренных методов объект <span>document</span> позволяет обратиться 
+к определенным элементам веб-страницы через свойства:
+<ul>
+<li><span>documentElement:</span> предоставляет доступ к корневому элементу <.html></li>
+
+<li><span>body:</span> предоставляет доступ к элементу <.body> на веб-странице</li>
+
+<li><span>images:</span> содержит коллекцию всех объектов изображений <b>(элементов img)</b></li>
+
+<li><span>links:</span> содержит коллекцию ссылок - элементов <.a> и <.area>, у которых определен атрибут <b>href</b></li>
+
+<li><span>anchors:</span> предоставляет доступ к коллекции элементов <b><.a></b>, у которых определен атрибут <b>name</b></li>
+
+<li><span>forms:</span> содержит коллекцию всех форм на веб-странице</li>
+</ul>
+
+Эти свойства не предоставляют доступ ко всем элементам, 
+однако позволяют получить наиболее часто используемые элементы на веб-странице.
+ Например, получим корневой узел документа:
+<span id="b">
+var container = document.documentElement;
+</span>
+Получим все изображения на странице:
+<br><br>
+	<img src="picure1.png" alt="Картинка 1" />
+	<img src="picure2.png" alt="Картинка 2" />
+	<img src="picure3.png" alt="Картинка 3" />
+<script>
+var images = document.images;
+// изменим первое изображение
+images[0].src="pics/picture_4.jpg";
+images[0].alt="Новая картинка";
+// перебирем все изображения
+for(var i=0; i<images.length;i++){
+
+	document.write("<br/>" + images[i].src);
+	document.write("<br/>" + images[i].alt);
+}
+</script>
+<br><br>
+Подобно тому, как в коде <b>html</b> мы можем установить атрибуты у элемента <b>img</b>,
+ так и в коде <b>javascript</b> мы можем через свойства <span>src и alt</span>
+  получить и установить значения этих атрибутов.
+<br><br>
+Рассмотрим получение всех ссылок на странице:
+<br>
+	<a href="article1.html">Статья 1</a>
+	<a href="article2.html">Статья 2</a>
+	<a href="article3.html">Статья 3</a>
+<script>
+var links = document.links;
+
+for(var i=0; i<links.length;i++){
+
+	document.write("<br/>" + links[i].innerText);
+	document.write("<br/>" + links[i].href);
+}
+</script>
+<br>
+Опять же, так как у ссылки определен атрибут <b>href</b>,
+ то при переборе ссылок мы можем получить его значение.
+</p>
+	<a href="Test/DocTest.html" id="out">Output</a>
+	
+  </div>
+ </body>
+</html>

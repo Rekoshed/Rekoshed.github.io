@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Java Script</title>
+		<link  href="../script.css" rel="stylesheet">
+		
+	</head>
+	<body>
+	<div class="toolbar">
+	<a href="../ScriptMain.html">Главная</a>
+	<a href="#">Блог</a>
+	<a href="#">Контакты</a>
+	<a href="#">О сайте</a>
+	</div>
+	<div class="content">
+	<h3>
+	Функция как объект. Методы call и apply
+	</h3>
+	<p>
+	В JavaScript функция тоже является объектом - объектом <span>Function </span>и тоже имеет прототип, свойства, методы. 
+	Все функции, которые используются в программе, являются объектами <span>Function</span> и имеют все его свойства и методы.
+	<br><br>
+	Например, мы можем создать функцию с помощью конструктора <span>Function</span>:
+	</p>
+	<pre id="b">
+	var square = new Function('n', 'return n * n;');
+	console.log(square(5));
+	</pre>
+	<p>
+	В конструктор <span id="b">Function</span> может передаваться ряд параметров.
+	 Последний параметр представляет собой  тело функции в виде строки и содержит код javascript. 
+	  Предыдущие аргументы содержат названия параметров. 
+	  В данном случае определяется функция возведения числа в квадрат, которая имеет один параметр n.
+	<br><br>
+	Среди свойств объекта <span id="b">Function</span> можно выделить следующие:
+	</p>
+	<ul>
+	<li>
+	arguments: массив аргументов, передаваемых в функцию
+	</li><li>
+	length: определяет количество аргументов, которые ожидает функция
+	</li><li>
+	caller: определяет функцию, вызвавшую текущую выполняющуюся функцию
+	</li><li>
+	name: имя функции
+	</li>
+	<li>
+	prototype: прототип функции
+	</li>
+</ul>
+	С помощью прототипа мы можем определить дополнительные свойства:
+	
+<pre id="kod">	
+function display(){
+	
+console.log("привет мир");
+	}
+Function.prototype.program ="Hello";
+	
+console.log(display.program); // Hello
+</pre>
+<h3>
+методы call() и apply().
+</h3>
+<p>	
+	Метод <span>call() </span>вызывает функцию с указанным значением <span>this</span> и аргументами:
+</p>
+<pre id="kod">	
+	function add(x, y){
+	
+	return x + y;
+	}
+	var result = add.call(this, 3, 8);
+	
+	console.log(result); // 11
+</pre>
+<p>
+	<span>this</span> указывает на объект, для которого вызывается функция - в данном случае это глобальный объект window. После <span>this</span> передаются значения для параметров.
+	
+	При передаче объекта через первый параметр, мы можем ссылаться на него через ключевое слово this:
+</p>
+<pre id="kod"> 	
+	function User (name, age) {
+	this.name = name;
+	this.age = age;
+	}
+	var tom = new User("Том", 26);
+	function display(){
+	console.log("Ваше имя: " + this.name);
+	}
+	display.call(tom); // Ваше имя: Том
+	</pre>
+	<p>
+	В данном случае передается только одно значение, поскольку функция <span id="b">display </span>не принимает параметров.
+	 То есть функция будет вызываться для объекта <span>tom</span>.
+	<br><br>
+	Если нам не важен объект, для которого вызывается функция, то можно передать значение <span>null</span>:
+	<pre id="kod">
+	function add(x, y){
+	
+	return x + y;
+	}
+	var result = add.call(null, 3, 8);
+	
+	console.log(result); // 11
+	</pre>
+	<p>
+	На метод <span>call() </span>похож метод <span>apply()</span>, который также вызывает функцию и в качестве первого параметра также получает объект, для которого функция вызывается.
+	 Только теперь в качестве второго параметра передается массив аргументов:
+	</p>
+	<pre id="kod">
+	function add(x, y){
+	
+	return x + y;
+	}
+	var result = add.apply(null, [3, 8]);
+	
+	console.log(result); // 11
+
+</pre>
+	<!--a href="Test/DesignerTest.html" id="out">Output</a-->
+	
+  </div>
+ </body>
+</html>

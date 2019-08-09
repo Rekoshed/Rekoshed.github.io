@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Объективная модель браузера.</title>
+		<link  href="../script.css" rel="stylesheet">
+		
+	</head>
+	<body>
+	<div class="toolbar">
+	<a href="../ScriptMain.html">Главная</a>
+	<a href="../.html">Блог</a>
+	<a href="#">Контакты</a>
+	<a href="#">О сайте</a>
+	</div>
+	<div class="content">
+<h3>Объект navigator</h3>
+<p>
+Объект <span>navigator</span> содержит информацию о браузере и операционной системе, в которой браузер запущен. 
+Он определяет ряд свойств и методов, основным из которых является свойство <span>userAgent</span>, 
+представляющее браузер пользователя:
+<span id="b">
+document.write(navigator.userAgent);
+</span>
+
+Данное свойство хранит полную стоку юзер-агента, 
+например, Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.157 Safari/537.36
+<br><br>
+Чтобы вычленить из этой информации непосредственно браузер, 
+можно попробовать найти в этой информации название браузера:
+<pre id="kod">
+var browser, uAgent = navigator.userAgent;
+
+if(uAgent.indexOf("Chrome") > -1) {
+    browser = "Google Chrome";
+} else if (uAgent.indexOf("Safari") > -1) {
+    browser = "Apple Safari";
+} else if (uAgent.indexOf("Opera") > -1) {
+    browser = "Opera";
+} else if (uAgent.indexOf("Firefox") > -1) {
+    browser = "Mozilla Firefox";
+} else if (uAgent.indexOf("MSIE") > -1) {
+    browser = "Microsoft Internet Explorer";
+}
+document.write(browser);
+</pre>
+</p>
+<h3>Объект geolocation</h3>
+<p>
+Объект navigator хранит свойство <span>geolocation</span>, 
+с помощью которого можно получить географическое положение пользователя. 
+Для получения положения используется метод <span>getCurrentPosition()</span>.
+ Этот метод принимает два параметра: функцию, которая срабатывает при удачном запуске, и функцию, которая срабатывает при ошибке запроса геоданных:
+<pre id="kod">
+function success(position) {
+	var latitude = position.coords.latitude;
+	var longitude = position.coords.longitude;
+	var altitude = position.coords.altitude;
+	var speed = position.coords.speed;
+	
+	document.write("Широта: " + latitude + "<br/>");
+	document.write("Долгота: " + longitude + "<br/>");
+	document.write("Высота: " + altitude + "<br/>");
+	document.write("Скорость перемещения: " + speed + "<br/>");
+};
+
+function error(obj) {
+	document.write("Ошибка при определении положения");
+};
+navigator.geolocation.getCurrentPosition(success, error);
+<a href="Test/NavigatorTest.html" id="out">Output</a>
+	
+</pre>
+
+
+В функцию, которая выполняется при удачном определении геоданных,
+ передается позиция пользователя в виде параметра <span>position.</span>
+  Передаваемый объект имеет вложенный объект <span>coords</span>,
+   с помощью свойство которого можно получить непосредственные координаты пользователя:
+<ul>
+<li><span>latitude:</span> географическая широта</li>
+
+<li><span>longitude:</span> географическая долгота</li>
+
+<li><span>altitude:</span> высота</li>
+
+<li><span>speed:</span> скорость, с которой перемещается пользователь (например, если он идет или перемещается на транспорте)</li>
+</ul>
+При этом надо учитывать, что в браузерах действует политика безопасности,
+ которая при обращении к методу <span>geolocation.getCurrentPosition() </span>
+ отображает пользователю сообщение, в котором пользователь может подтвердить отправку географических координат.
+  Если же пользователь откажется, то будет срабатывать функция <span>error()</span>.
+
+	
+  </div>
+ </body>
+</html>
