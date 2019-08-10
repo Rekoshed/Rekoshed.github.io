@@ -44,64 +44,78 @@
 	Подобно тому, как у <b>html</b>-элементов есть атрибуты для обработчиков, 
 	так и в коде <b>javascript</b> у элементов <b>DOM</b> мы можем получить свойства обработчиков,
 	 которые соответствуют атрибутам:
-	
-	<!DOCTYPE html>
-	<html>
-	<head>
-	<meta charset="utf-8" />
-	<style>
-	#rect{
-	width:50px;
-	height:50px;
-	background-color:blue;
-	}
-	</style>
-	</head>
-	<body>
-	<div id="rect"></div>
-	<script>
-	function handler(e){
-	
-	alert(e.type);
-	}
+	<pre id = "kod">
+	 &lt;!DOCTYPE html&gt;
+	 &lt;html&gt;
+	 &lt;head&gt;
+		 &lt;meta charset="utf-8" /&gt;
+		 &lt;style&gt;
+		 #rect{
+			 width:50px;
+			 height:50px;
+			 background-color:blue;
+		 }
+		 &lt;/style&gt;
+	 &lt;/head&gt;
+	 &lt;body&gt;
+	 &lt;div id="rect" &lt;/div&gt;
+	 &lt;script&gt;
+	 function handler(e){
+		 
+		 alert(e.type); // получаем тип события
+	 }
+	 
 	document.getElementById("rect").onclick = handler;
-	</script>
-	</body>
-	</html>
-	В итоге нам достаточно взять свойство onclick и присвоить ему функцию, используемую в качестве обработчика. За счет этого код html отделяется от кода javascript.
+	&lt;/script&gt;
+	 &lt;/body&gt;
+	 &lt;/html&gt;
+	 </pre>
+	 <p>
+	 В итоге нам достаточно взять свойство <b>onclick </b> и присвоить ему функцию, используемую в качестве обработчика.
+	  За счет этого код <b>html</b> отделяется от кода javascript.
 	
-	Стоит также отметить, что в обработчик события браузер автоматически передает объект Event, хранящий всю информацию о событии. Поэтому также мы можем получить этот объект в функции обработчика в качестве параметра.
-	
+	Стоит также отметить, что в обработчик события браузер автоматически передает объект <span>Event</span>,
+	 хранящий всю информацию о событии. Поэтому также мы можем получить этот объект в функции обработчика в качестве параметра.
+	<h3>
 	Слушатели событий
-	Несмотря на то, что свойства обработчиков решают ряд проблем, которые связаны с использованием атрибутов, в то же время это также не оптимальный подход. Еще один способ установки обработчиков событий представляет использование слушателей.
-	
-	Для работы со слушателями событий в JavaScript есть объект EventTarget, который определяет методы addEventListener() (для добавления слушателя) и removeEventListener() для удаления слушателя. И поскольку html-элементы DOM тоже являются объектами EventTarget, то они также имеют эти методы. Фактически слушатели представляют те же функции обработчиков.
+	</h3>
+	<p>
+	Несмотря на то, что свойства обработчиков решают ряд проблем, которые связаны с использованием атрибутов,
+	 в то же время это также не оптимальный подход. Еще один способ установки обработчиков событий представляет использование
+	  слушателей.
+	<br><br>
+	Для работы со слушателями событий в JavaScript есть объект <span>EventTarget</span>, который определяет методы<span> addEventListener()</span> 
+	(для добавления слушателя) и<span> removeEventListener()</span> для удаления слушателя. И поскольку <b>html</b>-элементы<b> DOM</b>
+	 тоже являются объектами <span>EventTarget</span>, то они также имеют эти методы. Фактически слушатели представляют те же функции 
+	 обработчиков.
 	
 	Метод addEventListener() принимает два параметра: название события без префикса on и функцию обработчика этого события. Например:
 	
-	<!DOCTYPE html>
-	<html>
-	<head>
-	<meta charset="utf-8" />
-	<style>
-	#rect{
-	width:50px;
-	height:50px;
-	background-color:blue;
-	}
-	</style>
-	</head>
-	<body>
-	<div id="rect"></div>
-	<script>
+	<pre id = "kod">
+		&lt;!DOCTYPE html&gt;
+		&lt;html&gt;
+		&lt;head&gt;
+			&lt;meta charset="utf-8" /&gt;
+			&lt;style&gt;
+			#rect{
+				width:50px;
+				height:50px;
+				background-color:blue;
+			}
+			&lt;/style&gt;
+		&lt;/head&gt;
+		&lt;body&gt;
+		&lt;div id="rect" &lt;/div&gt;
+		&lt;script&gt;
 	var rect = document.getElementById("rect");
 	
 	rect.addEventListener("click", function (e) {
 	alert(e.type);
 	});
-	</script>
-	</body>
-	</html>
+	&lt;/script&gt;
+	 &lt;/body&gt;
+	 &lt;/html&gt;
+	 </pre>
 	То есть в данном случае опять же обрабатывается событие click. И также можно было бы в качестве второго параметра название функции:
 	
 	function handler(e){
