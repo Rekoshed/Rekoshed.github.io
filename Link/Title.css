@@ -61,14 +61,21 @@ span{
 	flex-direction: row;
 	padding-top:0em;
 	justify-content: center;
+	
+	}
+	.container a {
+		text-decoration: none;
+		
+		font-size: 3vw;
+		
+		font-weight: bold;	
 	}
 	
 	.flex-item {
 	width:47%;
-	
+	height: 4em;
 	text-align:center;
-	font-size: 1em;
-	padding: 1em;
+	
 	color: white;
 	opacity: 0.7;
 	border-radius:0.8em;
@@ -81,15 +88,22 @@ span{
 	color:black;
 	}
 
+
 @media screen and (min-width: 600px) {
 		
 		.container {
 		flex-direction: row;
-		justify-content: center;
-		}
-		.flex-item {
-		width: 30%
 		
+	}
+	.container a {
+		font-size: 2.5vw;
+	}
+
+		.flex-item {
+		
+		height: 6em;
+		width: 30%
+	
 		}
 		.item1 {background-color: #9BC850; flex-grow:2;}
 		.item2 {background-color: #A62E5C; flex-grow:1;}
