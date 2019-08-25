@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Test.Event</title>
+		<link  href="../../script.css" rel="stylesheet">
+		<script src ="../../js/bild.js"></script>
+		
+		<style>
+		#blueRect{
+		width:200px;
+		height:100px;
+		background-color:blue;
+		margin:10px;
+		}
+	
+		</style>
+		
+	</head>
+	<body>	
+	<div class="content">
+<form name="search"></form>
+	<form name="settings"></form>
+	<script>
+	toolbar('../../../index.html','../Form.html');
+	var searchForm;
+	for (var i = 0; i < document.forms.length; i++) {
+	
+	if(document.forms[i].name==="search")
+	searchForm = document.forms[i];
+	}
+	document.write(searchForm.name);
+</script>
+</div>
+</body>
+</html>

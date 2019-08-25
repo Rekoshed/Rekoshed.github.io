@@ -1,4 +1,6 @@
 alert ("StudentScript.js");
+
+
 /* river*/
 function Fact(n){
 alert ("$$$$$$$");
@@ -80,8 +82,10 @@ for(var i = 0; i<people.length; i++){
 
 
 function display(){
+document.write("<!DOCTYPE html><html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width'><title>JS test</title><link  href='./script.css' rel='stylesheet'></head><body>")
+document.write("<div class='toolbar'><a href='./ScriptMain.html'>Главная</a><a href='./Func.html'>Назад</a><a href='#'>Контакты</a><a href='#'>О сайте</a></div><div class='content'><br>" + "<p>функция в JavaScript</p>");
+document.write("</div></body></html>")
 
-    document.write("функция в JavaScript");
 }
 
 function display1(){

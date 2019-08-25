@@ -40,7 +40,7 @@ font-family:Lucida Sans Unicode;
 		#main{
 		position:relative;
 		top:100px;
-		height:450px;
+		height:100%;
 		width:96%;
 			font-size: 20px;
 			
@@ -107,9 +107,13 @@ font-family:Lucida Sans Unicode;
 		.content {
 		flex-direction: row;
 		justify-content: space-between;
+		color:rgba(40, 12, 66, 0.74);
 		}
 		
-		.item1 {background-color: #9BC850; flex-grow:2;}
-		.item2 {background-color: #A62E5C; flex-grow:1;}
+		.item1 {background-color: DarkKhaki; flex-grow:2;}
+		.item2 {background-color: rgb(42, 100, 42); flex-grow:1;}
+		.content a:link    {color:Darkred; text-decoration:none}
+		.content a:visited {color:rgb(21, 39, 39); text-decoration:none}
+	}
+
 		
-		}

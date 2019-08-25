@@ -44,92 +44,99 @@
 	Подобно тому, как у <b>html</b>-элементов есть атрибуты для обработчиков, 
 	так и в коде <b>javascript</b> у элементов <b>DOM</b> мы можем получить свойства обработчиков,
 	 которые соответствуют атрибутам:
-	<pre id = "kod">
-	 &lt;!DOCTYPE html&gt;
-	 &lt;html&gt;
-	 &lt;head&gt;
-		 &lt;meta charset="utf-8" /&gt;
-		 &lt;style&gt;
-		 #rect{
-			 width:50px;
-			 height:50px;
-			 background-color:blue;
-		 }
-		 &lt;/style&gt;
-	 &lt;/head&gt;
-	 &lt;body&gt;
-	 &lt;div id="rect" &lt;/div&gt;
-	 &lt;script&gt;
-	 function handler(e){
-		 
-		 alert(e.type); // получаем тип события
-	 }
-	 
-	document.getElementById("rect").onclick = handler;
-	&lt;/script&gt;
-	 &lt;/body&gt;
-	 &lt;/html&gt;
-	 </pre>
-	 <p>
-	 В итоге нам достаточно взять свойство <b>onclick </b> и присвоить ему функцию, используемую в качестве обработчика.
-	  За счет этого код <b>html</b> отделяется от кода javascript.
+	<pre id="kod">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset="utf-8" /&gt;
+&lt;style&gt;
+#rect{
+width:50px;
+height:50px;
+background-color:blue;
+}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id="rect" &lt;/div&gt;
+&lt;script&gt;
+function handler(e){
 	
-	Стоит также отметить, что в обработчик события браузер автоматически передает объект <span>Event</span>,
-	 хранящий всю информацию о событии. Поэтому также мы можем получить этот объект в функции обработчика в качестве параметра.
-	<h3>
-	Слушатели событий
-	</h3>
-	<p>
-	Несмотря на то, что свойства обработчиков решают ряд проблем, которые связаны с использованием атрибутов,
-	 в то же время это также не оптимальный подход. Еще один способ установки обработчиков событий представляет использование
-	  слушателей.
+alert(e.type); // получаем тип события
+document.getElementById("rect").onclick = handler;
+}
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+	В итоге нам достаточно взять свойство <span>onclick</span> и присвоить ему функцию, 
+	используемую в качестве обработчика.
+	 За счет этого код <b>html </b>отделяется от кода <b>javascript</b>.
+	 <br><br>
+	
+	Стоит также отметить, что в обработчик события браузер автоматически
+	 передает объект <span>Event</span>, 
+	 хранящий всю информацию о событии.
+	  Поэтому также мы можем получить этот объект в функции обработчика в
+	   качестве параметра.
+	</p>
+<h3>	Слушатели событий</h3>
+<p>
+	Несмотря на то, что свойства обработчиков решают ряд проблем, которые связаны с 
+	использованием атрибутов,
+	 в то же время это также не оптимальный подход.
+	  Еще один способ установки обработчиков событий представляет
+	   использование слушателей.
 	<br><br>
-	Для работы со слушателями событий в JavaScript есть объект <span>EventTarget</span>, который определяет методы<span> addEventListener()</span> 
-	(для добавления слушателя) и<span> removeEventListener()</span> для удаления слушателя. И поскольку <b>html</b>-элементы<b> DOM</b>
-	 тоже являются объектами <span>EventTarget</span>, то они также имеют эти методы. Фактически слушатели представляют те же функции 
-	 обработчиков.
+	Для работы со слушателями событий в <b>JavaScript </b>есть объект <span>EventTarget</span>, который определяет методы <span>addEventListener()</span> (для добавления слушателя) и
+	<span> removeEventListener()</span> для удаления слушателя.
+	 И поскольку <b>html</b>-элементы DOM тоже являются объектами <span>EventTarget</span>, то они также имеют эти методы.
+	  Фактически слушатели представляют те же функции обработчиков.
+	<br><br>
+	Метод <span>addEventListener()</span> принимает два параметра:
+	<li> название события без префикса <b>on </b></li>
+	 <li>функцию обработчика этого события.</li>
+	  Например:
 	
-	Метод addEventListener() принимает два параметра: название события без префикса on и функцию обработчика этого события. Например:
-	
-	<pre id = "kod">
-		&lt;!DOCTYPE html&gt;
-		&lt;html&gt;
-		&lt;head&gt;
-			&lt;meta charset="utf-8" /&gt;
-			&lt;style&gt;
-			#rect{
-				width:50px;
-				height:50px;
-				background-color:blue;
-			}
-			&lt;/style&gt;
-		&lt;/head&gt;
-		&lt;body&gt;
-		&lt;div id="rect" &lt;/div&gt;
-		&lt;script&gt;
+	<pre id="kod">
+	&lt;!DOCTYPE html&gt;
+	&lt;html&gt;
+	&lt;head&gt;
+	&lt;meta charset="utf-8" /&gt;
+	&lt;style&gt;
+	#rect{
+	width:50px;
+	height:50px;
+	background-color:blue;
+	}
+	&lt;/style&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+	&lt;div id="rect" &lt;/div&gt;
+	&lt;script&gt;
 	var rect = document.getElementById("rect");
 	
 	rect.addEventListener("click", function (e) {
 	alert(e.type);
 	});
 	&lt;/script&gt;
-	 &lt;/body&gt;
-	 &lt;/html&gt;
-	 </pre>
-	То есть в данном случае опять же обрабатывается событие click. И также можно было бы в качестве второго параметра название функции:
+	&lt;/body&gt;
+	&lt;/html&gt;
+	</pre>
 	
-	function handler(e){
+	То есть в данном случае опять же обрабатывается событие <span>click</span>.
+	 И также можно было бы в качестве второго параметра название функции:
+	<pre id="kod">
 	
-	alert(e.type);
-	}
-	var rect = document.getElementById("rect");
-	
-	rect.addEventListener("click", handler);
+	</pre>
 	Удаление слушателя аналогично добавлению:
-	
+	<code id="kod">
 	rect.removeEventListener("click", handler);
-	Преимуществом использования слушателей является и то, что мы можем установить для одного события несколько функций:
-	
+	</code>
+	Преимуществом использования слушателей является и то, 
+	что мы можем установить для одного события несколько функций:
+	<pre id="kod">
 	var clicks = 0;
 	function handlerOne(e){
 	
@@ -147,9 +154,9 @@
 	rect.addEventListener("click", handlerOne);
 	// прикрепляем второй обработчик
 	rect.addEventListener("click", handlerTwo);
+</pre>
 
-
-	<a href="Test/DesignerTest.html" id="out">Output</a>
+	<a href="Test/Event2Test.html" id="out">Test</a>
 	
   </div>
  </body>

@@ -18,74 +18,98 @@
 	<div class="content">
 	
 
-Распространение событий
-Когда мы нажимаем на какой-либо элемент на станице и генерируется событие нажатия, то это событие может распространяться от элемента к элементу. Например, если мы нажимаем на блок div, то также мы нажимаем и на элемент body, в котором блок div находится. То есть происходит распространение события.
-
+<h3>Распространение событий</h3>
+<p>
+Когда мы нажимаем на какой-либо элемент на станице и генерируется событие нажатия,
+ то это событие может распространяться от элемента к элементу. 
+ Например, если мы нажимаем на блок <b>div</b>,
+  то также мы нажимаем и на элемент <b>body</b>, 
+  в котором блок <b>div</b> находится. 
+  То есть происходит распространение события.
+<br><br>
 Есть несколько форм распространения событий:
 
-Восходящие: событие распространяется вверх по дереву DOM от дочерних узлов к родительским
+<li>Восходящие: событие распространяется вверх по дереву DOM от дочерних узлов к родительским</li>
 
-Нисходящие: событие распространяется вниз по дереву DOM от родительских узлов к дочерним, пока не достигнет того элемента, на котором это событие и возникло
+<li>Нисходящие: событие распространяется вниз по дереву DOM от родительских узлов к дочерним, пока не достигнет того элемента, на котором это событие и возникло</li>
+</p>
+<h3>Восходящие события</h3>
+<p>
+Рассмотрим восходящие <span>(bubbling) </span>события, 
+которые распространяются в верх по дереву DOM. 
+Допустим, у нас есть следующая веб-страница:
 
-Восходящие события
-Рассмотрим восходящие (bubbling) события, которые распространяются в верх по дереву DOM. Допустим, у нас есть следующая веб-страница:
-
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8" />
-	<style>
+<pre id="kod">
+	&lt;!DOCTYPE html&gt;
+	&lt;html&gt;
+	&lt;head&gt;
+	&lt;meta charset="utf-8" /&gt;
+	&lt;style&gt;
+	<span>
 	#blueRect{
-		width:100px;
-		height:100px;
-		background-color:blue;
+	width:100px;
+	height:100px;
+	background-color:blue;
 	}
 	#redRect{
-		width:50px;
-		height:50px;
-		background-color:red;
+	width:50px;
+	height:50px;
+	background-color:blue;
 	}
-	</style>
-</head>
-<body>
-<div id="blueRect">
-	<div id="redRect"></div>
-</div>
-
-<script>
-var redRect = document.getElementById("redRect");
-redRect.addEventListener("click", function(){
+	</span>
+	&lt;/style&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+	&lt;div id="rect" &lt;/div&gt;
+	&lt;script&gt;
+	<span id="b">
+	var redRect = document.getElementById("redRect");
+	redRect.addEventListener("click", function(){
 	console.log("Событие на redRect");
-});
-
-var blueRect = document.getElementById("blueRect");
-blueRect.addEventListener("click", function(){
+	});
+	
+	var blueRect = document.getElementById("blueRect");
+	blueRect.addEventListener("click", function(){
 	console.log("Событие на blueRect");
-});
-
-document.body.addEventListener("click", function(){
+	});
+	
+	document.body.addEventListener("click", function(){
 	console.log("Событие на body");
-});
-</script>
-</body>
-</html>
-Если мы нажмем на вложенный div, то событие пойдет к родительскому элементу div и далее к элементу body:
+	});
+	</span>
+	&lt;/script&gt;
+	&lt;/body&gt;
+	&lt;/html&gt;
+	</pre>
+<a href="Test/Event4Test.html" id="out">Test.запустить код</a>
+<br>
+Если мы нажмем на вложенный <b>div</b>, то событие пойдет к родительскому элементу <b>div</b>
+ и далее к элементу <b>body.</b>
 
-Восходящие события в JavaScript
-Надо сказать, что подобное поведение не всегда является желательным. И в этом случае мы можем остановить распространение событие с помощью метода stopPropagation() объекта Event:
-
+Надо сказать, что подобное поведение не всегда является желательным.
+ И в этом случае мы можем остановить распространение событие с помощью метода 
+ <span>stopPropagation()</span> объекта <b>Event:</b>
+<pre id="kod">
 var redRect = document.getElementById("redRect");
 redRect.addEventListener("click", function(e){
 	console.log("Событие на redRect");
 	e.stopPropagation();
 });
-И в результате нажатия событие будет обработано только обработчиком для redRect.
-
-Нисходящие события
-События также могут быть нисходящими (capturing). Для их использования в метод addEventListener() в качестве третьего необязательного параметра передается логическое значение true или false, которое указывает, будет ли событие нисходящим. По умолчанию все события восходящие.
-
-Возьмем ту же веб-станицу, только изменим ее код javascript:
-
+</pre>
+И в результате нажатия событие будет обработано только обработчиком для <span class="blue">redRect</span>.
+</p>
+<h3>Нисходящие события</h3>
+<p>
+События также могут быть нисходящими <span>(capturing).</span>
+ Для их использования в метод <span>addEventListener()</span> 
+ в качестве третьего необязательного параметра передается
+  логическое значение <b>true</b> или <b>false</b>,
+   которое указывает, будет ли событие нисходящим. 
+   По умолчанию все события восходящие.
+<br><br>
+Возьмем ту же веб-станицу, только изменим ее код
+ javascript:
+<pre id="kod">
 var redRect = document.getElementById("redRect");
 redRect.addEventListener("click", function(){
 	console.log("Событие на redRect");
@@ -99,11 +123,10 @@ blueRect.addEventListener("click", function(){
 document.body.addEventListener("click", function(){
 	console.log("Событие на body");
 }, true);
-Теперь события будут распространяться в обратном порядке:
+</pre>
+Теперь события будут распространяться в обратном порядке.
 
-Нисходящие события в JavaScript
-
-	<a href="Test/DesignerTest.html" id="out">Output</a>
+	<a href="Test/Event4_1Test.html" id="out">Test.запустить код</a>
 	
   </div>
  </body>

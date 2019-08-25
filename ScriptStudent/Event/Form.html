@@ -17,108 +17,150 @@
 	</div>
 	<div class="content">
 	
-	Работа с формами
-	Формы и их элементы
-	Один из способов взаимодействия с пользователями представляют html-формы. Например, если нам надо получить от пользователя некоторую информацию, мы можем определить на веб-странице формы, которая будет содержать текстовые поля для ввода информации и кнопку для отправки. И после ввода данных мы можем обработать введенную информацию.
+	<h3>Работа с формами</h3>
+	<p>
+	Один из способов взаимодействия с пользователями представляют 
+	html-формы. Например, если нам надо получить от пользователя некоторую информацию,
+	 мы можем определить на веб-странице формы, 
+	 которая будет содержать текстовые поля для ввода информации и кнопку для отправки.
+	  И после ввода данных мы можем обработать введенную информацию.
+	<br>
+	Для создания формы используется элемент<span> &lt;form&gt;</span>:
+	<pre id="b">
+	&lt;form name="search"&gt;
+	&lt;/form&gt;
+	</pre>
 	
-	Для создания формы используется элемент <form>:
-	
-	<form name="search">
-	</form>
-	В JavaScript форма представлена объектом HtmlFormElement. И после создания формы мы можем к ней обратиться различными способами.
-	
+	В <b>JavaScript</b> форма представлена объектом <span>HtmlFormElement</span>. 
+	И после создания формы мы можем к ней обратиться
+	 различными способами.
+	<br>
 	Первый способ заключается в прямом обращении по имени формы:
-	
+	<span id="b">
 	var searchForm = document.search;
-	Второй способ состоит в обращении к коллекции форм документа и поиске в ней нужной формы:
+	</span>
+	Второй способ состоит в обращении к коллекции форм документа
+	 и поиске в ней нужной формы:
+	 <pre id="kod">
+	&lt;!DOCTYPE html&gt;
+	&lt;html&gt;
+	&lt;head&gt;
+	&lt;meta charset="utf-8" /&gt;
+		&lt;/head&gt;
+	&lt;body&gt;
+	&lt;form name="search"&gt;&lt;/form&lt;
+	&lt;form name="settings"&gt;&lt;/form&gt;
 	
-	<!DOCTYPE html>
-	<html>
-	<head>
-	<meta charset="utf-8" />
-	</head>
-	<body>
-	<form name="search"></form>
-	<form name="settings"></form>
-	<script>
+	&lt;script&gt;
+	<span id="b">
 	var searchForm;
-	for (var i = 0; i < document.forms.length; i++) {
+	for (var i = 0; i &lt; document.forms.length; i++) {
 	
 	if(document.forms[i].name==="search")
 	searchForm = document.forms[i];
 	}
 	document.write(searchForm.name);
-	</script>
-	</body>
-	</html>
-	С помощью свойства name объекта формы мы можем получить значение атрибута name у соответствующего элемента формы в коде html.
 	
+	</span>
+	&lt;/script&gt;
+	&lt;/body&gt;
+	&lt;/html&gt;
+	</pre>
+	С помощью свойства <b>name </b>объекта формы мы можем получить значение атрибута 
+	<b>name</b> у соответствующего элемента формы в коде <b>html.</b>
+	<br><br>
 	Еще один способ сочетает оба подхода:
-	
+	<span id="b">
 	var searchForm = document.forms["search"];
-	И также можно применять стандартные способы для поиска элемента формы, например, по id, по тегу или по селектору. Например:
-	
+	</span>
+	И также можно применять стандартные способы для поиска элемента формы, 
+	например, по id, по тегу или по селектору. Например:
+	<span id="kod">
 	var searchForm = document.getElementsByTagname("form")[0]
-	Форма имеет ряд свойств, из которых наиболее важными являются вышерассмотренное свойство name, а также свойство elements, которое содержит коллекцию элементов формы:
+	</span>
+	Форма имеет ряд свойств, из которых наиболее важными являются вышерассмотренное свойство 
+	<b>name</b>, а также свойство <b>elements,</b> которое содержит коллекцию элементов формы:
 	
-	<form name="search">
-	<input type="text" name="key"></input>
-	<input type="submit" name="send"></input>
-	</form>
-	<script>
+	<pre id="kod">
+	&lt;form name="search"&gt;
+	&lt;input type="text" name="key"&lt;&gt;/input&gt;
+	&lt;input type="submit" name="send"&lt;&gt;/input&gt;
+	&lt;/form&gt;
+	&lt;script&gt;
 	var searchForm = document.forms["search"];
-	for(var i=0; i<searchForm.elements.length;i++)
+	for(var i=0; i&lt;searchForm.elements.length;i++)
 	document.write(searchForm.elements[i].name + "<br/>");
-	</script>
-	Получение элементов формы в JavaScript
-	Среди методов формы надо отметить метод submit(), который отправляет данные формы на сервер, и метод reset(), который очищает поля формы:
-	
+	&lt;/script&gt;
+	</pre>
+		
+		Среди методов формы надо отметить метод <span>submit(),</span>
+		 который отправляет данные формы на сервер, 
+		 и метод <span>reset(), </span>который очищает поля формы:
+	<pre id="kod">
 	var searchForm = document.forms["search"];
 	searchForm.submit();
 	searchForm.reset();
-	Элементы форм
-	Форма может содержать различные элементы ввода html: input, textarea, button, select и т.д. Но все они имеют ряд общих свойств и методов.
+	</pre>
+	</p>
+	<h3>Элементы форм</h3>
+	<p>
+	Форма может содержать различные элементы 
+	ввода <b>html</b>: <span>input, textarea, button, select </span>и т.д.
+	 Но все они имеют ряд общих свойств и методов.
+	<br><br>
+	Также, как и форма, элементы форм имеют свойство <b>name</b>, 
+	с помощью которого можно получить значение атрибута <b>name:</b>
+	<pre id="kod">
 	
-	Также, как и форма, элементы форм имеют свойство name, с помощью которого можно получить значение атрибута name:
+	&lt;form name="search"&gt;
+	&lt;input type="text" name="key" value="hello world"&gt;&lt;/input&gt;
+	&lt;input type="submit" name="send"&gt;&lt;/input&gt;
+	&lt;/form&gt;
+	&lt;script&gt;
 	
-	<form name="search">
-	<input type="text" name="key" value="hello world"></input>
-	<input type="submit" name="send"></input>
-	</form>
-	<script>
 	var searchForm = document.forms["search"];
 	// выведем имя всех элементов
-	for(var i=0; i<searchForm.elements.length;i++)
-	document.write(searchForm.elements[i].name + "<br/>");
+	for(var i=0; i&lt;searchForm.elements.length;i++)
+	document.write(searchForm.elements[i].name + "&lt;br/&gt;");
 	
 	// получим по имени текстовое поле
 	var keyBox = searchForm.elements["key"];
 	document.write(keyBox.name); // key
-	</script>
-	Другим важным свойством является свойство value, которое позволяет получить или изменить значение поля:
+	&lt;/script&gt;
+	</pre>
 	
+	Другим важным свойством является свойство <span>value,</span>
+	 которое позволяет получить или изменить значение поля:
+	<pre id="kod">
 	var searchForm = document.forms["search"];
 	var keyBox = searchForm.elements["key"];
 	document.write(keyBox.value); // hello world
 	// установка значения
 	keyBox.value = "Привет мир";
-	С помощью свойства form можно получить родительский объект формы:
+	</pre>
 	
+	С помощью свойства <span>form </span>можно получить родительский объект формы:
+<pre id="kod">	
 	var searchForm = document.forms["search"];
 	var keyBox = searchForm.elements["key"];
 	document.write(keyBox.form.name); // search
-	Данное свойство может быть полезно, например, при отправке формы, когда перед непосредственной отправкой формы необходимо провести валидацию всех полей формы.
-	
-	Свойство type позволяет получить тип поля ввода. Это либо название тега элемента (например, textarea), либо значение атрибута type у элементов input.
-	
-	Из методов можно выделить методы focus() (устанавливает фокус на элемент) и blur() (убирает фокус с элемента):
-	
+</pre>
+	Данное свойство может быть полезно, например, при отправке формы, 
+	когда перед непосредственной отправкой формы необходимо провести валидацию всех полей формы.
+	<br><br>
+	Свойство <span>type </span>позволяет получить тип поля ввода. 
+	Это либо название тега элемента (например, textarea),
+	 либо значение атрибута <span>type </span>у элементов <span>input</span>.
+	<br><br>
+	Из методов можно выделить методы <span>focus()</span> (устанавливает фокус на элемент) и<span> blur() </span>
+	(убирает фокус с элемента):
+<pre id="kod">	
 	var searchForm = document.forms["search"];
 	var keyBox = searchForm.elements["key"];
 	keyBox.focus();
+</pre>
 
-
-	<a href="Test/DesignerTest.html" id="out">Output</a>
+	<a href="Test/formTest.html" id="out">Output</a>
 	
   </div>
  </body>

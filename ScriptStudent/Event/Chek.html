@@ -7,26 +7,29 @@
 		<title>JS События</title>
 		<link  href="../script.css" rel="stylesheet">
 		
+	<script src ="../js/bild.js"></script>
+		
 	</head>
 	<body>
-	<div class="toolbar">
-	<a href="../ScriptMain.html">Главная</a>
-	<a href="#">Блог</a>
-	<a href="#">Контакты</a>
-	<a href="#">О сайте</a>
-	</div>
+	<script>
+	toolbar('../../index.html','../Scriptmain.html');
+	</script>
 	<div class="content">
 	
-	Флажки и переключатели
+	<h3>Флажки и переключатели</h3>
+	<p>
 	Особую группу элементов ввода составляют флажки и переключатели.
-	
-	Флажки представляют поле, в которое можно поставить отметки и которое создается с помощью элемента <input type="checkbox". Отличительную особенность флажка составляет свойство checked, которое в отмеченном состоянии принимает значение true:
-	
-	<form name="myForm">
-	<input type="checkbox" name="enabled" checked><span>Включить</span>
-	</form>
-	<div id="printBlock"></div>
-	<script>
+	<br><br>
+	Флажки представляют поле, в которое можно поставить отметки и которое создается с
+	 помощью элемента &lt;input type="checkbox".
+	  Отличительную особенность флажка составляет свойство <span>checked,</span> которое в отмеченном состоянии 
+	  принимает значение <b>true:</b>
+	<pre id="kod">
+	&lt;form name="myForm">
+	&lt;input type="checkbox" name="enabled" checked>&lt;span>Включить&lt;/span>
+	&lt;/form>
+	&lt;div id="printBlock">&lt;/div>
+	&lt;script>
 	var enabledBox = document.myForm.enabled;
 	
 	function onclick(e){
@@ -36,47 +39,62 @@
 	}
 	
 	enabledBox.addEventListener("click", onclick);
-	</script>
-	Нажатие на флажок генерирует событие click. В данном случае при обработке данного события мы просто выводим информацию, отмечен ли данный флажок, в блок div.
+	&lt;/script>
+	</pre>
 	
-	Checkbox в JavaScript
-	Переключатели представляют группы кнопок, из которых мы можем выбрать только одну. Переключатели создаются элементом <input type="radio".
-	
-	Выбор или нажатие на одну из них также представляет событие click:
-	
-	<form name="myForm">
-	<input type="radio" name="languages" checked="checked" value="Java" /><span>Java</span>
-	<input type="radio" name="languages" value="C#" /><span>C#</span>
-	<input type="radio" name="languages" value="C++" /><span>C++</span>
-	</form>
-	<div id="printBlock"></div>
-	<script>
+	Нажатие на флажок генерирует событие <span>click.</span>
+	 В данном случае при обработке данного события мы просто выводим информацию,
+	  отмечен ли данный флажок, в блок<b> div.</b>
+	<br><br>
+	Переключатели представляют группы кнопок, 
+	из которых мы можем выбрать только одну. 
+	Переключатели создаются элементом &lt;input type="radio".
+	<br><br>
+	Выбор или нажатие на одну из них также представляет событие<span> click:</span>
+	<pre id="kod">
+	&lt;form name="myForm">
+	&lt;input type="radio" name="languages" checked="checked" value="Java" /><span>Java</span>
+	&lt;input type="radio" name="languages" value="C#" /><span>C#</span>
+	&lt;input type="radio" name="languages" value="C++" /><span>C++</span>
+	&lt;/form>
+	&lt;div id="printBlock">&lt;/div>
+	&lt;script>
 	function onclick(e){
 	
 	var printBlock = document.getElementById("printBlock");
 	var language = e.target.value;
 	printBlock.textContent = "Вы выбрали: " + language;
 	}
-	for (var i = 0; i < myForm.languages.length; i++) {
+	for (var i = 0; i &lt; myForm.languages.length; i++) {
 	myForm.languages[i].addEventListener("click", onclick);
 	}
-	</script>
-	При создании группы переключателей их атрибут name должен иметь одно и то же значение. В данном случае это - languages. То есть переключатели образуют группу languages.
+	&lt;/script>
+	</pre>
 	
-	Поскольку переключателей может быть много, то при прикреплении к ним обработчика события нам надо пробежаться по всему массиву переключателей, который можно получить по имени группы:
-	
-	for (var i = 0; i <. myForm.languages.length; i++) {
-	myForm.languages[i].addEventListener("click", onclick);
+	При создании группы переключателей их атрибут<b> name</b>
+	 должен иметь одно и то же значение.
+	  В данном случае это - <b>languages.</b>
+	   То есть переключатели образуют группу <b>languages</b>.
+	<br><br>
+	Поскольку переключателей может быть много, то при прикреплении к ним обработчика
+	 события нам надо пробежаться по всему массиву переключателей, 
+	 который можно получить по имени группы:
+<pre id="kod">	
+for (var i = 0; i <. myForm.languages.length; i++) {
+myForm.languages[i].addEventListener("click", onclick);
 	}
-	Значение выбранного переключателя также можно получить через объект Event: e.target.value
+	</pre>
+	Значение выбранного переключателя также можно получить через объект <span><bdi>Event: </bdi>e.target.value</span>
 	
-	RadioButton в JavaScript
-	Каждый переключатель также, как и флажок, имеет свойство checked, которое возвращает значение true, если переключатель выбран. Например, отметим последний переключатель:
-	
+	<br><br>
+	Каждый переключатель также, как и флажок, имеет свойство <span>checked,</span>
+	 которое возвращает значение <b>true,</b> если переключатель выбран. 
+	 Например, отметим последний переключатель:
+	<code id="b">
 	myForm.languages[myForm.languages.length-1].checked = true;
+</code>
 
-
-	<a href="Test/DesignerTest.html" id="out">Output</a>
+	<a href="Test/checkTest.html" id="out">Output</a>
 	
   </div>
  </body>

@@ -6,47 +6,52 @@
 		<meta name="viewport" content="width=device-width">
 		<title>JS События</title>
 		<link  href="../script.css" rel="stylesheet">
+		<script src ="../js/bild.js"></script>
 		
 	</head>
 	<body>
-	<div class="toolbar">
-	<a href="../ScriptMain.html">Главная</a>
-	<a href="#">Блог</a>
-	<a href="#">Контакты</a>
-	<a href="#">О сайте</a>
-	</div>
+	<script>
+	toolbar('../../index.html','../Scriptmain.html');
+	</script>
 	<div class="content">
-	
-	События клавиатуры
+	<h3>События клавиатуры</h3>
+	<p>
 	Другим распространенным типом событий являются события клавиатуры.
+	<ul>
+	<li><span>keydown:</span> возникает при нажатии клавиши клавиатуры и длится, пока нажата клавиша</li>
 	
-	keydown: возникает при нажатии клавиши клавиатуры и длится, пока нажата клавиша
+	<li><span>keyup:</span> возникает при отпускании клавиши клавиатуры</li>
 	
-	keyup: возникает при отпускании клавиши клавиатуры
+	<li><span>keypress:</span> возникает при нажатии клавиши клавиатуры, но после события <span>keydown </span>и до события <span>keyup</span>.</li>
+	</ul>
 	
-	keypress: возникает при нажатии клавиши клавиатуры, но после события keydown и до события keyup. Надо учитывать, что данное событие генерируется только для тех клавиш, которые формируют вывод в виде символов, например, при печати символов. Нажатия на остальные клавиши, например, на Alt, не учитываются.
+	 Надо учитывать, что данное событие генерируется только для тех клавиш, которые формируют вывод в виде символов, например, при печати символов.
+	 Нажатия на остальные клавиши, например, на <b>Alt,</b> не учитываются.
+	<br><br>
+	Для работы с событиями клавиатуры определен объект <span>KeyboardEvent,</span>
+	 который добавляет к свойствам объекта <span>Event</span> ряд специфичных для клавиатуры свойств:
+	<ul>
+	<li><span>altKey: </span>возвращает <b>true,</b> если была нажата клавиша <b>Alt</b> во время генерации события</li>
 	
-	Для работы с событиями клавиатуры определен объект KeyboardEvent, который добавляет к свойствам объекта Event ряд специфичных для клавиатуры свойств:
+	<li><span>charCode: </span>возвращает символ <span>Unicode </span>для нажатой клавиши (используется для события keypress)</li>
 	
-	altKey: возвращает true, если была нажата клавиша Alt во время генерации события
+	<li><span>keyCode: </span>возвращает числовое представление нажатой клавиши клавиатуры</li>
 	
-	charCode: возвращает символ Unicode для нажатой клавиши (используется для события keypress)
+	<li><span>ctrlKey: </span>возвращает <b>true,</b> если была нажата клавиша <b>Ctrl</b> во время генерации события</li>
 	
-	keyCode: возвращает числовое представление нажатой клавиши клавиатуры
+	<li><span>metaKey:</span> возвращает <b>true,</b> если была нажата во время генерации события метаклавиша клавиатуры</li>
 	
-	ctrlKey: возвращает true, если была нажата клавиша Ctrl во время генерации события
-	
-	metaKey: возвращает true, если была нажата во время генерации события метаклавиша клавиатуры
-	
-	shiftKey: возвращает true, если была нажата клавиша Shift во время генерации события
-	
-	Например, мы можем с помощью клавиш клавиатуры перемещать элемент на веб-странице:
-	
-	<!DOCTYPE html>
-	<html>
-	<head>
-	<meta charset="utf-8" />
-	<style>
+	<li><span>shiftKey:</span> возвращает <b>true,</b> если была нажата клавиша <b>Shift </b>во время генерации события</li>
+	</ul>
+	Например, мы можем с помощью клавиш клавиатуры перемещать 
+	элемент на веб-странице:
+	<pre id="kod">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+	&lt;meta charset="utf-8" /&gt;
+	&lt;style&gt;
+	<span>
 	html, body{
 	margin:0;
 	overflow:hidden;
@@ -57,11 +62,13 @@
 	background-color:blue;
 	}
 	</style>
-	</head>
-	<body>
-	<div id="blueRect"></div>
-	
-	<script>
+		</span>
+	&lt;/style&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+	&lt;div id="bluerect" &lt;/div&gt;
+	&lt;script&gt;
+	<span id="b">
 	function moveRect(e){
 	
 	var blueRect = document.getElementById("blueRect");
@@ -93,17 +100,30 @@
 	}
 	
 	addEventListener("keydown", moveRect);
-	</script>
-	</body>
-	</html>
-	В данном случае обрабатывается событие keydown. В обработчике moveRect с помощью метода window.getComputedStyle() получаем стиль элемента blueRect. А затем из этого стиля выбираем значения свойств marginLeft и marginTop.
 	
-	С помощью свойства e.keyCode получаем нажатую клавишу. Список кодов клавиш клавиатуры можно посмотреть на сайте http://www.javascriptkeycode.com/.
+	</span>
+	&lt;/script&gt;
+	&lt;/body&gt;
+	&lt;/html&gt;
+	</pre>
 	
-	Здесь нам интересуют четыре клавиши: вверх, вниз, влево, вправо. Если одна из них нажата, производим действия: увеличение или уменьшение отступа элемента от верхней или левой границы. Ну и чтобы элемент не выходил за границы окна, проверяем предельные значения с помощью document.documentElement.clientWidth (ширина корневого элемента) и document.documentElement.clientHeight (высота корневого элемента).
+	
+	В данном случае обрабатывается событие <span>keydown.</span>
+	 В обработчике <span>moveRect </span>с помощью метода <span>window.getComputedStyle() </span>получаем стиль элемента <b>blueRect.</b>
+	  А затем из этого стиля выбираем значения свойств <span>marginLeft и marginTop.</span>
+	  <br><br>
+	С помощьюсвойства <span>e.keyCode </span>получаем нажатую клавишу. 
+	Список кодов клавиш клавиатуры можно посмотреть на сайте <a href="http://www.javascriptkeycode.com/." >http://www.javascriptkeycode.com/.</a>
+	<br><br>
+	Здесь наc интересуют четыре клавиши: <b>вверх, вниз, влево, вправо.</b>
+	 Если одна из них нажата, производим действия:
+	  увеличение или уменьшение отступа элемента от верхней или левой границы. 
+	  Ну и чтобы элемент не выходил за границы окна,
+	   проверяем предельные значения с помощью <span>document.documentElement.clientWidth</span> (ширина корневого элемента) и 
+	   <span>document.documentElement.clientHeight </span>(высота корневого элемента).
 
 
-	<a href="Test/DesignerTest.html" id="out">Output</a>
+	<a href="Test/KeyTest.html" id="out">Output</a>
 	
   </div>
  </body>

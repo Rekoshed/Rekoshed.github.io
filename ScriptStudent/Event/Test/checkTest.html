@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Test.Event</title>
+		<link  href="../../script.css" rel="stylesheet">
+		<script src ="../../js/bild.js"></script>
+		
+		<style>
+		#blueRect{
+		width:200px;
+		height:100px;
+		background-color:blue;
+		margin:10px;
+		}
+	
+		</style>		
+	</head>	
+	<body>	
+<script>
+toolbar('../../../index.html','../../Mous.html');
+</script>
+<div class="content">
+
+	<form name="myForm">
+	<input type="checkbox" name="enabled" checked><span>Включить</span>
+	</form>
+	<div id="printBlock"></div>
+	<script>
+	var enabledBox = document.myForm.enabled;
+	
+	function onclick(e){
+	var printBlock = document.getElementById("printBlock");
+	var enabled = e.target.checked;
+	printBlock.textContent = enabled;
+	}
+	
+	enabledBox.addEventListener("click", onclick);
+	</script>
+	
+</div>
+</body>
+</html>
