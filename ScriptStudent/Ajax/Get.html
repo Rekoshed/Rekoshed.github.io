@@ -7,31 +7,32 @@
 		<title>JS Ajax</title>
 		<link  href="../script.css" rel="stylesheet">
 		
+	<script src ="../js/bild.js"></script>
+	
 	</head>
 	<body>
-	<div class="toolbar">
-	<a href="../ScriptMain.html">Главная</a>
-	<a href="#">Блог</a>
-	<a href="#">Контакты</a>
-	<a href="#">О сайте</a>
-	</div>
+	<script>
+	toolbar('../../index.html','../ScriptMain.html');
+	</script>
 	<div class="content">
-	
-
-Отправка данных
-Принцип отправки данных может отличаться в различных ситуациях. Рассмотрим эти ситуации.
-
-Отправка GET-запроса
-GET-запрос характеризуется тем, что данные могут отправляться в строке запроса:
-
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8" />
-</head>
-<body>
-<div id="output"></div>
-<script>
+<h3>Отправка данных</h3>
+<p>
+Принцип отправки данных может отличаться в различных ситуациях.
+ <br>
+ Рассмотрим эти ситуации.
+</p>
+<h3>Отправка GET-запроса</h3>
+<p>
+<b>GET</b>-запрос характеризуется тем, что данные могут отправляться в строке запроса:
+<pre id="kod">
+&lt;!DOCTYPE html>
+&lt;html>
+&lt;head>
+	&lt;meta charset="utf-8" />
+&lt;/head>
+&lt;body>
+&lt;div id="output">&lt;/div>
+&lt;script>
 // объект для отправки
 var user = {
 	name: "Tom",
@@ -52,47 +53,64 @@ var body = "name=" + user.name + "&age="+user.age;
 request.open("GET", "http://localhost:8080/postdata.php?"+body);
 request.onreadystatechange = reqReadyStateChange;
 request.send();
-</script>
-</body>
-</html>
-Для отправки берем свойства объекта user и формируем из их значений сроку с параметрами: "name=" + user.name + "&age="+user.age. Затем эта строка добавляется к строке запроса в методе open("GET", "http://localhost:8080/postdata.php?"+body)
-
-Предполагается, что данные отправляются скрипту на языке php postdata.php, который может иметь, например, следующее содержание:
-
-<?php
+&lt;/script>
+&lt;/body>
+&lt;/html>
+</pre>
+Для отправки берем свойства объекта <b>user</b> и формируем из их значений сроку с параметрами: <code><i>"name=" + user.name + "&age="+user.age. </i></code>
+Затем эта строка добавляется к строке запроса в методе <i>open(<code>"GET", "http://localhost:8080/postdata.php?"+body</code>)</i>
+<br><br> 
+Предполагается, что данные отправляются скрипту на языке <b>php postdata.php,</b> который может иметь, 
+например, следующее содержание:
+<pre id="kod">
+&lt;?php
 $name = "Не известно";
 $age = "Не известно";
 if(isset($_GET['name'])) $name = $_GET['name'];
 if (isset($_GET['age'])) $age = $_GET['age'];
-echo "Ваше имя: $name  <br> Ваш возраст: $age";
+echo "Ваше имя: $name  &lt;br> Ваш возраст: $age";
 ?>
-Конкретная технология стороны сервера тут не важна. И в качестве тестирования можно взять любую другую технологию. Например, ASP.NET MVC. Метод контроллера в ASP.NET MVC, который принимает данные, мог бы выглядеть следующим образом:
-
+</pre>
+Конкретная технология стороны сервера тут не важна.
+ И в качестве тестирования можно взять любую другую технологию. 
+ Например, <b>ASP.NET MVC.</b>
+  Метод контроллера в <b>ASP.NET MVC,</b>
+   который принимает данные, мог бы выглядеть следующим образом:
+<pre id="kod">
 public string PostData(string name, int age)
 {
     return "Ваше имя: "+name +"; Ваш возраст: "+ age;
 }
-Кодирование параметров
-Все отправляемые в GET-запросе параметры разделяются знаком амперсанда(&). Но что, если какой-нибудь параметр имеет знак амперсанда. Например,
-
+</pre>
+</p>
+<h3>Кодирование параметров</h3>
+<p>
+Все отправляемые в <b>GET</b>-запросе параметры разделяются знаком амперсанда(&).
+ Но что, если какой-нибудь параметр имеет знак амперсанда. Например,
+<pre>
 var user = {
 	name: "Tom&Tim",
 	age: 23
 };
 // строка с параметрами для отправки
 var body = "name=" + user.name + "&age="+user.age;
+</pre>
 В этом случае при получении параметров скрипт на стороне сервера может неправильно обработать данные и неправильно извлечь параметры. Поэтому, чтобы кодировать все передаваемые данные, нужно применять функцию encodeURIComponent():
-
+<code id="b">
 var body = "name=" + encodeURIComponent(user.name) + "&age="+encodeURIComponent(user.age);
-При этом строка "Tom&Tim" будет кодирована в следующую строку: "Tom%26Tim".
-
+</code>
+При этом строка <b>"Tom&Tim"</b> будет кодирована в следующую строку: "Tom%26Tim".
+<br><br>
 При необходимости мы можем выполнить обратное декодирование с помощью функции decodeURIComponent():
-
+<pre>
 var encodeName = encodeURIComponent(user.name); // Tom%26Tim
 var decodeName = decodeURIComponent(encodeName); // Tom&Tim
-POST-запросы
-Отправка данных в POST-запросах будет немного отличаться:
-
+</pre>
+</p>
+<h3>POST-запросы</h3>
+<p>
+Отправка данных в <span>POST</span>-запросах будет немного отличаться:
+<pre>
 var user = {
 	name: "Tom",
 	age: 23
@@ -108,11 +126,13 @@ request.open("POST", "http://localhost:8080/postdata.php");
 request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 request.onreadystatechange = reqReadyStateChange;
 request.send(body);
-Для отправки данных методом POST надо установить заголовок Content-Type с помощью метода setRequestHeader(). В данном случае заголовок имеет значение application/x-www-form-urlencoded.
-
-Отправка форм. FormData
-Начиная со спецификации XMLHttpRequest2 в JavaScript появился новый объект - FormData, который позволяет сериализовать данные формы для ее последующей отправки. При этом нам даже необязательно создавать форму в коде html, мы можем создать ее динамически в JavaScript:
-
+</pre>
+Для отправки данных методом <b>POST </b>надо установить заголовок Content-Type с помощью метода setRequestHeader(). В данном случае заголовок имеет значение application/x-www-form-urlencoded.
+</p>
+<h3>Отправка форм. FormData</h3>
+<p>
+Начиная со спецификации <span>XMLHttpRequest2 </span>в JavaScript появился новый объект - FormData, который позволяет сериализовать данные формы для ее последующей отправки. При этом нам даже необязательно создавать форму в коде html, мы можем создать ее динамически в JavaScript:
+<pre>
 var formData = new FormData();
 formData.append('name', 'Tom');
 formData.append('age', 23);
@@ -126,23 +146,24 @@ function reqReadyStateChange() {
 request.open("POST", "http://localhost:8080/display.php");
 request.onreadystatechange = reqReadyStateChange;
 request.send(formData);
-Для добавления данных у объекта FormData используется метод append('имя_параметра', значение). При этом никакие заголовки указывать не надо.
-
+</pre>
+Для добавления данных у объекта <span>FormData </span>используется метод append('имя_параметра', значение). При этом никакие заголовки указывать не надо.
+<br><br>
 Также мы можем определить форму в html и использовать ее для отправки:
-
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8" />
-</head>
-<body>
-<div id="output"></div>
-<form name="user" action="http://localhost:8080/postdata.php">
-<input type="text" name="username" placeholder="Введите имя" /><br/>
-<input type="text" name="age" placeholder="Введите возраст" /><br/>
-<input type="submit" name="submit" value="Отправить" />
-</form>
-<script>
+<pre>
+&lt;!DOCTYPE html>
+&lt;html>
+&lt;head>
+	&lt;meta charset="utf-8" />
+&lt;/head>
+&lt;body>
+&lt;div id="output">&lt;/div>
+&lt;form name="user" action="http://localhost:8080/postdata.php">
+&lt;input type="text" name="username" placeholder="Введите имя" />&lt;br/>
+&lt;input type="text" name="age" placeholder="Введите возраст" />&lt;br/>
+&lt;input type="submit" name="submit" value="Отправить" />
+&lt;/form>
+&lt;script>
 // получаем объект формы
 var form = document.forms.user;
 // прикрепляем обработчик кнопки
@@ -164,14 +185,16 @@ function sendRequest(event){
 	}
 	request.send(formData);
 }
-</script>
-</body>
-</html>
+&lt;/script>
+&lt;/body>
+&lt;/html>
+</pre>
 Для сериализации всех полей формы нам достаточно передать объект формы в конструктор FormData: var formData = new FormData(form);
-
-Отправка данных в формате json
-Для отправки данных в формате json нам необходимо установить соответствующий заголовок и сериализовать данные с помощью метода JSON.stringify:
-
+</p>
+<h3>Отправка данных в формате json</h3>
+<p>
+Для отправки данных в формате <b>json </b>нам необходимо установить соответствующий заголовок и сериализовать данные с помощью метода JSON.stringify:
+<pre>
 // объект для отправки
 var user = {
 	username: "Tom",
@@ -186,8 +209,8 @@ request.onreadystatechange = function () {
 			document.getElementById("output").innerHTML=request.responseText;
 }
 request.send(json);
-
-	<a href="Test/DesignerTest.html" id="out">Output</a>
+</pre>
+	<a href="Test/getTest.html" id="out">Output</a>
 	
   </div>
  </body>

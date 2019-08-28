@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Java Script</title>
+		<link  href="../../script.css" rel="stylesheet">
+		<script src ="../../js/bild.js"></script>	
+		</head>
+		<body>
+		<script>
+		toolbar('../../../index.html','../Element.html');
+		</script>
+	<div class="content">
+<div class="article">
+<h3>Заголовок статьи</h3>
+<p>Первый абзац</p>
+<p>получим все элементы, которые есть на странице:</p>
+</div>
+<script>
+function getChildren(elem){
+	
+	for(var i in elem.childNodes){
+	
+		if(elem.childNodes[i].nodeType===1){
+		
+			document.write(elem.childNodes[i].tagName + "<br>");
+			getChildren(elem.childNodes[i]);
+		}
+	}
+}
+var root = document.documentElement;
+document.write("<span>" + root.tagName + "</span><br>");
+getChildren(root);
+</script>
+  </div>
+ </body>
+</html>

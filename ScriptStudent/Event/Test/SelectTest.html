@@ -1,0 +1,120 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Test.Event</title>
+		<link  href="../../script.css" rel="stylesheet">
+		<script src ="../../js/bild.js"></script>
+		
+		<style>
+		#blueRect{
+		width:200px;
+		height:100px;
+		background-color:blue;
+		margin:10px;
+		}
+	
+		</style>		
+	</head>	
+	<body>	
+<script>
+toolbar('../../../index.html','../../Mous.html');
+</script>
+<div class="content">
+<h3>Список select</h3>
+	
+	<select name="language" size="4">
+	<option value="JS" selected="selected">JavaScript</option>
+	<option value="Java">Java</option>
+	<option value="C#">C#</option>
+	<option value="C++">C++</option>
+	</select>
+	
+	<br>
+	<h4>
+	получим первый элемент списка и выведем о нем через его свойства всю информацию:
+	</h4>
+	<form name="my">
+	<select name="language" size="4">
+	<option value="JS" selected="selected">JavaScript</option>
+	<option value="Java">Java</option>
+	<option value="CS">C#</option>
+	<option value="CPP">C++</option>
+	</select>
+	</form>
+	<script>
+	var firstLanguage = my.language.options[0];
+	document.write("Index: " + firstLanguage.index + "<br/>");
+	document.write("Text: " + firstLanguage.text + "<br/>");
+	document.write("Value: " + firstLanguage.value + "<br/>");
+	</script>
+	<h4>добавление и удаление объектов списка:
+	</h4>
+	
+	<form name="myForm">
+	<select name="language" size="5">
+	<option value="JS" selected="selected">JavaScript</option>
+	<option value="Java">Java</option>
+	<option value="CS">C#</option>
+	<option value="CPP">C++</option>
+	</select>
+	<p><input type="text" name="textInput" placeholder="Введите текст" /></p>
+	<p><input type="text" name="valueInput" placeholder="Введите значение" /></p>
+	<p><input type="button" name="addButton" value="Добавить" /><input type="button" name="removeButton" value="Удалить" /></p>
+	</form>
+	
+	<script>
+	var addButton = myForm.addButton, 
+	removeButton = myForm.removeButton, 
+	languagesSelect = myForm.language;
+	// обработчик добавления элемента
+	function addOption(){
+	// получаем текст для элемента
+	var text = myForm.textInput.value;
+	// получаем значение для элемента
+	var value = myForm.valueInput.value;
+	// создаем новый элемента
+	var newOption = new Option(text, value);
+	languagesSelect.options[languagesSelect.options.length]=newOption;
+	}
+	// обработчик удаления элемент
+	function removeOption(){
+	
+	var selectedIndex = languagesSelect.options.selectedIndex;
+	// удаляем элемент 
+	languagesSelect.options[selectedIndex] = null;
+	}
+	
+	addButton.addEventListener("click", addOption);
+	removeButton.addEventListener("click", removeOption);
+	</script>
+	
+	<h4>
+	Рассмотрим применение события <b>select:</b>
+	</h4>
+	<form name="Form">
+	<select name="lang" size="5">
+	<option value="JS" selected="selected">JavaScript</option>
+	<option value="Java">Java</option>
+	<option value="CS">C#</option>
+	<option value="CPP">C++</option>
+	</select>
+	</form>
+	<div id="select"></div>
+	<script>
+	var languagesSelect = Form.lang;
+	
+	function changeOption(){
+	
+	var select = document.getElementById("select");
+	var selectedOption = languagesSelect.options[languagesSelect.selectedIndex];
+	select.textContent = "Вы выбрали: " + selectedOption.text;
+	}
+	
+	languagesSelect.addEventListener("change", changeOption);
+	</script>
+</div>
+</body>
+</html>

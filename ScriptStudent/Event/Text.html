@@ -6,15 +6,13 @@
 		<meta name="viewport" content="width=device-width">
 		<title>JS События</title>
 		<link  href="../script.css" rel="stylesheet">
+		<script src ="../js/bild.js"></script>
 		
-	</head>
-	<body>
-	<div class="toolbar">
-	<a href="../ScriptMain.html">Главная</a>
-	<a href="#">Блог</a>
-	<a href="#">Контакты</a>
-	<a href="#">О сайте</a>
-	</div>
+		</head>
+		<body>
+		<script>
+		toolbar('../../index.html','../Scriptmain.html');
+		</script>
 	<div class="content">
 	
 	<h3>Текстовые поля</h3>
@@ -127,17 +125,18 @@
 	<textarea rows="15" cols="40" name="textArea"></textarea>
 	Данные элемент генерирует все те же самые события, что и обычное текстовое поле:
 	
-	<!DOCTYPE html>
-	<html>
-	<head>
-	<meta charset="utf-8" />
-	</head>
-	<body>
-	<form name="search">
-	<textarea rows="7" cols="40" name="message"></textarea>
-	</form>
-	<div id="printBlock"></div>
-	<script>
+	<pre id="kod">
+	&lt;!DOCTYPE html&gt;
+	&lt;html&gt;
+	&lt;head&gt;
+	&lt;meta charset="utf-8" /&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+	&lt;form name="search">
+	&lt;textarea rows="7" cols="40" name="message"></textarea>
+	&lt;/form>
+	&lt;div id="printBlock">&lt;/div>
+	&lt;script>
 	var messageBox = document.search.message;
 	
 	// обработчик ввода символа
@@ -163,15 +162,26 @@
 	
 	messageBox.addEventListener("keypress", onkeypress);
 	messageBox.addEventListener("keydown", onkeydown);
-	</script>
-	</body>
-	</html>
-	Здесь к текстовому полю прикрепляются обработчики для событий keypress и keydown. В обработчике keypress получаем введенный символ с помощью конвертации числового кода клавиши в строку:
-	
+	&lt;/script>
+	&lt;/body>
+	&lt;/html>
+	</pre>
+	Здесь к текстовому полю прикрепляются обработчики для событий <span>keypress и keydown.</span>
+	 В обработчике <span>keypress</span> получаем введенный символ с помощью конвертации числового кода клавиши в строку:
+	<code id="kod">
 	var val = String.fromCharCode(e.keyCode);
-	Затем символ добавляется к содержимому блока printBlock.
-	
-	Событие keypress возникает при нажатии на клавиши для печатаемых символов, то такие символы отображаются в текстовом поле. Однако есть и другие клавиши, которые оказывают влияние на текстовое поле, но они не дают отображаемого символа, поэтому не отслеживаются событием keypress. К таким клавишам относится клавиша Backspace, которая удаляет последний символ. И для ее отслеживания также обрабатываем событие keydown. В обработчике keydown удаляем из строки в блоке printBlock последний символ.
+	</code>
+	Затем символ добавляется к содержимому блока <b>printBlock.</b>
+	<br>
+	Событие <span>keypress</span> возникает при нажатии на клавиши для печатаемых символов, 
+	то такие символы отображаются в текстовом поле. 
+	Однако есть и другие клавиши, которые оказывают влияние на текстовое поле, 
+	но они не дают отображаемого символа, 
+	поэтому не отслеживаются событием <span>keypress.</span>
+	 К таким клавишам относится клавиша <b>Backspace,</b>
+	  которая удаляет последний символ.
+	   И для ее отслеживания также обрабатываем событие <span>keydown. </span>
+	   В обработчике keydown удаляем из строки в блоке <b>printBlock</b> последний символ.
 	
 	
 

@@ -6,73 +6,71 @@
 		<meta name="viewport" content="width=device-width">
 		<title>JS работа с DOM</title>
 		<link  href="../script.css" rel="stylesheet">
+		<script src ="../js/bild.js"></script>
 		
-	</head>
-	<body>
-	<div class="toolbar">
-	<a href="../ScriptMain.html">Главная</a>
-	<a href="#">Блог</a>
-	<a href="#">Контакты</a>
-	<a href="#">О сайте</a>
-	</div>
+		</head>
+		<body>
+		<script>
+		toolbar('../../index.html','../Scriptmain.html');
+		</script>
 	<div class="content">
-	
 
-Работа с DOM
-Введение в DOM
+<h3>Введение в DOM</h3>
+<p>
 Одой из ключевых задач JavaScript является взаимодействие с пользователем и манипуляция элементами веб-страницы. Для JavaScript веб-страница доступна в виде объектной модели документа (document object model) или сокращенно DOM. DOM описывает структуру веб-станицы в виде древовидного представления и предоставляет разработчикам способ получить доступ к отдельным элементам веб-станицы.
-
+<br><br>
 Важно не путать понятия BOM (Browser Object Model - объектная модель браузера) и DOM (объектная модель документа). Если BOM предоставляет доступ к браузеру и его свойствам в целом, то DOM предоставляет доступ к отдельной веб-странице или html-документу и его элементам.
-
+<br><br>
 Например, рассмотрим простейшую страницу:
-
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Page Title</title>
-</head>
-<body>
-	<h2>Page Header</h2>
-	<div>
-		<h3>Block Header</h3>
-		<p>Text</p>
-	</div>
-</body>
-</html>
-Дерево DOM для этой страницы будет выглядеть следующим образом:
-
-DOM-tree in JavaScript
-Таким образом, все компоненты упорядочены в DOM иерархическим образом, где каждый компонент представляет отдельный узел. То есть каждый элемент, например, элемент div, представляет собой узел. Но также и текст внутри элемента представляет отдельный узел.
-
+<pre id="kod">
+&lt;!DOCTYPE html>
+&lt;html>
+&lt;head>
+	&lt;title>Page Title&lt;/title>
+&lt;/head>
+&lt;body>
+	&lt;h2>Page Header&lt;/h2>
+	&lt;div>
+		&lt;h3>Block Header&lt;/h3>
+		&lt;p>Text&lt;/p>
+	&lt;/div>
+&lt;/body>
+&lt;/html>
+</pre>
+Таким образом, все компоненты упорядочены в <b>DOM </b>иерархическим образом, 
+где каждый компонент представляет отдельный узел. 
+То есть каждый элемент, например, элемент <b>div,</b> представляет собой узел.
+ Но также и текст внутри элемента представляет отдельный узел.
+<br><br>
 Существует следующие виды узлов:
+<ul>
+<li><span>Element:</span> html-элемент</li>
 
-Element: html-элемент
+<li><span>Attr:</span> атрибут html-элемента</li>
 
-Attr: атрибут html-элемента
+<li><span>Document:</span> корневой узел html-документа</li>
 
-Document: корневой узел html-документа
+<li><span>DocumentType:</span> DTD или тип схемы XML-документа</li>
 
-DocumentType: DTD или тип схемы XML-документа
+<li><span>DocumentFragment:</span> место для временного хранения частей документа</li>
 
-DocumentFragment: место для временного хранения частей документа
+<li><span>EntityReference:</span> ссылка на сущность XML-документа</li>
 
-EntityReference: ссылка на сущность XML-документа
+<li><span>ProcessingInstruction:</span> инструкция обработки веб-страницы</li>
 
-ProcessingInstruction: инструкция обработки веб-страницы
+<li><span>Comment:</span> элемент комментария</li>
 
-Comment: элемент комментария
+<li><span>Text: </span>текст элемента</li>
 
-Text: текст элемента
+<li><span>CDATASection:</span> секция CDATA в документе XML</li>
 
-CDATASection: секция CDATA в документе XML
+<li><span>Entity:</span> необработанная сущность DTD</li>
 
-Entity: необработанная сущность DTD
+<li><span>Notation:</span> нотация, объявленная в DTD</li>
+</ul>
+Несмотря на такое большое количество типов узлов, как правило, 
+мы будем работать только с некоторыми из них.
 
-Notation: нотация, объявленная в DTD
-
-Несмотря на такое большое количество типов узлов, как правило, мы будем работать только с некоторыми из них.
-
-	<a href="Test/DesignerTest.html" id="out">Output</a>
 	
   </div>
  </body>

@@ -6,43 +6,60 @@
 		<meta name="viewport" content="width=device-width">
 		<title>JS События</title>
 		<link  href="../script.css" rel="stylesheet">
+		<script src ="../js/bild.js"></script>
 		
 	</head>
 	<body>
-	<div class="toolbar">
-	<a href="../ScriptMain.html">Главная</a>
-	<a href="#">Блог</a>
-	<a href="#">Контакты</a>
-	<a href="#">О сайте</a>
-	</div>
+		<script>
+	    	toolbar('../../index.html','../ScriptMain.html');
+		</script>
 	<div class="content">
 	
-	JSON
-	Введение в JSON
-	JSON (JavaScript Object Notation) представляет легковесный формат хранения данных. JSON описывает структуру и организацию данных JavaScript. Простота JSON привела к тому, что в настоящий момент он является наиболее популярным форматом передачи данных в среде web, вытеснив другой некогда популярный формат xml.
-	
-	Объекты JSON очень похожи на объекты JavaScript, тем более что JSON является подмножеством JavaScript. В то же время важно их различать: JavaScript является языком программирования, а JSON является форматом данных.
-	
-	JSON поддерживает три типа данных: примитивные значения, объекты и массивы. Примитивные значения представляют стандартные строки, числа, значение null, логические значения true и false.
-	
-	Объекты представляют набор простейших данных, других объектов и массивов. Например, типичный объект JSON:
-	
+	<h2>JSON</h2>
+<h3>	Введение в JSON</h3>
+<p>
+	<b>JSON </b>(JavaScript Object Notation) представляет легковесный формат хранения данных. 
+	<b>JSON</b> описывает структуру и организацию данных JavaScript.
+	 Простота JSON привела к тому, что в настоящий момент он является наиболее 
+	 популярным форматом передачи данных в среде web, 
+	 вытеснив другой некогда популярный формат xml.
+	<br><br>
+	Объекты <b>JSON </b>очень похожи на объекты JavaScript, 
+	тем более что JSON является подмножеством JavaScript. 
+	В то же время важно их различать:
+	 <b>JavaScript </b>является языком программирования, а <b>JSON </b>является форматом данных.
+	<br><br>
+	<b>JSON </b>поддерживает три типа данных:
+	 примитивные значения, объекты и массивы. 
+	 <br><br>
+	 Примитивные значения представляют стандартные строки, числа, значение null, логические значения true и false.
+	<br><br>
+	Объекты представляют набор простейших данных,
+	 других объектов и массивов. 
+	 Например, типичный объект JSON:
+	<pre><code id="b">
 	{
 	"name": "Tom",
 	"married": true,
 	"age": 30
 	}
-	В javascript этому объекту соответствовал бы следующий:
+	</code></pre>
 	
+	В javascript этому объекту соответствовал бы следующий:
+	<pre><code id="b">
 	var user = {
 	name: "Tom",
 	married: true,
 	age: 30
 	}
-	Несмотря на общее сходство, в то же время есть и различия: в JSON названия свойств заключаются в кавычки, как обычные строки. Кроме того, объекты JSON не могут хранить функции, переменные, как объекты javascript.
+	</code></pre>
 	
+	Несмотря на общее сходство, в то же время есть и различия:
+	 в <b>JSON </b>названия свойств заключаются в кавычки, как обычные строки. 
+	 Кроме того, объекты JSON не могут хранить функции, переменные, как объекты javascript.
+	<br><br>
 	Объекты могут быть сложными:
-	
+	<pre><code id="kod">
 	{
 	"name": "Tom",
 	"married": true,
@@ -52,11 +69,13 @@
 	"address": "USA, Redmond"
 	}
 	}
+	</code></pre>
 	Массивы в JSON похожи на массивы javascript и также могут хранить простейшие данные или объекты:
-	
+	<pre><code id="b">
 	["Tom", true, 30]
+	<span>
 	Массив объектов:
-	
+	</span>
 	[{
 	"name": "Tom",
 	"married": true,
@@ -66,9 +85,13 @@
 	"married": false,
 	"age": 23
 	}]
-	Сериализация в JSON и десериализация
-	Для сериализации объекта javascript в json применяется функция JSON.stringify():
+	</code></pre>
+	</p>
+	<h3>Сериализация в <b>JSON </b>и десериализация</h3>
+	<p>
+	Для сериализации объекта <b>javascript</b> в json применяется функция <span>JSON.stringify():</span>
 	
+	<pre id="kod">
 	var user = {
 	name: "Tom",
 	married: true,
@@ -76,8 +99,9 @@
 	};
 	var serializedUser = JSON.stringify(user);
 	document.write(serializedUser); // {"name":"Tom","married":true,"age":30}
-	Для обратной операции - десериализации или парсинга json-объекта в javascript применяется метод JSON.parse():
-	
+	</pre>
+	Для обратной операции - десериализации или парсинга json-объекта в javascript применяется метод <span>JSON.parse():</span>
+	<pre id="kod">
 	var user = {
 	name: "Tom",
 	married: true,
@@ -88,9 +112,8 @@
 	// десериализация
 	var tomUser = JSON.parse(serializedUser);
 	document.write(tomUser.name); // Tom
+</pre>
 
-
-	<a href="Test/DesignerTest.html" id="out">Output</a>
 	
   </div>
  </body>

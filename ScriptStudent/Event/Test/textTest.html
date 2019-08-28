@@ -23,11 +23,14 @@
 toolbar('../../../index.html','../../Mous.html');
 </script>
 <div class="content">
-
+<p>
+	Применим ряд событий:
+	</p>
 	<form name="search">
 	<input type="text" name="key" placeholder="Введите ключ"></input>
 	<input type="button" name="print" value="Печать" />
 	</form>
+	
 	<div id="printBlock"></div>
 	<script>
 	var keyBox = document.search.key;
@@ -61,7 +64,39 @@ toolbar('../../../index.html','../../Mous.html');
 	keyBox.addEventListener("blur", onblur);
 	keyBox.addEventListener("focus", onfocus);
 	</script>
+	<br>
+	<h3>	Элемент textarea</h3>
+	<form name="area">
+	<textarea rows="7" cols="40" name="message"></textarea>
+	</form>
+	<div id="areaBlock"></div>
+	<script>
+	var messageBox = document.area.message;
 	
+	// обработчик ввода символа
+	function onkeypress(e){
+	// получаем элемент printBlock
+	var areaBlock = document.getElementById("areaBlock");
+	// получаем введенный символ
+	var val = String.fromCharCode(e.keyCode);
+	// добавление символа
+	areaBlock.textContent += val;
+	}
+	
+	function onkeydown(e){
+	if(e.keyCode===8){ // если нажат Backspace
+	
+	// получаем элемент areaBlock
+	var areaBlock = document.getElementById("areaBlock"), 
+	length = areaBlock.textContent.length;
+	// обрезаем строку по последнему символу
+	areaBlock.textContent = areaBlock.textContent.substring(0, length-1);
+	}
+	}
+	
+	messageBox.addEventListener("keypress", onkeypress);
+	messageBox.addEventListener("keydown", onkeydown);
+	</script>
 </div>
 </body>
 </html>

@@ -6,12 +6,11 @@
 		<meta name="viewport" content="width=device-width">
 		<title>JS Кнопки</title>
 		<link  href="../script.css" rel="stylesheet">
-		<script src ="../js/bild.js"></script>
-		
-	</head>
-	<body>
+	<script src ="../js/bild.js"></script>	
+</head>
+<body>
 	<script>
-	toolbar('../../index.html','../Scriptmain.html');
+	     toolbar('../../index.html','../ScriptMain.html');
 	</script>
 	<div class="content">
 	
@@ -33,7 +32,7 @@
 	При нажатии на любой из этих двух вариантов кнопки происходит отправка формы по адресу, 
 	который указан у формы в атрибуте <span>action,</span> либо по адресу веб-страницы,
 	 если атрибут <span>action</span> не указан. Однако в коде javascript мы можем перехватить отправку, обрабатывая событие click
-	
+
 	<pre id="kod">
 &lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -65,7 +64,7 @@
 	&lt;/body>
 	&lt;/html>
 	</pre>
-	
+
 	При нажатии на кнопку происходит событие <span>click,</span> и для его обработки к кнопке прикрепляем обработчик <span>sendForm</span>.
 	 В этом обработчике проверяем введенный в текстовое поле текст. 
 	 Если его длина больше 5 символов, то выводим сообщение о недостимой длине и прерываем обычный ход события 

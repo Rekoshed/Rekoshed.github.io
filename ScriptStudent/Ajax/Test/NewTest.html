@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Test.Cookies</title>
+		<link  href="../../script.css" rel="stylesheet">
+		<script src ="../../js/bild.js"></script>
+		
+		<style>
+	
+		</style>		
+	</head>	
+	<body>	
+<script>
+toolbar('../../../index.html','../../Mous.html');
+</script>
+<div class="content">
+<script type="text/javascript">
+	var expire = new Date();
+	expire.setHours(expire.getHours() + 4);
+	
+	document.cookie = "city=Berlin;expires="+expire.toUTCString()+";";
+	document.cookie = "country=Germany;expires="+expire.toUTCString()+";";
+	document.cookie = "login=tom32;";
+	document.write("<h3> Получим куки </h3>");
+	document.write(document.cookie);
+</script>
+</div>
+</body>
+</html>

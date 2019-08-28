@@ -6,15 +6,13 @@
 		<meta name="viewport" content="width=device-width">
 		<title>Объективная модель браузера.</title>
 		<link  href="../script.css" rel="stylesheet">
+		<script src ="../js/bild.js"></script>
 		
-	</head>
-	<body>
-	<div class="toolbar">
-	<a href="../ScriptMain.html">Главная</a>
-	<a href="../.html">Блог</a>
-	<a href="#">Контакты</a>
-	<a href="#">О сайте</a>
-	</div>
+		</head>
+		<body>
+		<script>
+		toolbar('../../index.html','../ScriptMain.html');
+		</script>
 	<div class="content">
 <h3>Таймеры</h3>
 <p>
@@ -59,16 +57,18 @@ clearTimeout(timerId);
 <br><br>
 Например, напишем небольшую программу для вывода текущего времени:
 </p>
-<div id="time" class="color2 blue"></div>
-<script>
+<pre id="kod">
+&lt;div id="time" class="color2 blue">&lt;/div>
+&lt;script>
 function updateTime() {
 	document.getElementById("time").innerHTML = new Date().toTimeString();
 }
 setInterval(updateTime, 1000);
-</script>
+&lt;/script>
+</pre>
 <p>
 Здесь через каждую секунду (1000 миллисекунд) вызывается функция <span>updateTime()</span>,
- которая обновляет содержимое поля <.div id="time" >, 
+ которая обновляет содержимое поля &lt;div id="time" >, 
  устанавливая в качестве его кода html текущее вемя.
 </p>
 <h3>requestAnimationFrame()</h3>
@@ -78,17 +78,18 @@ setInterval(updateTime, 1000);
   работу с графикой и имеет ряд оптимизаций, 
   которые улучшают его производительность.
 </p>
-	<style>
+<pre id="kod">
+	&lt;style>
 	#rect {
 		margin: 100px;
 		width: 100px;
 		height: 100px;
 		background: #50c878;
 	}
-	</style>
+	&lt;/style>
 
-<div id="rect"></div>
-<script>
+&lt;div id="rect"></div>
+&lt;script>
 var square = document.getElementById("rect");
 var angle = 0;
 function rotate() {
@@ -97,7 +98,8 @@ function rotate() {
 	window.requestAnimationFrame(rotate);
 }
 var id = window.requestAnimationFrame(rotate);
-</script>
+&lt;/script>
+</pre>
 <p>
 В метод <span>window.requestAnimationFrame()</span> передается функция, 
 которая будет вызываться определенное количество раз (обычно 60) в секунду. 

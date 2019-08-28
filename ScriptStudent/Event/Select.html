@@ -6,70 +6,84 @@
 		<meta name="viewport" content="width=device-width">
 		<title>JS События</title>
 		<link  href="../script.css" rel="stylesheet">
+		<script src ="../js/bild.js"></script>
 		
-	</head>
-	<body>
-	<div class="toolbar">
-	<a href="../ScriptMain.html">Главная</a>
-	<a href="#">Блог</a>
-	<a href="#">Контакты</a>
-	<a href="#">О сайте</a>
-	</div>
+		</head>
+		<body>
+		<script>
+		toolbar('../../index.html','../Scriptmain.html');
+		</script>
 	<div class="content">
 	
-	Список select
-	Для создания списка используется html-элемент select. Причем с его помощью можно создавать как выпадающие списки, так и обычные с ординарным или множественным выбором. Например, стандартный список:
-	
-	<select name="language" size="4">
-	<option value="JS" selected="selected">JavaScript</option>
-	<option value="Java">Java</option>
-	<option value="C#">C#</option>
-	<option value="C++">C++</option>
-	</select>
-	Атрибут size позволяет установить, сколько элементов будут отображаться одномоментно в списке. Значение size="1" отображает только один элемент списка, а сам список становится выпадающим. Если установить у элемента select атрибут multiple, то в списке можно выбрать сразу несколько значений.
-	
-	Каждый элемент списка представлен html-элементом option, у которого есть отображаемая метка и есть значения в виде атрибута value.
-	
-	В JavaScript элементу select соответствует объект HTMLSelectElement, а элементу option - объект HtmlOptionElement или просто Option.
-	
-	Все элементы списка в javascript доступны через коллекцию options. А каждый объект HtmlOptionElement имеет свойства: index (индекс в коллекции options), text (отображаемый текст) и value (значение элемента). Например, получим первый элемент списка и выведем о нем через его свойства всю информацию:
-	
-	<form name="myForm">
-	<select name="language" size="4">
-	<option value="JS" selected="selected">JavaScript</option>
-	<option value="Java">Java</option>
-	<option value="CS">C#</option>
-	<option value="CPP">C++</option>
-	</select>
-	</form>
-	<script>
+	<h3>Список select</h3>
+	<p>
+	Для создания списка используется html-элемент <b>select</b>.
+	 Причем с его помощью можно создавать как выпадающие списки, 
+	 так и обычные с ординарным или множественным выбором.
+	  Например, стандартный список:
+	<pre id="kod">
+	&lt;select name="language" size="4">
+	&lt;option value="JS" selected="selected">JavaScript</option>
+	&lt;option value="Java">Java&lt;/option>
+	&lt;option value="C#">C#&lt;/option>
+	&lt;option value="C++">C++&lt;/option>
+	&lt;/select>
+	</pre>
+	Атрибут <b>size</b> позволяет установить, сколько элементов будут отображаться одномоментно в списке.
+	 Значение size="1" отображает только один элемент списка, 
+	 а сам список становится выпадающим. 
+	 Если установить у элемента <b>select</b> атрибут <span>multiple,</span>
+	  то в списке можно выбрать сразу несколько значений.
+	<br><br>
+	Каждый элемент списка представлен html-элементом <b>option</b>, 
+	у которого есть отображаемая метка и есть значения в виде атрибута <b>value</b>.
+	<br><br>
+	В JavaScript элементу <b>select</b> соответствует объект <span>HTMLSelectElement,</span>
+	 а элементу <b>option</b> - объект <span>HtmlOptionElement </span>или просто <span>Option.</span>
+	<br><br>
+	Все элементы списка в javascript доступны через коллекцию <span>options</span>. А каждый объект <span>HtmlOptionElement</span> имеет свойства:
+	<b> index</b> (индекс в коллекции options), <b>text </b>(отображаемый текст) и <b>value </b>(значение элемента). 
+	Например, получим первый элемент списка и выведем о нем через его свойства всю информацию:
+	<pre id="kod">
+	&lt;form name="myForm">
+	&lt;select name="language" size="4">
+	&lt;option value="JS" selected="selected">JavaScript</option>
+	&lt;option value="Java">Java&lt;/option>
+	&lt;option value="C#">C#&lt;/option>
+	&lt;option value="C++">C++&lt;/option>
+	&lt;/select>
+	&lt;/form>
+	&lt;script>
 	var firstLanguage = myForm.language.options[0];
 	document.write("Index: " + firstLanguage.index + "<br/>");
 	document.write("Text: " + firstLanguage.text + "<br/>");
 	document.write("Value: " + firstLanguage.value + "<br/>");
-	</script>
-	Элемент select в JavaScript
-	В javascript мы можем не только получать элементы, но и динамически управлять списком. Например, применим добавление и удаление объектов списка:
+	&lt;/script>
+	</pre>
 	
-	<!DOCTYPE html>
-	<html>
-	<head>
-	<meta charset="utf-8" />
-	</head>
-	<body>
-	<form name="myForm">
-	<select name="language" size="5">
-	<option value="JS" selected="selected">JavaScript</option>
-	<option value="Java">Java</option>
-	<option value="CS">C#</option>
-	<option value="CPP">C++</option>
-	</select>
-	<p><input type="text" name="textInput" placeholder="Введите текст" /></p>
-	<p><input type="text" name="valueInput" placeholder="Введите значение" /></p>
-	<p><input type="button" name="addButton" value="Добавить" /><input type="button" name="removeButton" value="Удалить" /></p>
-	</form>
+	В javascript мы можем не только получать элементы, 
+	но и динамически управлять списком. 
+	Например, применим добавление и удаление объектов списка:
+	<pre id="kod">
+	&lt;!DOCTYPE html>
+	&lt;html>
+	&lt;head>
+	&lt;meta charset="utf-8" />
+	&lt;/head>
+	&lt;body>
+	&lt;form name="myForm">
+	&lt;select name="language" size="4">
+	&lt;option value="JS" selected="selected">JavaScript</option>
+	&lt;option value="Java">Java&lt;/option>
+	&lt;option value="C#">C#&lt;/option>
+	&lt;option value="C++">C++&lt;/option>
+	&lt;/select>
+	&lt;p>&lt;input type="text" name="textInput" placeholder="Введите текст" />&lt;/p>
+	&lt;p>&lt;input type="text" name="valueInput" placeholder="Введите значение" />&lt;/p>
+	&lt;p>&lt;input type="button" name="addButton" value="Добавить" />&lt;input type="button" name="removeButton" value="Удалить" />&lt;/p>
+	&lt;/form>
 	
-	<script>
+	&lt;script>
 	var addButton = myForm.addButton, 
 	removeButton = myForm.removeButton, 
 	languagesSelect = myForm.language;
@@ -93,18 +107,26 @@
 	
 	addButton.addEventListener("click", addOption);
 	removeButton.addEventListener("click", removeOption);
-	</script>
-	</body>
-	</html>
-	Для добавления на форме предназначены два текстовых поля (для текстовой метки и значения элемента option) и кнопка. Для удаления выделенного элемента предназначена еще одна кнопка.
+	&lt;/script>
+	&lt;/body>
+	&lt;/html>
+	</pre>
 	
-	За добавление в коде javascript отвечает функция addOption, в которой получаем введенные в текстовые поля значения, создаем новый объект Option и добавляем его в массив options объекта списка.
-	
-	За удаление отвечает функция removeOption, в которой просто получаем индекс выделенного элемента с помощью свойства selectedIndex и в коллекции options приравниваем по этому индексу значение null.
-	
-	Добавление и удаление элементов списка в JavaScript
-	Для добавления/удаления также в качестве альтернативы можно использовать методы элемента select:
-	
+	Для добавления на форме предназначены два текстовых поля 
+	(для текстовой метки и значения элемента option) и кнопка. 
+	Для удаления выделенного элемента предназначена еще одна кнопка.
+<br><br>	
+	За добавление в коде javascript отвечает функция <span>addOption,</span>
+	 в которой получаем введенные в текстовые поля значения,
+	  создаем новый объект <b>Option </b>и добавляем его в массив <b>options </b>объекта списка.
+	<br><br>
+	За удаление отвечает функция <span>removeOption,</span>
+	 в которой просто получаем индекс выделенного элемента с помощью свойства 
+	 <span>selectedIndex </span>и в коллекции <b>options </b>приравниваем по этому индексу значение <span>null.</span>
+	<br><br>
+		Для добавления/удаления также в качестве альтернативы можно использовать 
+		методы элемента <b>select</b>:
+	<pre id="kod">
 	// вместо вызова
 	// languagesSelect.options[languagesSelect.options.length]=newOption;
 	// использовать для добавления вызов метода add
@@ -113,19 +135,25 @@
 	// languagesSelect.options[selectedIndex] = null;
 	// использовать для удаления метод remove
 	languagesSelect.remove(selectedIndex);
-	События элемента select
-	Элемент select поддерживает три события: blur (потеря фокуса), focus (получение фокуса) и change (изменение выделенного элемента в списке). Рассмотрим применение события select:
-	
-	<form name="myForm">
-	<select name="language" size="5">
-	<option value="JS" selected="selected">JavaScript</option>
-	<option value="Java">Java</option>
-	<option value="CS">C#</option>
-	<option value="CPP">C++</option>
-	</select>
-	</form>
-	<div id="selection"></div>
-	<script>
+	</pre>
+	<h3>События элемента select</h3>
+	<p>
+	Элемент <b>select </b>поддерживает три события:
+	<li> blur (потеря фокуса), </li>
+	<li>focus (получение фокуса) </li>
+	<li> change (изменение выделенного элемента в списке).</li>
+	 Рассмотрим применение события <b>select:</b>
+	<pre id="kod">
+	&lt;form name="myForm">
+	&lt;select name="language" size="4">
+	&lt;option value="JS" selected="selected">JavaScript</option>
+	&lt;option value="Java">Java&lt;/option>
+	&lt;option value="C#">C#&lt;/option>
+	&lt;option value="C++">C++&lt;/option>
+	&lt;/select>
+	&lt;/form>
+	&lt;div id="selection"></div>
+	&lt;script>
 	var languagesSelect = myForm.language;
 	
 	function changeOption(){
@@ -136,10 +164,10 @@
 	}
 	
 	languagesSelect.addEventListener("change", changeOption);
-	</script>
+	&lt;/script>
+</pre>
 
-
-	<a href="Test/DesignerTest.html" id="out">Output</a>
+	<a href="Test/selectTest.html" id="out">Output</a>
 	
   </div>
  </body>

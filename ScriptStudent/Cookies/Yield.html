@@ -6,38 +6,41 @@
 		<meta name="viewport" content="width=device-width">
 		<title>JS События</title>
 		<link  href="../script.css" rel="stylesheet">
+		<script src ="../js/bild.js"></script>
 		
-	</head>
-	<body>
-	<div class="toolbar">
-	<a href="../ScriptMain.html">Главная</a>
-	<a href="#">Блог</a>
-	<a href="#">Контакты</a>
-	<a href="#">О сайте</a>
-	</div>
+		</head>
+		<body>
+		<script>
+		toolbar('../../index.html','../Scriptmain.html');
+		</script>
 	<div class="content">
-	
-
-Генераторы
-Генераторы представляют особый тип функции, которые используются для генерации значений. Для определения генераторов применяется символ звездочки *, который ставится после ключевого слова function. Например, определим простейший генератор:
-
+<h3>Генераторы</h3>
+<p>
+Генераторы представляют особый тип функции, 
+которые используются для генерации значений. 
+Для определения генераторов применяется символ звездочки *,
+ который ставится после ключевого слова <span>function.</span>
+  Например, определим простейший генератор:
+<pre>
 function* getNumber(){
 	yield 5;
 }
 let numberGenerator = getNumber();
 let next = numberGenerator.next();
 console.log(next);
+</pre>
 Функция getNumber представляет генератор. Функция генератора возвращает итератор. Для получения значения из генератора применяется оператор yield. То есть фактически в данном случае генератор генерирует число 5.
-
+<br><br>
 Далее с помощью вызова этой функции создается объект итератора в виде переменной numberGenerator. Используя этот объект, мы можем получать из генератора значения.
-
+<br><br>
 Для перехода к следующему значению применяется метод next(). Если мы посмотрим на консольный вывод, то мы увидим, что данный метод возвращает следующие данные:
-
+<code id="b">
 {value: 5, done: false}
+</code>
 То есть по сути возвращается объект, свойство value которого содержит собственно сгенерированное значение. А свойство done указывает, достигли ли мы конца генератора.
-
+<br><br>
 Теперь изменим код:
-
+<pre>
 function* getNumber(){
 	yield 5;
 }
@@ -46,14 +49,16 @@ let next = numberGenerator.next();
 console.log(next);
 next = numberGenerator.next();
 console.log(next);
-Здесь обращение к методу next() происходит два раза:
-
+</pre>
+Здесь обращение к методу <span>next()</span> происходит два раза:
+<pre>
 {value: 5, done: false}
 {value: undefined, done: true}
-Но функция генератора getNumber генерирует только одно значение - число 5. Поэтому при повторном вызове свойство value будет иметь значение undefined, а свойство done - true, то есть работа генератора завершена.
-
+</pre>
+Но функция генератора <b>getNumber</b> генерирует только одно значение - число 5. Поэтому при повторном вызове свойство value будет иметь значение undefined, а свойство done - true, то есть работа генератора завершена.
+<br><br>
 Генератор может создавать множество значений:
-
+<pre>
 function* getNumber(){
 	yield 5;
 	yield 25;
@@ -64,16 +69,18 @@ console.log(numberGenerator.next());
 console.log(numberGenerator.next());
 console.log(numberGenerator.next());
 console.log(numberGenerator.next());
+<i>
 Консольный вывод:
 
 {value: 5, done: false}
 {value: 25, done: false}
 {value: 125, done: false}
-{value: undefined, done: true}
-То есть при первом вызове метода next() из итератора извлекается значение, которое идет после первого оператора yield, при втором вызове метода next() - значение после второго оператора yield и так далее.
-
+{value: undefined, done: true}</i>
+</pre>
+То есть при первом вызове метода <span>next()</span> из итератора извлекается значение, которое идет после первого оператора yield, при втором вызове метода next() - значение после второго оператора yield и так далее.
+<br><br>
 Поскольку для получения значений применяется итератор, то мы можем использовать цикл for...of:
-
+<pre>
 function* getNumber(){
 	yield 5;
 	yield 25;
@@ -84,15 +91,17 @@ let numberGenerator = getNumber();
 for(let num of numberGenerator){
 	console.log(num);
 }
+<i>
 Консольный вывод:
 
 5
 25
-125
+125</i>
+</pre>
 Генератор необязательно содержит только определение операторов yield. Он также может содержать более сложную логику.
-
+<br><br>
 С помощью генераторов удобно создавать бесконечные последовательности:
-
+<pre>
 function* points(){
 
 	let x = 0;
@@ -108,14 +117,17 @@ let pointGenerator = points();
 console.log(pointGenerator.next().value);
 console.log(pointGenerator.next().value);
 console.log(pointGenerator.next().value);
-Консольный вывод:
+<i>Консольный вывод:
 
 {x: 0, y: 0}
 {x: 2, y: 1}
-{x: 4, y: 2}
-Передача данных в генератор
-С помощью next() можно передать в генератор данные.
-
+{x: 4, y: 2}</i>
+</pre>
+</p>
+<h3>Передача данных в генератор</h3>
+<p>
+С помощью<span> next()</span> можно передать в генератор данные.
+<pre>
 function* getNumber(){
 	let n = yield 5;
 	console.log("n:", n);
@@ -128,31 +140,36 @@ let numberGenerator = getNumber();
 console.log(numberGenerator.next().value);
 console.log(numberGenerator.next(2).value);
 console.log(numberGenerator.next(3).value);
-Консольный вывод:
+<i>Консольный вывод:
 
 5
 n: 2
 50
 m: 3
 375
-При втором вызове метода next():
-
+</i></pre>
+При втором вызове метода <b>next():</b>
+<code id="b">
 numberGenerator.next(2).value
+</code>
 Мы можем получить переданные через него данные, присвоив результат первого оператора yield:
-
+<code id="b">
 let n = yield 5;
+</code>
 То есть здесь переменная n будет равна 2, так как в метод next() передается число 2.
-
+<br><br>
 Далее мы можем использовать это значение, например, для генерации нового значения:
-
+<code id="b">
 let m = yield 25 * n;
+</code>
 Соответственно, переменная m получить значение, переданное через третий вызов метода next(), то есть число 3.
-
-Инициализация генератора
+</p>
+<h3>Инициализация генератора</h3>
+<p>
 Есть также другой способ передачи данных в генератор, когда мы передаем некоторые данные в саму функцию генератора, то есть фактически инициализируем генератор некоторыми начальными данными:
-
+<pre>
 function* takeItem(arr){
-	for(var i=0; i < arr.length; i++){
+	for(var i=0; i &lt; arr.length; i++){
 		yield arr[i];
 	}
 }
@@ -169,9 +186,11 @@ var timer = setInterval(function(){
 		console.log(user.value);
 	}
 }, 500);
-В данном случае в генератор передается массив, который используется для генерации значений в таймере.
+</pre>
+В данном случае в генератор передается массив, 
+который используется для генерации значений в таймере.
 
-	<a href="Test/DesignerTest.html" id="out">Output</a>
+	<a href="Test/NewTest.html" id="out">Output</a>
 	
   </div>
  </body>

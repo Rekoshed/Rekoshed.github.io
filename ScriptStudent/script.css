@@ -11,7 +11,7 @@ span{
 	#kod{
 	display:block;
 	color:green;
-	
+	overflow:auto;
 	margin:10px;
 	letter-spacing: 1px;
 	}
