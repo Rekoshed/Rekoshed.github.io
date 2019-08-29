@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Введение CSS3</title>
+		<link  href="../script.css" rel="stylesheet">
+		<script src ="../../ScriptStudent/js/bild.js"></script>	
+	</head>
+	<body>
+		<script>
+		toolbar('../../index.html','../CSSmain.html');
+		</script>
+	<div class="content">
+    
+     <h2> Встроенный(Inline) CSS</h2>
+      <p>
+       С помощью встроенного стиля, применяется уникальный стиль к одному элементу.
+      </p>
+      <p>
+      Чтобы использовать встроенный стиль, 
+      добавьте атрибут <span>style</span> к соответствующему тегу. 
+      </p>
+      <p>
+      В нижеуказанном примере отображено, как создавать параграф с серым фоном и белым текстом: 
+       </p> 
+       <span id="b">
+       &lt;p><span id="g"><span>style</span>="color:white; background-color:gray;"</span>>
+       This is an example of inline styling. 
+       &lt;/p>
+       </span>
+       
+      <h2> Вложенный(Embedded) CSS</h2>
+       <p>
+       Вложенные стили определяются с помощью элемента <span>&lt;style> </span>, 
+       внутри секции <b>head  HTML</b> страницы. 
+       </p>
+       <p>
+       Например, следующий код определяет стиль всех параграфов:
+       </p>
+       <pre id="kod">
+       &lt;html>
+       &lt;head>
+       &lt;<span>style>
+       p {
+       color:white;
+       background-color:gray;
+       }
+       &lt;/style</span>>
+       &lt;/head>
+       &lt;body>
+       &lt;p>This is my first paragraph. &lt;/p>
+       &lt;p>This is my second paragraph. &lt;/p>
+       &lt;/body>
+       &lt;/html>
+       </pre>
+       
+      <h2> Внешний(External) CSS</h2>
+       <p>
+       В этом способе, все правила стилей содержатся в одном текстовом файле, который сохраняется с расширением <b>.css.</b> 
+       </p>
+       <p>
+       Затем на этот файл ссылается <b>HTML</b> с помощью тега  <span>&lt;link></span>. Элемент <span>&lt;link></span> располагается внутри секции заголовка<b> (head)</b>.
+       <br><br>
+       Например:
+       <br><br>
+       <b>HTML: </b>
+       </p>
+       <pre id="kod">
+       &lt;head>
+       &lt;<span>link rel="stylesheet" href="example.css"</span>>
+       &lt;/head>
+       &lt;body>
+       &lt;p>This is my first paragraph.&lt;/p>
+       &lt;p>This is my second paragraph. &lt;/p>
+       &lt;p>This is my third paragraph. &lt;/p>
+       &lt;/body>
+       </pre>
+       <p>
+       <b>CSS:</b>
+       <pre id="kod">
+       p {
+       color:white;
+       background-color:gray;
+       }
+       </pre></p>
+  </div>
+ </body>
+</html>
