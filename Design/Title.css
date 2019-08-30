@@ -2,34 +2,12 @@
 			*{
 				box-sizing: border-box;
 			}
-
-span{
-		color: red;
-		}
-		.blockSpan{
-		display: block;
-		}
 		
 		body{ 
 		margin:0;
 		padding:0;
 		}
-		.toolbar{
-		position: fixed;
-		top: 0;
-		left: 0;
-		right: 0;
-		background-color: #222;
-		border-bottom: 1px solid #ccc;
-		z-index:100;
-		}
-		.toolbar a{
-		color: #eee;
-		display: inline-block;
-		padding: 10px;
-		text-decoration: none;
-		font-family: Verdana;
-		}
+		
 		.content{
 		display:flex;
 		margin-top: 50px;
@@ -40,18 +18,7 @@ span{
 		flex-direction: column;
 		justify-content: center;
 		}
-		.toolbar a:hover{
-		background-color: red;
-		color: #f4f4f4;
-		}
-		
-		
-		.blue {color:blue;}
-		.green {color:green;}
-		.black>p {color:black;}
-		
-		.roundgreen {background-color: green;}
-		
+	
 		.color1 {background-color: #675BA7;}
 		.color2 {background-color: #9BC850;}
 		.color3 {background-color: #A62E5C;}
