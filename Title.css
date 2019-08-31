@@ -1,0 +1,141 @@
+
+			*{
+				box-sizing: border-box;
+			}
+
+span{
+		color: red;
+		}
+		.blockSpan{
+		display: block;
+		}
+		
+		body{ 
+		margin:0;
+		padding:0;
+		}
+		.toolbar{
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		background-color: #222;
+		border-bottom: 1px solid #ccc;
+		z-index:100;
+		}
+		.toolbar a{
+		color: #eee;
+		display: inline-block;
+		padding: 10px;
+		text-decoration: none;
+		font-family: Verdana;
+		}
+		.content{
+		display:flex;
+		margin-top: 50px;
+		padding: 10px;
+		width: auto;
+		height:auto;
+		//flex-wrap:wrap;
+		flex-direction: column;
+		justify-content: center;
+		}
+		.toolbar a:hover{
+		background-color: red;
+		color: #f4f4f4;
+		}
+		
+		
+		.blue {color:blue;}
+		.green {color:green;}
+		.black>p {color:black;}
+		
+		.roundgreen {background-color: green;}
+		
+		.color1 {background-color: #675BA7;}
+		.color2 {background-color: #9BC850;}
+		.color3 {background-color: #A62E5C;}
+		.color4 {background-color: #2A9FBC;}
+		.color5 {background-color: #F15B2A;}
+		.color6 {background-color: black;}
+	
+	.container {
+	display: flex;
+	
+	width: auto;
+	height:auto;
+	flex-wrap:wrap;
+	flex-direction: row;
+	padding-top:0em;
+	justify-content: center;
+	
+	}
+	.container a {
+		text-decoration: none;
+		
+		font-size: 3vw;
+		
+		font-weight: bold;	
+	}
+	
+	.flex-item {
+	width:47%;
+	height: 4em;
+	text-align:center;
+	
+	color: white;
+	opacity: 0.7;
+	border-radius:0.8em;
+	margin:1%;
+	
+	}
+	.flex-item:hover {
+	opacity:1;
+	
+	color:black;
+	}
+
+
+		.item1 {
+		background-color: #455a64; flex-basis: auto; width:auto;
+		border: solid 0.25em #000;
+		}
+		.item2 {
+		margin-top:10px;
+		background-color: #607d8b; flex-basis: auto; width:auto;
+		border: solid 0.25em #000;
+		}
+	
+@media screen and (min-width: 600px) {
+		
+		.container {
+		background-color:khaki;
+		
+	}
+	.container a {
+		font-size: 2.5vw;
+	}
+
+		.flex-item {
+		
+		height: 6em;
+		width: 23%
+	
+		}
+		
+		.content {
+		flex-direction: row;
+		justify-content: space-between;
+		color:rgba(40, 12, 66, 0.74);
+		}
+		
+		.item1 {background-color: DarkKhaki; flex-grow:2;}
+		.item2 {
+		width:25%;
+		margin-top:0px;
+		margin-left:5px;
+		background-color: rgb(42, 100, 42); flex-grow:1;}
+		.content a:link    {color:Darkred; text-decoration:none}
+		.content a:visited {color:rgb(21, 39, 39); text-decoration:none}
+		}
+		

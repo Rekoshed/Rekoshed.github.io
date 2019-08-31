@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Phyton обзор</title>
+		<link  href="../../Design/script.css" rel="stylesheet">
+		<link  href="../../Design/toolbar.css" rel="stylesheet">
+		<script src ="../../Design/bild.js"></script>
+		</head>
+	<body>
+	<script>
+	toolbar('../../index.html','../PyMain.html');
+	</script>
+	<div class="content">
+        
+
+            <h3>Типы данных и переменные</h3>
+            
+            <pre><code class="pycod"><span class="hljs-comment"># числа</span>
+            
+            number1 = <span class="hljs-number">42</span>
+            number2 = <span class="hljs-number">-1000.005</span>
+            
+            <span class="hljs-comment"># строки</span>
+            
+            string1 = <span class="hljs-string">"string"</span>
+            string2 = <span class="hljs-string">'string (another)'</span>
+            long_string = <span class="hljs-string">'''very
+            "long" string with various 'quotes'
+            inside'''</span>
+            
+            <span class="hljs-comment"># логические значения</span>
+            
+            x = <span class="hljs-literal">True</span>
+            y = <span class="hljs-literal">False</span>
+            </code></pre>
+            
+            <h3>Преобразование типов</h3>
+                       
+            <pre>
+                <code class="kod">
+            one = int(<span>'234'</span>)
+            two = str(<span>34</span>)
+            </code></pre>
+            
+            <h3>Операции</h3>
+            
+            <p> основные операции, связанные с примитивными типами данных.</p>
+            
+            <pre><code class="pycod"><span class="hljs-comment"># Арифметические операции</span>
+            <span class="hljs-number">1</span> + <span class="hljs-number">5</span> - <span class="hljs-number">8</span> * <span class="hljs-number">3</span> / <span class="hljs-number">2</span> % <span class="hljs-number">4</span>
+            
+            <span class="hljs-comment"># Логические операции</span>
+            <span class="hljs-literal">True</span> <span class="hljs-keyword">or</span> <span class="hljs-literal">False</span> <span class="hljs-keyword">and</span> <span class="hljs-keyword">not</span> <span class="hljs-literal">True</span>
+            
+            <span class="hljs-comment"># Создание переменных</span>
+            string = <span class="hljs-string">'i am a string'</span>
+            
+            <span class="hljs-comment"># Обращение к символам строки</span>
+            string[<span class="hljs-number">0</span>]  <span class="hljs-comment"># i</span>
+            print(<span class="hljs-string">"-&gt; {}"</span>.format(string))  <span class="hljs-comment"># -&gt; i am a string</span>
+            print(<span class="hljs-string">'-&gt; '</span> + string)          <span class="hljs-comment"># -&gt; i am a string</span>
+            </code></pre>
+            
+            <h3>Условные конструкции</h3>
+            
+            <pre><code class="pycod"><span class="hljs-keyword">if</span> a &gt; b:
+                print(<span class="hljs-string">'a больше, чем b'</span>)
+            <span class="hljs-keyword">elif</span> a == b:
+                print(<span class="hljs-string">'a равен b'</span>)
+            <span class="hljs-keyword">else</span>:
+                print(<span class="hljs-string">'a меньше, чем b'</span>)
+            
+            result = <span class="hljs-string">'yes'</span> <span class="hljs-keyword">if</span> a &gt; b <span class="hljs-keyword">else</span> <span class="hljs-string">'no'</span>
+            </code></pre>
+            
+          
+            <p><span> # условие с деструктуризацией кортежа</span></p>
+            <pre><code class='pycod'>
+        def sort_pair(t):
+            (a, b) = t
+            if a > b:
+                t = (b, a)
+                return t         
+            </code></pre>
+            
+            <h3>Циклы</h3>
+            
+            <pre><code class="pycod">i = <span class="hljs-number">1</span>
+            <span class="hljs-keyword">while</span> i &lt;= <span class="hljs-number">10</span>:
+                i = i + <span class="hljs-number">1</span>
+                print(i)
+                <span class="hljs-keyword">if</span> i &gt; <span class="hljs-number">5</span>:
+                    <span class="hljs-keyword">break</span>
+            </code></pre>
+            
+            <h3>Функции</h3>
+            
+            <pre><code class="pycod"><span class="hljs-comment"># Определение функции</span>
+            <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get</span><span class="hljs-params">(string, index=<span class="hljs-number">0</span>)</span>:</span>
+                <span class="hljs-keyword">return</span> string[index]
+            
+            <span class="hljs-comment"># Вызов функции</span>
+            get(<span class="hljs-string">'lala'</span>, <span class="hljs-number">3</span>)
+            </code></pre>
+            
+            
+            
+  </div>
+ </body>
+</html>
