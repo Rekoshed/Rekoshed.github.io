@@ -13,6 +13,7 @@
 			#header{
 				height: 80px;
 				background-color: #ccc;
+				z-index:200;
 			}
 			#main{
 				font-size: 20px;
@@ -34,10 +35,18 @@
 			color: red;
 			}
 		</style>
+				<div id="header">
+	<link  href="../Design/script.css" rel="stylesheet">
+	<link  href="../Design/toolbar.css" rel="stylesheet">
+	<script src ="../Design/bild.js"></script>	
 	</head>
 	<body>
-		<div id="header">Шапка сайта</div>
-		<div id="main">Основное содержимое
+	<script>
+	toolbar('../index.html','CSSmain.html');
+	</script>
+<h2> идентефикаторы</h2></div>
+		<div id="main">
+		Определение стилей для идентификаторов аналогично определению классов, только вместо точки ставится символ решетки #:
 		 <p> Первый абзац</p>
 		 <p> Второй абзац</p>
 		 	
@@ -46,8 +55,8 @@
 		 	<div class="content">
 		 	<p>
 		 	
-		 	В блоке с классом article есть два параграфа. Селектор .article > p 
-		 	выбирает только те параграфы, который находятся непосредственно в блоке article</p>
+		 	В блоке с классом article есть два параграфа. Селектор <span class="blue"><b>.article > p </b></span>
+		 	выбирает только те параграфы, который находятся непосредственно в блоке <b>article</b></p>
 		 	</div>
 		 	</div>
 		</div>

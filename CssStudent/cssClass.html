@@ -6,8 +6,9 @@
 		<meta charset="utf-8">
 		<title>Классы CSS</title>
 		
-	<link  href="script.css" rel="stylesheet">
-	<script src ="../ScriptStudent/js/bild.js"></script>	
+	<link  href="../Design/script.css" rel="stylesheet">
+	<link  href="../Design/toolbar.css" rel="stylesheet">
+	<script src ="../Design/bild.js"></script>	
 	</head>
 	<body>
 	<script>
@@ -31,6 +32,33 @@
 	color: red;
 	}
 	</style>
+	<h2 style="color:green">Классы CSS</h2>
+	<p>
+	Для определения селектора класса в CSS перед названием класса ставится точка:
+	<pre>
+	.redBlock{
+	background-color:red;
+	}
+	</pre>
+	Название класса может быть произвольным. 
+	Например, в данном случае название класса - <span>"redBlock"</span>. 
+	Для имен используются буквы, числа, дефисы и знаки подчеркивания, 
+	причем начинать название класса должно обязательно с буквы.
+	</p>
+	<p>
+	Также стоит учитывать регистр имен: названия "article" и "ARTICLE" будут представлять разные классы.
+	</p>
+	<p>
+	После определения класса мы можем его применить к элементу с помощью атрибута <span id="kod">class.</span>
+	<br> Например:
+	</p>
+	<code>&lt;div class="redBlock">&lt;/div></code>
+	<p>
+	Определим и используем несколько классов:
+	</p>
+	
+	
+		<div class="content">
 	<div id="style">
 		<h2 style="color:green">Классы CSS</h2>
 		<div class="redBlock"></div>
@@ -41,7 +69,7 @@
 		<h3>Группа селекторов</h3>
 		<p>Некоторый текст...</p>
 	</div>
-	<div class="content">
+
 	<h3><span id="g">код</span></h3>
 	<p>CSS:</p>
 	<pre id="g">

@@ -11,32 +11,33 @@
 		
 	<meta name="viewport" content="width=device-width">
 	<link rel="stylesheet" href="../index.css">
-	<title>Идентификаторы CSS</title>
+	<link  href="../Design/script.css" rel="stylesheet">
+	<link  href="../Design/toolbar.css" rel="stylesheet">
+	<script src ="../Design/bild.js"></script>
+	
+	<title> CSS</title>
 <style type="text/css">
-.toolbar, #footer {background-color: rgb(90, 90, 150);}
+.toolbar, #footer {height:76px;background-color: rgb(90, 90, 150);}
+.content {margin-top:50px;}
 .item1>ul {font-size:16px;}
 </style>
 	</head>
 	<body>	
-		<div id="main">
+		
+		<header>
 	<div class="toolbar">
-	<div id="header">
-	
-	
-	<h1> CSS 3</h1>
+	<h4> CSS 3</h4>
 	<p>
 Обзорный конспект курса CSS3
-	</p>
-	
+	</p>	
+
+	<script>
+	toolbar_main('../index.html','../index.html');
+	</script>
 	</div>
-	
-	<a href="../index.html">Главная</a>
-	<a href="#">Блог</a>
-	<a href="#">Контакты</a>
-	<a href="#">О сайте</a>
-	</div>
+	</header>
 		
-		
+	<div id="main">	
 		
 	
 		 <div class="content">
@@ -45,7 +46,7 @@
 		    <ul>
 		     <li><a href="Intro/Intro.html" > Введение  </a></li>
 		     <li><a href="Intro/Style.html" > Подключение стиля </a></li>
-		     <li><a href=".html" >  </a></li>
+		     <li><a href="Syntax.html" >  Синтаксис</a></li>
 		     <li><a href=".html" >  </a></li>
 		     <li><a href=".html" >  </a></li>
 		     <li><a href=".html" >  </a></li>
@@ -55,9 +56,9 @@
 		   <ul>
 		  <li><a href="cssClass.html" > Классы </a></li>
 		  <li><a href="cssid.html" > Идентефикаторы </a></li>
-		  <li><a href="cssexample.html" >Сестринские примеры </a></li>
+		  <li><a href="cssexample.html" >Наследование </a></li>
 		  <li><a href="cssepsevdo.html" >Псевдоклассы </a></li>
-		  <li><a href="cssetable.html" > Таблица и псевдокласы </a></li>
+		  <li><a href="cssetable.html" > Псевдоклассы дочерних элементов </a></li>
 		  <li><a href="css_tb.html" > Стилизация таблиц </a></li>
 		  <li><a href="cssps_el.html" > Псевдоэлементы </a></li>
 		  <li><a href="csslink.html" > Селекторы атрибутов </a></li>
