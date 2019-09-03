@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Обтекание в CSS3</title>
+        <style>
+		
+		.imge { 
+		float:left;	/* обтекание слева */
+		margin:10px;
+		margin-top:0px;
+		width: 150px;
+		height: 100px;
+		margin: 10px;
+		background-image: url(im.jpg);
+		background-size: cover;
+		}
+		.sidebar{
+			border: 2px solid #ccc;
+			background-color: #eee;
+			width: 150px;
+			padding: 10px;
+			margin-left:10px;
+			font-size: 20px;
+			float: right; /* обтекание справа */
+			}
+		
+        </style>
+    </head>
+    <body>
+		<div>
+			<div class="sidebar">Л. Толстой. Война и мир. Том второй. Часть третья</div>
+			<div class="imge" /> </div>
+			<p>Старый дуб, весь преображенный, раскинувшись шатром сочной, темной зелени, млел, 
+			чуть колыхаясь в лучах вечернего солнца...</p>
+			<p>«Нет, жизнь не кончена в 31 год, – вдруг окончательно, беспеременно решил князь Андрей...</p>
+		</div>
+	</body>
+	
+	<div style="margin: 10px; border: 1px solid #222; height: 14%;  background-color: #eee">Footer
+	<p>
+	На главную 
+	<a href="CSSmain.html" ><button type="submit"> Main</button></a>
+	</p>
+	</div>
+</html>

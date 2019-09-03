@@ -1,0 +1,151 @@
+
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>CSS</title>
+		  <link  href="../../Design/script.css" rel="stylesheet">
+		  <link  href="../../Design/toolbar.css" rel="stylesheet">
+		  <script src ="../../Design/bild.js"></script>
+		  </head>
+     <body>
+	     <script>
+	 		toolbar('../../index.html','../CSSmain.html');
+		 </script>
+		 <style type="text/css">.tnr {
+		 font-family: "Times New Roman";
+		 color: blue;
+		 }
+		 .arial {
+		 font-family: Arial;
+		 color: green;
+		 }
+		 .courier {
+		 font-family: Courier;
+		 }
+		 .article > p{
+		 
+		 color: red;
+		 }
+		 .article {background-color: white}
+		 </style>
+			<div class="content">
+	
+		 	<div class="article">
+		 	<p>   Times New Roman</p>
+		 	<div  class="tnr">
+		 	<p>
+		 	
+		 	Шрифты с засечками названы так, потому что на на концах основных штрихов имеют небольшие засечки. 
+		 	Считается, что они подходят для больших кусков текста,
+		 	 так как визуально связывают одну букву с другой, 
+		 	 делая текст более читабельным.
+		 	 </p>
+		 <p>
+		 
+		 Распространенные шрифты с засечками: Times, Times New Roman, Georgia, Garamond. </p>
+		 
+		 </p>
+		 	</div>
+		</div>
+		
+		<div class="article">
+		<p> Arial</p>
+		<div class="arial">
+		<p>
+		
+		В отличие от шрифтов с засечками шрифты из этой группы не имеют засечек. Наиболее распространенные шрифты этой группы: Arial, Helvetica, Verdana.
+		</p>
+		</div></div>
+		
+		<div class="article">
+		<p> Courier
+		</p>
+		<div class="courier">
+		<p>
+		
+		Моноширинный шрифт преимущественно применяется для отображения программного кода и не предназначен для вывода стандартного текста статей. Свое название эти шрифты получили от того, что каждая буква в таком шрифте имеет одинаковую ширину. Примеры подобных шрифтов: Courier, Courier New, Consolas, Lucida Console.
+		</p>
+		</div></div>
+		<h3>Толщина шрифта</h3>
+		<p>
+		Свойство <span>font-weight</span> задает толщину шрифта. 
+		 <span id="b">
+		 100, 200, 300, 400,...900.
+		</span>
+	<span id="b">	
+normal (нежирный обычный текст) и bold (полужирный шрифт):
+		</span>
+<pre id="kod">		
+font-weight: normal;
+font-weight: bold;
+</pre>
+		<h3>Курсив</h3>
+<pre id="kod">		
+p {font-style: italic;}		
+p {font-style: normal;}
+</pre>		
+		<h3>Цвет шрифта</h3>
+	<pre id="kod">	
+p {
+color: red;
+}
+</pre>
+<h3>Внешние шрифты</h3>
+<p>
+Такой шрифт можно подключить с помощью директивы font-face:
+</p>
+<pre id="kod">
+@font-face {
+	
+	font-family: 'Roboto';
+	src: url(http://fonts.gstatic.com/s/roboto/v15/mErvLBYg_cXG3rLvUsKT_fesZW2xOQ-xsNqO47m55DA.woff2);
+}
+</pre>
+<p>
+После подключения шрифта, его можно использовать в стилях:
+</p>
+<pre id="kod">
+p{
+	font-family: Roboto;
+}
+</pre>
+<p>
+Наиболее популярным репозиторием шрифтов является <a href="https://www.google.com/fonts/" >https://www.google.com/fonts/</a> - набор шрифтов от компании Google.
+</p>
+		
+		
+		<h3>Высота шрифта</h3>
+		<p>
+		Для установки размера шрифта используется свойство <span>font-size:</span>
+		</p>
+<pre id="kod">		
+div{
+font-size: 18px;
+}
+</pre>
+<p>
+ключевые слова:
+</p>
+<ul>
+<li>medium: базовый размер шрифта браузера (16 пикселей)</li>
+
+<li>small: 13 пикселей</li>
+
+<li>x-small: 10 пикселей</li>
+
+<li>xx-small: 9 пикселей</li>
+
+<li>large: 18 пикселей</li>
+
+<li>x-large: 24 пикселя</li>
+
+<li>xx-large: 32 пикселя</li>
+</ul>
+
+		</div>
+	</body>
+</html>

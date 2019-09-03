@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Тени в CSS3</title>
+        <style>
+		.dark{
+			width: 228px;
+			height: 96px;
+			margin: 20px;
+			border: 1px solid #ccc;
+			background-color: #eee;
+			box-shadow: 10px 4px 10px 3px #888;
+			overflow: auto;
+		}
+        </style>
+    </head>
+    <body>
+		<div class="dark">
+		Контур в CSS 3 представлен свойством outline, хотя данное свойство является сокращением следующих свойств:
+		
+		outline-color: цвет контура
+		
+		outline-offset: смещение контура
+		
+		outline-style: стиль контура. Оно принимает те же значения, что и border-style:
+		
+		none: контур отсутствует
+		
+		solid: контур в виде обычной линии
+		
+		dashed: штриховая линия
+		
+		dotted: линия в виде последовательности точек
+		
+		double: контур в виде двух параллельных линий
+		
+		outline-width: толщина контура
+		</div>
+		
+		
+		
+		
+		<style>
+		.outline {
+		width: 228px;
+		height: 96px;
+		margin: 20px;
+		border: 1px solid #ccc;
+		background-color: #eee;
+		outline-color: red;
+		outline-style: dashed;
+		outline-width: 2px;
+		}
+		</style>
+		
+		<div class="outline">Контур в CSS3</div>
+		
+		
+		
+		<div style="margin: 10px; border: 1px solid #222; height: 14%;  background-color: #eee">Footer
+		<p>
+		
+		<a href="CSSmain.html" ><button type="submit"> На главную</button></a>
+		</p>
+		</div>
+	</body>
+</html>

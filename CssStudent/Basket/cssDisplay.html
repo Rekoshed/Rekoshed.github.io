@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+		<link href="styles.css" rel="stylesheet">
+        <title>Свойство display в CSS3</title>
+		<style>
+			.block span{
+				color: red;
+			}
+			.blockSpan{
+				display: block;
+			}
+		</style>
+    </head>
+    <body>
+     <div class="block">
+		<div>Это <span>строчный</span> элемент span</div>
+		<div>Это <span class="blockSpan">блочный</span> элемент span</div>
+    </div>
+    
+    <style>
+    .div>div{
+    display: inline;
+    color:Indigo;
+    }
+    </style>
+    <div class="div">
+    <div>Первый строчный элемент div.</div>
+    <div>Второй строчный элемент div.</div>
+    </div>
+    
+    <style>
+    .blockinline>span{
+    width: 100px;
+    height: 30px;
+    background-color: #aaa;
+    }
+    .inineBlockSpan{
+    display: inline-block;
+    }
+    </style>
+   
+    <p class="blockinline">Проехав с полверсты в хвосте <span>колонны</span>, он остановился</p>
+    <p class="blockinline">Проехав с полверсты в хвосте <span class="inineBlockSpan">колонны</span>, он остановился</p>
+    
+    
+    
+ 
+    <style>
+    ul{
+    display: table;
+    margin: 0;
+    }
+    li{
+    list-style-type: none;
+    display: table-cell;
+    padding: 10px;
+    }
+    </style>
+   
+    <ul>
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+    </ul>
+    
+    <div style="margin: 10px; border: 1px solid #222; height: 14%;  background-color: #eee">Footer
+    <p>
+     
+    <a href="CSSmain.html" ><button type="submit"> На главную</button></a>
+    </p>
+    </div>
+    
+    </body>
+</html>

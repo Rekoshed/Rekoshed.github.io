@@ -1,0 +1,287 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>CSS</title>
+		  <link  href="../../Design/script.css" rel="stylesheet">
+		  <link  href="../../Design/toolbar.css" rel="stylesheet">
+		  <script src ="../../Design/bild.js"></script>
+		  </head>
+     <body>
+	     <script>
+	 		toolbar('../../index.html','../CSSmain.html');
+		 </script>
+			<div class="content">
+       
+        <h3>Блочная модель</h3>
+       
+    
+       <p>
+       Для веб-браузера элементы страницы представляют небольшие контейнеры или блоки. 
+       Такие блоки могут иметь различное содержимое - текст, изображения, списки, таблицы и другие элементы. 
+       Внутренние элементы блоков сами выступают в качестве блоков.
+       </p>
+      <p>
+       Блоком может быть элемент body, div и так далее. 
+       От других элементов он отделяется некоторым расстоянием - внешним отступом, которое описывается свойством CSS <b>margin.</b>
+       </p>
+       <p>
+       Далее начинается сам элемент. И в начале идет его граница, которая в CSS описывается свойством <b>border.</b>
+       </p>
+       <p>
+       После границы идет внутренний отступ, который в CSS описывается свойством <b>padding.</b> Внутренний отступ определяет расстояние от границы элемента до внутреннего содержимого.
+       </p>
+       <p>
+       Далее идет внутреннее содержимое, которое также реализует ту же блочную модель и также может состоять из других элементов, которые имеют внешние и внутренние отступы и границу.
+       </p>
+       Пример:
+       
+       <pre id="kod">
+       &lt;style>
+       div{
+       margin: 15px; /* внешний отступ */
+       padding: 11px; /* внутренний отступ */
+       border: 3px solid red; /* границы шириной в 3 пикселя сплошной красной линией */
+       }
+       &lt;/style>
+       &lt;/head>
+       &lt;body>
+       &lt;div>
+       &lt;p>Первый блок&lt;/p>
+       &lt;/div>
+       &lt;div>
+       &lt;p>Второй блок&lt;/p>
+       &lt;/div>
+       &lt;/body>
+       &lt;/html>
+       </pre>
+       
+       <p>
+       Если мы явным образом не указываем значения свойств
+       <b> margin, padding и border</b>, то браузер применяет предустановленные значения.
+       </p>
+       
+       
+       <h3>Внешние отступы</h3>
+       <p>
+       Свойство <span>margin </span>определяет отступ элемента от других элементов или границы внешнего контейнера. 
+       <pre>
+       <span>margin-top:</span>отступ сверху
+       
+       <span>margin-bottom: </span>отступ снизу
+       
+      <span> margin-left:</span> отступ слева
+       
+      <span> margin-right: </span>отступ справа
+      </span> </pre>
+      <p>
+       Можно вместо четырех свойств задать одно:
+      </p>
+      <pre id="kod"> 
+       div{
+       margin: 30px 20px 15px 25px;
+       
+       border: 3px solid red;
+       }
+       </pre>
+       <p>
+       Свойство задается в формате:
+       </p>
+       <span id="b"><code>margin: отступ_сверху отступ_справа отступ_снизу отступ_слева;</code></span>
+       <p>
+       Или одинаково для всех сторон:
+       </p>
+     <pre id="kod">  
+       div{
+       margin: 25px;
+       }
+      </pre>
+      
+      
+    <h3>  Внутренние отступы</h3>
+    <p>
+      Свойство padding задает внутренние отступы от границы элемента до его внутреннего содержимого.
+          </p>
+    <pre>  
+      <span>padding-top:</span> отступ сверху
+      
+     <span> padding-bottom</span>: отступ снизу
+      
+     <span> padding-left</span>: отступ слева
+      
+      <span>padding-right</span>: отступ справа
+  </pre>    
+      
+      <p>также можно использовать сокращенную запись:</p>
+      <span id="b"><code>
+      padding: отступ_сверху отступ_справа отступ_снизу отступ_слева;
+      </code></span>
+ <pre id="kod">
+      div.outer{
+      
+      margin: 25px;
+      
+      padding: 30px 25px 35px 28px;
+      
+      border: 2px solid red;
+      }
+   </pre>
+   <p>
+     одно значение для всех отступов:
+   </p> 
+   <pre id="kod">
+      div.outer{
+      
+      margin: 25px;
+      
+      padding: 30px;
+      
+      border: 2px solid red;
+      }
+    </pre>
+    
+    
+    <h3>Границы</h3>
+    <p>
+    Граница отделяет элемент от внешнего по отношению к нему содержимого. 
+    Грубо говоря распологается между <b>margin и padding</b>.
+    При этом граница является частью элемента.
+    </p>
+    <p>
+    Для настройки границы используется несколько свойств:
+   <ul>
+   <li> <span>border-width:</span> устанавливает ширину границы</li>
+    
+   <li> <span>border-style:</span> задает стиль линии границы</li>
+    
+   <li> <span>border-color: </span>устанавливает цвет границы</li>
+   </ul>
+    <p>
+    Свойство<span> border-width </span>может принимать 
+   значения в единицах измерения: <b>em, px или cm</b>
+    </p>
+    <p>
+    константные значения: 
+    <pre>
+    thin (тонкая граница - 1px), 
+    medium (средняя по ширине - 3px), 
+    thick (толстая - 5px)
+    </pre>
+    </p>
+   <p>
+    Свойство <span>border-color</span> в качестве значения принимает цвет CSS.
+    </p>
+    <p>
+    Свойство <span>border-style </span>оформляет тип лини:
+   <pre> 
+   <span> none: </span>граница отсутствует
+    
+   <span> solid:</span> граница в виде обычной линии
+    
+    <span>dashed:</span> штриховая линия
+    
+   <span> dotted:</span> линия в виде последовательности точек
+    
+   <span> double:</span> граница в виде двух параллельных линий
+    
+  <span>  groove:</span> граница имеет трехмерный эффект
+    
+   <span> inset: </span>граница как бы вдавливается во внутрь
+    
+  <span>  outset:</span> аналогично inset, только граница как бы выступает наружу
+    
+   <span> ridge: </span>граница также реализует трехмерный эффект
+ </pre>  
+ <pre id="kod"> 
+    &lt;style>
+    div{
+    width: 100px;
+    height:100px;
+    border-style: solid;
+    border-color: red;
+    border-width: 2px;
+    }
+    &lt;/style>
+ </pre></p>
+    <p>
+   можем определить цвет, стиль и ширину границы для каждой из сторон:
+    </p>
+  <pre>
+    <b>/* для верхней границы */</b>
+    border-top-width
+    border-top-style
+    border-top-color
+    
+   <b> /* для нижней границы */</b>
+    border-bottom-width
+    border-bottom-style
+    border-bottom-color
+    
+   <b> /* для левой границы */</b>
+    border-left-width
+    border-left-style
+    border-left-color
+    
+   <b> /* для правой границы */</b>
+    border-right-width
+    border-right-style
+    border-right-color
+ </pre>
+    <h3>Свойство border</h3>
+    <span id="b">
+    border: 2px solid red;
+    </span>
+    <p>границы для отдельных сторон:</p>
+   <pre> 
+    border-top
+    border-bottom
+    border-left
+    border-right
+    </pre>
+  <code>
+    border-top: 2px solid red;
+    </code>
+    <h3>Радиус границы</h3>
+    <p>
+    Свойство border-radius позволяет округлить границу.
+    Принимает значение радиуса в пикселях или единицах em.
+    </p>
+    <pre id="kod">
+    &lt;style>
+    div{
+    width: 100px;
+    height:100px;
+    border: 2px solid red;
+    border-radius: 30px;
+    }
+    &lt;/style>
+    </pre>
+    <p>
+    можем указать четыре значения для установки радиуса у каждого углов:
+    
+   <span id="b"> <code>border-radius: 15px 30px 5px 40px;</code></span>
+    </p>
+    
+    Можно их устанавливать по отдельности. Например:
+ <pre id="kod">   
+    border-top-left-radius: 15px;	/* радиус для верхнего левого угла */
+    border-top-right-radius: 30px;	/* радиус для верхнего правого угла */
+    border-bottom-right-radius: 5px;	/* радиус для нижнего левого угла */
+    border-bottom-left-radius: 40px;	/* радиус для нижнего правого угла */
+  </pre> 
+    <p>
+    Также border-radius поддерживает возможность создания эллиптических углов. 
+    То есть угол не просто скругляется, а использует два радиуса, образуя в итоге душу эллипса:
+   <span id="b">
+    border-radius: 40px/20px;
+    </span>
+    В данном случае полагается, что радиус по оси X будет иметь значение 40 пикселей, а по оси Y - 20 пикселей.
+    </p>
+    <span id="out">из барахолки<a href="css_blok.html">модель блоков</a></span>
+    
+            </div>
+  </div>
+ </body>
+</html>

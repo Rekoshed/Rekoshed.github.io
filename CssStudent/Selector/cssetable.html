@@ -1,0 +1,236 @@
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        &lt;itle>Селекторы в CSS3</title>
+        <style>
+			tr:nth-child(odd) { background-color: #bbb; }
+			tr:nth-child(even) { background-color: #fff; }
+        	tr:nth-child(2n+5) { background-color: yellow; }
+        </style>
+  
+  <link  href="../../Design/script.css" rel="stylesheet">
+  <link  href="../../Design/toolbar.css" rel="stylesheet">
+  <script src ="../../Design/bild.js"></script>	
+  </head>
+  <body>
+  <script>
+  toolbar('../../index.html','../CSSmain.html');
+  </script>
+    <div class="content">   
+   <h2> Псевдоклассы дочерних элементов</h2>
+    <p>Особую группу псевдоклассов образуют псевдоклассы,
+     которые позволяют выбрать определенные дочерние элементы:
+    </p>
+    <ul>
+    <li> <b>:first-child:</b> представляет элемент, который является первым дочерним элементом
+    </li>
+   <li><b> :last-child:</b> представляет элемент, который является последним дочерним элементом
+    </li>
+    <li><b>:only-child:</b> представляет элемент, который является единственным дочерним элементом в каком-нибудь контейнере
+    </li>
+    <li><b>:only-of-type: </b>выбирает элемент, который является единственным элементом определенного типа (тега) в каком-нибудь контейнере
+    </li>
+   <li><b> :nth-child(n): </b>представляет дочерний элемент, который имеет определенный номер n, например, второй дочерний элемент
+    </li>
+   <li> <b>:nth-last-child(n): </b>представляет дочерний элемент, который имеет определенный номер n, начиная с конца
+    </li>
+   <li> <b>:nth-of-type(n):</b> выбирает дочерний элемент определенного типа, который имеет определенный номер
+    </li>
+    <li><b>:nth-last-of-type(n):</b> выбирает дочерний элемент определенного типа, который имеет определенный номер, начиная с конца
+    </li></ul>
+    
+   <h3> Псевдокласс <span><b>first-child</b></h3>
+   <p>
+   Стиль по селектору <b>a:first-child</b> применяется к ссылке, 
+   если она является первым дочерним элементом любого элемента.
+   </p>
+<pre id="kod">
+    &lt;style>
+    a:first-child{
+    
+    color: red;
+    }
+    &lt;/style>
+    
+    &lt;h3>Планшеты</h3>
+    &lt;div>
+    &lt;a>Microsoft Surface Pro 4&lt;/a>&lt;br/>
+    &lt;a>Apple iPad Pro&lt;/a>&lt;br/>
+    &lt;a>ASUS ZenPad Z380KL&lt;/a>
+    &lt;/div>
+    &lt;h3>Смартфоны&lt;/h3>
+    &lt;div>
+    &lt;p>Топ-смартфоны 2016&lt;/p>
+    &lt;a>Samsung Galaxy S7&lt;/a>&lt;br/>
+    &lt;a>Apple iPhone SE&lt;/a>&lt;br/>
+    &lt;a>Huawei P9&lt;/a>
+    &lt;/div>
+    </pre>
+
+    <h3>Псевдокласс <b><span>last-child</span></b></h3>
+   <p> Селектор a:last-child определяет стиль для ссылок, которые являются последними дочерними элементами:</p>
+    
+  <pre id="kod">
+    &lt;style>
+    a:last-child{
+    
+    color: blue;
+    }
+    &lt;/style>
+   
+   &lt;h3>Смартфоны&lt;/h3>
+   &lt;div>
+   &lt;p>Топ-смартфоны 2016&lt;/p>
+   &lt;a>Samsung Galaxy S7&lt;/a>&lt;br/>
+   &lt;a>Apple iPhone SE&lt;/a>&lt;br/>
+   &lt;a>Huawei P9&lt;/a>
+   &lt;/div>
+    &lt;h3>Планшеты&lt;/h3>
+    &lt;tdiv>
+    &lt;a>Microsoft Surface Pro 4&lt;/a>&lt;br/>
+    &lt;a>Apple iPad Pro&lt;/a>&lt;br/>
+    &lt;a>ASUS ZenPad Z380KL&lt;/a>
+    &lt;/div>
+    </pre>
+    
+    <h3>Селектор <b><span>only-child</span></b></h3>
+    <p>Селектор :only-child выбирает элементы,
+     которые являются единственными дочерними
+      элементами в контейнерах:
+    </p>
+    <pre id="kod">
+    &lt;style>
+    p:only-child{
+    color:red;
+    }
+    &lt;/style>
+    &lt;h2>Заголовок&lt;/h2>
+    &lt;div>
+    &lt;p>Текст1&lt;/p>
+    &lt;/div>
+    &lt;tdiv>
+    &lt;p>Текст2&lt;/p>
+    &lt;p>Текст3&lt;/p>
+    &lt;/div>
+    &lt;div>
+    &lt;p>Текст4&lt;/p>
+    &lt;/div>
+    </pre>
+    <h3>Псевдокласс <b><span>only-of-type</span></b></h3>
+    <p>
+    Псевдокласс only-of-type выбирает элемент, который является единственным элементом определенного типа в контейнере. Например, единственный элемент div, при этом элементов других типов в этом же контейнере может быть сколько угодно.
+    </p>
+   <pre id="kod">
+    &lt;style>
+    span:only-of-type{
+    
+    color: green;	/* зеленый цвет */
+    }
+    p:only-of-type{
+    
+    color: red;	/* красный цвет */
+    }
+    div:only-of-type{
+    
+    color: blue;	/* синий цвет */
+    }
+    &lt;/style>
+    &lt;/head>
+    &lt;div>
+    Header
+    &lt;/div>
+    &lt;p>Единственный параграф и &lt;span>элемент спан&lt;/span>&lt;/p>
+    &lt;tdiv>
+    Footer
+    &lt;/div>
+   </pre>
+
+    <h3>Псевдокласс nth-child</h3>
+    <p>
+    Псевдокласс nth-child позволяет стилизовать каждый второй, третий элемент, только четные или только нечетные элементы и т.д.
+    </p>
+ <p>
+    Чтобы определить стиль для нечетных элементов, в селектор передается значение <b>"odd":</b>
+    <span id="b"><code>
+    tr:nth-child(odd){} 
+    </code></span>
+    Для стилизации четных элементов в селектор передается значение<b> "even":</b>
+    <span id="b"><code>
+    tr:nth-child(even){} 
+    </code></span>
+    Также в этот селектор мы можем передать номер стилизуемого элемента:
+    <span id="b"><code>
+    tr:nth-child(3) { background-color: #bbb; }
+    </code></span>
+    В данном случае стилизуется третья строка.
+    </p>
+    <p>
+    Еще одну возможность представляет использование заменителя для номера, 
+    который выражается буквой <b>n:</b>
+    <span id="b"><code>
+    tr:nth-child(2n+1) { background-color: #bbb; }
+    </code></span>
+    
+    Здесь стиль применяется к каждой второй нечетной строке.
+    </p>
+    <p>
+    К примеру, если мы хотим выделить каждый третий элемент, начиная со второго, то мы могли бы написать:
+    <span id="b"><code>
+    tr:nth-child(3n+2) { background-color: #bbb; }
+    </code></span></p>
+    <pre id="kod">
+    &lt;style>
+    tr:nth-child(odd) { background-color: #bbb; }
+    tr:nth-child(even) { background-color: #fff; }
+    tr:nth-child(2n+5) { background-color: yellow; }
+    tr:nth-child(2n+5) { background-color: pink; }
+    &lt;/style>
+    &lt;h3>Смартфоны&lt;/h3>
+    &lt;table>
+    &lt;tr>&lt;td>Samsung&lt;/td>&lt;td>Galaxy S7 Edge&lt;/td>&lt;&lt;/td>60000&lt;/td>&lt;/tr>
+    &lt;tr>&lt;td>Apple&lt;/td>&lt;td>iPhone SE&lt;/td>&lt;td>39000&lt;/td>&lt;/tr>
+    &lt;tr>&lt;td>Microsoft&lt;/td>&lt;td>Lumia 650&lt;/td>&lt;td>13500&lt;/td>&lt;/tr>
+    &lt;tr>&lt;td>Alcatel&lt;/td>&lt;td>Idol S4&lt;/td>&lt;td>30000&lt;/td>&lt;/tr>
+    &lt;tr>&lt;td>Huawei&lt;/td>&lt;td>P9&lt;/td>&lt;td>60000&lt;/td>&lt;/tr>
+    &lt;tr>&lt;td>HTC&lt;/td>&lt;td>HTC 10&lt;/td>&lt;td>50000&lt;/td>&lt;/tr>
+    &lt;tr>&lt;td>Meizu&lt;/td>&lt;td>Pro 6&lt;/td>&lt;td>40000&lt;/td>&lt;/tr>
+    &lt;tr>&lt;td>Xiaomi&lt;/td>&lt;td>Mi5&lt;/td>&lt;td>35000&lt;/td>&lt;/tr>
+    &lt;/table>
+    </pre>
+    <p>
+    Псевдокласс <span><b>:nth-last-child </b></span>по сути предоставляет ту же самую функциональность,
+     только отсчет элементов идет не с начала, а с конца:
+    <pre id="kod">
+    tr:nth-last-child(2) { 
+    background-color: #bbb; /* 2 строка с конца, то есть предпоследняя  */
+    }
+    tr:nth-last-child(2n+1) {  
+    background-color: #eee; /* нечетные строки, начиная с конца  */
+    }
+    </pre>
+    
+    <h3>Псевдокласс <span><b>nth-of-type</b></span></h3>
+    <p>
+    Псевдокласс <b>:nth-of-type </b>позволяет выбрать дочерний элемент 
+    определенного типа по определенному номеру:
+    <pre id="kod">
+    tr:nth-of-type(2) { 
+    background-color: #bbb;
+    }
+    </pre>
+    <p>
+    Аналогично работает псевдокласс <span><b>nth-last-of-type</b></span>, 
+    только теперь отсчет элементов идет с конца:
+    <pre id="kod"><code>
+    tr:nth-last-of-type(2n) { 
+    background-color: #bbb;
+    }
+	</code></pre>
+	</p>	
+		</div>
+    </body>
+</html>
