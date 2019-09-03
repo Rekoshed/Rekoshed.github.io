@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Phyton обзор</title>
+		  <link  href="../../Design/script.css" rel="stylesheet">
+		  <link  href="../../Design/toolbar.css" rel="stylesheet">
+		  <script src ="../../Design/bild.js"></script>
+		  </head>
+     <body>
+	     <script>
+	 		toolbar('../../index.html','../PyMain.html');
+		 </script>
+			<div class="content">
+       
+                    <p>Вот несколько вариантов установить <strong>Python</strong>.
+ Python можно скачать и установить с <a href="https://www.python.org/downloads/" target="_blank">официального сайта Python</a>,
+  но в приоритете конечно  выполнить эту процедуру через пакетные менеджеры:</p>
+
+                    <h3>Ubuntu</h3>
+                    
+            <pre><code class="sh">$ sudo apt update
+                    $ sudo apt install python3
+                    </code></pre>
+                    
+                    <h3>macOS</h3>
+                    
+            <pre><code class="sh"># https://brew.sh/index_ru.html
+                    $ brew install python
+                    </code></pre>
+                    
+                    <h3>Windows</h3>
+                    
+            <pre><code class="sh"># https://chocolatey.org/
+                    $ choco install python
+                    </code></pre>
+                    <p> Убедитесь в том, что Python работает. Наберите в терминале <code>python3 --version</code>. 
+                        Вывод должен быть примерно такой:</p>
+                    <pre id="kod">
+                            rekoshed@rekoshed:~$ python3 --version
+                            Python 3.7.3
+                    </pre>
+            <p> Для запуска кода необходим файл с любым именем и расширением <code> py </code>.</p>
+            <pre><code>    
+            $ touch hello.py                       # создадим файл hello.py 
+            $ echo 'print("hello")'>> example.py   # запишем туда простой код
+            $ python3 hello.py                     # запустим код в итерпретаторе 
+            </code></pre>
+            <p> Всё просто. Если ошибок нет, то интерпретатор выведет строку приветствия в командной строке терминала </p>
+            </div>
+  </div>
+ </body>
+</html>
