@@ -23,7 +23,19 @@ font-size:1em;
 .blockSpan, .bs{
 display: block;
 }
-#comand, #cmd{
+
+
+.python {
+	color:rgb(13, 49, 65);
+	font-weight: 600;
+}
+
+#rpl { /* текст командного интерпретатора python */
+	color:  rgb(54, 4, 95);
+
+}
+
+#comand, #cmd{ /*текст командной строки ерминала */
 color:purple;
 font-weight:900;
 }
