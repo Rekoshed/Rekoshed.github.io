@@ -25,6 +25,11 @@
 		.color4 {background-color: #2A9FBC;}
 		.color5 {background-color: #F15B2A;}
 		.color6 {background-color: black;}
+		.color7 {background-color: rgb(69, 110, 4);}
+		.color8 {background-color: rgb(206, 8, 41);}
+		.color9 {background-color: rgb(11, 97, 196);}
+		.color10 {background-color: rgb(110, 33, 7);}
+		.color11{background-color: rgba(122, 120, 124, 0.973);}
 	
 	.container {
 	display: flex;

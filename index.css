@@ -25,6 +25,7 @@
 		header h4{font-size:18px;
 		text-shadow: 2px 2px 6px grey;
 		}
+		header {margin-top: 22px;}
 		#header{
 		margin-top: 22px;
 		z-index:10;
@@ -34,11 +35,17 @@
 		background-color: rgb(150, 90, 90);
 		
 		}
-		#header > h1, h2, h3 {text-shadow: 2px 2px 6px grey;}
-		header{
-		margin-left:px;
-		background-color:rgb(34, 30, 30);;
+		.toolbar {
+
+			height: 100px;
+			background-color: rgb(10, 6, 6);
 		}
+		#header {
+			height: 60px;
+		}
+
+		#header > h1, h2, h3 {text-shadow: 2px 2px 6px grey;}
+		
 		
 
 #header>h3 {font-size: 20px;}
@@ -67,9 +74,9 @@ font-family:Lucida Sans Unicode;
 		}
 		#footer{
 		    margin-top: 10px;
-			height: 80px;
+			height: 70px;
 			width: 100%;
-			background-color: #ccc;
+			background-color:rgb(4, 0, 39);
 		}
 		#main p{
 		font-size: 16px;
@@ -97,9 +104,10 @@ font-family:Lucida Sans Unicode;
 		top: 0;
 		left: 0;
 		right: 0;
-		background-color: #222;
-	 height: 6.1em;
+		height:80px;
+		background-color:rgb(4, 0, 39);
 		}
+
 		.toolbar a{
 		color: #eee;
 		display: inline-block;
