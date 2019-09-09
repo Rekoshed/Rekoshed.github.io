@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        
+        <title>Блочная верстка в HTML5</title>
+        <style>
+			body, h2, p{
+				margin:0;
+				padding:0;
+			}
+			p{margin-top:10px;}
+			body{
+				font-size: 18px;
+			}
+            #header{ 
+				background-color: #eee;
+				border-bottom: 1px solid #ccc;
+				height: 80px;
+			}
+			#wrapper{
+				background-color: #ddd;
+			}
+			#menu{
+				float: left;
+				width: 120px;
+			}
+			#main{
+				background-color: #f7f7f7;
+				border-left: 1px solid #ccc;
+				margin-left: 150px;
+				padding: 10px;
+			}
+			#footer{ 
+				border-top: 1px solid #ccc;
+				background-color: #dedede;
+			}
+        </style>
+    </head>
+    <body>
+		<div id="header"><h2>Выравнивание фоном</h2></div>
+		<div id="wrapper">
+			<div id="menu">
+				<ul>
+					<li><a href="#">Главная</a></li>
+					<li><a href="#">Блог</a></li>
+					<li><a href="#">Контакты</a></li>
+					<li><a href="#">О сайте</a></li>
+				</ul>
+			</div>
+			<div id="main">
+				<h2>What is Lorem Ipsum?</h2>
+				<p>Помните как в предыдущих примерах выделялись сайтбар и меню?
+				
+				А когда контент значительно болше элементов меню и сайтбара, то пустое место
+				смотрится мягко говоря не очень. 
+				</p>
+				<p>
+				Но в этом примере 
+				видно как решается эта проблема.
+				</p>
+					<p>В данном случае плавающий блок <b>menu </b>и обтекающий его блок main 
+					обертываются в один элемент <b>wrapper,</b> 
+					в котором устанавливается фон.Он будет работать и  для элемента <b>menu</b>.
+					 А элемент <b>main,</b> как наибольший элемент, может использовать собственную установку фона.
+					 </p>
+					 <p>
+					 Важно не выделять блок <b>menu</b> границей <b>border</b>.
+					</p>
+			</div>
+		</div>
+		<div id="footer">
+	
+		<p>
+		
+		<a href="CSSmain.html" ><button type="submit"> На главную</button></a>
+		</p>
+		
+			<p>Изучите код этой страницы через меню разработчика.</p>
+		</div>
+    </body>
+</html>

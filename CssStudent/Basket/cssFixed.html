@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Позиционирование в HTML5</title>
+		<style>
+			body{ 
+				margin:0;
+				padding:0;
+			}
+			.toolbar{
+				position: fixed;
+				top: 0;
+				left: 0;
+				right: 0;
+				background-color: #222;
+				border-bottom: 1px solid #ccc;
+			}
+			.toolbar a{
+				color: #eee;
+				display: inline-block;
+				padding: 10px;
+				text-decoration: none;
+				font-family: Verdana;
+			}
+			.content{
+				margin-top: 50px;
+				padding: 10px;
+			}
+		</style>
+    </head>
+    <body>
+		<div class="toolbar">
+			<a href="CSSmain.html">Главная</a>
+			<a href="#">Блог</a>
+			<a href="#">Контакты</a>
+			<a href="#">О сайте</a>
+		</div>
+		<div class="content">
+		<h3>Фиксированное меню</h3>
+		<p>
+		Есть ещё один популярный метод позиционирования.
+		Это фиксированная панель навигации,
+		 которая не изменяет своего положения вне зависимости от прокрутки.
+		</p>
+		<p>
+		Для фиксированного позиционирования у элементов 
+		нужно установить значение <b>fixed </b>
+		для свойства <b>position.</b>
+		 После этого с помощью стандартных свойств <b>left, right, top</b> и<b> bottom </b>
+		 можно определить конкретную позицию фиксированного элемента.
+		</p>
+		<pre id="kod">
+.toolbar{
+position: fixed;
+top: 30px;
+left: 10;
+right: 10;
+background-color: #222;
+border-bottom: 1px solid #ccc;
+z-index:100;
+}
+		</pre>
+		<p>
+		Например чтобы растянуть фиксированный блок от левой до правой границы страницы, устанавливаются три свойства:
+		</p>
+		<pre><code><b>
+top: 0;
+left: 0;
+right: 0;
+		</b></code></pre>
+		<p>
+		 блок с фиксированным и абсолютным позиционированием не 
+		  учавствуют в стандартном потоке html.
+		   Поэтому по умолчанию нижеидущий блок контента и панель 
+	будут размещаться в одной точке.
+	По этому необходимо для нижнего блока установить нужный отступ:
+		<span id="b">
+		margin-top: 50px;
+		</span>
+		<i><span id="kod">
+		Фактически отступ идет от границ области просмотра браузера,
+		 поэтому высота отступа должна быть больше высоты фиксированного элемента.
+		 </span></i></p>
+	<p>	 
+Не забудьте установить своймтво <span>z-index:</span> с высшим значением,
+дабы избежать наездов эдементов страницы на панель при прокрутке.
+</p>
+		 </div>
+	</body>
+</html>

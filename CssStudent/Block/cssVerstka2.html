@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        
+        <title>Блочная верстка в HTML5</title>
+        <style>
+        
+        {
+        box-sizing: border-box;
+        }
+			div{
+				margin: 10px;
+				border: 1px solid black;
+				height: 60px;
+			}
+            #header{ 
+				background-color: #ccc;
+			}
+			
+			#leftSidebar{
+			background-color: #ddd;
+			float: left;
+			width:80px;
+			height:170px;
+			margin-top:0px;
+			}
+			#rightSidebar{
+			background-color: #bbb;
+			float: right;
+			width:80px;
+			margin-top:0px;
+			height:170px;
+			}
+			#main{
+			background-color: #eee;
+			height: 200px;
+			margin-left: 100px;
+			margin-right: 100px;
+			display:block;
+			color:green;
+			margin:10px;
+			letter-spacing: 1px;
+			overflow:auto;
+			}
+			#footer{ 
+				background-color: #ccc;
+			}
+        </style>
+    </head>
+    <body>
+		<div id="header">Шапка сайта.<br><code>исходный код</code></div>
+		<div id="leftSidebar"><p>Левый сайдбар</p></div>
+		<div id="rightSidebar"><p>Правый сайдбар</p></div>
+		<div id="main">
+		<p>
+		<pre>
+&lt;!DOCTYPE html>
+&lt;html>
+&lt;head>
+&lt;meta charset="utf-8">
+&lt;meta name="viewport" content="width=device-width">
+
+&lt;title>Блочная верстка в HTML5&lt;/title>
+&lt;style>
+div{
+margin: 10px;
+border: 1px solid black;
+height: 80px;
+}
+#header{ 
+background-color: #ccc;
+}
+
+#leftSidebar{
+background-color: #ddd;
+float: left;
+width:80px;
+margin-top:0px;
+}
+#rightSidebar{
+background-color: #bbb;
+float: right;
+width:80px;
+margin-top:0px;
+}
+#main{
+background-color: #eee;
+height: 200px;
+margin-left: 100px;
+margin-right: 100px;
+}
+#footer{ 
+background-color: #ccc;
+}
+&lt;/style>
+&lt;/head>
+&lt;body>
+&lt;div id="header">Шапка сайта&lt;/div>
+&lt;div id="leftSidebar">&lt;p>Левый сайдбар&lt;/p>&lt;/div>
+&lt;div id="rightSidebar">&lt;p>Правый сайдбар&lt;/p>&lt;/div>
+&lt;div id="main">Основное содержимое&lt;/div>
+&lt;div id="footer">Футер&lt;/div>
+&lt;/body>
+&lt;/html>
+	</pre>
+	</p>
+		</div>
+		<div id="footer">Футер</div>
+    </body>
+</html>

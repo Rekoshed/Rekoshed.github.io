@@ -4,10 +4,9 @@
 <html>
 	<head>
 		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
 		<title>Идентификаторы CSS</title>
 		<style>
-		
-		
 		h1{
 		text-shadow: 5px 4px 3px #999;
 		}
@@ -52,121 +51,141 @@
 		<script>
 		toolbar('../../index.html','../CSSmain.html');
 		</script><div class="content">
+ 
+		 <h2>Форматирование текста</h2>
+		<h3> text-transform</h3>
+		<p>
+		 Свойство <span id="br">text-transform</span> изменяет регистр текста. 
+		 Оно может принимать следующие значения:
+		 </p>
+		 <ul>
+		 <li><span>capitalize</span>: делает первую букву слова заглавной</li>
 		 
+		 <li><span>uppercase</span>: все слово переводится в верхний регистр</li>
 		 
+		 <li><span>lowercase</span>: все слово переводится в нижний регистр</li>
 		 
-		 Форматирование текста
-		 text-transform
-		 Свойство text-transform изменяет регистр текста. Оно может принимать следующие значения:
-		 
-		 capitalize: делает первую букву слова заглавной
-		 
-		 uppercase: все слово переводится в верхний регистр
-		 
-		 lowercase: все слово переводится в нижний регистр
-		 
-		 none: регистр символов слова никак не изменяется
-		 
+		 <li><span>none</span>: регистр символов слова никак не изменяется</li>
+		 </ul>
+		 <p>
 		 Например:
+		 </p>
+ <pre id="kod">
+ &lt;style>
+ p.lowercase {text-transform: lowercase;}
+ p.uppercase {text-transform: uppercase;}
+ p.capitalize { text-transform: capitalize;}
+ &lt;/style>
+ &lt;div>
+ &lt;p class="capitalize">Текст использует значение capitalize&lt;/p>
+ &lt;p class="lowercase">Текст использует значение lowercase&lt;/p>
+ &lt;p class="uppercase">Текст использует значение uppercase&lt;/p>
+ &lt;/div>
+ </pre>
 		 
-		 <!DOCTYPE html>
-		 <html>
-		 <head>
-		 <meta charset="utf-8">
-		 <title>Шрифты в CSS3</title>
-		 
-		 <style>
-		 p.lowercase {text-transform: lowercase;}
-		 p.uppercase {text-transform: uppercase;}
-		 p.capitalize { text-transform: capitalize;}
-		 </style>
-		 </head>
-		 <body>
-		 <div>
+		 <div class="example">
 		 <p class="capitalize">Текст использует значение capitalize</p>
 		 <p class="lowercase">Текст использует значение lowercase</p>
 		 <p class="uppercase">Текст использует значение uppercase</p>
 		 </div>
-		 </body>
-		 </html>
-		 text-transform в CSS 3
-		 Свойство text-decoration
-		 Свойство text-decoration позволяет добавить к тексту некоторые дополнительные эффекты. Это свойство может принимать следующие значения:
 		 
-		 underline: подчеркивает текст
+<h3> text-decoration</h3>
+<p>
+		 Свойство <span id="br">text-decoration </span>
+		 позволяет добавить к тексту некоторые дополнительные эффекты. 
+		 Это свойство может принимать следующие значения:
+		</p>
+		<ul> 
+		 <li><span>underline</span>: подчеркивает текст</li>
 		 
-		 overline: надчеркивает текст, проводит верхнюю линию
+		 <li><span>overline</span>: надчеркивает текст, проводит верхнюю линию</li>
 		 
-		 line-through: зачеркивает текст
+		 <li><span>line-through</span>: зачеркивает текст</li>
 		 
-		 none: к тексту не применяется декорирование
-		 
+		 <li><span>none</span>: к тексту не применяется декорирование</li>
+		 </ul>
+<p>При необходимости мы можем комбинировать значения.</p>
+		 <p>
 		 Например:
-		 
-		 <!DOCTYPE html>
-		 <html>
-		 <head>
-		 <meta charset="utf-8">
-		 <title>Шрифты в CSS3</title>
-		 
-		 <style>
-		 p.under {
-		 text-decoration: underline;
-		 }
-		 p.over {
-		 text-decoration: overline;
-		 }
-		 p.line {
-		 text-decoration: line-through;
-		 }
-		 p.mixed {
-		 text-decoration: underline line-through;
-		 }
-		 a.none {
-		 text-decoration: none;
-		 }
-		 </style>
-		 </head>
-		 <body>
-		 <div>
-		 <p class="under">Это подчеркнутый текст.</p>
-		 <p class="over">Это надчеркнутый текст</p>
-		 <p class="line">Это зачеркнутый текст</p>
-		 <p class="mixed">Это подчеркнутый и зачеркнутый текст</p>
-		 <p>Не подчеркнутая <a href="index.php" class="none">ссылка<a></p>
-		 </div>
-		 </body>
-		 </html>
-		 text-decoration в CSS 3
-		 При необходимости мы можем комбинировать значения. Так, в предпоследнем случае применялся стиль:
-		 
-		 p.mixed { text-decoration: underline line-through; }
-		 Межсимвольный интервал
-		 Два свойства CSS позволяют управлять интервалом между символами и словами текста. Для межсимвольного интервала применяется атрибут letter-spacing, а для интервала между словами - word-spacing:
-		 
-		 <!DOCTYPE html>
-		 <html>
-		 <head>
-		 <meta charset="utf-8">
-		 <title>Шрифты в CSS3</title>
-		 
-		 <style>
-		 p.smallLetterSpace {
-		 letter-spacing: -1px;
-		 }
-		 p.bigLetterSpace {
-		 letter-spacing: 1px;
-		 }
-		 p.smallWordSpace{
-		 word-spacing: -1px;
-		 }
-		 p.bidWordSpace{
-		 word-spacing: 1px;
-		 }
-		 </style>
-		 </head>
-		 <body>
-		 <div>
+		 </p>
+ <pre id="kod">
+ &lt;style>
+ p.under {
+ text-decoration: underline;
+ }
+ p.over {
+ text-decoration: overline;
+ }
+ p.line {
+ text-decoration: line-through;
+ }
+ p.mixed {
+ text-decoration: underline line-through;
+ }
+ a.none {
+ text-decoration: none;
+ }
+ &lt;/style>
+ </pre>
+ <pre id="kod">
+ &lt;div>
+ &lt;p class="under">Это подчеркнутый текст.&lt;/p>
+ &lt;p class="over">Это надчеркнутый текст&lt;/p>
+ &lt;p class="line">Это зачеркнутый текст&lt;/p>
+ &lt;p class="mixed">Это подчеркнутый и зачеркнутый текст&lt;/p>
+ &lt;p>Не подчеркнутая &lt;a href="index.php" class="none">ссылка&lt;a>&lt;/p>
+ &lt;/div>
+ </pre>
+ 
+ <div class="example">
+ <div>
+ <p class="under">Это подчеркнутый текст.</p>
+ <p class="over">Это надчеркнутый текст</p>
+ <p class="line">Это зачеркнутый текст</p>
+ <p class="mixed">Это подчеркнутый и зачеркнутый текст</p>
+ <p>Не подчеркнутая <a href="index.php" class="none">ссылка<a></p>
+ </div>
+ 
+ </div>
+ <h3>	 Межсимвольный интервал</h3>
+ <p>
+Для межсимвольного интервала применяется атрибут <span id="br">letter-spacing</span>, 
+а для интервала между словами - <span id="br">word-spacing</span>.
+		 <p>
+		 Например:
+		 </p>
+<pre id="kod">
+&lt;style>
+p.smallLetterSpace {
+letter-spacing: -1px;
+}
+p.bigLetterSpace {
+letter-spacing: 1px;
+}
+p.smallWordSpace{
+word-spacing: -1px;
+}
+p.bidWordSpace{
+word-spacing: 1px;
+}
+&lt;/style>
+</pre>
+<pre id="kod">	 
+
+&lt;div>
+&lt;h3>Обычный текст&lt;/h3>
+&lt;p>Над ним не было ничего уже, кроме неба...&lt;/p>
+&lt;h3>letter-spacing: -1px;&lt;/h3>
+&lt;p class="smallLetterSpace">Над ним не было ничего уже, кроме неба...&lt;/p>
+&lt;h3>letter-spacing: 1px;&lt;/h3>
+&lt;p class="bigLetterSpace">Над ним не было ничего уже, кроме неба...&lt;/p>
+&lt;h3>word-spacing: -1px&lt;/h3>
+&lt;p class="smallWordSpace">Над ним не было ничего уже, кроме неба...&lt;/p>
+&lt;h3>word-spacing: 1px&lt;/h3>
+&lt;p class="bigWordSpace">Над ним не было ничего уже, кроме неба...&lt;/p>
+&lt;/div>
+</pre>		 
+		 <div class="example">
 		 <h3>Обычный текст</h3>
 		 <p>Над ним не было ничего уже, кроме неба...</p>
 		 <h3>letter-spacing: -1px;</h3>
@@ -178,89 +197,72 @@
 		 <h3>word-spacing: 1px</h3>
 		 <p class="bigWordSpace">Над ним не было ничего уже, кроме неба...</p>
 		 </div>
-		 </body>
-		 </html>
-		 letter-spacing и word-spacing в CSS 3
-		 text-shadow
-		 С помощью свойства text-shadow можно создать тени для текста. Для этого свойства необходимо задать четыре значения: горизонтальное смещение тени относительно текста, вертикальное смещение тени относительно текста, степень размытости тени и цвет отбрасываемой тени. Например:
 		 
-		 h1{
-		 text-shadow: 5px 4px 3px #999;
-		 }
-		 тень текста в CSS 3
-		 В данном случае горизонтальное смещение тени относительно букв составляет 5 пикселей, а вертикальное смещение вниз - 4 пикселя. Степень размытости - 3 пикселя, и для тени используется цвет #999.
+		 <h3>text-shadow</h3>
+		 <p>
+		 С помощью свойства <span id="br">text-shadow</span>
+		  можно создать тени для текста.
+		   Для этого свойства необходимо задать четыре значения:
+		   </p>
+		   <ul> 
+		   <li>горизонтальное смещение тени </li>
+		   <li>вертикальное смещение тени </li> 
+		   <li>степень размытости </li>
+		   <li>color</li>
+		   </ul>
+		   <p>
+		    Например:
+		 </p>
+ <pre id="kod">
+ h1{
+ text-shadow: 5px 4px 3px #999;
+ }
+ </pre>
+ <style type="text/css">
+ .shadow {
+ text-shadow: 5px 4px 3px #999;
+ }
+ </style>
+ <div class="example">
+ <h1><span class="shadow">Магелановы облака</span></h1>
+ </div>
+		 <p>
+		 В данном случае:
+		 <br>
+		  горизонтальное смещение тени вправо - составляет 5 пикселей, 
+		 <br>
+		Bертикальное смещение вниз - 4 пикселя.
+		  <br>
+		  Степень размытости - 3 пикселя,
+		  <br>
+		   используется цвет тени - #999.
+		 </p>
+		 <p>
+		 Отрицательные значения дают противоположное смещение
+		 </p>
+		 <p>
+		  Например:
+		  </p>
+		  <pre id="kod">
 		 
-		 Если нам надо было бы создать горизонтальное смещение влево, а не вправо, как по умолчанию, то в этом случае надо было бы использовать отрицательное значение. Аналогично для создания вертикального смещения вверх также надо использовать отрицательное значение. Например:
+ h1{
+ text-shadow: -5px -4px 3px #999;
+ }
+ 
+		</pre>
 		 
-		 h1{
+		 
+		 <style type="text/css">
+		 .shadow_negativ {
 		 text-shadow: -5px -4px 3px #999;
 		 }
-		 text-shadow в CSS 3
-		 Глава 1. Введение в HTML5
-		 Глава 2. Элементы в HTML5
-		 Глава 3. Работа с формами
-		 Глава 4. Семантическая структура страницы
-		 Глава 5. Основы CSS3. Селекторы
-		 Глава 6. Основы CSS3. Свойства
-		 Глава 7. Создание макета страницы и верстка
-		 Глава 8. Трансформации, переходы и анимации
-		 Глава 9. Адаптивный дизайн
-		 Глава 10. Мультимедиа
-		 Глава 11. Canvas
-		 Глава 12. Flexbox
-		 Глава 13. Grid Layout
-		 Глава 14. Дополнительные статьи
-		 Об учебнике
-		 
-		 
-		 
-		 
-		 
-		 <p class="under">Это подчеркнутый текст.</p>
-		 <p class="over">Это надчеркнутый текст</p>
-		 <p class="line">Это зачеркнутый текст</p>
-		 <p class="mixed">Это подчеркнутый и зачеркнутый текст</p>
-		 <p>Не подчеркнутая <a href="index.php" class="none">ссылка<a></p>
+		 </style>
+		 <div class="example">
+		 <h1><span class="shadow_negativ">Магелановы острова</span></h1>
 		 </div>
-		 	</div>
-		 	
-		 	<div class="article">
-		 	<p> Межсимвольные интервалы</p>
-		 	<div class="content">
 		 
-		 <h3>Обычный текст</h3>
-		 <p>Над ним не было ничего уже, кроме неба...</p>
-		 <h3>letter-spacing: -1px;</h3>
-		 <p class="smallLetterSpace">Над ним не было ничего уже, кроме неба...</p>
-		 <h3>letter-spacing: 1px;</h3>
-		 <p class="bigLetterSpace">Над ним не было ничего уже, кроме неба...</p>
-		 <h3>word-spacing: -1px</h3>
-		 <p class="smallWordSpace">Над ним не было ничего уже, кроме неба...</p>
-		 <h3>word-spacing: 1px</h3>
-		 <p class="bigWordSpace">Над ним не было ничего уже, кроме неба...</p>
-		 </div>
-		 	</div>
-		 	
-		 	</div>
-		 	
-		 	<div class="article">
-		 	<p>
-		 	Форматирование текста
-		 	text-transform</p>
-		 	<div class="content">
 		 
-		 <p class="capitalize">Текст использует значение capitalize</p>
-		 <p class="lowercase">Текст использует значение lowercase</p>
-		 <p class="uppercase">Текст использует значение uppercase</p>
-		 </div>
-		 	</div>
-		 	
-		</div>
-		<div style="margin: 10px; border: 1px solid #222; height: 14%;  background-color: #eee">Footer
-		<p>
-		На главную 
-		<a href="CSSmain.html" ><button type="submit"> Main</button></a>
-		</p>
+	
 		</div>
 	</body>
 </html>

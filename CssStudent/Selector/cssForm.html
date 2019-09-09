@@ -15,67 +15,94 @@
 		 </script>
 			<div class="content">
        
-       Псевдоклассы форм
+       <h3>Псевдоклассы форм</h3>
+       <p>
        Ряд псевдоклассов используется для работы с элементами форм:
+       </p>
+       <ul>
+       <li>:<span>enabled:</span> выбирает элемент, если он доступен для выбора
+        (то есть у него не установлен атрибут disabled)</li>
        
-       :enabled: выбирает элемент, если он доступен для выбора (то есть у него не установлен атрибут disabled)
+       <li>:<span>disabled</span>: выбирает элемент, если он не доступен для выбора (то есть у него установлен атрибут disabled)</li>
        
-       :disabled: выбирает элемент, если он не доступен для выбора (то есть у него установлен атрибут disabled)
+       <li><span>:checked:</span> выбирает элемент, если у него
+        установлен атрибут <b>checked</b> (для флажков и радиокнопок)</li>
        
-       :checked: выбирает элемент, если у него установлен атрибут checked (для флажков и радиокнопок)
+       <li>:<span>default</span>: выбирает стандартный элемент на форме. Как правило, элементы по умолчанию</li>
        
-       :default: выбирает элементы по умолчанию
+       <li><span>:valid:</span> выбирает элемент, если его значение проходит валидацию <b>HTML5</b></li>
        
-       :valid: выбирает элемент, если его значение проходит валидацию HTML5
+       <li><span>:invalid:</span> выбирает элемент, если его значение не проходит валидацию</li>
        
-       :invalid: выбирает элемент, если его значение не проходит валидацию
+       <li><span>:in-range:</span> выбирает элемент, если его значение находится в определенном диапазоне (для элементов типа ползунка)</li>
        
-       :in-range: выбирает элемент, если его значение находится в определенном диапазоне (для элементов типа ползунка)
+       <li><span>:out-of-range: </span>выбирает элемент, если его значение не находится в определенном диапазоне</li>
        
-       :out-of-range: выбирает элемент, если его значение не находится в определенном диапазоне
+       <li><span>:required:</span> выбирает элемент, если у него установлен атрибут <b>required</b></li>
        
-       :required: выбирает элемент, если у него установлен атрибут required
+       <li><span>:optional: </span>выбирает элемент, если у него не установлен атрибут <b>required</b></li>
+ </ul>      
+       <h3>Псевдоклассы <b><span>enabled</span> и <span>disabled</span></b></h3>
        
-       :optional: выбирает элемент, если у него не установлен атрибут required
+     <pre id="kod"> 
+&lt;style>
+:enabled {
+border: 2px black solid;
+color: red;
+}
+&lt;/style>
+
+&lt;p>&lt;input type="text" value="Enabled" />&lt;/p>
+&lt;p>&lt;input type="text" disabled value="Disabled" />&lt;/p>
+</pre>
        
-       Псевдоклассы enabled и disabled
-       Псевдоклассы enabled и disabled выбирают элементы форм в зависимости от того, установлен ли у них атрибут disabled:
-       
-       <!DOCTYPE html>
-       <html>
-       <head>
-       <meta charset="utf-8">
-       <title>Селекторы в CSS3</title>
        <style>
        :enabled {
        border: 2px black solid;
        color: red;
        }
        </style>
-       </head>
-       <body>
+      
        <p><input type="text" value="Enabled" /></p>
        <p><input type="text" disabled value="Disabled" /></p>
-       </body>
-       </html>
-       Псевдокласс enabled и disabled в CSS 3
-       Псевдокласс checked
-       Псевдокласс checked стилизует элементы формы, у которых установлен атрибут checked:
        
-       <!DOCTYPE html>
-       <html>
-       <head>
-       <meta charset="utf-8">
-       <title>Селекторы в CSS3</title>
+       <h3>   Псевдокласс checked</h3>
+    <pre id="kod">   
+       
+       &lt;style>
+       :checked + span {
+       color: red;
+       font-weight: bold; 	/* выделение жирным */
+       }
+       &lt;/style>
+       
+       &lt;h4>Выберите пункт из списка&lt;/h4>
+       &lt;p>
+       &lt;input type="checkbox" checked name="html5"/><span>HTML5</span>
+       &lt;/p>
+       &lt;p>
+       &lt;input type="checkbox" name="dotnet"/><span>.NET</span>
+       &lt;/p>
+       &lt;p>
+       &lt;input type="checkbox" name="java"/><span>Java</span>
+       &lt;/p>
+       
+       &lt;h4>Укажите пол</h4>
+       &lt;p>
+       &lt;input type="radio" value="man" checked name="gender"/><span>мужской</span>
+       &lt;/p>
+       &lt;p>
+       &lt;input type="radio" value="woman" name="gender"/><span>женский</span>
+       &lt;/p>
+     </pre> 
        <style>
        :checked + span {
        color: red;
        font-weight: bold; 	/* выделение жирным */
        }
        </style>
-       </head>
-       <body>
-       <h2>Выберите технологию</h2>
+       
+       <h4>Выберите пункт из списка</h4>
        <p>
        <input type="checkbox" checked name="html5"/><span>HTML5</span>
        </p>
@@ -86,48 +113,61 @@
        <input type="checkbox" name="java"/><span>Java</span>
        </p>
        
-       <h2>Укажите пол</h2>
+       <h4>Укажите пол</h4>
        <p>
        <input type="radio" value="man" checked name="gender"/><span>мужской</span>
        </p>
        <p>
        <input type="radio" value="woman" name="gender"/><span>женский</span>
        </p>
-       </body>
-       </html>
+       
+       <p>
        Селектор :checked + span позволяет выбрать элемент, соседний с отмеченным элементом формы.
+       </p>
        
-       Псевдокласс checked в CSS 3
-       Псевдокласс default
-       Псевдокласс :default выбирает стандартный элемент на форме. Как правило, в роли такого элемента выступает кнопка отправки:
-       
-       <!DOCTYPE html>
-       <html>
-       <head>
-       <meta charset="utf-8">
-       <title>Селекторы в CSS3</title>
+       <h3>Псевдокласс <span><b>default</b></span></h3>
+       <pre id="kod">
+       &lt;style>
+       :default {
+       border: 2px solid red;
+       }
+       &lt;/style>
+     
+       &lt;form>
+       &lt;input name="login"/>
+       &lt;input type="submit" value="Войти" />
+       &lt;/form>
+       </pre>
        <style>
        :default {
        border: 2px solid red;
        }
        </style>
-       </head>
-       <body>
+       
        <form>
        <input name="login"/>
        <input type="submit" value="Войти" />
        </form>
-       </body>
-       </html>
-       Псевдокласс default в CSS 3
-       Псевдоклассы valid и invalid
-       Псевдоклассы :valid и :invalid стилизуют элементы формы в зависимости от того, проходят они валидацию или нет.
+      
+      <h3> Псевдоклассы <b><span>valid</span> и <span>invalid</span></b></h3>
+       <pre id="kod">
+         &lt;style>
+       input:invalid {
+       border: 2px solid red;
+       }
+       input:valid {
+       border: 2px solid green;
+       }
+       &lt;/style>
        
-       <!DOCTYPE html>
-       <html>
-       <head>
-       <meta charset="utf-8">
-       <title>Селекторы в CSS3</title>
+       
+       &lt;form>
+       &lt;p>&lt;input type="text" name="login" placeholder="Введите логин" required />&lt;/p>
+       &lt;p>&lt;input type="password" name="password" placeholder="Введите пароль" required />&lt;/p>
+       &lt;input type="submit" value="Войти" />
+       &lt;/form>
+       </pre>
+       
        <style>
        input:invalid {
        border: 2px solid red;
@@ -136,24 +176,41 @@
        border: 2px solid green;
        }
        </style>
-       </head>
-       <body>
+       
+       
        <form>
        <p><input type="text" name="login" placeholder="Введите логин" required /></p>
        <p><input type="password" name="password" placeholder="Введите пароль" required /></p>
        <input type="submit" value="Войти" />
        </form>
-       </body>
-       </html>
-       Псевдоклассы valid и invalid в CSS 3
-       Псевдоклассы in-range и out-of-range
-       Псевдоклассы :in-range и :out-of-range стилизуют элементы формы в зависимости от того, попадает ли их значение в определенный диапазон. Это в первую очередь относится к элементу <input type="number" >.
+    
        
-       <!DOCTYPE html>
-       <html>
-       <head>
-       <meta charset="utf-8">
-       <title>Селекторы в CSS3</title>
+      <h3> Псевдоклассы <b><span>in-range</span> и <span>out-of-range</span></b></h3>
+       <p>
+       Диапозон выбран у элемента <b><code>&lt;input type="number" ></code></b>.
+       <br>
+       В нашем случае min=1 max=100:
+       </p>
+       <pre id="kod">
+       &lt;style>
+       :in-range {
+       border: 2px solid green;
+       }
+       :out-of-range {
+       border: 2px solid red;
+       }
+       &lt;/style>
+       
+       
+       &lt;form>
+       &lt;p>
+       &lt;label for="age">Ваш возраст:&lt;/label> 
+       &lt;input type="number" min="1" max="100" value="10" id="age" name="age"/>
+       &lt;/p>
+       &lt;input type="submit" value="Отправить" />
+       &lt;/form>
+       </pre>
+      
        <style>
        :in-range {
        border: 2px solid green;
@@ -162,8 +219,8 @@
        border: 2px solid red;
        }
        </style>
-       </head>
-       <body>
+       
+       
        <form>
        <p>
        <label for="age">Ваш возраст:</label> 
@@ -171,19 +228,40 @@
        </p>
        <input type="submit" value="Отправить" />
        </form>
-       </body>
-       </html>
-       Здесь атрибуты min и max задают диапазон, в которое должно попадать вводимое в поле значение:
+      
+      
+      
+      
+      <h3> Псевдоклассы <b><span>required</span> и <span>optional</span></b></h3>
+       <pre id="kod">
+&lt;style>
+:optional {
+border: 2px solid blue;
+}
+:required {
+border: 2px solid red;
+}
+&lt;/style>
+&lt;/head>
+
+
+&lt;p>
+&lt;label for="login">Логин:&lt;/label> 
+&lt;input type="text" id="login" name="login" required />
+&lt;/p>
+&lt;p>
+&lt;label for="password">Пароль:</label> 
+&lt;input type="password" id="password" name="password" required />
+&lt;/p>
+&lt;p>
+&lt;label for="name">Имя:&lt;/label> 
+&lt;input type="text" id="name" name="name"/>
+&lt;/p>
+&lt;input type="submit" value="Регистрация" />
+&lt;/form>
+       </pre>
        
-       Псевдоклассы in-range и out-of-range в CSS 3
-       Псевдоклассы required и optional
-       Псевдоклассы :required и :optional стилизуют элемент в зависимости от того, установлен ли у него атрибут required:
        
-       <!DOCTYPE html>
-       <html>
-       <head>
-       <meta charset="utf-8">
-       <title>Селекторы в CSS3</title>
        <style>
        :optional {
        border: 2px solid blue;
@@ -209,24 +287,7 @@
        </p>
        <input type="submit" value="Регистрация" />
        </form>
-       </body>
-       </html>
-       Псевдоклассы required и optional в CSS 3
-       Глава 1. Введение в HTML5
-       Глава 2. Элементы в HTML5
-       Глава 3. Работа с формами
-       Глава 4. Семантическая структура страницы
-       Глава 5. Основы CSS3. Селекторы
-       Глава 6. Основы CSS3. Свойства
-       Глава 7. Создание макета страницы и верстка
-       Глава 8. Трансформации, переходы и анимации
-       Глава 9. Адаптивный дизайн
-       Глава 10. Мультимедиа
-       Глава 11. Canvas
-       Глава 12. Flexbox
-       Глава 13. Grid Layout
-       Глава 14. Дополнительные статьи
-       Об учебнике
+       
             </div>
   </div>
  </body>

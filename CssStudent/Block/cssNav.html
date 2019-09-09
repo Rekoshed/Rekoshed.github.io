@@ -1,0 +1,223 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Панель навигации в HTML5</title>
+		<style>
+			ul.nav{
+				margin-left: 0px;
+				padding-left: 0px;
+				list-style: none;
+			}
+			ul.nav a {
+				display: block;
+				width: 7em;
+				padding:10px;
+				background-color: #f4f4f4;
+				border-top: 1px dashed #333;
+				border-right: 1px dashed #333;
+				border-left: 5px solid #333;
+				text-decoration: none;
+				color: #333;
+			}
+			ul.nav li:last-child a {
+				border-bottom: 1px dashed #333;
+			}
+		</style>
+    <link  href="../../Design/script.css" rel="stylesheet">
+    <link  href="../../Design/toolbar.css" rel="stylesheet">
+    <script src ="../../Design/bild.js"></script>
+    </head>
+    <body>
+    <script>
+    toolbar('../../index.html','../CSSmain.html');
+    </script>
+    
+    <h3>Создание панели навигации</h3>
+    <p>
+    Панель навигации важный элемент сайта. 
+    Он обеспечиват переходы между страницами или внешними ресурсами. 
+ </p>
+ <p>
+ По сути панель навигации - это набор ссылок, не редко в виде ненумерованного списка,
+ и бывают самыми различными: вертикальными ,горизонтальными, одноуровневыми, многоуровневыми,
+  но всегда в центре каждой навигации находится элемент <b>&lt;a></b>.
+  
+  
+  <h3>Вертикальное меню</h3>
+  <p>
+  Популярный метод, это сделать ссылку блочным элементом.
+	</p>	
+		<ul class="nav">
+			<li><a href="#">Главная</a></li>
+			<li><a href="#">Блог</a></li>
+			<li><a href="#">Контакты</a></li>
+			<li><a href="#">О сайте</a></li>
+		</ul>
+		<p>
+		То есть после установки свойства <b>display: block </b>,
+		мы получаем вертикальное расположение ссылк.
+		И остаётся только определить у блока ссылки ширину, отступы и т.д.
+		</p>
+<pre><code>
+ul.navG a {
+display: block;
+}
+</code></pre>
+
+<h3>Горизонтальное меню</h3>
+<p>
+Для создания горизонтального меню есть два метода. 
+		Первый заключается в применении свойства <b>float</b>
+		 и создании из ссылок плавающих элементов,
+		  которые обтекают друг друга с слева.
+		  </p>
+		  <pre><code><b>
+.nav li { 
+float: left;
+}
+ul.nav a {
+display: block;
+}
+	</b></code></pre>
+		<style>
+		ul.navG{
+		margin-left: 0px;
+		padding-left: 0px;
+		list-style: none;
+		}
+		.navG li { 
+		float: left;
+		}
+		ul.navG a {
+		display: block;
+		width: 7em;
+		padding:10px;
+		margin: 0 5px;
+		background-color: #f4f4f4;
+		border: 1px dashed #333;
+		text-decoration: none;
+		color: #333;
+		text-align: center;
+		}
+		ul.navG a:hover{
+		background-color: #333;
+		color: #f4f4f4;
+		}
+		</style>
+		
+		<ul class="navG">
+		<li><a href="#">Главная</a></li>
+		<li><a href="#">Блог</a></li>
+		<li><a href="#">Контакты</a></li>
+		<li><a href="#">О сайте</a></li>
+		</ul>
+		
+		<p>
+		   И второй способ состоит в создании
+		    строки ссылок с помощью установки 
+		   свойства <b>display: inline-block.</b>
+		</p>
+		<pre><code><b>
+		.navi li { 
+		display: inline; 
+		}
+		ul.navi a {
+		display: inline-block;
+		}
+</b></code></pre>		
+		<style>
+		ul.navi{
+		margin-left: 0px;
+		padding-left: 0px;
+		list-style: none;
+		}
+		.navi li { 
+		display: inline; 
+		}
+		ul.navi a {
+		display: inline-block;
+		width: 7em;
+		padding:10px;
+		background-color: #f4f4f4;
+		border: 1px dashed #333;
+		text-decoration: none;
+		color: #333;
+		text-align: center;
+		}
+		ul.navi a:hover{
+		background-color: #333;
+		color: #f4f4f4;
+		}
+		</style>
+		
+		<ul class="navi">
+		<li><a href="#">Главная</a></li>
+		<li><a href="#">Блог</a></li>
+		<li><a href="#">Контакты</a></li>
+		<li><a href="#">О сайте</a></li>
+		</ul>
+		<p>
+		
+		Для создания горизонтальной панели навигации нам надо сделать каждый элемент <b>li</b> строчным, 
+		то есть установить для него <b>display: inline.</b>
+		 После этого для элемента ссылки, которая располагается в элементе <b>li</b>, 
+		 мы можем установить <b>display: inline-block:</b>
+		</p>
+	
+	
+	<h3>Фиксированное меню</h3>
+	<p>
+	Есть ещё один популярный метод позиционирования.
+	Это фиксированная панель навигации,
+	которая не изменяет своего положения вне зависимости от прокрутки.
+	</p>
+	<p>
+	Для фиксированного позиционирования у элементов 
+	нужно установить значение <b>fixed </b>
+	для свойства <b>position.</b>
+	После этого с помощью стандартных свойств <b>left, right, top</b> и<b> bottom </b>
+	можно определить конкретную позицию фиксированного элемента.
+	</p>
+	<pre id="kod">
+	.toolbar{
+	position: fixed;
+	top: 30px;
+	left: 10;
+	right: 10;
+	background-color: #222;
+	border-bottom: 1px solid #ccc;
+	z-index:100;
+	}
+	</pre>
+	<p>
+	Например чтобы растянуть фиксированный блок от левой до правой границы страницы, устанавливаются три свойства:
+	</p>
+	<pre><code><b>
+	top: 0;
+	left: 0;
+	right: 0;
+	</b></code></pre>
+	<p>
+	блок с фиксированным и абсолютным позиционированием не 
+	учавствуют в стандартном потоке html.
+	Поэтому по умолчанию нижеидущий блок контента и панель 
+	будут размещаться в одной точке.
+	По этому необходимо для нижнего блока установить нужный отступ:
+	<span id="b">
+	margin-top: 50px;
+	</span>
+	<i><span id="kod">
+	Фактически отступ идет от границ области просмотра браузера,
+	поэтому высота отступа должна быть больше высоты фиксированного элемента.
+	Данный тип панели применяется на этой странице.
+	По этому будет крайне полезно изучить 
+	её код через меню разработчика.
+	</span></i></p>
+	<p>	 
+	Не забудьте установить своймтво <span>z-index:</span> с высшим значением,
+	дабы избежать наездов эдементов страницы на панель при прокрутке.
+	</p>
+    </body>
+</html>

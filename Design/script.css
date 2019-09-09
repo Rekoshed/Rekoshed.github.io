@@ -5,7 +5,14 @@
 span{
 color: red;
 }
-.windov {
+.example {/* окно для демонстрации примера*/
+border:2px solid darkblue;
+border-radius:6px;
+padding:0px 5px 0px 5px;
+background-color:Lavender;
+}
+
+.windov {/*окно для таблицы*/
 border: 1px solid #222;
 color:Darkblue;
 overflow:auto;}
@@ -13,37 +20,37 @@ overflow:auto;}
 .windov td:nth-child(2n) { background-color: #455a64;color:white; }
 pre {
 overflow:auto;
-font-size:1em;
 }
 .helloWorld pre 
 {font-size:1.1em;
 
 }
 .helloWorld span {color:Magenta;}	
-.blockSpan, .bs{
+#blockSpan, #bs{/*выделение однострочной записи блоком*/
+color: black;
 display: block;
+font-weight:800;
+margin-top:4px;
 }
 
-
-.python {
-	color:rgb(13, 49, 65);
-	font-weight: 600;
+#boltRed, #br{/* выделение впжной записи в заголовке*/
+color: red;
+font-weight:800;
+font-family:Arial;
 }
 
-#rpl { /* текст командного интерпретатора python */
-	color:  rgb(54, 4, 95);
-
-}
-
-#comand, #cmd{ /*текст командной строки ерминала */
+#comand, #cmd{/*стилизуем команды терминала*/
 color:purple;
 font-weight:900;
 }
 #kod{
 display:block;
-color:green;
+color: darkgreen;
+font-weight:800;
 margin:10px;
 letter-spacing: 1px;
+font-family:Courier New;
+font-size:0.8em;
 }
 #block, #b{
 display:block;
@@ -51,7 +58,7 @@ color:blue;
 
 margin:6px;
 }
-#out{
+#out{/*стилизуем ссылку на тестовую страницу*/
 text-decoration: none;
 font-style:bolt;
 font-family:Arial;
@@ -85,4 +92,3 @@ padding: 10px;
 .color7 {background-color: #F15B2A;}
 .color5 {background-color: #4e342e;}
 .color6 {background-color: black;}
-

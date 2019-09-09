@@ -15,43 +15,45 @@
 		 </script>
 			<div class="content">
 			
-			Фон элемента
-			Фон элемента описывается в CSS свойством background. Фактически это свойство представляет сокращение набора следующих свойств CSS:
-			
-			background-color: устанавливает цвет фона
+		<h3>	Фон элемента</h3>
+		
+	<p>За фон в CSS отвечает свойство <span id="br">background</span>. 
+	
+	Это свойство включает в себя следующий набор:</p>
+	<ul>
+	<li><span>background-color</span>: устанавливает цвет фона</li>
 			
 			background-color: #ff0507;
-			background-image: в качестве фона устанавливается изображение
-			
-			background-image: url(dubi.png);
-			Это свойство принимает одно значение: ключевое слово url, после которого в скобках идет путь к файлу изображения. В данном случае имеется в виду, что в одной папке рядом с веб-страницей находится файл dubi.png.
-			
-			Также можно использовать абсолютные адреса URL, например:
-			
-			background-image: url(http://localhost.com/someimage.png);
+			<li><span>background-image</span>: в качестве фона устанавливается изображение</li>
+			<ul>
+			<li><span>background-image</span>: url(dubi.png);<br>
+			Это свойство принимает одно значение: ключевое слово url, после которого в скобках идет путь к файлу изображения. 
+			В данном случае имеется в виду, что в одной папке рядом с веб-страницей находится файл dubi.png.
+			</li>
+			<li>Также можно использовать абсолютные адреса URL, например:
+			</li>
+			<li><span>background-image</span>: url(http://localhost.com/someimage.png);
 			Либо можно использовать относительные адреса - относительно html-документа или корневого каталога сайта:
+			</li>
+			<li><span>background-image</span>: url(../images/someimage.png);	/* путь относительно html-документа */
+			</li></ul>
+			<li><span>background-repeat</span>: режим повторения фонового изображения по всей поверхности элемента</li>
 			
-			background-image: url(../images/someimage.png);	/* путь относительно html-документа */
-			background-repeat: устанавливает режим повторения фонового изображения по всей поверхности элемента
+			<li><span>background-size</span>:  размер фонового изображения</li>
 			
-			background-size: устанавливает размер фонового изображения
+			<li><span>background-position</span>: указывает позицию фонового изображения</li>
 			
-			background-position: указывает позицию фонового изображения
+			<li><span>background-attachment</span>: устанавливает стиль прикрепления фонового изображения к элементу</li>
 			
-			background-attachment: устанавливает стиль прикрепления фонового изображения к элементу
+			<li><span>background-clip</span>: определяет область, которая вырезается из изображения и используется в качестве фона</li>
 			
-			background-clip: определяет область, которая вырезается из изображения и используется в качестве фона
-			
-			background-origin: устанавливает начальную позицию фонового изображения
-			
+			<li><span>background-origin</span>: устанавливает начальную позицию фонового изображения</li>
+		</ul>
+		<p>	
 			Например:
-			
-			<!DOCTYPE html>
-			<html>
-			<head>
-			<meta charset="utf-8">
-			<title>Блочная модель в CSS3</title>
-			<style>
+		</p>
+		<pre id="kod">	
+			&lt;style>
 			div{
 			width: 250px;
 			height: 200px;
@@ -65,69 +67,155 @@
 			.imaged{
 			background-image: url(dubi.png);
 			}
-			</style>
-			</head>
-			<body>
-			<div class="colored">Первый блок</div>
-			<div class="imaged">Второй блок</div>
-			</body>
-			</html>
-			Первый блок окрашен в оттенок красного цвета, а второй блок устанавливает в качестве фона изображение. Все содержимое блока накладывается поверх фона:
+			&lt;/style>
 			
-			Свойство background в CSS 3
-			Повторение изображения
-			На выше приведенном скриншоте видно, что CSS должным образом масштабирует изображение, чтобы наиболее оптимально вписать его в пространство элемента. Однако в связи с масшатбированием изображение может не полностью покрывать поверхность элемента, и поэтому для полного покрытия автоматически CSS начинает повторять изображение.
 			
-			С помощью свойства background-repeat можно изменить механизм повторения. Оно может принимать следующие значения:
+			&lt;div class="colored">Первый блок&lt;/div>
+			&lt;div class="imaged">Второй блок&lt;/div>
+		</pre>	
 			
-			repeat-x: повторение по горизонтали
 			
-			repeat-y: повторение по вертикали
-			
-			repeat: повторение по обеим сторонам (действие по умолчанию)
-			
-			space: изображение повторяется для заполнения всей поверхности элемента, но без создания фрагментов
-			
-			round: изображение должным образом масштабируется для полного заполнения всего пространства
-			
-			no-repeat: изображение не повторяется
-			
-			Например:
-			
-			div{
-			width: 200px;
-			height: 150px;
-			
-			background-image: url(dubi.png);
-			background-repeat: round;
-			}
-			Размер изображения
-			Свойство background-size позволяет установить размер фонового изображения. Для установки размера можно использовать либо единицы измерения, например, пиксели, либо проценты, либо одно из предустановленных значений:
-			
-			contain: масштабирует изображение по наибольшей стороне, сохраняя аспектное отношение
-			
-			cover: масштабирует изображение по наименьшей стороне, сохраняя аспектное отношение
-			
-			auto: значение по умолчанию, изображение отображается в полный размер
-			
-			Если нужно масштабировать изображение таким образом, чтобы оно оптимальнее было вписано в фон, то для обеих настроек можно установить значение 100%:
-			
-			background-size: 100% 100%;
-			Если задаются точные размеры, то вначале указывается ширина, а потом высота изображения:
-			
-			background-size: 200px 150px;	/* ширина 200 пикселей, высота 150 пикселей */
-			Можно задать точное значение для одного измерения - ширины или высоты, а для другого задать автоматические размеры, чтобы браузер сам выводил точные значения:
-			
-			background-size: 200px auto;	/* ширина 200 пикселей, автоматическая высота */
-			Например:
-			
-			<!DOCTYPE html>
-			<html>
-			<head>
-			<meta charset="utf-8">
-			<title>Блочная модель в CSS3</title>
 			<style>
-			div{
+			.l {
+			width: 250px;
+			height: 200px;
+			margin: 10px;
+			}
+			
+			.colored{
+			background-color: #ff0507;
+			}
+			
+			.imaged{
+			background-image: url(dubi.png);
+			}
+			</style>
+			
+			<div class="example">
+			<div class="colored l">Первый блок</div>
+			<div class="imaged l">Второй блок</div>
+			</div>
+			<p>
+			Первый блок окрашен в оттенок красного цвета, 
+			а второй блок устанавливает в качестве фона изображение.
+			 Все содержимое блока накладывается поверх фона:
+		</p>	
+			
+		<h3>	Повторение изображения. <span id="br">repeat</span></h3>
+		<p>
+			 изображение может не полностью покрывать 
+			 поверхность элемента, и поэтому для 
+			 полного покрытияCSS начинает. по умолчанию
+			 повторять изображение.</p>
+			<p>
+			Свойство <span id="br">background-repeat</span>  регулирует механизм повторения:
+		<ul>
+			<li><span>repeat-x</span>: повторение по горизонтали</li>
+			
+			<li><span>repeat-y</span>: повторение по вертикали</li>
+			
+			<li><span>repeat</span>: повторение по обеим сторонам (действие по умолчанию)</li>
+			
+			<li><span>space</span>: изображение повторяется для заполнения всей поверхности элемента, 
+			но без создания фрагментов</li>
+			
+			<li><span>round</span>: изображение должным образом масштабируется для полного заполнения всего пространства</li>
+			
+			<li><span>no-repeat</span>: изображение не повторяется</li>
+			</ul>
+	<p>
+			Например:
+		</p>
+<pre id="kod">	
+div{
+width: 200px;
+height: 150px;
+
+background-image: url(dubi.png);
+background-repeat: round;
+}
+</pre>
+			
+			<style>
+		.round div{
+		width: 200px;
+		height: 150px;
+		
+		background-image: url(dubi.png);
+		background-repeat: round;
+		}
+			</style>
+			
+			<div class="example round">
+			<div class="imaged">Заполняем блок изображением</div>
+			</div>
+			
+			
+<h3>Свойство <span id="br">background-size</span></h3> 
+<p>
+позволяет установить размер фонового изображения(ширина и высота).
+</p>
+
+<p>
+Если задаются точные размеры, 
+то вначале указывается ширина,
+ а потом высота изображения:
+<span id="bs">
+background-size: 200px 150px;<code id="kod">	/* ширина 200 пикселей, высота 150 пикселей */</code>
+</span>
+Можно задать точное значение для одного измерения - ширины или высоты, а для другого задать автоматические размеры:
+<span id="bs">
+background-size: 200px auto;<code id="kod">	/* ширина 200 пикселей, автоматическая высота */</code>
+</span>
+</p>
+
+<p>
+ Для установки размера используются единицы 
+ измерения пиксели, проценты, или предустановленные значения:
+</p>
+<ul>			
+			<li><span>contain</span>: масштабирует изображение по наибольшей стороне, 
+			сохраняя аспектное отношение</li>
+			
+			<li><span>cover</span>: масштабирует изображение по наименьшей стороне, сохраняя аспектное отношение</li>
+			
+			<li><span>auto</span>: значение по умолчанию, изображение отображается в полный размер</li>
+			</ul>
+			<p>
+			Что бы изображение оптимальнее было вписано в фон, 
+			 то для обеих настроек можно установить значение 100%:
+			<span id="bs">
+			background-size: 100% 100%;
+			</span>
+			</p>
+<pre id="kod">
+&lt;style>
+div{
+width: 200px;
+height: 150px;
+margin: 10px;
+
+border: black solid 1px;
+background-image: url(dubi.png);
+
+}
+.imaged1{
+
+background-size: cover;
+}
+.imaged2{
+
+background-size: 140px 110px;
+}
+&lt;/style>
+
+&lt;div class="imaged1 ">&lt;/div>
+&lt;div class="imaged2 ">&lt;/div>
+</pre>
+
+			
+			<style>
+			.ll div{
 			width: 200px;
 			height: 150px;
 			margin: 10px;
@@ -145,28 +233,49 @@
 			background-size: 140px 110px;
 			}
 			</style>
-			</head>
-			<body>
+			<div class ="example ll">
 			<div class="imaged1"></div>
 			<div class="imaged2"></div>
-			</body>
-			</html>
-			Во втором случае изображение будет масштабироваться до размеров 140х110. Поскольку у нас еще остается место на элементе, то по умолчанию изображение будет повторяться для заполнения всей поверхности:
+			</div>
 			
-			Свойство background-size в CSS 3
-			Позиция изображения
-			Свойство background-position управляет позицией фонового изображения внутри элемента. Оно может принимать отступы от верхнего левого угла элемента в единицах измерения, например, в пикселях в следующем формате:
 			
-			background-position: отступ_по_оси_X отступ_по_оси_Y;	
+		
+		<h3>	Позиция изображения <span id="br">background-position</span></h3>
+		<p>
+			Свойство <span id="bs">background-position</span> управляет позицией фонового изображения внутри элемента. 
+			</p>
+			<p>
+			Оно принимает отступы от верхнего левого угла элемента
+			 в единицах измерения, например, в пикселях в следующем формате:
+			<span id="bs">
+			background-position: <span>отступ_по_оси_X отступ_по_оси_Y</span>;	
+			</span></p>
+			<p>
 			Например:
-			
-			<!DOCTYPE html>
-			<html>
-			<head>
-			<meta charset="utf-8">
-			<title>Блочная модель в CSS3</title>
+</p>
+<pre id="kod">
+&lt;style>
+.lll div{
+width: 300px;
+height: 250px;
+margin: 10px;
+
+border: 1px solid #ccc;
+background-color: #eee;
+background-image: url(dubi.png);
+background-repeat: no-repeat;
+background-position: 20px 15px;	
+}
+&lt;/style>
+
+&lt;div>Туман начинал расходиться, и неопределенно,
+верстах в двух расстояния, виднелись уже 
+неприятельские войска на противоположных 
+возвышенностях...&lt;/div>
+
+</pre>
 			<style>
-			div{
+			.lll div{
 			width: 300px;
 			height: 250px;
 			margin: 10px;
@@ -178,72 +287,123 @@
 			background-position: 20px 15px;	
 			}
 			</style>
-			</head>
-			<body>
-			<div>Туман начинал расходиться, и неопределенно, верстах в двух расстояния, виднелись уже неприятельские 
-			войска на противоположных возвышенностях...</div>
-			</body>
-			</html>
-			background-position в CSS 3
-			Кроме того, данное свойство может принимать одно из следующих значений:
 			
-			top: выравнивание по верхнему краю элемента
+			<div class="example lll">
 			
-			left: выравнивание по левому краю элемента
+			<div>Туман начинал расходиться, и неопределенно,
+			 верстах в двух расстояния, виднелись уже 
+			 неприятельские войска на противоположных 
+			 возвышенностях...</div>
+			</div>
 			
-			right: выравнивание по правому краю элемента
+		<p>
+			Кроме того, данное свойство может принимать следующие значения:
+		</p>
+		<ul>	
+			<li><span>top</span>: выравнивание по верхнему краю элемента</li>
 			
-			bottom: выравнивание по нижнему краю элемента
+			<li><span>left</span>: выравнивание по левому краю элемента</li>
 			
-			center: изображение располагается по центру элемента
+			<li><span>right</span>: выравнивание по правому краю элемента</li>
 			
+			<li><span>bottom</span>: выравнивание по нижнему краю элемента</li>
+			
+			<li><span>center</span>: изображение располагается по центру элемента</li>
+			</ul>
+			<p>
 			Например:
-			
-			background-position: top right;	
+			</p>
+			<p>
+			<span id="kod">background-position: top right;</span>	
 			Здесь изображение выравнивается по верху и правому краю, то есть будет располагаться в правом верхнем углу элемента.
+			</p>
 			
-			background-attachment
-			Свойство background-attachment управляет, как фоновое изображение будет прикреплено к элементу. Это свойство может принимать следующие значения:
+			<h3>Свойство <span id="br">background-attachment</span> </h3>
+			<p>
+			Усьанавливает, как фоновое изображение будет 
+			прикреплено к элементу. Это свойство может принимать 
+			следующие значения:
+			</p>
+			<ul>
 			
-			fixed: фон элемента фиксирован вне зависимости от прокрутки внутри элемента
+			<li><span>fixed</span>: фон элемента фиксирован вне зависимости от прокрутки внутри элемента</li>
 			
-			local: по мере прокрутки внутри элемента фон изменяется
+			<li><span>local</span>: по мере прокрутки внутри элемента фон изменяется</li>
 			
-			scroll: фон фиксирован и не меняется при прокрутке, но в отличие от fixed несколько элементов могут использовать свой фон, тогда как при fixed создается один фон для всех элементов
-			
+			<li><span>scroll</span>: фон фиксирован и не меняется при прокрутке,
+			 но в отличие от <b>fixed </b>несколько элементов могут использовать свой фон, 
+			 тогда как при <b>fixed </b>создается один фон для всех элементов</li>
+			</ul>
+			<p>
 			Например:
+			</p>
+<pre id="kod">
+div{
+width: 300px;
+height: 250px;
+
+
+overflow:scroll;	/* добавляем прокрутку  */
+border: 1px solid #ccc;
+
+background-image: url(dubi.png);
+background-size: 512px 384px;
+background-attachment: scroll;
+background-repeat: no-repeat;
+}
+</pre>
+
+			<h3>Свойство background-origin </h3>
+			<p>
+			Указывает позицию на изображении, 
+			с которой будет начинаться собственно фоновое изображение для элемента. 
+			Оно может принимать следующие значения:
+			</p>
+	<ul>
+		<li><span>	border-box</span>: фон у элемента устанавливается начиная с его внешней границы, определяемой свойством <b>border</b></li>
 			
-			div{
-			width: 300px;
-			height: 250px;
+		<li><span>	padding-box</span>: фон устанавливается с учетом внутренних отступов</li>
 			
-			
-			overflow:scroll;	/* добавляем прокрутку  */
-			border: 1px solid #ccc;
-			
-			background-image: url(dubi.png);
-			background-size: 512px 384px;
-			background-attachment: scroll;
-			background-repeat: no-repeat;
-			}
-			background-origin
-			Свойство background-origin указывает позицию на изображении, с которой будет начинаться собственно фоновое изображение для элемента. Оно может принимать следующие значения:
-			
-			border-box: фон у элемента устанавливается начиная с его внешней границы, определяемой свойством border
-			
-			padding-box: фон устанавливается с учетом внутренних отступов
-			
-			content-box: фон устанавливается по содержимому элемента
-			
+		<li><span>	content-box</span>: фон устанавливается по содержимому элемента</li>
+			</ul>
+			<p>
 			Используем все три значения:
+			</p>
+<pre id="kod">
+&lt;style>
+.lv div{
+width: 200px;
+height: 200px;
+margin: 10px;
+display: inline-block;	/* располагаем блоки в ряд */
+color: #eee;
+
+padding:15px;
+border: 15px solid rgba(23,23,23,0.2);
+
+background-image: url(cats.jpg);
+background-size: cover;
+background-repeat: no-repeat;
+}
+.borderBox {background-origin: border-box;}
+.paddingBox {background-origin: padding-box;}
+.contentBox {background-origin: content-box;}
+&lt;/style>
+
+
+&lt;div class="borderBox">
+Вся власть - котикам!
+&lt;/div>
+&lt;div class="paddingBox">
+Вся власть - котикам!
+&lt;/div>
+&lt;div  class="contentBox">
+Вся власть - котикам!
+&lt;/div>
+</pre>
 			
-			<!DOCTYPE html>
-			<html>
-			<head>
-			<meta charset="utf-8">
-			<title>Блочная модель в CSS3</title>
 			<style>
-			div{
+			.lv div{
 			width: 200px;
 			height: 200px;
 			margin: 10px;
@@ -261,10 +421,10 @@
 			.paddingBox {background-origin: padding-box;}
 			.contentBox {background-origin: content-box;}
 			</style>
-			</head>
-			<body>
+			
+			<div class="example lv">
 			<div class="borderBox">
-			Вся власть - котикам!
+			<p>Вся власть - котикам!</p>
 			</div>
 			<div class="paddingBox">
 			Вся власть - котикам!
@@ -272,21 +432,49 @@
 			<div  class="contentBox">
 			Вся власть - котикам!
 			</div>
-			</body>
-			</html>
-			Свойство background-origin в CSS 3
-			background-clip
-			Свойство background-clip определяет, какая часть изображения используется для фона. Он принимает те же значения:
+			</div>
+		</p>
+			<h3>Свойство background-clip </h3>
+			<p>
+			Oпределяет, какая часть изображения используется для фона. 
+			Он принимает те же значения:
+			</p>
+			<ul>
 			
-			border-box: изображение обрезается по границам элемента
+			<li><span>border-box</span>: изображение обрезается по границам элемента</li>
 			
-			padding-box: из изображения исключается та часть, которая находится под границами элемента
+			<li><span>padding-box</span>: из изображения исключается та часть, которая находится под границами элемента</li>
 			
-			content-box: изображение обрезается по содержимому с учетом внутренних отступов
-			
+			<li><span>content-box</span>: изображение обрезается по содержимому с учетом внутренних отступов</li>
+			</ul>
+			<p>
 			Например, если к предыдущей разметке мы применим следующие стили:
+			</p>
+	<pre id="kod">
+	div{
+	width: 200px;
+	height: 200px;
+	margin: 10px;
+	display: inline-block;
+	
+	color: #eee;
+	padding:15px;
+	border: 15px solid rgba(23,23,23,0.1);
+	
+	background-image: url(cats.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	}
+	.borderBox{background-clip: border-box;}
+	.paddingBox{background-clip: padding-box;}
+	.contentBox{background-clip: content-box;}
+	</pre>
+			<p>
+			Тогда мы получим следующий результат:
+			</p>
 			
-			div{
+			<style>
+			.v div{
 			width: 200px;
 			height: 200px;
 			margin: 10px;
@@ -303,41 +491,46 @@
 			.borderBox{background-clip: border-box;}
 			.paddingBox{background-clip: padding-box;}
 			.contentBox{background-clip: content-box;}
-			Тогда мы получим следующий результат:
+			</style>
 			
-			Свойство background-clip в CSS 3
-			Свойство background
-			Свойство background по сути является сокращением всех ранее рассмотренных свойств CSS в формате:
-			
-			background: <background-color> <background-position> <background-size>
-			<background-repeat> <background-origin> <background-clip> <background-attachment>
-			<background-image>
+			<div class="example v">
+			<div class="borderBox">
+			<p>Вся власть - котикам!</p>
+			</div>
+			<div class="paddingBox">
+			Вся власть - котикам!
+			</div>
+			<div  class="contentBox">
+			Вся власть - котикам!
+			</div>
+			</div>
+		
+			<h3>Свойство background</h3>
+			<p>
+			 По сути оно является сокращением всех ранее 
+			 рассмотренных свойств CSS в формате:
+			</p>
+			<p><span id="bs">
+			background: <span id="br">&lt;background-color> &lt;background-position> &lt;background-size>
+			&lt;background-repeat> &lt;background-origin> &lt;background-clip> &lt;background-attachment>
+			&lt;background-image></span></span></p>
+			<p>
 			Например, если у нас есть следующий набор свойств:
-			
-			background-image: url(cats.jpg);
-			background-color: #eee;
-			background-repeat: no-repeat;
-			background-clip: border-box;
-			background-origin: border-box;
-			background-attachment: local;
-			То мы их можем сократить следующим образом:
-			
-			background: #eee no-repeat border-box local url(cats.jpg);
-			Глава 1. Введение в HTML5
-			Глава 2. Элементы в HTML5
-			Глава 3. Работа с формами
-			Глава 4. Семантическая структура страницы
-			Глава 5. Основы CSS3. Селекторы
-			Глава 6. Основы CSS3. Свойства
-			Глава 7. Создание макета страницы и верстка
-			Глава 8. Трансформации, переходы и анимации
-			Глава 9. Адаптивный дизайн
-			Глава 10. Мультимедиа
-			Глава 11. Canvas
-			Глава 12. Flexbox
-			Глава 13. Grid Layout
-			Глава 14. Дополнительные статьи
-			Об учебнике
+			</p>
+<pre id="kod">
+background-image: url(cats.jpg);
+background-color: #eee;
+background-repeat: no-repeat;
+background-clip: border-box;
+background-origin: border-box;
+background-attachment: local;
+</pre>
+<p>
+То мы их можем сократить следующим образом:
+</p>
+<pre id="kod">
+background: #eee no-repeat border-box local url(cats.jpg);
+</pre>
         </div>
   </div>
  </body>
