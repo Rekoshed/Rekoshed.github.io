@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Hello-World.</title>
+     </head>
+     <body>
+      <script type="text/javascript">
+      var test = document.querySelector('.test');
+      var rng = document.getElementById('rng');
+      
+      rng.onchange = rng.oninput = function() {
+      test.style.setProperty('--var-width', this.value + 'px');
+      test.textContent = this.value;
+      document.querySelector('.test').style.setProperty('color', 'green');
+      document.querySelector('.test').style.cssText = "--var-width: 200px";
+      document.querySelector('.test').style.cssText = "background-color: red";
+      document.querySelector('.test').setAttribute("style", "--var-width: 200px");
+      getElementsByClassName('.test').setAttribute("style", "background-color:red");
+      };
+      </script>
+      <style type="text/css">
+      /*.test {
+      --var-width: 100px;
+      width: var(--var-width);
+      background-color: red; /* для наглядности */
+      
+      </style>
+      <div class="test"><p>100</p></div>
+      Выберите ширину:<br/>
+      <input type="range" min="10" max="300" value="100" id="rng" />
+  </div>
+ </body>
+</html>
