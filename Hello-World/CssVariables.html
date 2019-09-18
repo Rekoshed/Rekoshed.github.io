@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Hello-World.</title>
+		<link  href="../Design/script.css" rel="stylesheet">
+		<link  href="../Design/toolbar.css" rel="stylesheet">
+		<script src ="../Design/bild.js"></script>
+     </head>
+     <body>
+        <style>
+:root {
+  /* :root is a clever way of saying "the outer-most element" */
+  
+  --footer-color: #ff4545; /* the default */
+}
+
+#footer {
+  width: 100%;
+  height: 50px;
+  margin-top: 20px;
+  background-color: var(--footer-color)
+}
+        </style>
+        <script>
+	 		toolbar('../index.html','Title.html');
+             var input = document.querySelector('input')
+var footer = document.querySelector('footer')
+
+input.addEventListener('change', function(){
+  footer.style.setProperty('--footer-color', input.value)
+})
+		 </script>
+		 
+			<div class="content helloWorld">
+                <label>Choose a footer color:
+                    <input type="color" value="#ff4545">
+                  
+                    <div id="footer">
+                    </div>       
+            </div>
+  </div>
+ </body>
+</html>
