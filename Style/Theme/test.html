@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>CSS. Блочная модель</title>
+		  <link  href="../../Design/script.css" rel="stylesheet">
+		  <link  href="../../Design/toolbar.css" rel="stylesheet">
+		  <script src ="../../Design/bild.js"></script>
+		  </head>
+     <body>
+     <style type="text/css">
+     :root [theme="darkll"]{
+     --m-color: #f66ff8;
+     }
+     :root {
+     --main-color: #f66fff;
+     }
+     h3 {
+     color: var(--main-color);
+     }
+     .first {color:red;}
+     .second {color:blue;}
+     </style>
+	     <script>
+	 		toolbar('../../index.html','../CSSmain.html');
+		 var root = document.querySelector(':root');
+		 var rootStyles = getComputedStyle(root);
+		 var mainColor = rootStyles.getPropertyValue('--main-color');
+		 function mk(v,c){
+		 root.style.setProperty(v, c);
+		 }
+		var articleDiv = document.querySelector("div.first");
+		// установка нового класса
+		articleDiv.className = "second";
+		 mk();
+		 </script>
+			<div class="content">
+		<h3>Это тестрвая страница.!!! </h3>	
+		<div class="first">
+		класс. first
+		</div>
+		<input type="button" onklick="mk('--main-color', '#88d8b0');" value="main color" id="toggle-themell">
+		
+        </div>
+        <style type="text/css">
+        .title {
+        --background: blue;
+        background-color: var(--background);
+        }
+        </style>
+        <script>
+        changeColor() {
+        this.setState({
+        style: {'--background': 'green'}
+        });
+        }
+        </script>
+        <div className="title" style={this.state.style} onClick={this.changeColor.bind(this)}>Title</div>
+        
+  </div>
+ </body>
+</html>

@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>CSS in JS</title>
+		  <link  href="../../Design/script.css" rel="stylesheet">
+		  <link  href="../../Design/toolbar.css" rel="stylesheet">
+		  <script src ="../../Design/bild.js"></script>
+		  </head>
+     <body>
+	     <script>
+	 		toolbar('../../index.html','../CSSmain.html');
+		 
+		 
+		 </script>
+			<div class="content">
+			<div id="dv">Button непонятный стиль</div>
+			<script>
+			// можем даже устанавливать специальные флаги для стилей, например, "important"
+			
+			dv.style.cssText=`color: grey;
+			background-color: orange;
+			width: 100px;
+			text-align: center;
+			`;
+			document.body.style.backgroundColor = prompt('background color?', 'green');
+			
+			</script>
+			
+		<h3>	Полная перезапись <span id="br">style.cssText</span></h3>
+		<p>
+			Обычно мы используем <b>style.* </b>
+			для присвоения индивидуальных свойств стиля.
+			 Нельзя установить список стилей как, например,
+			 <code> div.style="color: red; width: 100px"</code>
+			 , потому что <b>div.style</b>
+			  – это объект, 
+			  и он доступен только для чтения.
+			</p>
+			<p>
+			Для задания нескольких стилей
+			 в одной строке используется специальное 
+			 свойство <span id="br">style.cssText</span>:
+			</p>
+			<pre id="kod">
+&lt;div id="div">Button&lt;/div>
+			
+&lt;script>
+// можем даже устанавливать специальные флаги для стилей, например, "important"
+div.style.cssText=`color: red !important;
+background-color: yellow;
+width: 100px;
+text-align: center;
+`;
+
+alert(div.style.cssText);
+&lt;/script>
+</pre>
+<p>
+			Это свойство редко используется,
+			 потому что такое присваивание удаляет все существующие стили: 
+			 оно не добавляет, а заменяет их. 
+	
+</p>
+
+		<p>
+			То же самое можно сделать установкой атрибута: 
+			<br>
+			<b>div.setAttribute('style', 'color: red...').</b>
+			</p>
+        </div>
+  </div>
+  
+ </body>
+</html>

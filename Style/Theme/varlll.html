@@ -1,0 +1,114 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>CSS. Блочная модель</title>
+		  <link  href="../../Design/script.css" rel="stylesheet">
+		  <link  href="../../Design/toolbar.css" rel="stylesheet">
+		  <script src ="../../Design/bild.js"></script>
+		  </head>
+     <body>
+	     <script>
+	 		toolbar('../../index.html','../CSSmain.html');
+		 </script>
+			<div class="content">
+		<h3><span id="br">Данные примеры требуют доработки и не являются рабочими</span></h3>
+			<h3>Передать значение переменной JS в стиль CSS</h3>
+		<p>
+			Допустим, нужно передать диву ширину, значение которой вычисляется в JS.
+		</p>
+			
+		<code>	&lt;div class="example">&lt;/div></code>
+		<p>
+			 классу <span >example</span> мы ,к примеру,
+			 присвоим ширину из переменной <b>example</b>, которая равна 70%
+		</p>
+			<p>
+			Что бы передать значение стиля элементу, 
+			нужно обратиться к элементу,
+			 использовать функцию <span>style</span> и там прописывать, 
+			 что именно вы хотите менять
+			</p>
+			<h4>Вариант 1:</h4>
+			<p>
+			Стиль применяется напрямую через названия переменных.
+			</p>
+			<p>
+			Пример:
+			</p>
+			<p>
+			Что бы установить <b>width</b>, я
+			 буду писать <i>obj.style.width</i>
+			</p>
+<pre id="kod">
+&lt;script>
+var example = 70;
+document.querySelector('#score').style.width = example + '%';
+&lt;/script>
+&lt;style>
+<span>#example {
+height: 100px;
+background-color: red;
+}</span>
+&lt;/style>
+&lt;div id="example">&lt;/div>
+</pre>
+		<h4>	Вариант 2:</h4>
+		<p>	
+			Стили применяются через переменные из CSS
+		</p>
+		<p>	
+			Пример:
+		</p>
+		<p>
+			Что бы установить <b>width</b>, 
+			я буду прямо писать <i>obj.style['width']</i>
+		</p>
+		<pre id="kod">	
+&lt;script>
+var example = 70;
+document.querySelector('#example').style['width']= example + '%';
+&lt;/script>
+&lt;style><span>
+#example {
+height: 100px;
+background-color: red;
+}</span>
+&lt;/style>
+&lt;div id="example">&lt;/div>
+</pre>	
+			
+			
+			<script>
+			var example = 50;
+			document.querySelector('#example').style.width = example + '%';
+			
+			</script>
+			<style>
+					#example {
+			height: 100px;
+			background-color: red;
+			}
+			</style>
+			<div id="example"> example 1</div>
+			
+			
+			
+			<script>
+			var examplel = 70;
+			document.querySelector('.examplel').style['width']= examplel + '%';
+			</script>
+			<style>
+			.examplel {
+			height: 100px;
+			background-color: red;
+			}
+			</style>
+			<div class="examplel">example 2</div>
+			
+        </div>
+  </div>
+ </body>
+</html>

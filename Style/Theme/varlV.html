@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>CSS. Блочная модель</title>
+		  <link  href="../../Design/script.css" rel="stylesheet">
+		  <link  href="../../Design/toolbar.css" rel="stylesheet">
+		  <script src ="../../Design/bild.js"></script>
+		  </head>
+     <body>
+	     <script>
+	 		toolbar('../../index.html','../CSSmain.html');
+		 </script>
+			<div class="content">
+			Переменные и calc
+			
+			Как и любое числовое значение свойства, вы можете использовать переменную в функции calc.
+			
+			.title {
+			--title-width: 300px;
+			width: calc(var(--title-width) + 150px);
+			}
+			
+			Круто! Особенно если учесть что переменную --title-width, можно менять как внутри CSS, так и извне.
+			
+			Заметьте, что величину мы обязаны положить в переменную. Дописать px, %, rem и т.д. к вызванной переменной у нас не получится. Однако ничто не мешает нам умножить с помощью функции calc значение на единицу в необходимой нам величине.
+			
+			.title {
+			--title-width: 300;
+			/* так не сработает */
+			width: var(--title-width)px;
+			/* так сработает */
+			width: calc(var(--title-width) * 1px);
+			}
+			
+        </div>
+  </div>
+ </body>
+</html>
