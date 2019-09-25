@@ -25,9 +25,13 @@
 		header h4{font-size:18px;
 		text-shadow: 2px 2px 6px grey;
 		}
-		header {margin-top: 22px;}
+		header {
+			
+			margin-top: 22px;
+		}
 		#header{
-		margin-top: 22px;
+		margin-top: 5px;
+		padding-bottom: 25px;
 		z-index:10;
 		position: fixed;
 		width: 97%;

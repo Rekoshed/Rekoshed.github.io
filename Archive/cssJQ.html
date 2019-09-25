@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+  <style>
+   #list{
+      width:260px;
+   }
+   .item{
+      width: 250px;
+      height: 20px;
+      float: left;
+      margin: 1px;
+      padding: 3px;
+      background-color: #EEEEEE;
+      list-style-type:none;
+    }
+  </style>
+</head>
+<body>
+  <ul id="list">
+    <li class="item">Меркурий</li >	
+    <li class="item">Венера</li >	
+    <li class="item">Земля</li >	
+    <li class="item">Марс</li >	
+    <li class="item">Юпитер</li >	
+    <li class="item">Сатрурн</li >	
+    <li class="item">Уран</li >	
+    <li class="item">Нептун</li >	
+    <li class="item">Плутон</li >	
+    <li class="item">Земля</li >	
+    
+  </ul>
+<script>
+    $("#list .item").css("background-color", function(i,val){
+	if($(this).text() == "Земля")
+	   return "#cceecc";
+	else
+	   return val;
+    });
+</script>
+</body>
+</html>

@@ -14,7 +14,7 @@
 		</script>
 	<div class="content">
 <div class="article">
-		<h3>Заголовок статьи</h3>
+		<h3>Изучите исходный код этой страницы</h3>
 		<p>Первый абзац</p>
 		<p>Второй абзац</p>
 	</div>
@@ -22,12 +22,16 @@
 var articleDiv = document.querySelector("div.article");
 // создаем элемент
 var elem = document.createElement("h2");
+var spred = document.createElement("span")
+
 // создаем для него текст
 var elemText = document.createTextNode("Привет мир");
 // добавляем текст в элемент в качестве дочернего элемента
-elem.appendChild(elemText);
+elem.appendChild(spred);
+spred.appendChild(elemText);
 // добавляем элемент в блок div
 articleDiv.appendChild(elem);
+
 </script>
   </div>
  </body>

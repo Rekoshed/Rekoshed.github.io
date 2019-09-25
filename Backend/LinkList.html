@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Back end</title>
+		  <link  href="../Design/script.css" rel="stylesheet">
+		  <link  href="../Design/toolbar.css" rel="stylesheet">
+		  <script src ="../Design/bild.js"></script>
+		  </head>
+     <body>
+	     <script>
+	 		toolbar('../index.html','back_main.html');
+		 </script>
+			<div class="content">
+			<script>
+			var contentDiv = document.querySelector("div.content");
+			// создаем элемент
+			var elem = document.createElement("h2");
+			var spred = document.createElement("span")
+			var newDiv = document.createElement("div")
+			
+			// создаем для него текст
+			var elemText = document.createTextNode("Ссылки на основные конспекты");
+			// добавляем стилизованный текст в элемент в качестве дочернего элемента
+			elem.appendChild(spred);
+			spred.appendChild(elemText);
+			// добавляем элементы в родительский блок div
+			contentDiv.appendChild(elem);
+			contentDiv.appendChild(newDiv);
+			// добовляем в дочерний div html-код ссылки
+			newDiv.innerHTML ="<a href='../Style/Style_main.html' ><h2>Style</h2></a>";
+			
+			// ниже мы создаём список
+			var list = document.createElement("ul")
+			// создаём элемент списка
+			var linkl = document.createElement("li")
+			// добавляем ссылку в элемент списка
+			linkl.innerHTML = "<a href='../PhytonStudent/PyMain.html' ><h2>Python</h2></a>"
+			// добавляем список в родительский div
+			contentDiv.appendChild(list);
+			// добавляем в список его элемент с ссылкой
+			list.appendChild(linkl);
+			</script>
+        </div>
+  </div>
+ </body>
+</html>
