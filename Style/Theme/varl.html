@@ -16,60 +16,69 @@
 		 
 		 </script>
 			<div class="content">
-			<div id="dv">Button непонятный стиль</div>
-			<script>
-			// можем даже устанавливать специальные флаги для стилей, например, "important"
-			
-			dv.style.cssText=`color: grey;
-			background-color: orange;
-			width: 100px;
-			text-align: center;
-			`;
-			document.body.style.backgroundColor = prompt('background color?', 'green');
-			
-			</script>
-			
-		<h3>	Полная перезапись <span id="br">style.cssText</span></h3>
-		<p>
-			Обычно мы используем <b>style.* </b>
-			для присвоения индивидуальных свойств стиля.
-			 Нельзя установить список стилей как, например,
-			 <code> div.style="color: red; width: 100px"</code>
-			 , потому что <b>div.style</b>
-			  – это объект, 
-			  и он доступен только для чтения.
-			</p>
-			<p>
-			Для задания нескольких стилей
-			 в одной строке используется специальное 
-			 свойство <span id="br">style.cssText</span>:
-			</p>
-			<pre id="kod">
-&lt;div id="div">Button&lt;/div>
-			
-&lt;script>
-// можем даже устанавливать специальные флаги для стилей, например, "important"
-div.style.cssText=`color: red !important;
-background-color: yellow;
-width: 100px;
-text-align: center;
-`;
+style
+Свойство element.style возвращает объект, который дает доступ к стилю элемента на чтение и запись.
 
-alert(div.style.cssText);
-&lt;/script>
-</pre>
-<p>
-			Это свойство редко используется,
-			 потому что такое присваивание удаляет все существующие стили: 
-			 оно не добавляет, а заменяет их. 
-	
-</p>
+С его помощью можно изменять большинство CSS-свойств, например element.style.width="100px" работает так, как будто у элемента в атрибуте прописано style="width:100px".
 
-		<p>
-			То же самое можно сделать установкой атрибута: 
-			<br>
-			<b>div.setAttribute('style', 'color: red...').</b>
-			</p>
+Для свойств, названия которых состоят из нескольких слов, используется вотТакаяЗапись:
+background-color      => element.style.backgroundColor
+z-index               => element.style.zIndex
+border-left-width     => element.style.borderLeftWidth
+-moz-border-radius    => element.style.MozBorderRadius
+-webkit-border-radius => element.style.WebkitBorderRadius
+В старом стандарте JavaScript слово "float" было зарезервировано и недоступно для использования в качестве свойства объекта. Поэтому используется не element.style.float, а element.style.cssFloat.
+Чтобы сбросить поставленный стиль, присваивают в style пустую строку: element.style.width="".
+
+При сбросе свойства style стиль будет взят из CSS.
+
+Например, для того, чтобы спрятать элемент, можно присвоить: element.style.display = "none".
+
+А вот чтобы показать его обратно – не обязательно явно указывать другой display, наподобие element.style.display = "block". Можно просто снять поставленный стиль: element.style.display = "".
+
+Посмотреть
+// если запустить этот код, то <body> на 1 секунду поменяет фон"
+document.body.style.backgroundColor = "red";
+
+setTimeout(function() { document.body.style.backgroundColor  = ""; }, 1000);
+Стиль в style находится в формате браузера, а не в том, в котором его присвоили, Например:
+
+HTMLРезультатПример✖
+<button onclick="myFunction()"> Попробуй </button>
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+document.body.style.margin = '50px';
+var s = "marginTop = " + document.body.style.marginTop; // 50px!
+
+document.body.style.color = '#abc';
+s += "<br>color = " + document.body.style.color;       // rgb(170, 187, 204)
+
+document.getElementById('demo').innerHTML = s;
+}
+</script>
+Обратите внимание на то, как браузер «распаковал» свойство style.margin, предоставив для чтения style.marginTop. То же самое произойдет и для border, background и т.д.
+
+Свойство style является специальным объектом, ему нельзя присваивать строку.
+
+Запись element.style="color:blue" работать не будет.
+
+Можно попробовать использовать атрибут: element.setAttribute("style", ...), но самым правильным и, главное, кросс-браузерным (с учётом старых IE) решением такой задачи будет использование свойства style.cssText
+
+Свойство style содержит лишь тот стиль, который указан в атрибуте элемента, без учёта каскада CSS.
+
+Вот так style уже ничего не увидит:
+
+HTMLРезультатПример✖
+<style>div { color: red; margin: 5px } </style>
+<div id='i'>  Красный текст ✖✖✖ </div>
+<script>
+var x = document.getElementById('i');
+document.write(x.style.color + '<br>' +  //в большинстве браузеров
+x.style.marginTop);       //  ничего не выведет
+</script>
+
         </div>
   </div>
   

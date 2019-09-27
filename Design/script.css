@@ -1,6 +1,33 @@
+:root [theme="darkll"]{
+     --m-color: #f66ff8;
+     }
+
+
 *{
 				box-sizing: border-box;
 			}
+:root {
+    --python: #101569;
+    --main-color: #f66fff;
+    --kod:#004510;
+    --back-code:#ffc;
+    --back-pre:#ffc;
+    --back-cmd:#eee;
+}
+.python pre {
+    color: var(--kod);
+    background-color:var(--back-pre);
+    font-weight:900;   
+}
+.python code {
+    font-family:Courier New;
+    color: var(--python);
+    
+}
+.python span { 
+font-weight:700;
+color:#108888
+}
 
 span{
 color: red;
@@ -41,7 +68,8 @@ font-family:Arial;
 
 #comand, #cmd{/*стилизуем команды терминала*/
 color:purple;
-font-weight:900;
+font-weight:800;
+background-color:var(--back-cmd);
 }
 #kod{
 display:block;
