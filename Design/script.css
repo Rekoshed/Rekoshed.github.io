@@ -5,7 +5,11 @@
 
 *{
 				box-sizing: border-box;
-			}
+            }
+p {
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
 :root {
     --python: #101569;
     --main-color: #f66fff;
