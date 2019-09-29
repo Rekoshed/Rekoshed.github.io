@@ -112,8 +112,9 @@ padding: 10px;
 
 
 .blue {color:Darkblue;}
-.green {color:green;}
+.green {color:rgba(63, 192, 3, 0.945);}
 .black>p {color:black;}
+.red {color:darkred}
 
 .roundgreen {background-color: green;}
 

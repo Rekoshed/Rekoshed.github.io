@@ -73,7 +73,7 @@ span{
 	.container a {
 		text-decoration: none;
 		
-		font-size: 3vw;
+		font-size: 2.5vw;
 		
 		font-weight: bold;	
 	}
@@ -113,7 +113,10 @@ span{
 		
 	}
 	.container a {
-		font-size: 2.5vw;
+		font-size: 2vw;
+	}
+	.container p {
+		font-size: 1vw;
 	}
 
 		.flex-item {
@@ -129,7 +132,7 @@ span{
 		color:rgba(40, 12, 66, 0.74);
 		}
 		
-		.item1 {background-color: DarkKhaki; flex-grow:2;}
+		.item1 {background-color: rgb(96, 129, 127); flex-grow:2;}
 		.item2 {
 		width:25%;
 		margin-top:0px;

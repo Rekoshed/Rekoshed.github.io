@@ -18,23 +18,23 @@
 
             <h3>Типы данных и переменные</h3>
             
-            <pre><code class="python hljs"><span class="hljs-comment"># числа</span>
+            <pre><code>  # числа</span>
             
-            number1 = <span class="hljs-number">42</span>
-            number2 = <span class="hljs-number">-1000.005</span>
+            number1 = <span class="red">42</span>
+            number2 = <span class="red">-1000.005</span>
             
-            <span class="hljs-comment"># строки</span>
+              # строки</span>
             
-            string1 = <span class="hljs-string">"string"</span>
-            string2 = <span class="hljs-string">'string (another)'</span>
-            long_string = <span class="hljs-string">'''very
+          blue1 = <span class="blue">"string"</span>
+          blue2 = <span class="blue">'string (another)'</span>
+            long_string = <span class="blue">'''very
             "long" string with various 'quotes'
             inside'''</span>
             
-            <span class="hljs-comment"># логические значения</span>
+              # логические значения</span>
             
-            x = <span class="hljs-literal">True</span>
-            y = <span class="hljs-literal">False</span>
+            x = <span class="green">True</span>
+            y = <span class="green">False</span>
             </code></pre>
             
             <h3>Преобразование типов</h3>
@@ -49,51 +49,51 @@
             
             <p> основные операции, связанные с примитивными типами данных.</p>
             
-            <pre><code class="python hljs"><span class="hljs-comment"># Арифметические операции</span>
-            <span class="hljs-number">1</span> + <span class="hljs-number">5</span> - <span class="hljs-number">8</span> * <span class="hljs-number">3</span> / <span class="hljs-number">2</span> % <span class="hljs-number">4</span>
+            <pre><code>  # Арифметические операции
+            <span class="red">1</span> + <span class="red">5</span> - <span class="red">8</span> * <span class="red">3</span> / <span class="red">2</span> % <span class="red">4</span>
             
-            <span class="hljs-comment"># Логические операции</span>
-            <span class="hljs-literal">True</span> <span class="hljs-keyword">or</span> <span class="hljs-literal">False</span> <span class="hljs-keyword">and</span> <span class="hljs-keyword">not</span> <span class="hljs-literal">True</span>
+              # Логические операции
+            <span class="green">True</span> <span class="  blue">or</span> <span class="green">False</span> <span class="  blue">and</span> <span class="  blue">not</span> <span class="green">True</span>
             
-            <span class="hljs-comment"># Создание переменных</span>
-            string = <span class="hljs-string">'i am a string'</span>
+              # Создание переменных
+          blue = <span class="blue">'i am a string'</span>
             
-            <span class="hljs-comment"># Обращение к символам строки</span>
-            string[<span class="hljs-number">0</span>]  <span class="hljs-comment"># i</span>
-            print(<span class="hljs-string">"-&gt; {}"</span>.format(string))  <span class="hljs-comment"># -&gt; i am a string</span>
-            print(<span class="hljs-string">'-&gt; '</span> + string)          <span class="hljs-comment"># -&gt; i am a string</span>
+              # Обращение к символам строки
+          blue[<span class="red">0</span>]    # i</span>
+            print(<span class="blue">"-&gt; {}"</span>.format(string))    # -&gt; i am a string</span>
+            print(<span class="blue">'-&gt; '</span> + string)            # -&gt; i am a string</span>
             </code></pre>
             
             <h3>Условные конструкции</h3>
             
-            <pre><code class="python hljs"><span class="hljs-keyword">if</span> a &gt; b:
-                print(<span class="hljs-string">'a больше, чем b'</span>)
-            <span class="hljs-keyword">elif</span> a == b:
-                print(<span class="hljs-string">'a равен b'</span>)
-            <span class="hljs-keyword">else</span>:
-                print(<span class="hljs-string">'a меньше, чем b'</span>)
+            <pre><code><span class="  blue">if</span> a &gt; b:
+                print(<span class="blue">'a больше, чем b'</span>)
+            <span class="  blue">elif</span> a == b:
+                print(<span class="blue">'a равен b'</span>)
+            <span class="  blue">else</span>:
+                print(<span class="blue">'a меньше, чем b'</span>)
             
-            result = <span class="hljs-string">'yes'</span> <span class="hljs-keyword">if</span> a &gt; b <span class="hljs-keyword">else</span> <span class="hljs-string">'no'</span>
+            result = <span class="blue">'yes'</span> <span class="  blue">if</span> a &gt; b <span class="  blue">else</span> <span class="blue">'no'</span>
             </code></pre>
             
             <h3>Циклы</h3>
             
-            <pre><code class="python hljs">i = <span class="hljs-number">1</span>
-            <span class="hljs-keyword">while</span> i &lt;= <span class="hljs-number">10</span>:
-                i = i + <span class="hljs-number">1</span>
+            <pre><code>i = <span class="red">1</span>
+            <span class="  blue">while</span> i &lt;= <span class="red">10</span>:
+                i = i + <span class="red">1</span>
                 print(i)
-                <span class="hljs-keyword">if</span> i &gt; <span class="hljs-number">5</span>:
-                    <span class="hljs-keyword">break</span>
+                <span class="  blue">if</span> i &gt; <span class="red">5</span>:
+                    <span class="  blue">break</span>
             </code></pre>
             
             <h3>Функции</h3>
             
-            <pre><code class="python hljs"><span class="hljs-comment"># Определение функции</span>
-            <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get</span><span class="hljs-params">(string, index=<span class="hljs-number">0</span>)</span>:</span>
-                <span class="hljs-keyword">return</span> string[index]
+            <pre><code>  # Определение функции
+            <span class="hljs-function"><span class="  blue">def</span> <span class="hljs-title">get</span><span class="hljs-params">(string, index=<span class="red">0</span>)</span>:</span>
+                <span class="  blue">return</span> string[index]
             
-            <span class="hljs-comment"># Вызов функции</span>
-            get(<span class="hljs-string">'lala'</span>, <span class="hljs-number">3</span>)
+              # Вызов функции
+            get(<span class="blue">'lala'</span>, <span class="red">3</span>)
             </code></pre>
             
             
