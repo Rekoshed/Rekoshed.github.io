@@ -60,8 +60,11 @@
   # Посмотреть историю коммитов
   $ <span id="cmd">git log</span>
   </pre>
-  <p><span id="cmd">$ git log -- basicsDesign.html</span> # посмотореть историю коммитов конкретного файла </p>
-  <p><span id="cmd">$ git log -p -- basicsDesign.html</span> # посмотореть историю коммитов конкретного файла  c изменениями (diff)</p>
+  <p><span id="cmd">$ git log -- <i>basicsDesign.html </i></span> # посмотореть историю коммитов конкретного файла </p>
+  <p><span id="cmd">$ git log -p -- <i>basicsDesign.html </i></span> # посмотореть историю коммитов конкретного файла  c изменениями (diff)</p>
+  <p> <span id="cmd">checkout 3f25701874aa5a2c16cc6275fa30baa5b6e477a6 <i>basicsDesign.html</i></span> # переключится на коммит конкретного файла</p>
+
+
   <p>
   # Зная идентификатор коммита можно посмотреть изменения в коде.
   <br>
@@ -71,12 +74,14 @@
   <p>' <span>.gitignore</span>' - этот файл поможет Git определить то, что точно не придётся коммитить.
   </p>
   <pre>
-  $<span id="cmd"> git reset path/to/file  </span>   # сброс git add
-  $ <span id="cmd">git checkout path/to/file </span> # сброс <span>git commit. </span>т.е. откат свежих изменений.
+  $<span id="cmd"> git reset <i>path/to/file</i>  </span>   # сброс git add
+  $ <span id="cmd">git checkout <i>path/to/file</i> </span> # сброс <span>git commit. </span>т.е. откат свежих изменений.
   </pre>
   <p>
   $ <span id="cmd">git checkout</span> [идентификатор] 
   # После этой команды, в рабочей копии окажется то состояние репозитория, которое было на момент коммита идентификатор.
+<br>
+  $ <span id="cmd"> git checkout master </span> # возврат в свежий коммит</p>
 </p>
   <h2>ВЕТВЛЕНИЕ</h2>
   <pre>
