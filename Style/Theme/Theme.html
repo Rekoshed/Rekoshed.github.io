@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width" />
+        <title>Темы в CSS3</title>
+        <style>
+		:root{
+		  --bar-bg-color: #dfe4ea;
+		  --article-bg-color: #f1f2f6;
+		  --text-color: #2f3542;
+		  --header-bg-color:#eef;
+		  --pre-color:darkgreen;
+		}
+		
+		:root[theme='dark'] {
+		  --bar-bg-color: #2f3542;
+		  --article-bg-color: #57606f;
+		  --text-color: #ced6e0;
+		  --header-bg-color:black;
+		  --pre-color:yellow;
+		}
+		
+		:root[theme='Business'] {
+		--bar-bg-color: #455a64;
+		--article-bg-color: #546e7a;
+		--text-color: #fff;
+		--header-bg-color: #37474f;
+		--pre-color:darkorange;
+		}
+		:root[theme='redMoon'] {
+		--bar-bg-color: #aaaa99;
+		--article-bg-color: #555;
+		--text-color: #fff;
+		--header-bg-color: Darkred;
+		--nav-color:var(--header-bg-color);
+		--pre-color:Lightblue;
+		}
+		
+		:root[theme='Erch'] {
+		--bar-bg-color: #aa993a;
+		--article-bg-color: green;
+		--text-color: #fff;
+		--header-bg-color: Darkgreen;
+		--nav-color:var(--article-bg-color);
+		--pre-color:black;
+		}
+		input[type=button] {
+		  color: var(--text-color);
+		  background: var(--header-bg-color);
+		  
+		  padding: 0.3rem;
+		  margin: 0.2rem;
+		  font-size: 1rem;
+		}
+html, body, nav {
+				padding: 0;
+				margin: 0;
+				font-family: verdana, arial, sans-serif;
+			}
+			body {
+				color: var(--text-color);
+				font-size: 1.1em;
+				padding: 1em;
+				display: flex;
+				flex-direction: column;
+			
+			}
+
+			main {
+				display: flex;
+				flex-direction: column;
+			}
+
+			article {
+				background-color: var(--article-bg-color);
+				flex: 2 2 auto;
+				padding: 1em;
+			}
+/*  установим коэффициэнты расстяжений Flex 1 1 autu. 
+что бы контейнер растягивался под содержимое*/
+			nav, aside {
+				flex: 1 1 auto;
+				background-color: var(--bar-bg-color);
+			}
+			
+			nav {
+				order: -1;
+			
+			}
+			
+			header, footer {
+				flex: 1 1 5em;
+				width:100%;
+				background-color: var(--header-bg-color);
+			}
+
+			nav{
+				
+				top: 0;
+				left: 0;
+				right: 0;			
+			}
+			nav a{
+				color:var(--nav-color);
+
+				display: inline-block;
+			padding-right: 1em;
+				text-decoration: none;
+				font-family: Verdana;
+				
+			}
+			nav a:hover{
+			background-color: red;
+			color: #f4f4f4;
+			}
+	pre {
+	overflow:auto;
+	color:var(--pre-color);
+	}
+		input{
+		width:4.5em;
+		}
+			aside, nav, article, header{
+			
+			}
+			@media screen and (min-width: 600px) {
+			 nav a {padding-bottom: 1em;}
+				
+				body{
+					min-height: 100vh;
+				}
+				main {
+					flex-direction: row;
+					min-height: 100%;
+					flex: 1 1 auto;
+				}
+				article {
+				flex: 1 1 auto;
+				width:50%;
+				padding: 1em;
+				}
+			/* 'зафиксируем' размеры контейнеров */	
+				nav, aside {
+				flex: 1;
+				}
+				input{
+				width:7em;
+				}
+				
+			}
+        </style>
+    
+    
+    
+    
+    </head>
+    <body>
+    <header>
+    <p id="header">ВНИМАНИЕ! Кнопки переключателей тем работают как проходные клавиши. Т.е. для переключения темы сначала отключается предидущая.</p>
+    </header>
+    <main>
+    <article>
+    <h1> 
+    Создание тем CSS с помощью переменных
+    </h1>
+      <p>
+      В стилях страницы определено несколько тем, которые содержат переменные:
+      </p>
+      <pre>
+/*(в пример взяты две темы)*/
+:root{
+--bar-bg-color: #dfe4ea;
+--article-bg-color: #f1f2f6;
+--text-color: #2f3542;
+--header-bg-color:#eef;
+}
+:root[theme='redMoon'] {
+--bar-bg-color: #aaaa99;
+--article-bg-color: #555;
+--text-color: #fff;
+--header-bg-color: Darkred;
+--nav-color:var(--header-bg-color);
+}
+/*  Первая тема - условно светлая,
+вторая - стилизована. */
+</pre>
+      <p>
+    При выборе темы корневой элемент &lt;html> будет иметь атрибут <code>theme="redMoon"</code>.
+      </p>
+      <p>Затем эти переменные используются для установки стилевых свойств отдельных элементов.</p>
+      
+      <p>Для переключения тем у кнопки через несложный код <b>javascript</b>
+       установлен обработчик нажатия, который проверяет наличие атрибута <code>"theme"</code>
+        (что будет означать, что установлена стилизованная схема).
+         И при наличии атрибута убирает его, а при его отсутствии, наоборот, устанавливает.
+      </p>
+    <pre>
+const toggleBtn = document.querySelector("#toggle-theme");
+toggleBtn.addEventListener("click", function() {
+if(document.documentElement.hasAttribute("theme")){
+document.documentElement.removeAttribute("theme");
+}
+else{
+document.documentElement.setAttribute("theme", "dark");
+}
+});
+  </pre>
+  <p>
+      В результате при нажатии на кнопку произойдет глобальное
+       переключение стилей веб-страницы
+      </p>
+    </article>
+    <nav>
+    <a href="../CSSmain.html">Главная</a>
+    <a href="#">Блог</a>
+    <a href="#">Контакты</a>
+    <a href="#">О сайте</a>
+    </nav>
+    <aside>
+    <p id="sidebar">Sidebar</p>
+    <input type="button" value="Dark" id="toggle-theme" />
+   <input type="button" value="Business" id="Business" />
+   <input type="button" value="redMoon" id="redMoon" />
+   <input type="button" value="Erch" id="Erch" />
+   
+    
+    </aside>
+    </main>
+    <footer>
+    <p>Все права разрешены ©2018</p>
+    </footer>
+        
+		<script>
+		// получаем html элемента хедера по его идентефикатору
+		var header = document.getElementById("header");
+		// получаем html элемента сайбара по его идентефикатору
+		var sidebar = document.getElementById("sidebar");
+		/* код будет использоваться при отключении стиля
+		по этому удобнее его вынести в отдельную функцию*/
+		function offTheme(){
+		sidebar.innerHTML = "Тема выключена!";
+		header.innerHTML ="<h1>Bright Тheme</h1>"
+		}
+		/* аналогично оформляем код для информирования при включеной  теме, с одним параметром - имя темы*/
+		function onTheme(theme){
+		sidebar.innerHTML = "Тема " + theme + " включена!";
+		header.innerHTML ="<h1>" + theme + " Тheme</h1>"
+		}
+		const toggleBtn = document.querySelector("#toggle-theme");
+		toggleBtn.addEventListener("click", function() {
+		
+		  if(document.documentElement.hasAttribute("theme")){
+			document.documentElement.removeAttribute("theme");
+			// вносим содержимое элемента
+			offTheme()
+		  }
+		  else{
+			document.documentElement.setAttribute("theme", "dark",);
+		  onTheme("Dark");
+		  
+		  }
+		});
+"		/* получаем элемент по его ID */"
+		const original = document.querySelector("#Business");
+		/* устанавливаем для выбранного элемента обработчик события*/
+		original.addEventListener("click", function() {
+		if(document.documentElement.hasAttribute("theme")){
+		document.documentElement.removeAttribute("theme");
+		offTheme();
+		}
+		else{
+		document.documentElement.setAttribute("theme", "Business",);
+		onTheme("Business");
+		}
+		});
+		
+		/* получаем элемент по его ID */
+		const redmoon = document.querySelector("#redMoon");
+		/* устанавливаем для выбранного элемента обработчик события*/
+		redmoon.addEventListener("click", function() {
+		if(document.documentElement.hasAttribute("theme")){
+		document.documentElement.removeAttribute("theme");
+		offTheme();
+		}
+		else{
+		document.documentElement.setAttribute("theme", "redMoon",);
+		onTheme("Red Moon");
+		}
+		});
+		
+		/* получаем элемент по его ID */
+		const erch = document.querySelector("#Erch");
+		/* устанавливаем для выбранного элемента обработчик события*/
+		erch.addEventListener("click", function() {
+		if(document.documentElement.hasAttribute("theme")){
+		document.documentElement.removeAttribute("theme");
+		offTheme();
+		}
+		else{
+		document.documentElement.setAttribute("theme", "Erch",);
+		onTheme("Erch Style");
+		}
+		});
+		</script>
+    </body>
+</html>

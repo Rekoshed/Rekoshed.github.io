@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>CSS. Блочная модель</title>
+		  <link  href="../../Design/script.css" rel="stylesheet">
+		  <link  href="../../Design/toolbar.css" rel="stylesheet">
+		  <script src ="../../Design/bild.js"></script>
+		  </head>
+     <body>
+	     <script>
+	 		toolbar('../../index.html','../Style_main.html');
+		 </script>
+		 
+		 
+			<div class="content">
+		<h3>Метод <span id="br">style</span></h3>	
+		<h4> простой метод стилизации </h4>
+		<p> Здесь в качестве примера мы берём строчку текста,
+		и стилизуем её применяя java script.
+		<pre id="kod">
+&lt;div id="Setting">Настройка изменений...ждите&lt;/div>
+&lt;script>
+// получаем html элемент по его идентефикатору
+var info = document.getElementById("Setting");
+// вносим содержимое элемента
+info.innerHTML = "Изменения HTML контента работают!";
+// вносим цвет содержимого
+info.style.color = "Red";
+// устанавливаем шрифт внутри элемента
+inf.style.fontSize = "large";
+&lt;/script>
+		</pre>
+		<div id="example">
+			<div id="Setting">Настройка изменений...ждите</div>
+		</div>
+<h4>Применяем функции</h4>
+<pre id="kod">
+// получаем элемент
+var elem = document.getElementById("Settingll");
+// определяем функцию для содержимого. в нашем случае - текст
+function text( el, str ) {
+if ( el.textContent ) {
+el.textContent = str;
+} else {
+el.innerText = str;
+}
+}
+
+function size ( el, str ) {
+el.style.fontSize = str;
+}
+
+function color ( el, str ) {
+el.style.color = str;
+}
+
+size( elem, '10px') 
+color( elem, 'Darkblue' )
+text(elem, 'Функции к стилю применены!!!')
+</pre>
+		<div id="example">	
+			<div id="Settingll">Настройка изменений...ждите</div>
+		</div>	
+			<script>
+			// получаем html элемент по его идентефикатору
+			var info = document.getElementById("Setting");
+			// вносим содержимое элемента
+			info.innerHTML = "Изменения HTML контента работают!";
+			// вносим цвет содержимого
+			info.style.color = "Red";
+			// устанавливаем шрифт внутри элемента
+			info.style.fontSize = "large";
+			
+			//Второй способ. с помощью функций
+			// получаем элемент
+			var elem = document.getElementById("Settingll");
+			// определяем функцию для содержимого. в нашем случае - текст
+			function text( el, str ) {
+			if ( el.textContent ) {
+			el.textContent = str;
+			} else {
+			el.innerText = str;
+			}
+			}
+			
+			function size ( el, str ) {
+			el.style.fontSize = str;
+			}
+			
+			function color ( el, str ) {
+			el.style.color = str;
+			}
+			
+			size( elem, '12px') 
+			color( elem, 'Darkblue' )
+			text(elem, 'Функции к стилю применены!!!')
+		</script>
+		
+	<h4>Указываем атрибуты напрямую</h4>
+
+<pre id="kod">
+&lt;script>
+document.getElementById("Settinglll").innerHTML = "Атрибуты и содержимое установлены!!!";
+document.getElementById("Settinglll").style.color = "orange";
+&lt;/script>
+</pre>
+<div id="example">	
+	<div id="Settinglll">Настройка изменений...ждите</div>
+</div>	
+<script>
+document.getElementById("Settinglll").innerHTML = "Атрибуты и содержимое установлены!!!";
+document.getElementById("Settinglll").style.color = "orange";
+</script>
+
+        </div>
+  </div>
+ </body>
+</html>
