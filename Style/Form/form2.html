@@ -1,0 +1,437 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Phyton обзор</title>
+		  <link  href="../../Design/script.css" rel="stylesheet">
+		  <link  href="../../Design/toolbar.css" rel="stylesheet">
+		  <script src ="../../Design/bild.js"></script>
+		  </head>
+     <body>
+	     <script>
+	 		toolbar('../../index.html','../PyMain.html');
+		 </script>
+		 
+			<div class="content python">
+			<FORM name="naviForm">
+			<select name="menu"
+			onChange = "self.location =
+			document.naviForm.menu[document.naviForm.menu.selectedIndex].value;">
+			<option value="Home.html">Home</option>
+			<option value="test.html">test</option>
+			<option value="form.html">form</option>
+			<option value="form2.html">form2</option>
+			
+			</select>
+			</FORM>
+	   <h4>использовать <code>select box </code>как навигационное меню</h4>
+	   <p>При использовании простого JavaScript,
+	   вы можете использовать <code>select box </code>для передвижения по сайту.
+	   Рассмотрите этот пример:</p>
+	   <pre id="kod">
+	   &lt;FORM name="navForm">
+	   &lt;select name="menu"
+	   onChange = "self.location =
+	   document.navForm.menu[document.navForm.menu.selectedIndex].value;">
+	   &lt;option value="home.html">Home&lt;/option>
+	   &lt;option value="links.html">Links&lt;/option>
+	   &lt;option value="contact.html">Contact Info&lt;/option>
+	   &lt;/select>
+	   &lt;/FORM>
+	   </pre>
+	   
+	   <div class="example">
+	   <FORM name="navForm">
+	   <select name="menu"
+	   onChange = "self.location =
+	   document.navForm.menu[document.navForm.menu.selectedIndex].value;">
+	   <option value="home.html">Home</option>
+	   <option value="links.html">Links</option>
+	   <option value="contact.html">Contact Info</option>
+	   </select>
+	   </FORM>
+	   </div>
+	   <p>Просто сохраните <code>URL</code> различных 
+	   страниц в <code>option value</code>. 
+	   Обработчик события <code>OnChange</code> вызовет 
+	   перенаправление расположения, 
+	   когда значение в поле изменено.</p>
+	   <p>
+	   Вы могли бы использовать этот код, 
+	   чтобы изменить расположение другого фрейма
+	   изменением <code>'self.location ='</code> на <code>'top.framename.location ='</code></p>
+	   
+	   <h4>использовать картинку для кнопки <span>submit</span></h4>
+	   <p>Часто возникает вопрос: 
+	   "Как инициировать форму по картинке, а
+	   не по кнопке <code>submit</code>?" 
+	   Решение столь же просто, как этот пример:</p>
+	   <pre id="kod">
+	   &lt;form>
+	   &lt;input type="image" name="cancel" src="cancel.gif" alt="Cancel!" border=0>
+	   &lt;input type="image" name="continue" src="continue.gif"
+	   alt="Click to Continue" border=0>
+	   &lt;/form>
+	   </pre>
+	   <div class="example">	
+	   <form>
+	   <input type="image" name="cancel" src="cancel.gif" alt="Cancel!" border=0>
+	   <input type="image" name="continue" src="continue.gif"
+	   alt="Click to Continue" border=0>
+	   </form>
+	   </div>
+	   <p>Когда нажимается любая кнопка, форма 
+	   инициируется и координаты <b>x/y </b>щелчка мыши на кнопке 
+	   загружаются в объект запроса. Например, 
+	   если пользователь выбрал <code>Cancel!</code>, 
+	   объект запроса будет содержать переменные<code> cancel.x</code> и<code> cancel.y.</code>
+	   Точно так же щелчок на <code>Continue</code>
+	   привел бы к переменным <code>continue.x</code> и<code> continue.y.</code></p>
+	   <p>Здесь важно отметить, что элементы .x и .y - не переменные 
+	   объектов <code>continue</code> или <code>cancel</code>, а фактически часть имени 
+	   <code>"continue.x"</code>. Следовательно, нельзя 
+	   использовать типичный метод для определения существования 
+	   одного из дочерних объектов запроса:
+	   <pre id="kod">
+	   if (request.normalItem)
+	   act();
+	   if (request.continue.x) // Noooo! Produces horrible error messages!
+	   doContinuingThings();
+	   </pre>
+	   <p>Тем не менее рассмотрите это:</p>
+	   <pre>
+	   if (request['normalItem'])
+	   act();
+	   if (<B>request['continue.x']</B>) // Much better :)
+	   doContinuingThings();
+	   </pre>
+	   <p>Благодаря названным массивам JavaScript, 
+	   можно проверить какая картинка инициировала форму.</p>
+	   <p>Для некоторых приложений, полезно знать координаты
+	   курсора на нажатой картинке. Эта информация,
+	   конечно, содержится в парах <code>image_element.x</code> и <code>image_element.y.</code>
+	   Следующий серверный JavaScript мог бы использоваться для этого:</p>
+	   <pre>
+	   x=0;
+	   y=0;
+	   if ((request['my_submit_image.x']) (request['my_submit_image.y'])) {
+	   x = parseInt(request['my_submit_image.x']);
+	   y = parseInt(request['my_submit_image.y']);
+	   }
+	   </pre>
+	   <h4>Передача данных между формами на различных страницах</h4>
+	   <p>	В качестве простого примера, предположите, 
+	   что ваша "домашняя" страница запрашивает имя пользователя,
+	   затем использует это имя, чтобы обратиться к пользователю на 
+	   следующих страницах. Вы можете взять имя, используя форму, затем использовать 
+	   JavaScript для передачи имени пользователя в следующую страницу,
+	   используя <code>URL</code>. Последующая страница могла бы 
+	   затем анализировать имя пользователя из <code>URL</code>, используя информацию в <code>document.search.</code></p>
+	   
+	   
+	   <p>home.html</p>
+	   <pre id="kod">
+	   &lt;script language="JavaScript">
+	   function nextPage() {
+	   self.location = "next.html?name=" +
+	   escape(document.theForm.userName.value);
+	   // Use escape() any time there might be spaces or
+	   } // non-alpa characters
+	   &lt;/script>
+	   &lt;form onSubmit = "nextPage();return false;">
+	   Enter your name: &lt;input type=text name=userName>
+	   &lt;input type=submit>
+	   &lt;/form>
+	   </pre>
+	   <p>	next.html</p>
+	   <pre id="kod">
+	   userName = document.search;
+	   userName = userName.substring(userName.indexOf("=")+1);
+	   document.write("Greetings, " + userName + "&lt;P>");
+	   </pre>	
+	   <h4>Передача данных между формами. Метод<span id="br">onload</span></h4>
+	   Нужно заполнить поля данными, переданными в строке запроса
+	    (у нас id). Если использовать только javascript, то у &lt;body> новой страницы нужно
+	     добавить событие <span id="br">onload</span>, в котором после загрузки 
+	     страницы читаем переданные значения параметров и вставляем их в нужные поля. 
+	     
+<p> Первая страница:</p>
+<pre id="kod">
+&lt;script language="javascript" type="text/javascript">
+function goMail() {
+if (confirm("Уверены, что хотите отправить сообщение?")) {
+document.location = "UserMail.html?id=" + document.getElementById("userName").value;
+}
+}
+&lt;/script>
+&lt;form>
+&lt;p>Ваше имя: &lt;/p>
+&lt;input id="userName" type="text" name="userName" value="" />
+&lt;br/>
+&lt;input type ="button" value="Отправить сообщение" onclick="goMail()" />
+&lt;/form>
+</pre>
+Вторая страница:
+<pre>
+&lt;head>
+&lt;title>&lt;/title>
+&lt;script language="javascript" type="text/javascript">
+function OnLoad() {
+var paramValue = window.location.href.split("?")[1].split("=")[1];
+document.getElementById("UsName").innerHTML = paramValue;
+}
+&lt;/script>
+&lt;/head>
+&lt;body onload="OnLoad()">
+&lt;font id="UsName">
+&lt;/font>
+&lt;/body>
+
+	   
+	   <h4>получить значение выбранной в данный момент <span>radio button</span> в <span>radio group</span> или группе <span>checkboxes</span></h4>
+	   <p>Существует свойство, созданное в объекте <code>form </code>для каждой<code> radio buttons</code> или <code>checkboxes </code>
+	   с тем же самым именем. Например, следующий <code>HTML </code>код:</p>
+	   <pre id="kod">
+	   &lt;form name='theForm'>
+	   &lt;input type=radio name="gender" value="Male">Male
+	   &lt;input type=radio name="gender" value="Female">Female
+	   &lt;input type=radio name="gender" value="Evasive">Not Specified
+	   &lt;/form>
+	   
+	   </pre>
+	   <div class="example">	
+	   <form name='theForm'>
+	   <input type=radio name="gender" value="Male">Male
+	   <input type=radio name="gender" value="Female">Female
+	   <input type=radio name="gender" value="Evasive">Not Specified
+	   </div>	
+	   <p>приводит к созданию 3-х элементов массива,
+	   вызываемых с помощью <code>document.theForm.gender.</code>
+	   Чтобы определить значение выбранной кнопки (или checkbox'а), 
+	   вам нужно проверить свойство <code>checked </code>
+	   каждого из элементов. Например:</p>
+	   <pre id="kod">function checkIt() {
+	   theGroup = document.theForm.gender;
+	   for (i=0; i&lt; theGroup.length; i++) {
+	   if (theGroup[i].checked) {
+	   alert("The value is " + theGroup[i].value);
+	   break;
+	   }
+	   }
+	   }
+	   </pre>
+	   <p>	Для получения и установки значения <code>radio button value</code>
+	   на javascript можно использовать следующие функции:</p>
+	   <pre id="kod">
+	   function getCheckedValue(radioObj) {
+	   if(!radioObj)
+	   return "";
+	   var radioLength = radioObj.length;
+	   if(radioLength == undefined)
+	   if(radioObj.checked)
+	   return radioObj.value;
+	   else
+	   return "";
+	   for(var i = 0; i &lt; radioLength; i++) {
+	   if(radioObj[i].checked) {
+	   return radioObj[i].value;
+	   }
+	   }
+	   return "";
+	   }
+	   </pre>
+	   <pre id="kod">
+	   function setCheckedValue(radioObj, newValue) {
+	   if(!radioObj)
+	   return;
+	   var radioLength = radioObj.length;
+	   if(radioLength == undefined) {
+	   radioObj.checked = (radioObj.value == newValue.toString());
+	   return;
+	   }
+	   for(var i = 0; i &lt; radioLength; i++) {
+	   radioObj[i].checked = false;
+	   if(radioObj[i].value == newValue.toString()) {
+	   radioObj[i].checked = true;
+	   }
+	   }
+	   }
+	   </pre>
+	   <h4>получить форму, чтобы инициировать процесс запуска клавишей Enter</h4>
+	   <p>Форма отправляется, если нажата клавиша enter, 
+	   в то время как единственный входной текстовый элемент формы имеет фокус.
+	   Вы можете вызывать подобное поведение в форме,
+	   имеющей более одного элемента, разбивая форму на ряд отдельных форм,
+	   так, чтобы каждая форма имела только один текстовый элемент. 
+	   Используйте обработчик события <code>onSubmit</code> (или <code>action="javascript:myFunction();</code>")
+	   для накопления данных из других форм в вашей странице и инициируйте их все сразу.</p>
+	   
+	   
+	   <h4> отключить поле текстового ввода</h4>
+	   <p>Используйте обработчик onfocus для вызова функции <code>blur():</code></p>
+	   <pre id="kod">
+	   &lt;INPUT TYPE="text" NAME="aTextField" ONFOCUS="this.blur()">
+	   </pre>
+	   <div class="example">
+	   <INPUT TYPE="text" NAME="aTextField" ONFOCUS="this.blur()">
+	   </div>
+	   <h4>динамически отключать/включать поле</h4>
+	   <p>используйте функцию <code>eskip (e)</code></p>
+	   <pre id="kod">
+	   { this.blur(); }
+	   &lt;A HREF="javascript:document.formName.aTextField.onfocus = skip; void
+	   0">disable text field&lt;/A>
+	   &lt;A HREF="javascript:document.formName.aTextField.onfocus = null; void
+	   0">enable text field&lt;/A>
+	   </pre>
+	   <div class="example">
+	   { this.blur(); }
+	   <A HREF="javascript:document.formName.aTextField.onfocus = skip; void
+	   0">disable text field</A>
+	   <A HREF="javascript:document.formName.aTextField.onfocus = null; void
+	   0">enable text field</A>
+	   </div>
+	   <h4> сделать загрузку страницы при выборе флажка</h4>
+	   <p>Используйте обработчик OnChange для вызова функции <code>submit():</code></p>
+	   <pre id="kod">
+	   &lt;form method=get OnChange='this.submit();'>
+	   &lt;input type=checkbox name="fnew">Только новые
+	   &lt;/form>
+	   </pre>
+	   <div id="example">
+	   <form method=get OnChange='this.submit();'>
+	   <input type=checkbox name="fnew">Только новые
+	   </form>
+	   </div>
+	   <h4>Сохранение данных в локальное хранилище браузера:</h4>
+	   <p><span id="br">sessionStorage</span> — запоминает результат 
+	   пока открыт сайт во вкладке(окне), можно свободно перемещаться по сайту,
+	   обновлять страницы, но не закрывать окно браузера(вкладку).</p>
+	   
+	   <p><span id="br">localStorage</span> — запоминает результат на очень долгое время, 
+	   пока пользователь не очистит локальное хранилище браузера. 
+	   Можно через несколько дней зайти на сайт и увидеть ранее заполненную форму.</p>
+	   <pre id="kod">
+	   &lt;style>
+	   #idVhod {
+	   display: none; /* изначально скрыт */
+	   }
+	   &lt;/style>
+	   
+	   &lt;button onclick="onclickVhod()">открыть&lt;/button> &lt;span id="idVhod">скрытый текст&lt;/span>
+	   
+	   &lt;script>
+	   var idVhod = document.getElementById('idVhod');
+	   
+	   function onclickVhod() {
+	   idVhod.style.display = (idVhod.style.display == 'inline') ? '' : 'inline'
+	   localStorage.setItem('hide', idVhod.style.display); // сохраняем значение в объект hide
+	   }
+	   
+	   if(localStorage.getItem('hide') == 'inline') { // если значение объекта hide "inline"
+	   document.getElementById('idVhod').style.display = 'inline';
+	   }
+	   //localStorage.removeItem('hide') // удалить один элемент
+	   //localStorage.clear() // удалить все элементы
+	   
+	   &lt;/script>
+	   </pre>
+	   <div class="example">
+	   <style>
+	   #idVhod {
+	   display: none; /* изначально скрыт */
+	   }
+	   </style>
+	   
+	   <button onclick="onclickVhod()">открыть</button> <span id="idVhod">скрытый текст</span>
+	   
+	   <script>
+	   var idVhod = document.getElementById('idVhod');
+	   
+	   function onclickVhod() {
+	   idVhod.style.display = (idVhod.style.display == 'inline') ? '' : 'inline'
+	   localStorage.setItem('hide', idVhod.style.display); // сохраняем значение в объект hide
+	   }
+	   
+	   if(localStorage.getItem('hide') == 'inline') { // если значение объекта hide "inline"
+	   document.getElementById('idVhod').style.display = 'inline';
+	   }
+	   //localStorage.removeItem('hide') // удалить один элемент
+	   //localStorage.clear() // удалить все элементы
+	   
+	   </script>
+	   </div>
+	   <h4>Особенности <span id="br">onClick, onSubmit, onReset</span></h4>
+	   <ul>
+	   <li><span id="br">метод click()</span> у гиперссылки — влечет за собой вызов обработчика <code>onClick</code> этой ссылки</li>
+	   <li><span id="br">метод click()</span> у ЛЮБОЙ кнопки формы — влечет за собой вызов обработчика <code>onClick</code> этой кнопки</li>
+	   <li><span id="br">метод reset()</span> у формы — влечет за собой вызов обработчика <code>onReset</code> у формы</li>
+	   <li><span id="br">метод submit()</span> у формы — НЕ влечет за собой вызов обработчика <code>onSubmit</code> у формы!</li>
+	   </ul>
+	   
+	   <p>DOM объект элемента INPUT:</p>
+	   <pre id="cmd">
+	   interface HTMLInputElement : HTMLElement {
+	   attribute DOMString accept;
+	   attribute DOMString alt;
+	   attribute DOMString autocomplete;
+	   attribute boolean autofocus;
+	   attribute boolean defaultChecked;
+	   attribute boolean checked;
+	   attribute DOMString dirName;
+	   attribute boolean disabled;
+	   readonly attribute HTMLFormElement? form;
+	   readonly attribute FileList? files;
+	   attribute DOMString formAction;
+	   attribute DOMString formEnctype;
+	   attribute DOMString formMethod;
+	   attribute boolean formNoValidate;
+	   attribute DOMString formTarget;
+	   attribute unsigned long height;
+	   attribute boolean indeterminate;
+	   readonly attribute HTMLElement? list;
+	   attribute DOMString max;
+	   attribute long maxLength;
+	   attribute DOMString min;
+	   attribute boolean multiple;
+	   attribute DOMString name;
+	   attribute DOMString pattern;
+	   attribute DOMString placeholder;
+	   attribute boolean readOnly;
+	   attribute boolean required;
+	   attribute unsigned long size;
+	   attribute DOMString src;
+	   attribute DOMString step;
+	   attribute DOMString type;
+	   attribute DOMString defaultValue;
+	   attribute DOMString value;
+	   attribute Date? valueAsDate;
+	   attribute double valueAsNumber;
+	   attribute unsigned long width;
+	   
+	   void stepUp(optional long n);
+	   void stepDown(optional long n);
+	   
+	   readonly attribute boolean willValidate;
+	   readonly attribute ValidityState validity;
+	   readonly attribute DOMString validationMessage;
+	   boolean checkValidity();
+	   void setCustomValidity(DOMString error);
+	   
+	   readonly attribute NodeList labels;
+	   
+	   void select();
+	   attribute unsigned long selectionStart;
+	   attribute unsigned long selectionEnd;
+	   attribute DOMString selectionDirection;
+	   void setSelectionRange(unsigned long start, unsigned long end, optional DOMString direction);
+	   };
+	   </pre>
+	   
+				
+            </div>
+  </div>
+ </body>
+</html>
