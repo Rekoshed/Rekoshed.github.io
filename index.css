@@ -115,8 +115,8 @@ font-family:Lucida Sans Unicode;
 		.toolbar a{
 		color: #eee;
 		display: inline-block;
-		padding-right: 1em;
-		padding-left:1em;
+		padding-right: 0.7em;
+		padding-left:0.7em;
 		text-decoration: none;
 		font-family: Verdana;
 		font-size:14px;
