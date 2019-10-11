@@ -1,0 +1,234 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Grid Layout в CSS3</title>
+		
+	</head>
+	<body>
+      <style>
+      *{
+      box-sizing: border-box;
+      }
+      html, body {
+      padding: 0;
+      margin: 0;
+      }
+      .toolbar{
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: #222;
+      border-bottom: 1px solid #ccc;
+      z-index: 101;
+      }
+      .toolbar a{
+      color: #eee;
+      display: inline-block;
+      padding-right: 0.7em;
+      padding-left:0.7em;
+      text-decoration: none;
+      font-family: Verdana;
+      }
+      .content{
+      margin-top: 30px;
+      padding: 10px;
+      }
+      .toolbar a:hover{
+      background-color: red;
+      color: #f4f4f4;
+      }
+      
+      
+      .blue {color:blue;}
+      .green {color:green;}
+      .black>p {color:black;}
+      
+      .roundgreen {background-color: green;}
+      
+      .color1 {background-color: #675BA7;}
+      .color2 {background-color: #9BC850;}
+      .color3 {background-color: #A62E5C;}
+      .color4 {background-color: #2A9FBC;}
+      .color7 {background-color: #F15B2A;}
+      .color5 {background-color: #4e342e;}
+      .color6 {background-color: black;}
+      
+      .grid-item {
+      text-align:center;
+      font-size: 1.1em;
+      padding: 1.5em;
+      color: white;}
+      .grid-container {
+      display: grid;
+      height: 100vh;
+      grid-template-rows: 6em 10px 1fr;
+      grid-template-columns: [mainstart] 1fr [mainend] 10px [sidebarestart] 25% [sidebarend];
+      }
+      
+      .grid-item-content {
+      background-color: #455a64;
+      grid-row: 3 / 4;
+      grid-column: mainstart / mainend;
+      }
+      
+      .grid-item-sidebar {
+      background-color: #37474f;
+      grid-row: 3 / 4;
+      grid-column: sidebarestart / sidebarend;
+      }
+      
+      .grid-item-header{
+      background-color: #263238;
+      grid-row: 1 / 2;
+      grid-column: mainstart / sidebarend;
+      }
+      
+      .grid-item {
+      color: #fff;
+      text-align: center;
+      }
+      </style>
+  
+      <div class="toolbar">
+      <a href="../CSSmain.html">Главная</a>
+      <a href="#">назад
+      </a>
+      <a href="#">
+     описание
+      </a>
+      <a href="#">
+      <details>
+      <summary>body</summary>
+      <form method="post" action="1.php" onsubmit="return false">
+      <label>  <input type="radio" class="color" id="red" name="button" value="red" onclick='change_color(this)'>red</label>
+      <label> <input type="radio"  class="color" id="orange" name="button" value="orange" onclick='change_color(this)'>orange</label>
+      <label> <input type="radio"  class="color" id="yellow" name="button" value="yellow" onclick='change_color(this)'>yellow</label>
+      <label>  <input type="radio" class="color" id="red" name="button" value="#ccc" onclick='change_color(this)'>ccc</label>
+      <label> <input type="radio"  class="color" id="orange" name="button" value="#000" onclick='change_color(this)'>000</label>
+      <label> <input type="radio"  class="color" id="yellow" name="button" value="#afc" onclick='change_color(this)'>afc</label>
+      
+      </form>
+      </details>
+      </a>
+      </div>
+      <div class="content">
+      <main class="grid-container">
+      <header class="grid-item grid-item-header">
+      <form method="post" action="1.php" onsubmit="return false">
+      <label>  <input type="radio" class="color" id="red" name="button" value="red" onclick='header_color(this)'>red</label>
+      <label> <input type="radio"  class="color" id="oral" name="button" value="green" onclick='header_color(this)'>green</label>
+      <label> <input type="radio"  class="color" id="yellow" name="button" value="yellow" onclick='header_color(this)'>yellow</label>
+      <label>  <input type="radio" class="color" id="red" name="button" value="#ccc" onclick='header_color(this)'>ccc</label>
+      <label> <input type="radio"  class="color" id="orange" name="button" value="#000" onclick='header_color(this)'>000</label>
+      <label> <input type="radio"  class="color" id="yellow" name="button" value="#afc" onclick='header_color(this)'>afc</label>
+      
+      <h1>Header</h1>
+      <form>
+      <select id="header">
+      <option value="">Выберите цвет</option>
+      <option value="red">red</option>
+      <option value="yellow">yellow</option>
+      <option value="orange">orange</option>
+      <option value="darkblue">darkblue</option>
+      <option value="purple">purple</option>
+      <option value="green">green</option>
+      <option value="white">white</option>
+      <option value="black">black</option>
+      
+      </select>
+      </form>
+      </header>
+      
+      <article class="grid-item grid-item-content">
+      <form method="post" action="1.php" onsubmit="return false">
+      <label>  <input type="radio" class="color" id="red" name="button" value="red" onclick='content_color(this)'>red</label>
+      <label> <input type="radio"  class="color" id="orange" name="button" value="orange" onclick='content_color(this)'>orange</label>
+      <label> <input type="radio"  class="color" id="yellow" name="button" value="yellow" onclick='content_color(this)'>yellow</label> 
+      </form>
+      <h1>Main Content</h1>
+      <form>
+      <select id="content">
+      <option value="">Выберите цвет</option>
+      <option value="red">red</option>
+      <option value="yellow">yellow</option>
+      <option value="orange">orange</option>
+      <option value="darkblue">darkblue</option>
+      <option value="purple">purple</option>
+      <option value="green">green</option>
+      <option value="white">white</option>
+      <option value="black">black</option>
+      
+      </select>
+      </form>
+      </article>
+      
+      <aside class="grid-item grid-item-sidebar">
+      <label>  <input type="radio" class="color" id="red" name="button" value="red" onclick='sidebar_color(this)'>red</label>
+      <label> <input type="radio"  class="color" id="oral" name="button" value="green" onclick='sidebar_color(this)'>green</label>
+      <label> <input type="radio"  class="color" id="yellow" name="button" value="yellow" onclick='sidebar_color(this)'>yellow</label>
+      <label>  <input type="radio" class="color" id="red" name="button" value="#ccc" onclick='sidebar_color(this)'>ccc</label>
+      <label> <input type="radio"  class="color" id="orange" name="button" value="#000" onclick='sidebar_color(this)'>000</label>
+      <label> <input type="radio"  class="color" id="yellow" name="button" value="#afc" onclick='sidebar_color(this)'>afc</label>
+      
+      <h1>Sidebar</h1>
+      <form>
+      <select id="sidebar">
+      <option value="">Выберите цвет</option>
+      <option value="red">red</option>
+      <option value="yellow">yellow</option>
+      <option value="orange">orange</option>
+      <option value="darkblue">darkblue</option>
+      <option value="purple">purple</option>
+      <option value="green">green</option>
+      <option value="white">white</option>
+      <option value="black">black</option>
+      
+      </select>
+      </form>
+      </aside>
+      </main>
+        
+  </div>
+  <script language="JavaScript">
+  function change_color(obj)
+  {
+  obj.value && (document.body.style.backgroundColor = obj.value);
+  }
+  function header_color(obj)
+  {
+    obj.value && ( document.querySelector(".grid-item-header").style.color = obj.value);
+    }
+  function sidebar_color(obj)
+  {
+  obj.value && ( document.querySelector(".grid-item-sidebar").style.color = obj.value);
+  }
+  function content_color(obj)
+  {
+  
+  obj.value && ( document.querySelector(".grid-item-content").style.color = obj.value);
+  /* Проходимся по всему массиву элементов, чтобы скрыть все элементы с .box
+  var boxx = document.querySelectorAll(".grid-item")*/
+  
+  }
+  header.onchange = function(e){
+  var elem = e ? e.target : window.event.srcElement;
+  
+  document.querySelector(".grid-item-header").style.backgroundColor = elem.value;
+  }
+  content.onchange = function(e){
+  var elem = e ? e.target : window.event.srcElement;
+  
+  document.querySelector(".grid-item-content").style.backgroundColor = elem.value;
+  }
+  sidebar.onchange = function(e){
+  var elem = e ? e.target : window.event.srcElement;
+  
+  document.querySelector(".grid-item-sidebar").style.backgroundColor = elem.value;
+  }
+  </script>
+ </body>
+</html>
