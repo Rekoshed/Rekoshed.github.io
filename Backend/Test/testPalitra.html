@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Back end</title>
+		  <link  href="../Design/script.css" rel="stylesheet">
+		  <link  href="../Design/toolbar.css" rel="stylesheet">
+		  <script src ="../Design/bild.js"></script>
+		  </head>
+     <body>
+	     <script>
+	 		toolbar('../index.html','back_main.html');
+		 </script>
+		 <style type="text/css">
+		 opacity: .5;
+		 -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+		 filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+		 filter: alpha(opacity=50);
+		 background-color: white;
+		 }
+		 .cp-default .pcr-indicator {
+		 width: 100%;
+		 height: 10px;
+		 left: -4px;
+		 opacity: .6;
+		 -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+		 filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=60);
+		 filter: alpha(opacity=60);
+		 border: 4px solid lightblue;
+		 -moz-border-radius: 4px;
+		 -o-border-radius: 4px;
+		 -webkit-border-radius: 4px;
+		 border-radius: 4px;
+		 background-color: white;
+		 }
+		 </style>
+			<div class="content">
+			<div id="color-picker" class="cp-default">
+			<div class="picker-wrapper">
+			<div id="picker" class="picker"></div>
+			<div id="picker-indicator" class="picker-indicator"></div>
+			</div>
+			<div class="pcr-wrapper">
+			<div id="pcr" class="pcr"></div>
+			<div id="pcr-indicator" class="pcr-indicator"></div>
+			</div>
+			<ul id="color-values">
+			<li><label>RGB:</label><span id="rgb"></span></li>
+			<li><label>HSV:</label><span id="hsv"></span></li>
+			<li><label>HEX:</label><span id="hex"></span></li>
+			<li><div id="pcr_bg"></div></li>
+			</ul>
+			</div>
+        </div>
+        <script type="text/javascript">
+        cp = ColorPicker(document.getElementById('pcr'), document.getElementById('picker'),
+        function(hex, hsv, rgb, mousePicker, mousepcr) {
+        currentColor = hex;
+        ColorPicker.positionIndicators(
+        document.getElementById('pcr-indicator'),
+        document.getElementById('picker-indicator'),
+        mousepcr, mousePicker);
+        document.getElementById('hex').innerHTML = hex;
+        document.getElementById('rgb').innerHTML = 'rgb(' + rgb.r.toFixed() + ',' + rgb.g.toFixed() + ',' + rgb.b.toFixed() + ')';
+        document.getElementById('hsv').innerHTML = 'hsv(' + hsv.h.toFixed() + ',' + hsv.s.toFixed(2) + ',' + hsv.v.toFixed(2) + ')';
+        document.getElementById('pcr_bg').style.backgroundColor = hex;
+        });
+        cp.setHex('#D4EDFB');
+        </script>
+  </div>
+ </body>
+</html>

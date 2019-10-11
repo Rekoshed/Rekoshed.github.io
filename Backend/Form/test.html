@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Form. Style</title>
+		  <link  href="../../Design/script.css" rel="stylesheet">
+		  <link  href="../../Design/toolbar.css" rel="stylesheet">
+		  <script src ="../../Design/bild.js"></script>
+		  </head>
+     <body>
+     <style type="text/css">
+   
+     </style>
+	     <script>
+	 		toolbar('../../index.html','../CSSmain.html');
+		 
+		 </script>
+			<div class="content">
+		<FORM name="naviForm">
+		<select name="menu"
+		onChange = "self.location =
+		document.naviForm.menu[document.naviForm.menu.selectedIndex].value;">
+		<option value="test.html">test</option>
+		<option value="Home.html">home</option>
+		<option value="form.html">form</option>
+		<option value="form2.html">form2</option>
+		
+		</select>
+		</FORM>
+		<script type="text/javascript">
+		userName = document.search;
+		userName = userName.substring(userName.indexOf("=")+1);
+		document.write("<p>" + "Greetings, " + userName + "</p>");
+		alert(userName);
+		</script>
+            </div>
+ </body>
+</html>

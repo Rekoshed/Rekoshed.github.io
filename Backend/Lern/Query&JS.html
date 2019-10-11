@@ -1,0 +1,395 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Back end</title>
+		  <link  href="../../Design/script.css" rel="stylesheet">
+		  <link  href="../../Design/toolbar.css" rel="stylesheet">
+		  <script src ="../../Design/bild.js"></script>
+		  </head>
+     <body>
+	     <script>
+	 		toolbar('../../index.html','../Back_main.html');
+		 </script>
+			<div class="content">
+			<h2>Аналогии с jQuery на чистом JavaScript</h2>
+		<details><summary><p>содержание</p></summary>
+			<ul>
+			<li>Выбор элементов с querySelector и querySelectorAll</li>
+			
+			<li>Прослушиваем события с помощью addEventListener</li>
+			
+			<li>Обновляем CSS и стили через свойство style</li>
+			
+			<li>Работаем с классами, через свойство classList</li>
+			
+			<li>AJAX запросы с fetch</li>
+			
+			<li>Вызываем события с помощью dispatchEvent</li>
+			
+			<li>Создаем элементы с createElement</li>
+			
+			<li>Обновляем текст с помощью свойства textContent</li>
+			
+			<li>Добавляем элементы в DOM с appendChild</li>
+			</ul>
+		</details>
+			<p><strong>jQuery</strong> является полезной и довольно практичной библиотекой,  
+			но не обязательно быть зависимыми от её применения в ваших проектах,
+			 для того, чтобы сделать простые задачи, такие как выборка элементов, их стилизация,
+			  анимация и получение данных от сервера.</p> 
+			  
+
+		<h3>	Выборка элементов</h3>
+		<p>	Выборка одного или нескольких элементов <strong>DOM</strong>
+		 для каких-либо манипуляций с ними это одна из самых простых функций <strong>jQuery.</strong>
+		  Эквивалентом <span>$()</span> или <span>jQuery()</span> в <strong>JavaScript </strong>являются <span>querySelector()</span> 
+		  или <span>querySelectorAll()</span></p>, в которых вы можете
+		   задавать параметры как и в <strong>jQuery</strong> — с помощью <b>CSS</b> селектора.
+<pre id="kod">			
+// Выбираем все элементы .box
+$(".box");
+
+// Вместо этого, мы можем выбрать первый элемент с .box
+document.querySelector(".box");
+
+// …или же выбрать все элементы .box  
+document.querySelectorAll(".box");
+</pre>
+<h4>Запускаем функцию на всех элементах выборки</h4>
+<p><span>querySelectorAll()</span> отдаёт, как и <strong>jQuery</strong>, массив элементов, с
+ которым вы уже в последствии можете работать.
+ Но там, где вам нужно просто запустить функцию с<strong> jQuery </strong>на всей выборке,
+  просто вызвав её, на чистом <strong>JavaScript </strong>вам нужно будет пройтись по всему массиву элементов:
+</p>
+<pre id="kod">
+// C jQuery
+//  Скрываем все .box
+$(".box").hide();
+
+// Без jQuery
+// Проходимся по всему массиву элементов, чтобы скрыть все элементы с .box
+document.querySelectorAll(".box").forEach(box => { box.style.display = "none" }
+</pre>
+<h4>Находим элемент внутри элемента</h4>
+<p>Обычно в <strong>jQuery</strong> это делается с помощью
+ <span>find().</span>
+  Вы можете достичь такого же эффекта, сузив выборку до потомков элемента,
+   просто вызвав<span> querySelector</span> или <span>querySelectorAll</span> на самом элементе:</p>
+<pre id="kod">
+// С jQuery
+// Выбираем первый .box в .container
+var container = $(".container");
+// И потом...
+container.find(".box");
+
+// Без jQuery
+// Выбираем первый .box в .container
+var container = document.querySelector(".container");// И потом...
+container.querySelector(".box");
+</pre>
+<h4>Выбираем элементы в <b>DOM</b>-дереве с помощью <span id="br">parent(), next() и prev()</span></h4>
+<p>
+Если вы хотите пройтись по <b>DOM</b>-дереву для выборки 
+родственных или родительских элементов, относительно какого-либо элемента,
+ то вы можете это сделать с помощью методов <span id="br">nextElementSibling, previousElemenSibling и parentElemnt</span>.
+  Которые вам нужно применить на интересующем вас элементе:</p>
+<pre id="kod">
+// jQuery
+// Отдаст следующий, предыдущий и родительский элемент для .box
+$(".box").next();
+$(".box").prev();
+$(".box").parent();
+
+// Без jQuery
+// Отдаст следующий, предыдущий и родительский элемент для .box
+var box = document.querySelector(".box");
+box.nextElementSibling;
+box.previousElementSibling;
+box.parentElement;
+</pre>
+			
+			<h3>Работа с событиями</h3>
+		<p>	В <strong>jQuery</strong> есть огромное множество способов для того,
+		 чтобы слушать события, вместо <span id="br">on(), bind(), live() или click(),</span>
+		  вы могли бы сделать всё тоже самое с помощью их эквивалента addEventListener:
+		</p>	
+<pre id="kod">	
+// С jQuery
+$(".button").click(function(e) { /* handle click event */ });
+$(".button").mouseenter(function(e) {  /* handle click event */ });
+$(document).keyup(function(e) {  /* handle key up event */  });
+
+// Без jQuery
+document.querySelector(".button").addEventListener("click", (e) => { /* ... */ });
+document.querySelector(".button").addEventListener("mouseenter", (e) => { /* ... */ });
+document.addEventListener("keyup", (e) => { /* ... */ });
+</pre>	
+			<h4>Слушаем события на динамически добавленных элементах</h4>
+			С помощью jQuery метода on(), вы можете работать с элементами “на живца”, слушая ещё и те, которые были динамически добавлены в структуру DOM. Чтобы сделать что-то подобное без jQuery, вы можете прикрепить обработчик события к элементу, как только вы добавите его в структуру DOM:
+<pre id="kod">			
+// С jQuery
+// Обработка событий по клику на .search-result элементы,
+// даже когда они динамически добавляются в DOM
+$(".search-container").on("click", ".search-result", handleClick);
+
+// Без jQuery
+// Создаём элемент в структуре DOM
+var searchElement = document.createElement("div");
+document.querySelector(".search-container").appendChild(searchElement);// Слушаем событие на элементе
+searchElement.addEventListener("click", handleClick);
+</pre>
+<h4>Вызываем и создаем события</h4>
+<p>Вы можете вручную вызывать события с помощью <span id="br">trigger()</span> в <strong>jQuery</strong>, 
+а также в чистом <code>JS</code> при помощи <span id="br">dispatchEvent().</span>
+ Метод <span id="br">dispatchEvent()</span> может быть вызван совершенно на 
+ любом элементе и берёт <code>Event</code>, как первый аргумент:</p>
+<pre id="kod">
+// C jQuery
+// Вызываем myEvent на документе и .box
+$(document).trigger("myEvent");
+$(".box").trigger("myEvent");
+
+// Без jQuery
+// Создаем и запускаем myEvent
+document.dispatchEvent(new Event("myEvent"));
+document.querySelector(".box").dispatchEvent(new Event("myEvent"));
+</pre>
+<h4>Стилизация элементов</h4>
+<p>Если вы вызываете <code>css() </code>на элементе, чтобы поменять его 
+<strong>CSS</strong> инлайново с помощью<strong> jQuery</strong>, 
+то этого же эффекта вы можете добиться с помощью <code>.style</code>
+ в чистом<strong> JavaScript</strong>.</p>
+<pre>
+// С jQuery
+// Выбирает .box и меняет его цвет текста на #000
+$(".box").css("color", "#000");
+
+// Без jQuery
+// Выбирает первый .box и меняет его цвет текста на #000
+document.querySelector(".box").style.color = "#000";
+</pre>
+
+<p>С jQuery вы можете передать объект с парами ключ-значения, 
+чтобы стилизовать уже большое количество свойств за раз.
+ </p>
+<p> В JavaScript вы можете выставить только одно значение за раз или указать вcе стили одной строкой:</p>
+<pre id="kod">
+// С jQuery
+// Передаем несколько стилей
+$(".box").css({
+"color": "#000",
+"background-color": "red"
+});
+
+// Без jQuery
+// Выставляем цвет на #000 и делаем фон красным
+var box = document.querySelector(".box");
+box.style.color = "#000";
+box.style.backgroundColor = "red";
+
+// Выставляем все стили разом, но перезаписываем уже существующие
+box.style.cssText = "color: #000; background-color: red";
+</pre>
+<h3>методы <span id="br">hide() и show()</span></h3>
+<p>Все удобства методов <span id="br">hide()</span> и <span id="br">show()</span>
+ можно получить через свойство <code>.style</code>, выставив <code>display</code> на<code> none</code> или<code> block:</code></p>
+<pre id="kod">
+// C jQuery
+// Спрятать и показать элемент
+$(".box").hide();
+$(".box").show();
+
+// Без jQuery
+// Прячем и показываем элемент, изменяя display на block или none
+document.querySelector(".box").style.display = "none";
+document.querySelector(".box").style.display = "block";
+</pre>
+<h3>Document ready</h3>
+<p>Если вам нужно подождать полной загрузки <strong>DOM,</strong>
+ перед, к примеру, развешиванием ивентов на объекты в структуре документа, 
+ то в <strong>jQuery</strong> вы бы использовали <code>$(document).ready()</code>
+  или его сокращение <code>$().</code>
+   Но на самом деле мы можем легко и просто сами создать похожую функцию, 
+   в которой будем слушать событие <code>DOMContentLoaded:</code></p>
+<pre id="kod">
+// C jQuery
+$(document).ready(function() { 
+/*  Начинаем работу после полной загрузки DOM */
+});
+
+// Без jQuery
+// Пишем схожий метод и смело начинаем его использовать
+var ready = (callback) => {
+if (document.readyState != "loading") callback();
+else document.addEventListener("DOMContentLoaded", callback);
+}
+
+ready(() => { 
+/*  Начинаем работу после полной загрузки DOM */ 
+});
+</pre>
+<h3>Работа с классами</h3>
+<p>работать с классами можно через свойство <code>classList</code>,
+ в котором есть возможности для переключения, замены, 
+ добавления и удаления классов любого элемента <b>DOM</b>.</p>
+<pre id="kod">
+// C jQuery
+// Добавляем, удаляем и переключаем класс focus
+$(".box").addClass("focus");
+$(".box").removeClass("focus");
+$(".box").toggleClass("focus");
+
+// Без jQuery
+// Добавляем, удаляем и переключаем класс focus
+var box = document.querySelector(".box");
+box.classList.add("focus");
+box.classList.remove("focus");
+box.classList.toggle("focus");
+</pre>
+<p>
+Если необходимо удалить или добавить несколько классов,
+ то можно просто передать несколько аргументов в <code>add() и remove()</code>:</p>
+<pre id="kod">
+// Добавляем "focus" и "highlighted" классы, а затем удаляем ихvar box = document.querySelector(".box");
+box.classList.add("focus", "highlighted");
+box.classList.remove("focus", "highlighted");
+</pre>
+<p>Если вам надо поменять два класса, которые взаимозаменяют друг друга, 
+то вы можете вызывать <code>replace()</code> на <code>classList</code> и заменить 
+один класс другим:</p>
+<pre>
+// Удаляем класс "focus" и добавляем "blurred"
+document.querySelector(".box").classList.replace("focus", "blurred");
+</pre>
+<h4>Проверяем есть ли класс у элемента</h4>
+<p>Если вы хотите запустить функцию на элементе только в том случае, 
+если у него есть определенный класс, 
+то вы можете заменить <code>hasClass()</code> на <code>classList.contains()</code>:</p>
+<pre id="kod">
+// С jQuery
+// Проверяем есть ли у .box класс focus и потом запускаем на нем функцию
+if ($(".box").hasClass("focus")) {
+//  Понеслась...
+}
+
+// Без jQuery
+// Проверяем есть ли у .box класс focus и потом запускаем на нем функцию
+if (document.querySelector(".box").classList.contains("focus")) {
+//  Понеслась...
+}
+</pre>
+
+<h3>Сетевые запросы с get() или ajax()</h3>
+<p>Метод <span id="br">fetch()</span> позволяет вам создавать сетевые 
+запросы схожим образом с <span id="br">ajax() </span>и <span id="br">get()</span>
+ методами от <strong>jQuery</strong>. <code>fetch()</code> берёт ссылку,
+  как аргумент и отдаёт промис, который вы уже можете 
+  использовать для обработки данных.</p>
+<pre id="kod">
+// С jQuery
+$.ajax({
+url: "data.json"
+}).done(function(data) {
+// ...
+}).fail(function() {
+// Handle error
+});
+
+// Без jQuery
+fetch("data.json")
+.then(data => {
+// Handle data
+}).catch(error => {
+// Handle error
+});
+</pre>
+<h3>Создание элементов</h3>
+<p>
+Если вы хотите динамически создать элемент в<strong> JavaScript</strong>, 
+чтобы добавить его в<b> DOM</b>, то вы можете 
+вызывать <code>createElement()</code> на <code>document</code> и передать
+ ему имя тега, как аргумент, чтобы указать 
+ какой именно элемент вы хотите создать:</p>
+<pre id="kod">
+// Создаем div и span
+$("<div/>");
+$("<span/>");
+
+// Создаем div и span
+document.createElement("div");
+document.createElement("span");
+</pre>
+<p>Что бы добавить какой-либо контент этим элементам, 
+надо просто использовать свойство <code>textContent </code>
+или создать текстовой узел с помощью <code>createTextNode</code> и
+ добавить его созданному элементу:</p>
+<pre id="kod">
+var element = document.createElement("div");
+element.textContent = "Text"
+// или создайте textNode и добавьте его элементу
+var text = document.createTextNode("Text");
+element.appendChild(text);
+</pre>
+
+<h3>Обновление DOM</h3>
+<p>Если вам нужно изменить текст элемента или
+ добавить новые элементы в<b> DOM</b>, то скорее всего
+  вы будете использовать <code>innerHTML</code>, 
+  но его использование довольно рисковое дело,
+   связанное с XSS атаками.</p>
+<p>
+Что бы только “прочесть” или обновить текст элемента, 
+можно применить свойство <code>textContent</code> на нужном объекте:
+</p>
+<pre id="kod">
+// C jQuery
+// Меняем текст в .button
+$(".button").text("New text");// Считываем текст в .button
+$(".button").text(); // Отдаёт"New text"
+
+// Без jQuery
+// Меняем текст в .button
+document.querySelector(".button").textContent = "New text";// Считываем текст в .button
+document.querySelector(".button").textContent; // Отдаёт"New text"
+</pre>
+<p>Для того , что бы дгбавить другому элементу созданый вновь элемент,
+ используем на родительском элементе метод <code>appendChild()</code>:</p>
+<pre id="kod">
+// Создаём div и вставляем его в .container
+$(".container").append($("<div/>"));
+
+// Создаём div и вставляем его в .container
+var element = document.createElement("div");
+document.querySelector(".container").appendChild(element);
+</pre>
+<p>
+А теперь всё вместе, как мы можем обновить текст и класс и 
+добавить это всё в <b>DOM</b>:</p>
+<pre id="kod">
+// Создаём div
+var element = document.createElement("div");
+
+// Добавляем ему класс
+element.classList.add("box");
+
+// Указываем текст
+element.textContent = "Text inside box";
+
+// Вставляем его в .container
+document.querySelector(".container").appendChild(element);
+</pre>
+
+
+
+
+Этот блог бесплатный, в нём нет рекламы и ограничений paywall.
+Вы можете его поддержать через Яндекс.Деньги. Спасибо.
+
+
+        </div>
+  </div>
+ </body>
+</html>

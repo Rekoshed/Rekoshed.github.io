@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Back end</title>
+		  <link  href="../Design/script.css" rel="stylesheet">
+		  <link  href="../Design/toolbar.css" rel="stylesheet">
+		  <script src ="../Design/bild.js"></script>
+		  </head>
+     <body>
+	     <script>
+	 		toolbar('../index.html','back_main.html');
+		 </script>
+			<div class="content">
+			Передача параметров между WEB-страницами с помощью JavaScript
+			На главную страницу
+			Передача параметров между WEB-страницами с помощью JavaScript
+			Для демонстрации передачи параметров между HTML-страницами, создадим файл go.html с одной строкой:
+			
+			<a href="index.html?result=voted">Вызов сайта с параметрами</a>
+			Таким образом, задача сводится к вычленению переменных и их значений из запроса (?result=voted). Разумеется, JavaScript не является самым оптимальным языком программирования для обработки подобных запросов, но иногда его применение оправдано (например, когда нет возможности использовать языки Perl, PHP и др.).
+			
+			В JavaScript имеется свойство window.location.search или просто location.search. Для реализации нашей задачи файл index.html будет содержать следующий текст:
+			
+			<script language='javascript'>
+			
+			function getParam(sParamName)
+			// Функция определения переданной переменной
+			{
+			var Params = location.search.substring(1).split("&"); 
+			// отсекаем «?» и вносим переменные и их значения в массив var variable = "";
+			
+			for (var i = 0; i < Params.length; i++) // просматриваем весь массив переменных
+			{ 
+			if (Params[i].split("=")[0] == sParamName) // если найдена искомая переменная, и
+			{ 
+			if (Params[i].split("=").length > 1) variable = Params[i].split("=")[1]; 
+			// если значение параметра задано, то 
+			return variable; // возвращаем его
+			}
+			}
+			return "";
+			}
+			
+			// Печать результата
+			str = getParam("result");
+			document.write('Значение переданной переменной result = ');
+			document.write('<b>');
+			document.write(str);
+			document.write('</b>');
+			
+			</script>
+			Основу содержимого сайта index.html составляет функция getParam(sParamName), вызов которой выглядит так: getParam("result"). В нашем примере эта функция выдаст строку "voted".
+        </div>
+  </div>
+ </body>
+</html>
