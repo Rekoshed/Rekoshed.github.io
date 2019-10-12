@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Back end</title>
+		  <link  href="../../Design/script.css" rel="stylesheet">
+		  <link  href="../../Design/toolbar.css" rel="stylesheet">
+		  <script src ="../../Design/bild.js"></script>
+		  </head>
+     <body>
+	     <script>
+	 		toolbar('../index.html','../Back_main.html');
+		 </script>
+			<div class="content">
+					<script>
+							var contentDiv = document.querySelector("div.content");
+							// создаем элемент
+							var elem = document.createElement("h2");
+							var spred = document.createElement("span")
+							var newDiv = document.createElement("div")
+							
+							// создаем для него текст
+							var elemText = document.createTextNode("Ссылки на основные конспекты");
+							// добавляем стилизованный текст в элемент в качестве дочернего элемента
+							elem.appendChild(spred);
+							spred.appendChild(elemText);
+							// добавляем элементы в родительский блок div
+							contentDiv.appendChild(elem);
+							contentDiv.appendChild(newDiv);
+							// добовляем в дочерний div html-код ссылки
+							newDiv.innerHTML ="<a href='../../Style/Style_main.html' ><h2>Некоторая тема</h2></a>";
+							
+							// ниже мы создаём список
+							var list = document.createElement("ul")
+							// создаём элемент списка
+							var linkl = document.createElement("li")
+							// добавляем ссылку в элемент списка
+							linkl.innerHTML = "<a href='../../PhytonStudent/PyMain.html' ><h2>Некоторый урок</h2></a>"
+							// добавляем список в родительский div
+							contentDiv.appendChild(list);
+							// добавляем в список его элемент с ссылкой
+							list.appendChild(linkl);
+				
+				</script>
+				<h2> Рабочий блок ссылок оформленный  в функцию</h2> 
+				<div class="item2"> </div>
+			<script>
+		
+function item2(st){// список ссылок в блок item2
+	// st - указать глубину погружения файла 
+	//(../) - на уровень вверх (../../) - 2 уровня и т.д.
+    var itemDiv = document.querySelector("div.item2");
+    
+    // ниже мы создаём список
+	var list = document.createElement("ul")
+	// создаём элементы списка
+	var linkl = document.createElement("li")
+	var linkll = document.createElement("li")
+	var linklll = document.createElement("li")
+	var linklV = document.createElement("li")
+	var linkV = document.createElement("li")
+	var linkVl = document.createElement("li")
+	var linkVll = document.createElement("li")
+	
+	// добавляем ссылки в элементы списка
+	linkl.innerHTML = "<a href='" + st + "HTMLStudent/HTMLMain.html' ><h2>HTML</h2></a>"
+	linkll.innerHTML = "<a href='" + st + "CssStudent/CSSmain.html' ><h2>CSS</h2></a>"
+	linklll.innerHTML = "<a href='" + st + "ScriptStudent/ScriptMain.html' ><h2>Java Script</h2></a>"
+	linklV.innerHTML = "<a href='" + st + "PhytonStudent/PyMain.html' ><h2>Python</h2></a>"
+	linkV.innerHTML = "<a href='" + st + "Style/Style_main.html' ><h2>Style</h2></a>"
+	
+	// добавляем список в родительский div
+	itemDiv.appendChild(list);
+	// добавляем в список его элементв с ссылками
+	list.appendChild(linkl);
+	list.appendChild(linkll);
+	list.appendChild(linklll);
+	list.appendChild(linklV);
+	list.appendChild(linkV);
+	
+	}
+	item2('../../');
+			</script>
+			
+        </div>
+  </div>
+ </body>
+</html>

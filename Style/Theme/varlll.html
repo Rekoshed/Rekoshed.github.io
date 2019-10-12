@@ -11,10 +11,10 @@
 		  </head>
      <body>
 	     <script>
-	 		toolbar('../../index.html','../CSSmain.html');
+	 		toolbar('../../index.html','../Style_main.html');
 		 </script>
 			<div class="content">
-		<h3><span id="br">Данные примеры требуют доработки и не являются рабочими</span></h3>
+		
 			<h3>Передать значение переменной JS в стиль CSS</h3>
 		<p>
 			Допустим, нужно передать диву ширину, значение которой вычисляется в JS.
@@ -79,8 +79,9 @@ background-color: red;
 &lt;/style>
 &lt;div id="example">&lt;/div>
 </pre>	
-			
-			
+<div id="example"> example 1</div>
+<div class="examplel">example 2</div>
+						
 			<script>
 			var example = 50;
 			document.querySelector('#example').style.width = example + '%';
@@ -92,7 +93,7 @@ background-color: red;
 			background-color: red;
 			}
 			</style>
-			<div id="example"> example 1</div>
+			
 			
 			
 			
@@ -106,7 +107,6 @@ background-color: red;
 			background-color: red;
 			}
 			</style>
-			<div class="examplel">example 2</div>
 			
         </div>
   </div>
