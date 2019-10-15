@@ -70,7 +70,7 @@ font-weight:800;
 font-family:Arial;
 }
 
-#comand, #cmd{/*стилизуем команды терминала*/
+#comand, #cmd, .cmd{/*стилизуем команды терминала*/
 color:purple;
 font-weight:800;
 background-color:var(--back-cmd);

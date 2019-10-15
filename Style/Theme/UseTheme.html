@@ -64,7 +64,7 @@
       color: white;}
       .grid-container {
       display: grid;
-      height: 100vh;
+      height: 150vh;
       grid-template-rows: 6em 10px 1fr;
       grid-template-columns: [mainstart] 1fr [mainend] 10px [sidebarestart] 25% [sidebarend];
       }
@@ -82,6 +82,7 @@
       }
       
       .grid-item-header{
+        display: inline-block;
       background-color: #263238;
       grid-row: 1 / 2;
       grid-column: mainstart / sidebarend;
@@ -94,9 +95,8 @@
       </style>
   
       <div class="toolbar">
-      <a href="../CSSmain.html">Главная</a>
-      <a href="#">назад
-      </a>
+        <a href="../../index.html">Главная</a>
+        <a href="../Style_main.html">Назад</a>
       <a href="#">
      описание
       </a>
@@ -125,9 +125,9 @@
       <label>  <input type="radio" class="color" id="red" name="button" value="#ccc" onclick='header_color(this)'>ccc</label>
       <label> <input type="radio"  class="color" id="orange" name="button" value="#000" onclick='header_color(this)'>000</label>
       <label> <input type="radio"  class="color" id="yellow" name="button" value="#afc" onclick='header_color(this)'>afc</label>
-      
-      <h1>Header</h1>
+      </form>
       <form>
+        
       <select id="header">
       <option value="">Выберите цвет</option>
       <option value="red">red</option>
