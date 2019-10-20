@@ -11,17 +11,34 @@ p {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 :root {
+    
+    --code-color: #073470;
+    --code-fontfamily: Anonymous Pro;
     --python: #101569;
     --main-color: #f66fff;
     --kod:#004510;
     --back-code:#ffc;
     --back-pre:#ffc;
     --back-cmd:#eee;
+    --strong-color:rgb(48, 33, 2);
+}
+strong {
+    color: var(--strong-color);
+}
+kbd {
+    color: var(--back-cmd);
+    background-color: var(--code-color);
+}
+code {
+ color: var(--code-color);
+ font-family: var(--code-fontfamily);
+ font-size: 1.2em;
+ 
 }
 .python pre {
     color: var(--kod);
     background-color:var(--back-pre);
-    font-weight:900;   
+    font-weight:700;   
 }
 .python code {
     font-family:Courier New;
@@ -75,7 +92,7 @@ color:purple;
 font-weight:800;
 background-color:var(--back-cmd);
 }
-#kod{
+#kod, .kod {
 display:block;
 color: darkgreen;
 font-weight:800;
