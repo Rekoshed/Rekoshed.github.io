@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Phyton обзор</title>
+		  <link  href="../../Design/script.css" rel="stylesheet">
+		  <link  href="../../Design/toolbar.css" rel="stylesheet">
+		  <script src ="../../Design/bild.js"></script>
+		  </head>
+     <body>
+	     <script>
+	 		toolbar('../../index.html','../Bash_main.html');
+		 </script>
+			<div class="content">
+	<h3> подключить Wi-Fi используя терминал Linux с помощью команды Nmcli</h3>
+				<p>
+				В системах *nux существует несколько средств командной строки для 
+				управления беспроводным сетевым интерфейсом.  Некоторые из них
+				 могут использоваться для простого просмотра состояния 
+				 интерфейса беспроводной сети (будь то «up» или «down«),
+				  таких как <strong>iw, iwlist, ip, ifconfig</strong> и другие.
+			</p>	
+		<p>		Некоторые из них используются для подключения к беспроводной сети. 
+		Одним из них является <span id="br">nmcli</span>, инструмент командной строки,
+		 используемый для создания, отображения, редактирования, удаления, включения и отключения
+		  сетевых подключений, а также контроля и отображения состояния сетевого устройства.
+	</p>			
+				
+	<p>Проверка имени вашего сетевого устройства осуществляется с помощью следующей команды:</p>
+<pre id="kod">	 		
+$ iw dev
+phy#0
+Interface wlp1s0
+ifindex 3
+wdev 0x1
+addr 38:b1:db:7c:78:c7
+type managed
+</pre>
+<p>Из вывода этой команды мы видим, что имя/интерфейс устройства —<code> wlp1s0.</code></p>
+<p>Затем проверяем состояние подключения устройства Wi-Fi, используя следующую команду:</p>
+<pre id="kod">			
+iw wlp2s0 link
+Not connected.
+</pre>				
+
+<p>	На выводе выше видно, что устройство не подключено к какой-либо сети.
+ Выполните следующую команду для сканирования доступных сетей Wi-Fi.</p>
+<pre id="kod">				
+sudo iw wlp2s0 scan
+command failed: Network is down (-100)
+</pre>
+				
+<p>Учитывая вывод вышеуказанной команды, сетевое устройство/интерфейс выключено <code>«DOWN«</code>,
+ но можем включить его<code> «UP»</code> с помощью команды <code>ip</code>:</p>
+<pre id="kod">
+$ sudo ip link set wlp1s0 up
+</pre>
+
+				
+<p>	Вывод следующей ошибки означает, что ваш Wi-Fi заблокирован непосредственно на ПК:</p>
+<pre id="kod">				
+RTNETLINK answers: Operation not possible due to RF-kill
+</pre>				
+				
+	<p>Чтобы исправить эту ошибку, необходимо выполнить следующую команду:</p>
+<pre id="kod">		
+$ echo "blacklist hp_wmi" | sudo tee /etc/modprobe.d/hp.conf
+$ sudo rfkill unblock all
+</pre>	
+				
+<p>	Затем попробуйте снова включить сетевое устройство, 
+и на этот раз все должно сработать:</p>
+<pre id="kod">
+$ sudo ip link set wlp1s0 up
+</pre>
+				
+<p>Если вы знаете ESSID сети Wi-Fi, к которой хотите подключиться, перейдите к следующему шагу, 
+в противном случае выполните следующую команду, чтобы снова проверить доступные сети Wi-Fi:</p>
+<pre id="kod">	
+$ sudo iw wlp1s0 scan
+</pre>
+		<p>		
+	И, наконец, подключитесь к сети wi-fi, используя следующую команду:
+	<code> Hackernet</code> ( сетевой SSID Wi-Fi) и <code>localhost22</code> (пароль/предварительно открытый ключ).</p>
+<pre id="kod">	
+$ nmcli dev wifi connect Hackernet password localhost22
+</pre>	
+	<p>После выполнения вышеприведенной команды проверьте подключение, 
+	выполнив <code>ping</code> на внешнюю машину и проанализируйте её вывод:</p>
+<pre id="kod">	
+$ ping 8.8.8.8
+PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
+64 bytes from 8.8.8.8: icmp_seq=1 ttl=48 time=61.7 ms
+64 bytes from 8.8.8.8: icmp_seq=2 ttl=48 time=61.5 ms
+64 bytes from 8.8.8.8: icmp_seq=3 ttl=48 time=61.6 ms
+64 bytes from 8.8.8.8: icmp_seq=4 ttl=48 time=61.3 ms
+64 bytes from 8.8.8.8: icmp_seq=5 ttl=48 time=63.9 ms
+^C
+--- 8.8.8.8 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4006ms
+rtt min/avg/max/mdev = 61.338/62.047/63.928/0.950 ms
+</pre>
+            </div>
+  </div>
+ </body>
+</html>

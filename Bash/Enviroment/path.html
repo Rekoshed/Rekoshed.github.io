@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Командная сторока</title>
+		  <link  href="../../Design/script.css" rel="stylesheet">
+		  <link  href="../../Design/toolbar.css" rel="stylesheet">
+		  <script src ="../../Design/bild.js"></script>
+		  </head>
+     <body>
+	     <script>
+	 		toolbar('../../index.html','../Bash_main.html');
+		 </script>
+			<div class="content">
+
+				<p>В Linux (также UNIX) <strong>$PATH</strong> &#8212; это переменная среды, используемая для указания оболочке, где искать исполняемые файлы. <strong>$PATH</strong> обеспечивает большую гибкость и безопасность для систем Linux, и, безусловно, можно сказать, что это одна из самых важных переменных среды.</p>
+<p>Программы/скрипты, расположенные в каталоге <strong>$PATH</strong>, могут быть выполнены непосредственно в вашей оболочке без указания полного пути к ним. В этой статье вы узнаете, как установить переменную <strong>$PATH</strong> глобально и локально.</p>
+<p>Сначала давайте посмотрим ваше текущее значение <strong>$PATH</strong>. Откройте терминал и выполните следующую команду:</p>
+<pre data-bit='true,true,false,false,,pos'><code class='bash '>$ echo $PATH</code></pre>
+<p>&nbsp;</p>
+<p>Результат должен быть примерно таким:</p>
+<pre data-bit='true,true,false,false,,pos'><code class='bash '>/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games/</code></pre>
+<p>&nbsp;</p>
+<p>Результат отображает список каталогов, разделенных двоеточиями. Вы можете легко добавить больше каталогов, отредактировав файл профиля оболочки вашего пользователя.</p>
+<p>В разных оболочках это делается так:</p>
+<ul>
+<li>оболочка Bash -&gt; ~ / .bash_profile, ~ / .bashrc или .profile</li>
+<li>оболочка Korn -&gt; ~ / .kshrc или .profile</li>
+<li>оболочка Z -&gt; ~ / .zshrc или .zprofile</li>
+</ul>
+<p>Обратите внимание, в зависимости от того, как вы регистрировались в системе, могут прочитаться разные файлы конфигурации оболочки. Вот что говорит руководство по <em>bash</em>, помните, что есть файлы конфигурации и на других оболочках:</p>
+<ul>
+<li>/bin/bash &#8212; запуск оболочки</li>
+<li>/etc/profile &#8212; глобальный системный файл инициализации, запускается при входе в оболочку</li>
+<li>/etc/bash.bashrc &#8212; глобальный системный файл сценария конфигурации оболочки</li>
+<li>~/.bash_profile &#8212; персональный файл инициализации пользователя, запускается при входе в оболочку</li>
+<li>~/.bashrc &#8212; персональный файл сценария конфигурации оболочки</li>
+<li>~/.bash_logout &#8212; персональный файл сценария выхода для очистки оболочки, запускается когда пользователь выходит с оболочки</li>
+<li>~/.inputrc &#8212; персональный файл конфигурации клавиатуры для специфических ситуаций</li>
+</ul>
+
+</div></div>
+[/bash]$ export PATH=$PATH:/path/to/newdir[/bash]
+<p>&nbsp;</p>
+<p>Конечно, в приведенном выше примере вы должны изменить <strong>/path/to/newdir</strong> с точным путем, который вы хотите установить. После того, как вы изменили свой файл <strong>.*rc</strong> или <strong>.*_profile</strong>, вам нужно будет его снова вызвать (прочитать заново), используя команду <em>source</em>.</p>
+<p>Например, в <em>bash</em> вы можете сделать это:</p>
+<pre data-bit='true,true,false,false,,pos'><code class='  '>$ source ~/.bashrc</code></pre>
+<p>&nbsp;</p>
+<p>Ниже вы можете увидеть пример моей среды <strong>$PATH</strong> на локальном компьютере:</p>
+<pre data-bit='true,true,false,false,,pos'><code class='  '><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="dda8aeb8af9d">[email&#160;protected]</a>[SEDICOMM]:[/home/user] $ echo $PATH
+/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/user/bin</code></pre>
+<p>&nbsp;</p>
+<p>На самом деле хорошей практикой является создание локальной папки <strong>bin</strong> для пользователя, где пользователи могут размещать исполняемые файлы. Каждый пользователь будет иметь свою отдельную папку для хранения своего содержимого. Это также является хорошей мерой для обеспечения безопасности вашей системы.</p>
+            </div>
+  </div>
+ </body>
+</html>

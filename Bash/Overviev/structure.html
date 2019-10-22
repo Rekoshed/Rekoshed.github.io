@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Командная сторока</title>
+		  <link  href="../../Design/script.css" rel="stylesheet">
+		  <link  href="../../Design/toolbar.css" rel="stylesheet">
+		  <script src ="../../Design/bild.js"></script>
+		  </head>
+     <body>
+	     <script>
+	 		toolbar('../../index.html','../Bash_main.html');
+		 </script>
+			<div class="content">
+
+                    <p>Файловую структуру можно не только просматривать, но и всячески модифицировать. В прошлом уроке мы научились создавать файлы через перенаправление потоков, но всё это можно делать и напрямую.</p>
+
+                    <p><em>Учтите, что возможность модифицировать файловую структуру завязана на права пользователя. Если у вас нет соответствующих прав, вы получите ошибку доступа. Место, где вы гарантированно можете экспериментировать — ваша домашняя директория. Внутри неё всё доступно на запись.</em></p>
+                    
+                    <p>Для примеров этого урока мы создали каталог <code>test</code> в домашней директории. То есть все демонстрируемые команды выполняются в директории по адресу: <code>~/test</code>.</p>
+                    
+                    <p>Для создания файлов принято использовать утилиту <code>touch</code>.</p>
+                    
+                    <p><em>Основная задача утилиты поменять время последнего доступа к файлу, но она обладает побочным эффектом. Если файла не существует, то он будет создан — именно поэтому её используют для создания файлов, хотя это не основное предназначение.</em></p>
+                    
+                    <pre><code class="sh"># В текущей директории создаётся пустой файл
+                    touch empty-file
+                    </code></pre>
+                    
+                    <script src="https://asciinema.org/a/EK9l2zlzVa8CsHYA9SzTJTrKZ.js" id="asciicast-EK9l2zlzVa8CsHYA9SzTJTrKZ" data-cols="120" data-rows="14" data-preload="1" async></script>
+                    
+                    <p>Удаляется файл командой <code>rm</code> (remove files):</p>
+                    
+                    <pre><code class="sh">rm empty-file
+                    </code></pre>
+                    
+                    <script src="https://asciinema.org/a/z9BTi5w3UOy0Fp1misw630u38.js" id="asciicast-z9BTi5w3UOy0Fp1misw630u38" data-cols="120" data-rows="14" data-preload="1" async></script>
+                    
+                    <p>В *nix системах не существует понятия "переименовать файл". Переименование всегда равносильно перемещению, которое выполняется командой <code>mv</code> (move)</p>
+                    
+                    <pre><code class="sh">touch file
+                    mv file renamed-file
+                    </code></pre>
+                    
+                    <script src="https://asciinema.org/a/nHCJLgmnw0HoOKp4Sh0Yp9m6k.js" id="asciicast-nHCJLgmnw0HoOKp4Sh0Yp9m6k" data-cols="120" data-rows="19" data-preload="1" async></script>
+                    
+                    <p>Для копирования файлов и директорий используется утилита <code>cp</code> (copy). Её первый аргумент — имя источника (откуда), второй — имя приёмника (куда).</p>
+                    
+                    <pre><code class="sh">cp renamed-file renamed-file-copy
+                    </code></pre>
+                    
+                    <script src="https://asciinema.org/a/Pag7yOALRusxRXNYL9n7Ef1I0.js" id="asciicast-Pag7yOALRusxRXNYL9n7Ef1I0" data-cols="120" data-rows="15" data-preload="1" async></script>
+                    
+                    <p>Для копирования директории нужно добавить флаг <code>-r</code> (recursive).</p>
+                    
+                    <p>Все эти и последующие утилиты работают с файлами и директориями, расположенными в любом месте файловой системы. Поэтому вы всегда можете передать любой путь: <code>touch /tmp/tempfile</code>.</p>
+                    
+                    <p>Утилиты для работы с директориями частично отличаются. Создание директории выполняется командой <code>mkdir</code> (make directory).</p>
+                    
+                    <pre><code class="sh">mkdir my-dir
+                    </code></pre>
+                    
+                    <script src="https://asciinema.org/a/o9hWi8qsQiLddJKGDP4WXHy84.js" id="asciicast-o9hWi8qsQiLddJKGDP4WXHy84" data-cols="120" data-rows="17" data-preload="1" async></script>
+                    
+                    <p>По умолчанию эта команда не создаёт вложенных директорий:</p>
+                    
+                    <pre><code class="sh">mkdir one/two/three
+                    mkdir: cannot create directory ‘one/two/three’: No such file or directory
+                    </code></pre>
+                    
+                    <script src="https://asciinema.org/a/TvPdYV7ZBKp3TLzbDXjWJrkig.js" id="asciicast-TvPdYV7ZBKp3TLzbDXjWJrkig" data-cols="120" data-rows="13" data-preload="1" async></script>
+                    
+                    <p>В такой ситуации придётся либо создавать каждую директорию отдельно, либо воспользоваться флагом <code>-p</code>, который создаёт директории рекурсивно.</p>
+                    
+                    <pre><code class="sh">mkdir -p one/two/three
+                    </code></pre>
+                    
+                    <script src="https://asciinema.org/a/795AjrJ5Mo52KbzIxdZa0npzB.js" id="asciicast-795AjrJ5Mo52KbzIxdZa0npzB" data-cols="120" data-rows="24" data-preload="1" async></script>
+                    
+                    <p>Удаление директорий выполняется той же командой, что и удаление файлов, но без флагов оно выдаёт предупреждение:</p>
+                    
+                    <pre><code class="sh">rm my-dir/
+                    rm: cannot remove 'my-dir/': Is a directory
+                    </code></pre>
+                    
+                    <script src="https://asciinema.org/a/qYUXYAB52YDBVQAV8V1EGdARg.js" id="asciicast-qYUXYAB52YDBVQAV8V1EGdARg" data-cols="120" data-rows="14" data-preload="1" async></script>
+                    
+                    <p>Чтобы не было ошибки, нужно добавить флаг <code>-r</code>. Он включает режим рекурсивного (r - recursion) удаления содержимого директорий, то есть идет просмотр всего что внутри во всех вложенных директориях и поддиректориях (до самого конца).</p>
+                    
+                    <pre><code class="sh">rm -r my-dir
+                    </code></pre>
+                    
+                    <script src="https://asciinema.org/a/Jz48g4nO2bQttoiSVXfV31vuP.js" id="asciicast-Jz48g4nO2bQttoiSVXfV31vuP" data-cols="120" data-rows="19" data-preload="1" async></script>
+                    
+                    <p>Если внутри директории есть файлы, то команда <code>rm</code> начнёт задавать вопрос по каждому из них, нужно ли его удалять. Если вы точно уверены, что удалить нужно всё, добавьте флаг <code>-f</code>. В таком случае <code>rm</code> удалит всю директорию без вопросов.</p>
+                    
+                    <pre><code class="sh">rm -rf one
+                    </code></pre>
+            </div>
+  </div>
+ </body>
+</html>
