@@ -32,7 +32,7 @@ kbd {
 code {
  color: var(--code-color);
  font-family: var(--code-fontfamily);
- font-size: 1.2em;
+ font-size: 1 rem;
  
 }
 .python pre {
@@ -99,7 +99,7 @@ font-weight:800;
 margin:10px;
 letter-spacing: 1px;
 font-family:Courier New;
-font-size:0.8em;
+font-size:0.8 rem;
 }
 #block, #b{
 display:block;

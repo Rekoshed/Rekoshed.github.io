@@ -1,0 +1,334 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>CSS. Блочная модель</title>
+		  <link  href="../../Design/script.css" rel="stylesheet">
+		  <link  href="../../Design/toolbar.css" rel="stylesheet">
+		  <script src ="../../Design/bild.js"></script>
+		  </head>
+     <body>
+	     <script>
+	 		toolbar('../../index.html','../CSSmain.html');
+		 </script>
+			<div class="content">
+			
+			
+		<h2>Значения свойства<span id="br"> "display"</span></h2>
+	
+			<h3>Значение none</h3>
+			<p>Самое простое значение. Элемент не показывается, вообще. Как будто его и нет.</p>
+<pre id="kod">	
+&lt;div style="border:1px solid black">
+Невидимый div (
+&lt;div style="display: none">Я - невидим!&lt;/div>
+) Стоит внутри скобок
+&lt;/div>
+</pre>
+			<h3>Значение block</h3>
+<p>Блочные элементы располагаются один над другим, вертикально (если нет особых свойств позиционирования, например float).</p>
+<p>Блок стремится расшириться на всю доступную ширину, 
+если она не указана явно.</p>
+<p>Это значение <code>display</code> многие элементы имеют по умолчанию:<strong> &lt;div></strong>, заголовок <strong>&lt;h1>,</strong> параграф <strong>&lt;p>.</strong></p>
+<pre id="kod">
+&lt;div style="border:1px solid black">
+&lt;div style="border:1px solid blue; width: 50%">Первый&lt;/div>
+&lt;div style="border:1px solid red">Второй&lt;/div>
+&lt;/div>
+</pre>
+
+<div class="example">
+<div style="border:1px solid black">
+<div style="border:1px solid blue; width: 50%">Первый</div>
+<div style="border:1px solid red">Второй</div>
+</div>
+</div>
+<p>Блоки прилегают друг к другу вплотную, если у них нет<code> margin</code>.</p>
+
+<h3>Значение <span id="br">inline</span></h3>
+<p>Элементы располагаются на той же строке, последовательно.
+Ширина и высота элемента определяются по содержимому. Поменять их нельзя.</p>
+<p> инлайновые элементы по умолчанию: <strong>&lt;span>, &lt;a>.</strong></p>
+<pre id="kod">
+&lt;span style="border:1px solid black">
+&lt;span style="border:1px solid blue; width:50%">Ширина&lt;/span>
+&lt;a style="border:1px solid red">Игнорируется&lt;/a>
+&lt;/span>
+</pre>
+<div class="example">
+<span style="border:1px solid black">
+<span style="border:1px solid blue; width:50%">Ширина</span>
+<a style="border:1px solid red">Игнорируется</a>
+</span>
+</div>
+<p>В примере выше,между внутренними <strong>&lt;span></strong> и <strong>&lt;a></strong> есть пробел.
+ Это потому, что он есть в HTML.
+
+Если расположить элементы вплотную – его не будет:</p>
+<pre id="kod">
+&lt;span style="border:1px solid black">
+&lt;span style="border:1px solid blue; width:50%">Без&lt;/span>&lt;a style="border:1px solid red">Пробела&lt;/a>
+&lt;/span>
+</pre>
+<div class="example">
+<span style="border:1px solid black">
+<span style="border:1px solid blue; width:50%">Без</span><a style="border:1px solid red">Пробела</a>
+</span>
+</div>
+
+<p>Содержимое инлайн-элемента может переноситься на другую строку.
+
+При этом каждая строка в смысле отображения является отдельным прямоугольником («line box»).
+Так что инлайн-элемент состоит из объединения прямоугольников, но в целом, в отличие от блока, 
+прямоугольником не является.</p>
+
+
+<p>Например, три элемента подряд:</p>
+<pre id="kod">
+&lt;div style="width:100%">
+...&lt;span style="background: lightgreen">
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%
+&lt;/span>...
+&lt;/div>
+</pre>
+<div class="example">
+<div style="width:100%">
+...<span style="background: lightgreen">
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%
+</span>...
+</div>
+</div>
+<p>
+Если инлайн-элемент граничит с блоком, то между ними обязательно будет 
+перенос строки:
+</p>
+<pre id="kod">
+&lt;div style="border:1px solid black">
+&lt;span style="border:1px solid red">Инлайн&lt;/span>
+&lt;div style="border:1px solid blue; width:50%">Блок&lt;/div>
+&lt;span style="border:1px solid red">Инлайн&lt;/span>
+&lt;/div>
+</pre>
+
+<div class="example">
+<div style="border:1px solid black">
+<span style="border:1px solid red">Инлайн</span>
+<div style="border:1px solid blue; width:50%">Блок</div>
+<span style="border:1px solid red">Инлайн</span>
+</div>
+</div>
+
+<h3>Значение <span id="br">inline-block</span></h3>
+<p>При этом значении элемент продолжает находиться в строке (inline),
+ но при этом имеет важные свойства блока.
+Например работают свойства <code>width/height</code>.</p>
+
+<p>Это значение <code>display</code> используют, 
+чтобы отобразить в одну строку блочные элементы,
+ в том числе разных размеров.</p>
+
+<p>Например:</p>
+<pre id="kod">
+&lt;style>
+li {
+display: inline-block;
+list-style: none;
+border: 1px solid red;
+}
+&lt;/style>
+
+&lt;ul style="border:1px solid black; padding:0">
+&lt;li>Инлайн Блок&lt;br>3 строки&lt;br>высота/ширина явно не заданы&lt;/li>
+&lt;li style="width:100px;height:100px">Инлайн&lt;br>Блок 100x100&lt;/li>
+&lt;li style="width:60px;height:60px">Инлайн&lt;br>Блок 60x60&lt;/li>
+&lt;li style="width:100px;height:60px">Инлайн&lt;br>Блок 100x60&lt;/li>
+&lt;li style="width:60px;height:100px">Инлайн&lt;br>Блок 60x100&lt;/li>
+&lt;/ul>
+</pre>
+<style>
+li {
+display: inline-block;
+list-style: none;
+border: 1px solid red;
+}
+</style>
+<div class="example">
+<ul style="border:1px solid black; padding:0">
+<li>Инлайн Блок<br>3 строки<br>высота/ширина явно не заданы</li>
+<li style="width:100px;height:100px">Инлайн<br>Блок 100x100</li>
+<li style="width:60px;height:60px">Инлайн<br>Блок 60x60</li>
+<li style="width:100px;height:60px">Инлайн<br>Блок 100x60</li>
+<li style="width:60px;height:100px">Инлайн<br>Блок 60x100</li>
+</ul>
+</div>
+<p>Свойство <code>vertical-align</code> позволяет выровнять такие элементы
+ внутри внешнего блока:</p>
+ <pre id="kod">
+ &lt;style>
+ li {
+ display: inline-block;
+ list-style: none;
+ border:1px solid red;
+ vertical-align: middle;
+ background: #fcc;
+ }
+ &lt;/style>
+ &lt;ul style="border:1px solid black; padding:0">
+ &lt;li>Инлайн Блок&lt;br>3 строки&lt;br>высота/ширина явно не заданы&lt;/li>
+ &lt;li style="width:100px;height:100px">Инлайн&lt;br>Блок 100x100&lt;/li>
+ &lt;li style="width:60px;height:60px">Инлайн&lt;br>Блок 60x60&lt;/li>
+ &lt;li style="width:100px;height:60px">Инлайн&lt;br>Блок 100x60&lt;/li>
+ &lt;li style="width:60px;height:100px">Инлайн&lt;br>Блок 60x100&lt;/li>
+ &lt;/ul>
+ </pre>
+
+<style>
+.l li {
+display: inline-block;
+list-style: none;
+border:1px solid red;
+vertical-align: middle;
+background: #fcc;
+}
+</style>
+<div class="example l">
+<ul style="border:1px solid black; padding:0">
+<li>Инлайн Блок<br>3 строки<br>высота/ширина явно не заданы</li>
+<li style="width:100px;height:100px">Инлайн<br>Блок 100x100</li>
+<li style="width:60px;height:60px">Инлайн<br>Блок 60x60</li>
+<li style="width:100px;height:60px">Инлайн<br>Блок 100x60</li>
+<li style="width:60px;height:100px">Инлайн<br>Блок 60x100</li>
+</ul>
+</div>
+<p>
+Как и в случае с инлайн-элементами, пробелы между блоками появляются
+ из-за пробелов в HTML.
+  Если элементы списка идут вплотную, например, генерируются в JavaScript – их не будет.
+</p>
+<h3>Значения <span id="br">table-*</span></h3>
+<p>Современные браузеры (IE8+) позволяют описывать таблицу любыми элементами,
+ если поставить им соответствующие значения <code>display</code>.</p>
+<p>
+Для таблицы целиком- <code>table</code>, для строки – <code>table-row</code>, для ячейки – <code>table-cell</code> и т.д.
+</p>
+Пример использования:
+<pre id="kod">
+&lt;form style="display: table">
+&lt;div style="display: table-row">
+&lt;label style="display: table-cell">Имя:&lt;/label>
+&lt;input style="display: table-cell">
+&lt;/div>
+&lt;div style="display: table-row">
+&lt;label style="display: table-cell">Фамилия:&lt;/label>
+&lt;input style="display: table-cell">
+&lt;/div>
+&lt;/form>
+</pre>
+<div class="example">
+<form style="display: table">
+<div style="display: table-row">
+<label style="display: table-cell">Имя:</label>
+<input style="display: table-cell">
+</div>
+<div style="display: table-row">
+<label style="display: table-cell">Фамилия:</label>
+<input style="display: table-cell">
+</div>
+</form>
+</div>
+<p>
+Важно то, что это действительно полноценная таблица.
+ Используются табличные алгоритмы вычисления ширины и высоты элемента,
+  описанные в стандарте .</p>
+
+<p>Это хорошо для семантической вёрстки и позволяет избавиться от лишних тегов.</p>
+
+<p>С точки зрения современного CSS, обычные 
+<strong>&lt;table>, &lt;tr>, &lt;td> </strong>и т.д. – это просто элементы с предопределёнными значениями <code>display</code>:</p>
+<pre >
+<span id="br"> table </span>   { display: table }
+<span id="br">tr </span>     { display: table-row }
+<span id="br">thead </span>   { display: table-header-group }
+<span id="br">tbody</span>    { display: table-row-group }
+<span id="br">tfoot</span>    { display: table-footer-group }
+<span id="br">col </span>     { display: table-column }
+<span id="br">colgroup</span> { display: table-column-group }
+<span id="br">td, th </span>  { display: table-cell }
+<span id="br">caption</span>  { display: table-caption }
+</pre>
+
+<p>Подробно об алгоритмах вычисления размеров и отображении таблиц
+ рассказывает стандарт CSS 2.1 – Tables .</p>
+
+<h3>Вертикальное центрирование с <code>table-cell</code></h3>
+<p>Внутри ячеек свойство <code>vertical-align </code>
+выравнивает содержимое по вертикали.</p>
+
+<p>Пример центрирования:</p>
+<pre id="kod">
+&lt;style>
+div { border:1px solid black }
+&lt;/style>
+
+&lt;div style="height:100px; display: table-cell; vertical-align: middle">
+&lt;div>Элемент&lt;br>С неизвестной&lt;br>Высотой&lt;/div>
+&lt;/div>
+</pre>
+<style>
+div { border:1px solid black }
+</style>
+
+<div style="height:100px; display: table-cell; vertical-align: middle">
+<div>Элемент<br>С неизвестной<br>Высотой</div>
+</div>
+
+<p>Данный блок ведёт себя как ячейка <code>TD</code>, 
+то есть подстраивается под размер содержимого и умеет вертикально
+ центрировать его при помощи <code>vertical-align.</code></p>
+
+<h2>Значения list-item, run-in и flex</h2>
+
+<h3>list-item</h3>
+<p>Этот <code>display</code> по умолчанию используется для элементов списка.
+ Он добавляет к блоку c содержимым  блок с номером(значком) списка,
+  который стилизуется стандартными списочными свойствами:</p>
+<pre id="kod">
+&lt;div style="display: list-item; list-style:inside square">Пункт 1&lt;/div>
+</pre>
+<div style="display: list-item; list-style:inside square">Пункт 1</div>
+
+<h3>run-in</h3>
+<p>Если после <span id="br">run-in</span> идёт <code>block</code>, 
+то<code> run-in</code> становится его первым инлайн-элементом,
+ то есть отображается в начале <code>block</code>.</p>
+
+<p>Пример:</p>
+
+<pre id="kod">
+&lt;h3 style="display: run-in; border:2px solid red">Про пчёл.&lt;/h3>
+&lt;div style="border:2px solid black">Пчёлы - отличные создания, они делают мёд.&lt;/div>
+</pre>
+<div>
+<h3 style="display: run-in; border:2px solid red">Про пчёл.</h3>
+<div style="border:2px solid black">Пчёлы - отличные создания, они делают мёд.</div>
+</div>
+<p>
+Вот, для примера, альтернативный вариант отображения run-in, оформленный другим кодом:
+</p>
+
+<div style="border:2px solid black">
+<h3 style="display: inline; border:2px solid red">Про пчёл.</h3>Пчёлы - отличные создания, они делают мёд.
+</div>
+
+<h3>flex-box</h3>
+<p><span id="br">Flexbox </span>позволяет удобно управлять дочерними и родительскими элементами на странице, 
+располагая их в необходимом порядке.</p>
+ 
+        </div>
+  </div>
+ </body>
+</html>

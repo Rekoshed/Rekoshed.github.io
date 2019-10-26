@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Командная сторока</title>
+		  <link  href="../../Design/script.css" rel="stylesheet">
+		  <link  href="../../Design/toolbar.css" rel="stylesheet">
+		  <script src ="../../Design/bild.js"></script>
+		  </head>
+     <body>
+	     <script>
+	 		toolbar('../../index.html','../Bash_main.html');
+		 </script>
+			<div class="content">
+
+				<p>Чем больше работаешь в командной строке, тем чаще возникает необходимость повторять введёные ранее команды. Самый простой способ просматривать историю команд — нажимать клавиши "вверх/вниз". При каждом нажатии стрелки "вверх" в поле ввода начнёт появляться предыдущая выполненная команда, если нажать "вниз" — то следующая.</p>
+
+<p>История команд баша хранится в специальном файле <code>.bash_history</code>, который лежит в домашней директории пользователя. Каждый раз, когда пользователь вводит команду, она попадает именно в этот файл. Он ничем не отличается от остальных файлов: его можно открыть, посмотреть и даже отредактировать. За то, какое количество команд хранится в истории, отвечает переменная окружения <code>HISTFILESIZE</code>. Если она выставлена, то берётся указанное в ней число, иначе история не обрезается и файл <code>.bash_history</code> растёт "бесконечно".</p>
+
+<pre  class="cmd">$ tail .bash_history
+rm -r one/
+env
+HOME=/tmp cd
+pwd
+cd
+echo $HOME
+export HOME=/tmp
+id
+exit
+id
+</pre>
+
+<p>Посмотреть историю можно и более простым способом, достаточно выполнить команду <code>history</code>.</p>
+
+<pre  class="cmd">$ history
+    1  docke rps
+    2  free -m
+    3  docker ps
+    4  docker exec -it 8678a6520641 bash
+    5  ls
+    6  exit
+    7  docker ps
+    8  docker exec -it 1209b6e5ce6b bash
+    ...
+</pre>
+
+<p>Эта команда выведет содержимое файла <code>.bash_history</code>, добавив слева номер. Если набрать <code>history 5</code>, то отобразятся только 5 последних введённых команд. Используя номер команды в выводе <code>history</code>, можно выполнить повторный запуск без необходимости набирать или копировать команду из истории.</p>
+
+<pre  class="cmd">$ !2
+# Эта команда имела второй номер в листинге выше
+free -m
+              total        used        free      shared  buff/cache   available
+Mem:           1998        1532          75          21         390         227
+Swap:             0           0           0
+</pre>
+<p>При необходимости историю всегда можно погрепать:</p>
+
+<pre  class="cmd">$ history | grep export
+  174  export HOME=/tmp
+  183  history | grep export
+</pre>
+
+<p>Последнее, и самое интересное — реверсивный поиск. Если нажать комбинацию <kbd>Ctrl + r</kbd>, то запустится специальный поиск по истории. Он ожидает ввода символов и сразу отображает ближайшую команду, в которой эти символы встречаются. Если найденное соответствие вас не устроило, то повторное нажатие <kbd>Ctrl + r</kbd> выберет следующее соответствие из истории.</p>
+
+<p><img src="https://cdn2.hexlet.io/derivations/image/original/eyJpZCI6ImYwMDVkMzY0MDVmNjMzM2Q5MTQyMTNlMmU3Y2Y4YTkwLmpwZyIsInN0b3JhZ2UiOiJjYWNoZSJ9?signature=9c8e3a92557e6ab6d3ee7b7a19e67180af9f014c777e0ded65d315022b9fb3be" alt="FZF"></p>
+
+<p>На скриншоте выше продвинутая версия этого поиска, работающая через утилиту <a href="https://github.com/junegunn/fzf#installation" target="_blank">fzf</a></p>
+
+            </div>
+  </div>
+ </body>
+</html>
