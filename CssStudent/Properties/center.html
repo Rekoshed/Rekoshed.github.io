@@ -1,0 +1,365 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>CSS. Центрирование</title>
+		  <link  href="../../Design/script.css" rel="stylesheet">
+		  <link  href="../../Design/toolbar.css" rel="stylesheet">
+		  <script src ="../../Design/bild.js"></script>
+		  </head>
+     <body>
+	     <script>
+	 		toolbar('../../index.html','../CSSmain.html');
+		 </script>
+		 <style type="text/css">
+		 li h4 {
+		 margin-bottom:0px;
+		 
+		 }
+		 </style>
+			<div class="content">
+			<h2>Центрирование контента</h2>
+		<h3>	Для горизонтального центрирования:</h3>
+			<ul>
+			<li><span id="br">text-align: center</span> – центрирует инлайн-элементы в блоке.
+<h4>пример:</h4>
+<pre id="kod">
+&lt;style>
+.outer {
+text-align: center;
+border: 1px solid blue;
+}
+&lt;/style>
+
+&lt;div class="outer">Текст&lt;/div>
+</pre>
+			
+			<style>
+			.outer {
+			text-align: center;
+			border: 1px solid blue;
+			margin:5px;
+		
+			}
+			</style>
+			<div class="outer">Текст</div>
+			Для центрирования блока это уже не подойдёт, свойство просто не подействует. 
+			</li>
+			<li><span id="br">margin: 0 auto</span> – центрирует блок внутри родителя. У блока должна быть указана ширина.
+			<h4>пример:</h4>
+<pre id="kod">
+&lt;style>
+.outer {
+border: 1px solid blue;
+}
+.inner {
+width: 100px;
+border: 1px solid red;
+margin: auto;
+}
+&lt;/style>
+
+&lt;div class="outer">
+&lt;div class="inner">Текст&lt;/div>
+&lt;/div>
+</pre>
+			
+			<style>
+			.outerl {
+			border: 1px solid blue;
+			}
+			.innerl {
+			width: 100px;
+			border: 1px solid red;
+			margin: auto;
+			}
+			</style>
+			
+			<div class="outerl">
+			<div class="innerl">Текст</div>
+			</div>
+Пооучается что слева и справа браузер автоматически выделяет
+одинаковое пространство, и блок визуально становиттся по центру.
+			</li>
+			</ul>
+			<h3>Для вертикального центрирования одного блока внутри другого:</h3>
+<ul>
+<li><h4>Если размер центрируемого элемента известен, а родителя – нет:</h4>
+Родителю <span id="br">position:relative</span>, потомку <span id="br">position:absolute; top:50%</span> и <span id="br">margin-top:-&lt;половина-высоты-потомка>.</span>
+ Аналогично можно отцентрировать и по горизонтали.
+<h4>пример</h4>
+<pre id="kod">
+ &lt;style>
+ .outer {
+ position: relative;
+ height: 5em;
+ border: 1px solid blue;
+ }
+ 
+ .inner {
+ position: absolute;
+ top: 50%;
+ margin-top: -0.625em;
+ border: 1px solid red;
+ }
+ &lt;/style>
+ 
+ &lt;div class="outer">
+ &lt;div class="inner">Текст&lt;/div>
+ &lt;/div>
+ </pre>
+ <style>
+ .outerll {
+ position: relative;
+ height: 5em;
+ border: 1px solid blue;
+ }
+ 
+ .innerll {
+ position: absolute;
+ top: 50%;
+ margin-top: -0.625em;
+ border: 1px solid red;
+ }
+ </style>
+ 
+ <div class="outerll">
+ <div class="innerll">Текст</div>
+ </div>
+ 
+ </li>
+
+<li><h4>Если нужно отцентрировать одну строку в блоке, высота которого известна:</h4>
+Поставить блоку <span id="br">line-height: &lt;высота></span>. Нужны конкретные единицы высоты (px,em…).
+ Значение <code>line-height:100%</code> не будет работать, т.к. проценты берутся не от высоты блока,
+  а от текущей <code>line-height.</code>
+  <h4>пример</h4>
+  <pre id="kod">
+  
+  &lt;style>
+  .outer {
+  height: 5em;
+  line-height: 5em;
+  border: 1px solid blue;
+  }
+  &lt;/style>
+  
+  &lt;div class="outer">
+  &lt;span style="border:1px solid red">Текст&lt;/span>
+  &lt;/div>
+  </pre>
+  
+  <style>
+  .outerlll {
+  height: 5em;
+  line-height: 5em;
+  border: 1px solid blue;
+  }
+  </style>
+  
+  <div class="outerlll">
+  <span style="border:1px solid red">Текст</span>
+  </div>
+  </li>
+
+<li><h4>Высота родителя известна, а центрируемого элемента – нет:</h4>
+Поставить <span id="br">line-height</span> родителю во всю его высоту, а потомку поставить
+ <span id="br">display:inline-block.</span>
+ <h4>пример:</h4>
+ <pre id="kod">
+ 
+ &lt;style>
+ .outer {
+ line-height: 120px;
+ }
+ .inner {
+ display: inline-block; /* центрировать..*/
+ vertical-align: middle;  /* ..по вертикали */
+ line-height: 1.25; /* переопределить высоту строки на обычную */
+ border: 1px solid red;
+ }
+ &lt;/style>
+ &lt;div class="outer" style="height: 120px;border: 1px solid blue">
+ &lt;span class="inner">Центрирован&lt;br>вертикально&lt;/span>
+ &lt;/div>
+ </pre>
+ 
+ <style>
+ .outerlv {
+ line-height: 120px;
+ }
+ .innerlv {
+ display: inline-block; /* центрировать..*/
+ vertical-align: middle;  /* ..по вертикали */
+ line-height: 1.25; /* переопределить высоту строки на обычную */
+ border: 1px solid red;
+ }
+ </style>
+ <div class="outerlv" style="height: 120px;border: 1px solid blue">
+ <span class="innerlv">Центрирован<br>вертикально</span>
+ </div>
+ </li>
+
+<li><h4>Высота обоих элементов неизвестна.</h4>
+Три варианта:
+<ul>
+<li>Сделать элемент-родитель ячейкой таблицы при помощи <span id="br">display:table-cell</span> или реальной таблицы,
+ и поставить ему <span id="br">vertical-align:middle.</span> 
+ Отлично работает, но мы имеем дело с таблицей вместо обычного блока.
+ <h4>пример:</h4>таблица
+ <pre id="kod">
+ 
+ &lt;style>
+ table {  border-collapse: collapse; }
+ td {
+ border: 1px solid blue;
+ height: 100px;
+ }
+ &lt;/style>
+ 
+ &lt;table>
+ &lt;tr>
+ &lt;td style="vertical-align: top">top&lt;/td>
+ &lt;td style="vertical-align: middle">middle&lt;/td>
+ &lt;td style="vertical-align: bottom">bottom&lt;/td>
+ &lt;/tr>
+ &lt;&/table>
+ </pre>
+ 
+ 
+ <style>
+ table {  border-collapse: collapse; }
+ td {
+ border: 1px solid blue;
+ height: 100px;
+ }
+ </style>
+ 
+ <table>
+ <tr>
+ <td style="vertical-align: top">top</td>
+ <td style="vertical-align: middle">middle</td>
+ <td style="vertical-align: bottom">bottom</td>
+ </tr>
+ </table>
+ ячейка(% не сработает, т.к нет полной таблицы):
+ <pre id="kod">
+ &lt;div style="display: table-cell; vertical-align: middle; height: 100px; width: 300px; border: 1px solid red">
+ &lt;button>Кнопка&lt;br>с любой высотой&lt;br>и шириной&lt;/button>
+ &lt;/div>
+ </pre>
+ 
+ <div style="display: table-cell; vertical-align: middle; height: 100px; width: 300px; border: 1px solid red">
+ <button>Кнопка<br>с любой высотой<br>и шириной</button>
+ </div>
+ «упакуем псевдоячейку» в элемент с <span id="kod">display:table</span>, которому и
+ применим процентное соотношение:
+ <pre id="kod">
+ &lt;div style="display: table; width: 100%">
+ &lt;div style="display: table-cell; vertical-align: middle; height: 100px; border: 1px solid blue">
+ &lt;button>Кнопка&lt;br>с любой высотой&lt;br>и шириной&lt;/button>
+ &lt;/div>
+ &lt;/div>
+ </pre>
+ 
+ <div style="display: table; width: 100%">
+ <div style="display: table-cell; vertical-align: middle; height: 100px; border: 1px solid blue">
+ <button>Кнопка<br>с любой высотой<br>и шириной</button>
+ </div>
+ </div>
+ </li>
+<li>Решение с вспомогательным элементом <span id="br">outer:before</span> и инлайн-блоками.
+ Вполне универсально и не создаёт таблицу.
+ <h4>пример:</h4>
+ <pre id="kod">
+ &lt;style>
+ .outer:before {
+ content: '';
+ display: inline-block;
+ height: 100%;
+ vertical-align: middle;
+ }
+ 
+ .inner {
+ display: inline-block;
+ vertical-align: middle;
+ margin-left: -0.35em;
+ }
+ 
+ .outer {
+ text-align: center;
+ }
+ &lt;/style>
+ &lt;div class="outer" style="height:100px; width: 100%; border:1px solid black">
+ &lt;span class="inner" style="border:1px solid red">
+ Центрированный&lt;br>Элемент
+ &lt;/span>
+ &lt;/div>
+ </pre>
+ <style>
+ .outerv:before {
+ content: '';
+ display: inline-block;
+ height: 100%;
+ vertical-align: middle;
+ }
+ 
+ .inner {
+ display: inline-block;
+ vertical-align: middle;
+ margin-left: -0.35em;
+ }
+ 
+ .outerv {
+ text-align: center;
+ }
+ </style>
+ 
+ 
+ 
+ <div class="outerv" style="height:100px; width: 100%; border:1px solid black">
+ <span class="inner" style="border:1px solid red">
+ Центрированный<br>Элемент
+ </span>
+ </div>
+ </li>
+<li>Решение с использованием flexbox.
+<h4>пример:</h4>
+<pre id="kod">
+
+&lt;style>
+.outer {
+    display: flex;
+    justify-content: center; /*Центрирование по горизонтали*/
+    align-items: center;     /*Центрирование по вертикали */
+}
+&lt;/style>
+
+&lt;div class="outer" style="height:100px; width: 100%; border:1px solid black">
+    &lt;span class="inner" style="border:1px solid red">
+        Центрированный&lt;br>Элемент
+    &lt;/span>
+&lt;/div>
+</pre>
+
+<style>
+.outerllv {
+    display: flex;
+    justify-content: center; /*Центрирование по горизонтали*/
+    align-items: center;     /*Центрирование по вертикали */
+}
+</style>
+
+<div class="outerllv" style="height:100px; width: 100%; border:1px solid black">
+    <span class="inner" style="border:1px solid red">
+        Центрированный<br>Элемент
+    </span>
+</div>
+</li></li>
+</ul>
+</div>
+  </div>
+ </body>
+</html>
