@@ -22,14 +22,15 @@
 		.color1 {background-color: #675BA7;}
 		.color2 {background-color: #9BC850;}
 		.color3 {background-color: #A62E5C;}
-		.color4 {background-color: #2A9FBC;}
+		.color4 {background-color: rgb(10, 172, 158);}
 		.color5 {background-color: #F15B2A;}
 		.color6 {background-color: black;}
 		.color7 {background-color: rgb(69, 110, 4);}
 		.color8 {background-color: rgb(206, 8, 41);}
-		.color9 {background-color: rgb(11, 97, 196);}
+		.color9 {background-color: rgb(18, 13, 63);}
 		.color10 {background-color: rgb(110, 33, 7);}
 		.color11{background-color: rgba(122, 120, 124, 0.973);}
+		.color6  * {color:yellow;}
 	
 	.container {
 	display: flex;
@@ -49,8 +50,12 @@
 		
 		font-weight: bold;	
 	}
-	
-	.flex-item {
+	a h2, h5, h6, p {margin: 0;}
+
+.flex-item {
+	display: table-cell; 
+	vertical-align: top;
+
 	width:47%;
 	height: 4em;
 	text-align:center;

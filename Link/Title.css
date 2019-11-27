@@ -2,8 +2,9 @@
 			*{
 				box-sizing: border-box;
 			}
+		
 
-span{
+		span{
 		color: red;
 		}
 		.blockSpan{
@@ -58,7 +59,7 @@ span{
 		.color4 {background-color: #2A9FBC;}
 		.color5 {background-color: #F15B2A;}
 		.color6 {background-color: black;}
-	
+		.color7 {background-color: rgb(8, 4, 63);}
 	.container {
 	display: flex;
 	
@@ -77,8 +78,11 @@ span{
 		
 		font-weight: bold;	
 	}
-	
+	a h2, p {margin: 0;}
+
 	.flex-item {
+		display: table-cell; 
+		vertical-align: top;
 	width:47%;
 	height: 4em;
 	text-align:center;
