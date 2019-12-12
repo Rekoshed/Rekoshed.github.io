@@ -1,0 +1,158 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>PHP оснрвные конструкции</title>
+		  <link  href="../../Design/script.css" rel="stylesheet">
+		  <link  href="../../Design/toolbar.css" rel="stylesheet">
+		  <script src ="../../Design/bild.js"></script>
+		  </head>
+     <body>
+	     <script>
+	 		toolbar('../../index.html','../PyMain.html');
+		 </script>
+		 <style type="text/css">
+		 .php
+		  {
+		  color:#225;
+		  font-weight:800;
+		  }
+		  
+		  code
+		  {
+		  color:#225;
+		  font-size:1.2em;
+		  }
+		  
+		  .cmd {/*стилизуем команды терминала*/
+		  color:purple;
+		  font-weight:800;
+		  background-color:khaki;
+		  }
+		  
+		 </style>
+			<div class="content">
+	<h2>Type Hinting. Описание типов</h2>
+	
+	<p>Бывает что код используется не так как нам хотелось бы:</p>
+<pre class="php">
+&lt;?php
+
+function sayHelloTo($name)
+{
+print_r("Hello, {$name}");
+}
+</pre>
+<p>
+Функция выше, ожидает на вход строку. Это видно по тому, как используется переменная <code>$name</code>. 
+А что, если мы ошибемся и передадим массив? :</p>
+<pre class="php">
+&lt;?php
+
+//  передается не то, что ожидается:
+sayHelloTo([]);
+<span>// PHP Notice:  Array to string conversion</span>
+</pre>
+<p>
+Благодоря динамической типизации языка код отработает, но результат не будет соответствовать
+ нашим ожиданиям. 
+  Но можно тех местах, где входной тип особенно важен,
+  добавить соответствующую проверку и генерировать исключение, 
+   если переданы неверные данные. Так делали раньше, до введения в язык <span id="br">type hinting</span>. 
+   </p>
+   <p>
+  <b> Type Hinting </b>- это механизм, который позволяет явно указывать
+   типы параметров. Интерпретатор использует их в своей
+    работе и возбуждает исключение в тех ситуациях,
+     когда тип не соответствует ожидаемому.</p>
+<p>
+По крайней мере, это так работает в большинстве языков, 
+где присутствует данный механизм. В PHP все чуть сложнее и хуже из-за слабой
+ типизации. Несмотря на то, что можно жестко указать тип int, это не значит, что интерпретатор начнет ругаться на все остальное. Он спокойно проглотит и логический тип и строковый.
+</p>
+<p>
+Чтобы объявить тип аргумента, необходимо перед его именем
+ добавить имя требуемого типа:</p>
+<pre class="php">
+&lt;?php
+
+// string указывает на то, что тип аргумента - строка:
+function sayHelloTo(string $name)
+{
+print_r("Hello, {$name}");
+}
+
+sayHelloTo([]);
+<span>// PHP Fatal error:  Uncaught TypeError: Argument 1 passed to sayHelloTo() must be of the type string, array given</span>
+</pre>
+<p>
+Теперь ошибка совсем другая - нам явно говорят о том, что типы не сошлись.
+ Увидеть и исправить подобную ошибку уже значительно легче. 
+ Рассмотрим еще один пример - с несколькими аргументами:</p>
+<pre class="php">
+&lt;?php
+
+function get(string $text, int $index, $default = null)
+{
+return isset($text[$index]) ? $text[$index] : $default;
+}
+
+get('hi', 3, 8); // 8
+
+get('ho', 'hey');
+<span>// TypeError: Argument 2 passed to get() must be of the type integer, string given</span>
+</pre>
+<p>
+<code>Null</code> не похож на другие типы данных и ведет себя особым образом. 
+Типы данных в PHP не являются <code>nullable</code>,
+ это значит, что если мы ждем на вход значение определенного типа, 
+ например, строку, то этим значением не может быть <code>Null</code>, 
+ но, если указать значение, по умолчанию равное <code>Null,</code>
+  то указанный тип становится <code>nullable </code>и появится возможность
+   передавать <code>Null</code> снаружи.</code></p>
+<pre class="php">
+<span id="bs">Не nullable</span>
+
+&lt;?php
+
+function printStr(string $value)
+{
+echo $value;
+}
+printStr(null);
+<span>// Fatal error: Uncaught TypeError: Argument 1 passed to printStr() must be of the type string, null given</span>
+
+<span id="bs">nullable</span>
+
+&lt;?php
+
+function printStr(string $value = null)
+{
+echo $value;
+}
+printStr(null);
+</pre>
+<p>
+С версии PHP 7.2 появилась возможность указывать тип не только для входящих параметров,
+ но и для возврата функции. Оно записывается 
+ через двоеточие после закрывающей скобки:</p>
+
+<pre class="php">
+&lt;?php
+
+function sum(int $a, int $b): int
+{
+return $a + $b;
+}
+</pre>
+<p>
+Если ошибиться в теле функции выше и вернуть строку, то интерпретатор скажет об этом:
+</p>
+<p>
+<pre><span>TypeError: Return value of sum() must be of the type integer, string returned</span></pre>
+</p>
+</div>
+ </body>
+</html>

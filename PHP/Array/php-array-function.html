@@ -1,0 +1,479 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Phyton обзор</title>
+		  <link  href="../../Design/script.css" rel="stylesheet">
+		  <link  href="../../Design/toolbar.css" rel="stylesheet">
+		  <script src ="../../Design/bild.js"></script>
+		  </head>
+     <body>
+	     <script>
+	 		toolbar('../../index.html','../PHP_main.html');
+		 </script>
+		 
+		 <style type="text/css">
+		 </style>
+			<div class="content php-content">
+	
+				<h1>функции массива</h1>
+	
+<h2>Основы</h2>
+<h3>функция <span id="br">array_combine()</span></h3>
+ <p>Она создаёт новый массив из двух существующих: <br>
+ первый использует для создания ключей, <br>
+ второй в качестве значений:</p>
+<pre class="php">
+$keys = ['sky', 'grass', 'orange'];
+$values = ['blue', 'green', 'orange'];
+$array = array_combine($keys, $values);
+print_r($array);
+// Array
+// (
+//     [sky] => blue
+//     [grass] => green
+//     [orange] => orange
+// )
+</pre>
+<h3> так же будет полезна функция <span id="br">array_values()</span>.</h3>
+<p>Она извлекает из ассоциативного массива значения:</p>
+<ul>
+<li> <code>array_keys()</code> возвращает только ключи заданного массива;</li>
+<li> <code> array_flip()</code> меняет местами ключи и значения:</li>
+</ul>
+<pre class="php">
+//так же создаём массив
+$keys = ['sky', 'grass', 'orange'];
+$values = ['blue', 'green', 'orange'];
+$array = array_combine($keys, $values);
+// применяем наши функции:
+print_r(array_keys($array)); // ['sky', 'grass', 'orange']
+print_r(array_values($array)); // ['blue', 'green', 'orange']
+print_r(array_flip($array));
+// Array
+// (
+//     [blue] => sky
+//     [green] => grass
+//     [orange] => orange
+// )</pre>
+
+<h2>Сокращение кода</h2>
+
+<h3>Функция <span id="br">list()</span></h3>
+<p>
+ позволяет быстро присвоить значения массива ряду переменных:
+ </p>
+<pre class="php">
+// define array
+$array = ['a', 'b', 'c'];
+// without list()
+$a = $array[0];
+$b = $array[1];
+$c = $array[2];
+// with list()
+list($a, $b, $c) = $array;</pre>
+
+<p>Также функцию <code>list()</code> можно поместить в <code>foreach</code> :</p>
+<pre class="php">
+$arrays = [[1, 2], [3, 4], [5, 6]];
+foreach ($arrays as list($a, $b)) {
+    $c = $a + $b;
+    echo($c . ', '); // 3, 7, 11, 
+}
+</pre>
+<h3>функции <span id="br">preg_slit()</span> или <span id="br">explode()</span> .</h3>
+ <p>извлекают только те значения, которые действительно нужны:</p>
+ <pre class="php">
+ $string = 'hello|wild|world';
+ list($hello, , $world) = explode('|', $string);
+ echo("$hello, $world"); // hello, world
+ </pre>
+
+<h3>функция <span id="br">extract()</span>.</h3>
+  <p>необходима чтобы извлечь значения из ассоциативного массива:</p>
+  <pre class="php">
+  $array = [
+      'clothes' => 't-shirt',
+      'size'    => 'medium',
+      'color'   => 'blue',
+  ];
+  extract($array);
+  echo("$clothes $size $color"); // t-shirt medium blue
+  </pre>
+  <p>рекомендуется использовать флаги EXTR_IF_EXISTS  и EXTR_PREFIX_ALL
+   при работе с пользовательскими данными.</p>
+ <h3>функциея <span id="br">compact() </span></h3> 
+<p> делает противоположное действие, и
+  сформирует массив из ряда переменных:</p>
+
+<pre class="php">
+
+$clothes = 't-shirt';
+$size = 'medium';
+$color = 'blue';
+$array = compact('clothes', 'size', 'color');
+print_r($array);
+// Array
+// (
+//     [clothes] => t-shirt
+//     [size] => medium
+//     [color] => blue
+// )
+</pre>
+
+<h2>Функции фильтрации</h2>
+
+<h3>функция <span id="br">array_filter()</span>.</h3>
+<p> В качестве параметров необходимо передать массив и анонимную функцию-
+обработчик:</p>
+<pre class="php">
+$numbers = [20, -3, 50, -99, 55];
+$positive = array_filter($numbers, function($number) {
+    return $number > 0;
+});
+print_r($positive); // [0 => 20, 2 => 50, 4 => 55]
+</pre>
+<p>
+Фильтрацию можно произвести и по ключам. 
+Для этого следует
+воспользоваться третьим параметром, флагом <code>ARRAY_FILTER_USE_KEY</code> или
+<code>ARRAY_FILTER_USE_BOTH</code> .</p>
+
+<h3>функция <span id="br">array_filter()</span> </h3>
+<p>вызов без аргументов удаляет все пустые значения:</p>
+
+<pre class="php"> 
+
+$numbers = [-1, 0, 1];
+$not_empty = array_filter($numbers);
+print_r($not_empty); // [0 => -1, 2 => 1]
+
+</pre>
+
+<h3>функция <span id="br">array_unique()</span>.</h3>
+<p>
+получаем из массива только уникальные значения:</p>
+
+<pre class="php">
+$array = [1, 1, 1, 1, 2, 2, 2, 3, 4, 5, 5];
+$uniques = array_unique($array);
+print_r($uniques);
+// Array
+// (
+//     [0] => 1
+//     [4] => 2
+//     [7] => 3
+//     [8] => 4
+//     [9] => 5
+</pre>
+
+<h3>Функция array_column()</h3>
+<p> будет полезна если вам необходимо извлечь
+определённый столбец многомерного массива:</p>
+<pre class="php">
+$array = [
+    ['id' => 1, 'title' => 'tree'],
+    ['id' => 2, 'title' => 'sun'],
+    ['id' => 3, 'title' => 'cloud'],
+];
+$ids = array_column($array, 'id');
+print_r($ids); // [1, 2, 3]
+</pre>
+
+В PHP 7 функция array_column() получила небольшой апгрэйд: возможность
+взаимодействия с полями объекта. Это в значительной мере упрощает работу с
+массивами моделей:
+<pre class="php">
+$cinemas = Cinema::find()->all();
+$cinema_ids = array_column($cinemas, 'id'); // php7 forever!
+
+</pre>
+
+<h2>Обход массивов</h2>
+<h3>функция <span id="br">array_map()</span></h3>
+<p> позволяет обойти все элементы массива и указать функцию
+обратного вызова. Вы можете передать как анонимку, так и название
+существующей функции. В результате получите массив с преобразованными
+значениями:</p>
+
+<pre class="php">
+// пррмер1:
+
+$cities = ['Berlin', 'KYIV', 'Amsterdam', 'Riga'];
+$aliases = array_map('strtolower', $cities);
+print_r($aliases); // ['berlin', 'kyiv, 'warsaw', 'riga']
+
+// пример2:
+
+$numbers = [1, -2, 3, -4, 5];
+$squares = array_map(function($number) {
+    return $number ** 2;
+}, $numbers);
+print_r($squares);  // [1, 4, 9, 16, 25]
+</pre>
+
+<p> в функцию обратного вызова можно
+одновременно передать и ключи, и значения:</p>
+
+<pre class="php">
+$model = ['id' => 7, 'name'=>'James'];
+$callback = function($key, $value) {
+    return "$key is $value";
+};
+$res = array_map($callback, array_keys($model), $model);
+print_r($res);
+// Array
+// (
+//     [0] => id is 7
+//     [1] => name is James
+// )
+</pre>
+ 
+ <h3>функция <span id="br">array_walk()</span>.</h3>
+ <p>
+Она похожа на <code>array_map()</code> , но
+  исходные  данные передаются по ссылке, в результате чего <code>array_walk()</code> обработает
+переданный массив, а не создаст новый.
+ Таким образом мы сможем передать
+значения и ключи исходного массива по ссылке:</p>
+$fruits = [
+    'banana' => 'yellow',
+    'apple' => 'green',
+    'orange' => 'orange',
+];
+array_walk($fruits, function(&$value, $key) {
+    $value = "$key is $value";
+});
+print_r($fruits);
+// Array
+// (
+//     [banana] => banana is yellow
+//     [apple] => apple is green
+//     [orange] => orange is orange
+// )
+</pre>
+
+<h2>Объединение массивов</h2>
+
+<h3>функция array_merge()</h3>
+<p>
+Это самый простой способ объединить несколько
+массивов, повторяющиеся данные
+перезапишутся:</p>
+<pre class="php">
+$array1 = ['a' => 'a', 'b' => 'b', 'c' => 'c'];
+$array2 = ['a' => 'A', 'b' => 'B', 'D' => 'D'];
+$merge = array_merge($array1, $array2);
+print_r($merge);
+// Array
+// (
+//     [a] => A
+//     [b] => B
+//     [c] => c
+//     [D] => D
+// )
+</pre>
+
+<h3>функция <span id="br">array_diff() и array_intersect()</span>.</h3>
+<p>
+удаляем значения одного массива из другого массива:</p>
+<pre class="php">
+$array1 = [1, 2, 3, 4];
+$array2 =       [3, 4, 5, 6];
+$diff = array_diff($array1, $array2);
+print_r($diff); 
+</pre>
+<p> Обратная операция реализуется при
+помощи вызова <span>array_intersect()</span>:</p>
+<pre class="php">
+$intersect = array_intersect($array1, $array2);
+print_r($intersect);  // [2 => 3, 3 => 4]
+</pre>
+
+<h2>Математические операции</h2>
+<h3><span id="br">array_sum(),array_product(),array_reduce()</span></h3>
+<p>С помощью функции array_sum() можно посчитать сумму элементов массива;
+array_product() перемножит все значения; array_reduce() позволит применить
+свою собственную формулу:</p>
+<pre class="php">
+$numbers = [1, 2, 3, 4, 5];
+echo(array_sum($numbers)); // 15
+echo(array_product($numbers)); // 120
+echo(array_reduce($numbers, function($carry, $item) {
+    return $carry ? $carry / $item : 1;
+})); // 0.0083 = 1/2/3/4/5
+</pre>
+
+<h3>Функция <span id="br">array_count_values()</span></h3> 
+<p>поможет посчитать количество всех уникальных
+значений массива:</p>
+<pre class="php">
+$things = ['apple', 'apple', 'banana', 'tree', 'tree', 'tree'];
+$values = array_count_values($things);
+print_r($values);
+// Array
+// (
+//     [apple] => 2
+//     [banana] => 1
+//     [tree] => 3
+// )
+</pre>
+
+<h2>Генерирование массивов</h2>
+<h3>функция array_fill()</h3>
+<p>
+необходима чтобы сформировать массив из заданного количества элементов, и
+задать им единое значение:</p>
+
+<pre class="php">
+$bind = array_fill(0, 5, '?');
+print_r($bind); // ['?', '?', '?', '?', '?']
+</pre>
+<h3>функция <span id="br">range()</h3>
+<p>получить массив, элементы которого должно варьировать в диапазоне
+чисел или букв следует вызывать функцию range():</p>
+<pre class="php">
+$letters = range('a', 'z');
+print_r($letters); // ['a', 'b', ..., 'z']
+$hours = range(0, 23);
+print_r($hours); // [0, 1, 2, ..., 23]
+</pre>
+<p>Чтобы обрезать массив — получить первые три элемента — достаточно вызвать
+функцию <span>array_slice():</span></p>
+<pre class="php">
+$numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+$top = array_slice($numbers, 0, 3);
+print_r($top); // [1, 2, 3]
+</pre>
+
+<h2>Сортировка массивов</h2>
+<h3>Функция sort()</h3>
+<p> сортирует элементы массива в возрастающем порядке и
+присваивает новые ключи элементам массива.</p>
+<p> Разновидности сортировки в
+зависимости от префиксной буквы:</p>
+<ul>
+<li>a, сортировка, сохраняющая отношения между ключами и значениями</li>
+<li>k, сортировка по ключам</li>
+<li>r, сортировка в прямом/обратном порядке</li>
+<li>u, сортировка при помощи пользовательской функции</li>
+</ul>
+<p>Доступны комбинации видов сортировки:</p>
+<pre>
+a k r u
+a asort arsort uasort
+k ksort krsort
+r arsort krsort rsort
+u uasort usort
+</pre>
+
+<h2>Другие функции массива </h2>
+
+<ul>
+
+<li>Функция <span id="br">array_replace</span></li>
+<p>Функция <code>array_replace</code> заменяет значения первого массива значениями с такими же ключами из других переданных массивов. 
+Если ключ из первого массива присутствует во втором массиве, его значение заменяется на значение из второго массива.
+Если ключ есть во втором массиве, но отсутствует в первом - он будет создан в первом массиве.
+Если ключ присутствует только в первом массиве, то сохранится как есть.</p>
+<p>
+Если для замены передано несколько массивов, они будут обработаны в порядке 
+передачи и более поздние массивы будут перезаписывать значения из предыдущих.
+</p>
+<p>Синтаксис:</p>
+<pre class="cmd" >array_replace(массив, массив, массив...);</pre>
+
+<p>
+заменим элемент с ключом 0 на '!', а элемент с ключом 2 - на '!!':</p>
+<pre id="kod">
+&lt;?php
+$arr = ['a', 'b', 'c', 'd', 'e'];
+$result = array_replace($arr, [0=>'!', 2=>'!!']));
+var_dump($result);
+
+//Результат :
+
+// ['!', 'b', '!!', 'd', 'e']
+
+?>
+</pre>
+
+<li>Сохранение вывода функции <span id="br">print_r</span>:</li>
+
+<pre class="php">
+&lt;?php
+$myarray = array("Apples", "Oranges", "Pears");
+$output = print_r($myarray, true);
+print $output;
+?>
+</pre>
+<p>
+<code>Print_r </code> отображает сам массив. Но, использовать его функцию и указать <code>TRUE</code>, функция сохраняет вывод в переменной.
+</p>
+<li> размер массива:</li>
+<p>
+Если вы хотите определить количество значений массива, можно использовать функцию <span id="br">COUNT</span> следующим образом:
+</p>
+<pre class="php">
+&lt;?php
+$myarray = array("Apples", "Oranges", "Pears");
+$size = count($myarray);  
+print $size; // 3
+?>
+</pre>
+
+<li>Функция <span id="br">var_dump</span>:</li>
+<p>
+Это функция, аналогичная <code>print_r()</code>. В основном она делает то же самое, но:
+</p>
+<ul>
+<li>выводит размеры переменных;</li>
+<li>не выводит не публичные данные в объектах;</li>
+<li>не поддерживает второй параметр для возврата вывода.</li>
+</ul>
+<p>
+Изменив первый скрипт с использованием <span id="br">var_dump()</span>, получим следующий результат:
+</p>
+<pre class="php">
+array(3) {
+[0]=>
+string(6) “Apples”
+[1]=>
+string(7) “Oranges”
+[2]=>
+string(5) “Pears”
+} 
+</pre>
+<p>
+Функция <code>var_dump()</code> отобразила, что массив имеет три значения, 
+а также вывела длину каждой строки.
+</p>
+<li>Функция <span id="br">var_export:</span></li>
+<p>
+функция <code>var_export()</code> похожа на <code>var_dump() и print_r()</code>.
+Она отличается тем, что выводит информацию о переменной в виде результата, 
+который может использоваться в качестве PHP- кода:
+</p>
+
+<pre class="php">
+array (
+0 => ‘Apples’,
+1 => ‘Oranges’,
+2 => ‘Pears’,
+)
+	        </pre>
+	        <p>вы можете скопировать и вставить эту информацию непосредственно в свои скрипты.</p>
+	        </ul>
+	        
+	        
+
+	        <p><a href="https://www.php.net/manual/ru/ref.array.php" >Функции для работы с массивами.Документация на русском языке</a></p>
+	        <p><a href="https://yandex.ru/turbo?text=https%3A%2F%2Fwww.internet-technologies.ru%2Farticles%2Fpodrobnoe-rukovodstvo-po-php-massivam.html&lite=1" >использовалась статья Yandex.ru</a></p>
+	        <p><a href="https://shra.ru/2015/11/udalenie-ehlementov-iz-massiva-v-php/" >Сайт shra.ru</a></p>
+	        <p><a href="https://code.tutsplus.com/ru/tutorials/working-with-php-arrays-in-the-right-way--cms-28606" >Статья code.tutsplus.com</a></p>
+	        </div>
+  </div>
+ </body>
+</html>

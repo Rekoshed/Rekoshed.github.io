@@ -1,0 +1,226 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Phyton обзор</title>
+		  <link  href="../../Design/script.css" rel="stylesheet">
+		  <link  href="../../Design/toolbar.css" rel="stylesheet">
+		  <script src ="../../Design/bild.js"></script>
+		  </head>
+     <body>
+	     <script>
+	 		toolbar('../../index.html','../PHP_main.html');
+		 </script>
+		 
+		 <style type="text/css">
+		 
+		 </style>
+			<div class="content php-content">
+	       <h1> Проверка на существование и пустоту в PHP</h1>
+	     
+	        <h2>Проверка существования переменной</h2>
+
+<p>Функция <span id="br">isset()</span> возвращает <code>true</code>, если переменная существует и её значение не <code>null</code>:</p>
+<pre class="php">
+&lt;?php
+$name = 'Владимир';
+
+if(isset($name))
+echo 'Имя задано';
+else
+echo 'Имя не задано';
+
+// Не забываем про тернарный оператор :)
+echo isset($name) ? 'Имя задано' : 'Имя не задано';
+?>
+</pre>
+<p>Если передать в <code>isset() </code>несколько переменных, она вернёт <code>true </code>
+при существовании всех переменных:</p>
+<pre class="php">
+&lt;?php
+$name = 'Василиса';
+$age = 20;
+
+echo isset($name, $age) ? 'Василиса есть' : 'Василисы нет'; // Василиса есть
+echo '&lt;br>';
+echo isset($name, $age, $status) ? 'Василиса есть' : 'Василисы нет'; // Василисы нет
+?>
+</pre>
+
+<p>В PHP 7 появился Null-коалесцентный оператор ??. 
+Он позволяет получить значение переменной, если она есть, а иначе - значение по-умолчанию:</p>
+<pre class="php">
+&lt;?php
+<span id="b">// Как было раньше</span>
+$name = isset($user_name) ? $user_name : 'Безымянный';
+
+<span id="b">// Как в PHP 7</span>
+$name = $user_name ?? 'Безымянный';
+?>
+</pre>
+<h2>Проверка на пустоту</h2>
+<p>Функция empty() возвращает true, если переменная не существует или пустая:</p>
+
+<pre class="php">
+&lt;?php
+$var1 = 15;
+$var2 = '0';
+echo empty($var1) ? 'пустая' : 'не пустая', '&lt;br>'; // выведет 'не пустая'
+echo empty($var2) ? 'пустая' : 'не пустая'; // выведет 'пустая', поскольку '0' приводится к false
+?>
+</pre>
+<p>
+Поведение <code>isset() и empty()</code> противоположно друг другу: первая возвращает true при существовании переменной, вторая - при отсутствии.
+</p> 
+<p>Переменная считается пустой (приводится к <code>false</code>),
+ если она имеет одно из следующих значений:</p>
+<ul>
+<li>"" (пустая строка)</li>
+<li>0 (целое или дробное число)</li>
+<li>"0" (строка)</li>
+<li>null</li>
+<li>false</li>
+<li>[] (пустой массив)</li>
+<li>$v (переменная объявлена, но не имеет значения)</li>
+</ul>
+
+<h2>Существование элемента массива</h2>
+
+<p> функция <span id="br">array_key_exists()</span> возвращает <code>true</code> ( в отличии от <code>isset()</code>) 
+если элемент массива существует даже со значением <code>null</code>:</p>
+<pre class="php">
+&lt;?php
+$arr = [0 => null];
+echo isset($arr[0]) ? 'истина' : 'ложь'; // ложь
+echo array_key_exists(0, $arr) ? 'истина' : 'ложь'; // истина
+?>
+</pre>
+
+<h2>Удаление элементов массива</h2>
+	        
+<h3> Удаление функцией <span id="br">unset()</span>.</h3>
+
+<pre class="php">	       
+&lt;?php
+$a = array('a','b','c');
+unset($a[1]); //удалим элемент с ключем - 1
+print_r($a);
+//увидем на экране : Array ( [0] => a [2] => c ) 
+?>
+
+
+</pre>
+	        
+	        
+	        
+	        <h3>Функция <span id="br">array_shift</span>:</h3>
+	        <p>
+	        Она удаляет первый элемент из массива и сохраняет его в переменной.
+	        </p>
+	        <pre class="php">
+	        &lt;?php
+	        
+	        $myarray = array("Apples", "Oranges", "Pears");
+	        $fruit = array_shift($myarray);  
+	        echo $fruit; // Apples
+	        print_r($myarray);  // Oranges and Pears will bedisplayedwithout Apples
+	        
+	        ?>
+	        </pre>
+	       
+<h3>функция <span id="br">array_pop()</span>.</p>	</h3>     
+
+<p>
+удаляет последний элемент из массива.
+</p>
+
+
+<pre class="php">
+&lt;?php
+$stack = array(3 => 'a', 5 => 'b', 'third element' => 'c');
+$elm = array_pop($stack);
+print_r($stack);
+//увидим на экране : Array ( [3] => a [5] => b ) 
+?>
+
+</pre>
+
+<h3>функция <span id="br">empty()</span></h3>
+<p> данная функция так же хорошо подходит для удаления пустого массива</p>
+<pre class="php">
+&lt;?php
+$stack = array(3 => 'a', 5 => 'b', '3rd' => 'c', array(), null, false, 0, '', '0', '00');
+foreach ($stack as $k => $v) 
+if (empty($v)) unset($stack[$k]);
+print_r($stack);
+//увидим на экране : Array ( [3] => a [5] => b [3rd] => c [12] => 00 )  
+?>
+
+</pre>
+<h3>функция <span id="br">array_diff()</span></h3>
+<p>
+Если проверка массива по-элементно кажется вам не оптимальной, 
+то можно воспользоваться функций сравнения массивов — array_diff(), 
+где перечислить все элементы, которые мы считаем «нулевыми».
+</p>
+<pre class="php">
+&lt;?php
+$stack = array(3 => 'a', 5 => 'b', '3rd' => 'c', array(), null, false, 0, '', '0', '00', ' ');
+$stack = array_diff($stack, array(array(), null, false, 0, '', '0', '00', ' '));
+print_r($stack);
+//увидим на экране : Array ( [3] => a [5] => b [3rd] => c )  
+
+</pre>
+<p>
+Этот вариант позволяет задать собственное
+ определение 
+того, что мы считаем пустым элементом.</p>
+
+ <h3> функция — <span id="br">array_unique()</span>. </h3>
+ <p>удаляем повторяющиеся элементы массива </p>
+
+<pre class="php">
+&lt;?php
+$stack = array('a', 'b', 'b', 'c', 'c', 0, '0');
+$stack = array_unique($stack);
+print_r($stack);
+//увидим на экране : Array ( [0] => a [1] => b [3] => c [5] => 0 )   
+?>
+</pre>
+<p>
+Видим, что функция удалила из массива повторяющиеся элементы. 
+На самом деле у функции есть ещё один параметр,
+ который указывает как сравнивать элементы:</p>
+<ul>
+<li><code>SORT_REGULAR</code> — сравнивать без преобразования типа элементов,</li>
+<li><code>SORT_NUMERIC</code> — сравнивать как числа (т.е. пытаясь преобразовать в число),</li>
+<li><code>SORT_STRING</code> — сравнивать как строки</li>
+<li><code>SORT_LOCALE_STRING</code> — сравнивать как строки, учитывая выбранный набор символов (т.н. locale).</li>
+</ul>
+<p>
+По умолчанию используется — <code>SORT_STRING</code>. 
+
+ Поменяем в предыдущем примере тип на <code>SORT_NUMERIC</code>:</p>
+
+<pre class="php">
+&lt;?php
+$stack = array('a', 'b', 'b', 'c', 'c', 0, '0');
+$stack = array_unique($stack, SORT_NUMERIC);
+print_r($stack);
+//увидим на экране : Array ( [0] => a )   
+?>
+</pre>
+<p>
+При сравнении все элементы преобразовывались в численному типу скаляра, 
+что  неизменно давало значение ноль. 
+Так у нас остался только первый элемент.
+</p>
+
+
+	        <p><a href="https://www.programulin.ru/php-manual/isset-empty-array-key-exists" >использовалась статья Pragramulin.ru</a></p>
+	        </div>
+  </div>
+ </body>
+</html>

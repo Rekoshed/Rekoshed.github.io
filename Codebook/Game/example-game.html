@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+ <html>
+  <head>
+  <meta charset ="utf-8">
+   <meta name="viewport" content="width=device-width">
+    <title> игра </title>
+    <style type="text/css">
+    #buttonControl {
+    height: 3rem;
+    width: 2rem;
+    }
+    
+    table {
+    border: 2 solid black;
+    }
+    .arsenal {
+    height: 5rem;
+    }
+    </style>
+  </head>
+  <body>
+  
+  <br>
+  <div class="info">
+  <form name="info">
+  <table>
+    <tr>
+      <td rowspan="3"><input type="button" value="Арсенал" class="arsenal" onclick="arsenall()"/></td>
+      <td><input type="text" name="ammo" class="ammo"></td>
+     </tr>
+     <tr>
+      <td><input type="text" name="target"></td>
+      </tr>
+      <tr>
+      <td><input type="text" name="consumption"></td>
+    </tr>
+    </table>
+  </form>
+  
+  <div>
+  <br>
+  <form name="vin">
+  <input id="atack" name="atack" type="number" placeholder="тип заряда" value="5" autofocus>
+  <input type="button" value="Выстрел" onclick="shot()"/>
+  </form>
+  </div>
+   <br>
+  <div class="control">
+  <input type="button" value="1" onclick="press(1)" id="buttonControl">
+  <input type="button" value="2" onclick="press(2)" id="buttonControl">
+  <input type="button" value="3" onclick="press(3)" id="buttonControl">
+  <input type="button" value="4" onclick="press(4)" id="buttonControl">
+  <input type="button" value="5" onclick="press(5)" id="buttonControl">
+  <input type="button" value="6" onclick="press(6)" id="buttonControl">
+  <input type="button" value="7" onclick="press(7)" id="buttonControl">
+  <input type="button" value="8" onclick="press(8)" id="buttonControl">
+  <input type="button" value="9" onclick="press(9)" id="buttonControl">
+  <input type="button" value="0" onclick="press(0)" id="buttonControl">
+  
+  </div>
+   
+   <br>
+   <h2><a href="example_game.html" >Обновить</a></h2>
+   
+  <script type="text/javascript">
+  
+  
+  function randomInteger(min, max) {
+  // генератор случайных чисел
+  var rand = min + Math.random() * (max + 1 - min);
+  rand = Math.floor(rand);
+  return rand;
+  }
+  
+  
+  var arsenal = " ";  // вывод информации о боекомплекте
+  var numberShells = 9
+  var weapon = []; // оружие
+  var numberOFtarget = 4; // количество мишеней
+  var target = []; // цель. уровень мишени
+  var consumption = 0; // израсходовано боеприпасов
+  var targetInfo = " "; // информация о выбитых целях
+  
+  function createOfTarget(numberTarget){
+ // устанавливаем мишени. Номера идут по возрастанию 
+  var i = 0;
+      while(i < numberTarget){
+      
+          if (i === 0){
+               target[i] = randomInteger(1,10);
+               }
+               
+         else { 
+             target[i] = randomInteger(((target[(i - 1)]) + 1),(40 - numberTarget + i));
+              }
+          
+          i = i + 1;
+   
+       }
+  }
+  
+  createOfTarget(numberOFtarget);
+  alert ("target: " + target);
+  function weapons(number){
+  // комплектация боеукладки
+       var weap = [];
+       var count = 0;
+    do{
+        count = count + 1;
+        weap[(count - 1)] = count
+      } while(count < number)
+      return weap;
+  }
+  
+  weapon = weapons(numberShells) // начальный боекоплект
+  
+  
+  function press(digit){
+  // устанавливаем номер заряда в поле для выстрела
+  var form = document.forms["vin"];// получили форму
+  form.elements[0].value = digit; // установили значение для элемента формы
+  }
+  
+  function info(weap, targ, cons){
+  //выведем информацию о бое
+  var forml = document.forms["info"];// получили форму
+  forml.elements[1].value = weap; // установили значение для элемента формы
+  forml.elements[2].value = targ; // установили значение для элемента формы
+  forml.elements[3].value = cons; // установили значение для элемента формы
+  
+  }
+  
+  var list = {
+  atck:  "потрачен заряд :  " + 0,
+  weapon: "\n\nБоеукладка: " + weapon,
+  target: "\n\n Цель: " + target,
+  consumption: "\n\nРасход: " + consumption
+  }
+  
+  info(list.weapon, list.target, list.consumption)
+  
+  
+  function shot(){
+  var atck = 0;
+  var ii = 0;
+  atck = parseInt(document.getElementById('atack').value);// считаем номер заряда
+  var signin = shutter(atck); // иницилизация затвора
+      
+     if (signin === true) {
+         consumption = consumption + atck; // плюсуем трассу до цели
+         
+         weapon[(atck - 1)] = 0; // обнуление ячейки, выстрел потрачен
+         
+         // создание объекта для информации
+          list = {
+         atck:  "потрачен заряд :  " + atck,
+         weapon: "\n\nБоеукладка: " + weapon,
+         target: "\n\n Цель: " + target,
+         consumption: "\n\nРасход: " + consumption
+         }
+         
+         info(list.weapon, list.target, list.consumption)
+         
+         alert ( list.atck + list.weapon + list.target + list.consumption);
+         
+         
+         while (ii < numberOFtarget ){ 
+         
+         // проверка попадения в финальную цель:
+         if (consumption === target[(numberOFtarget - 1)]) {
+         return alert ("Победа!")
+         }
+         
+         // проверка на попадение в цель:
+         if (consumption === target[ii]) {
+            targetInfo = targetInfo + "\nЦель " + target[ii] + " порaжена.";
+             return alert ("Есть попадение! Цель " + target[ii] + " порaжена.");
+             }
+             ii = ii + 1;
+             
+           }
+             //пррверка на выход за пределы дальней цели:
+         if (consumption > target[(numberOFtarget - 1)]){
+             return alert ("Поражение. Выход за пределы цели.")
+             }
+             
+                 } 
+         else 
+             { alert("Осечка, заряда нет!");}
+      
+  }
+  
+  function shutter(bullet) { 
+  // поиск необходимого снаряда в боеукладке
+  function condition(value, index, array) {
+  var result = false;
+  if (value === bullet) {
+  result = true;
+  }
+  // проверили наличие на истинность, и отдаём резуьтат - false/ true
+  return result;
+  };
+  
+  var passed = weapon.some(condition); 
+  return passed
+  }
+ 
+  function arsenall(){ // информация 
+  arsenal = "Боеукладка: " + weapon + "\n\n Цель: " + target + "\n\nРасход: " + consumption + targetInfo;
+  
+  alert (arsenal);
+
+  };
+  </script>
+     </body>
+ </html>

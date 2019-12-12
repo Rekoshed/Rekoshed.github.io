@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Phyton обзор</title>
+		  <link  href="../../Design/script.css" rel="stylesheet">
+		  <link  href="../../Design/toolbar.css" rel="stylesheet">
+		  <script src ="../../Design/bild.js"></script>
+		  </head>
+     <body>
+	     <script>
+	 		toolbar('../../index.html','../PHP_main.html');
+		 </script>
+		 
+		 <style type="text/css">
+		
+		 </style>
+			<div class="content php-content">
+	  
+<h2>Работаем с массивами</h2>
+<p>
+Комбинируем несколько функций.
+К примеру мы можем убрать из массива
+все пустые значения, вызвав <span>array_filter()</span> и <span>array_map() </span>:</p>
+<pre class="php">
+$values = ['say  ', '  bye', ' ', ' to', ' spaces ', '   '];
+$words = array_filter(array_map('trim', $values));
+print_r($words); // ['say', 'bye', 'to', 'spaces']
+</pre>
+Чтобы получить идентификаторы и названия объектов моделей достаточно
+вызывать <span>array_combine()</span> и <span>array_column()</span> :
+<pre class="php">
+$id_to_title = array_combine(
+    array_column($models, 'id'),
+    array_column($models, 'title')
+);
+</pre>
+<p>
+Подсчёт трёх самых часто используемых элемента массива можно осуществить
+вызовом <span>array_count_values() , arsort()</span> и <span>array_slice()</span> :
+<pre class="php">
+$letters = ['a', 'a', 'a', 'a', 'b', 'b', 'c', 'd', 'd', 'd', 'd', 'd'];
+$values = array_count_values($letters); // get key to count array
+arsort($values); // sort descending preserving key
+$top = array_slice($values, 0, 3); // get top 3
+print_r($top);
+// Array
+// (
+//     [d] => 5
+//     [a] => 4
+//     [b] => 2
+// )
+</pre>
+<p>
+Комбинация функций <span>array_sum()</span> и <span>array_map()</span> позволит
+подсчитать сумму товаров в корзине:</p>
+<pre class="php">
+$order = [
+    ['product_id' => 1, 'price' => 99, 'count' => 1],
+    ['product_id' => 2, 'price' => 50, 'count' => 2],
+    ['product_id' => 2, 'price' => 17, 'count' => 3],
+];
+$sum = array_sum(array_map(function($product_row) {
+    return $product_row['price'] * $product_row['count'];
+}, $order));
+print_r($sum); // 250
+</pre>
+</p>
+	        </div>
+  </div>
+ </body>
+</html>

@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Phyton обзор</title>
+		  <link  href="../../Design/script.css" rel="stylesheet">
+		  <link  href="../../Design/toolbar.css" rel="stylesheet">
+		  <script src ="../../Design/bild.js"></script>
+		  </head>
+     <body>
+	     <script>
+	 		toolbar('../../index.html','../PHP_main.html');
+		 </script>
+		 
+		 <style type="text/css">
+		  
+		 </style>
+			<div class="content php-content">
+		   
+				<h1> Массивы (<span> array </span>) </h1>
+
+	  <p>Набор различных переменных с одной меткой, позволяющий организовать значения для их более простой обработки
+	  называется массивом</p>
+	  <p>Массивом в программировании представляют любые списки (коллекции элементов)</p>
+	        
+	  <p> Синтаксис массива:</p>
+	   
+<pre class="cmd">arrayName = array (”value1?,”value2?,”value3?);</pre>
+<p>Определение массива:</p>
+
+<pre class="php">
+&lt;?php
+ 
+$Top3Sites = array ("fastcreators.com","howtoforge.com","scriptsbible.com");
+ 
+print_r($Top3Sites);
+?>
+</pre>
+<p>
+Результат приведенной выше программы будет следующим:
+</p>
+<pre class="cmd">
+Array
+(
+[0] => fastcreators.com
+[1] => howtoforge.com
+[2] => scriptsbible.com
+)
+</pre>
+<p>
+Мы используем <code>print_r</code>, 
+потому что нельзя вывести массив с помощью функции <code>echo </code>
+или <code>print</code>. Хотя можно использовать их
+ для отображения отдельных элементов из массива.</p>
+
+<p>Ещё есть короткая форма синтаксиса массива:</p>
+<pre id="kod">
+&lt;?php
+
+$animals = ['cats', 'dogs', 'birds'];
+</pre>
+<p>
+PHP позволяет создавать массив из разнотипных данных, то есть чисто технически можно создать и такой массив:
+</p>
+<pre id="kod">
+&lt;?php
+
+$values = [null, 'one', 4, 'two', false];
+</pre>
+<p>
+Кроме того, можно создать и пустой массив, это как правило
+подходит для инициализации, когда вводимые данные ещё не известны:
+</p>
+<pre id="kod">
+&lt;?php
+
+$cars = [];
+
+<span id="b">// и добавить в него значения в процессе</span>
+
+$cars[0] = "ford";
+$cars[1] = "volvo";
+$cars[2] = "audi";
+</pre>
+
+<p>Извлечение элемента из массива</p>
+<pre id="kod">
+&lt;?php
+
+$animals = ['cats', 'dogs', 'birds'];
+$animals[0]; // cats
+$animals[1]; // dogs
+$animals[2]; // birds
+</pre>
+
+<h2>Типы массивов</h2>
+
+<p>В PHP существует три типа массивов:</p>
+<ul>
+<li>Числовой: массив с числовым ключом идентификатора.</li>
+<pre class="php">
+&lt;?php
+$colours = ["white","black","blue"];
+print_r($colours);
+/*
+вывод будет следующий
+Array
+(
+[0] => white
+[1] => black
+[2] => blue
+)
+*/
+?>
+</pre>
+<li>Ассоциативный: массив, в котором каждый ключ идентификатора связан со значением.</li>
+<pre class="php">
+&lt;?php
+ 
+$students['Anna'] = 90;
+$students['Maria'] = 60;
+$students['Jennifer'] = 40;
+ 
+?>
+</pre>
+<li>Многомерный: массив, состоящий из одного или нескольких массивов.</li>
+<pre class="php">
+&lt;?php
+$david = array
+(
+“richie”=>array
+(
+“Sue”,
+“Natasha”
+),
+“Mason”=>array
+(
+“Nichole”,
+“Salma”,
+“Amber”
+)
+);
+
+</pre>
+</ul>
+
+<p><a href="https://www.php.net/manual/ru/language.types.array.php" >PHP: Массивы - Manual</a></p>
+
+	        </div>
+  </div>
+ </body>
+</html>

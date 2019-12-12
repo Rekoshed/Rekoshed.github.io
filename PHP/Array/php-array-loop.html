@@ -1,0 +1,281 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Phyton обзор</title>
+		  <link  href="../../Design/script.css" rel="stylesheet">
+		  <link  href="../../Design/toolbar.css" rel="stylesheet">
+		  <script src ="../../Design/bild.js"></script>
+		  </head>
+     <body>
+	     <script>
+	 		toolbar('../../index.html','../PHP_main.html');
+		 </script>
+		 
+		 <style type="text/css">
+			  
+		 </style>
+			<div class="content php-content">
+
+<h2>Циклы</h2>
+<p>Цикл <span id="br">FOREACH</span>:</p>
+<pre class="php">
+&lt;?php
+ 
+  $students = [];
+    
+//присвоение значений
+ 
+    $students[0] = "david";
+      $students[1] = "kevin"; 
+      $students[2] = "julie";
+    $students[3] = "nayyar";
+ 
+/*
+ <span id="b"> теперь мы используем цикл foreach, чтобы вывести массив значений</span>
+*/
+ 
+foreach( $studentsas $std_name ) { 
+   
+   echo $std_name . "n";
+
+
+}
+
+// результат:
+
+david
+kevin
+julie
+nayyar
+  
+?>
+</pre>
+<p>
+Если вы хотите считать имя индекса и его значение для каждого элемента массива, используйте цикл FOREACH следующим образом:
+</p>
+<pre class="php">
+&lt;?php
+ 
+foreach ($array as $key => $val) {
+    print "$key = $valn";
+} 
+ 
+?>
+</pre>
+
+<p>Ещё пример:</p>
+<pre class="php">
+&lt;?php
+$данные = array (
+         "Иванов" => array ("рост" => 174, "вес"  => 68),
+         "Петров" => array ("рост" => 181, "вес"  => 90),
+         "Сидоров" => array ("рост" => 166, "вес"  => 73));
+foreach ($данные as $фамилия => $данные1)
+  {
+  echo  "&lt;br>$фамилия:&lt;br>";
+  foreach ($данные1 as $параметр => $pp)
+    {
+    echo  "$параметр = $pp&lt;br>";
+    }
+  }
+?>
+</pre>
+<p>результат:</p>
+<pre class="cmd">
+Иванов:
+рост = 174
+вес = 68
+
+Петров:
+рост = 181
+вес = 90
+
+Сидоров:
+рост = 166
+вес = 73
+</pre>
+
+<p>Обработка массива циклом <span id="br">FOR</span>:</p>
+
+<pre class="php">&lt;?php
+    
+    for ($i = 0; $i &lt;count($array); ++$i) {
+        print $array[$i];
+    }
+?>
+</pre>
+<p>запустим цикл в обратном порядке:</p>
+<pre class="php">
+&lt;?php
+
+$userNames = ['petya', 'vasya', 'evgeny'];
+
+for ($i = count($userNames) - 1; $i >= 0; $i--) {
+    print_r("{$userNames[$i]}\n");
+}
+</pre>
+<p>
+ но это не работает для ассоциативных массивов.
+</p>
+<p>Обработка массивов с помощью функции <span id="br">list()</span>:</p>
+<pre class="php">
+&lt;?php
+    while (list($var, $val) = each($array)) {
+        print "$var is $valn";
+    }
+?>
+</pre>
+<p><code>List() </code>— это функция, которая противоположна функции array().</p>
+ <p> <code>Each()</code> принимает массив в качестве параметра, возвращает текущий ключ и значение в этом массиве,
+  прежде чем переместить курсор массива. 
+  «Курсора массива» — это технический термин, обозначающий элемент массива, 
+  который в настоящее время считывается.
+</p>
+
+<h3>Цикл <span id="br">WHILE:</span></h3>
+<p>
+Цикл <code>WHILE</code> выполняется, пока выражение в скобках
+ принимает значение <code>true</code>. 
+ Здесь нам наконец-то понадобится оператор инкремента <span>++</span>, 
+ увеличивающий значение переменной на единицу.
+</p>
+<p>Пример:</p>
+
+<pre class="php">
+&lt;?php
+    $i = 0;
+
+    while($i &lt; 10)
+        echo ++$i;
+        
+ // 12345678910
+        
+?>
+</pre>
+<p>бесконечный цикл:</p>
+<pre class="php">
+&lt;?php
+    while(true)
+        echo 'Привет!';
+ // такой скрипт зависнет и выдаст ошибку если не сделать прерывание.
+?>
+</pre>
+<p>
+В цикл <code>WHILE</code> можно подставить сколько угодно условий:
+</p>
+<pre class="php">
+&lt;?php
+$a = 5;
+$b = 10;
+$c = 0;
+
+while($a &lt; 10 && $b &lt; 20 && $c &lt; 10)
+    echo ++$a;
+</pre>
+
+<h3> Цикл DO...WHILE</h3>
+
+<p>В отличие от <code>while</code>, цикл <code>do-while</code> или "цикл с постусловием" 
+сначала выполняет код, а затем проверяет условие на истинность:</p>
+
+<?php
+    $i = 0;
+
+    do
+        echo ++$i;
+    while($i < 5);
+<h3>Прерывание циклов в PHP</h3>
+
+<h3>Прерывание итерации - <span id="br">continue</span></h3>
+<p>Оператор <code>continue</code> позволяет 
+пропустить одну итерацию, не мешая дальнейшему
+ выполнению цикла:
+</p>
+<pre class="php">
+&lt;?php
+    $arr = [5, 10, 15];
+    
+    foreach($arr as $value)
+    {
+        if($value === 10) // Прерываем текущую итерацию, но не весь цикл
+            continue;
+
+        echo $value, '&lt;br>';
+    }
+/*Результат в браузере:
+ 5
+15
+*/
+</pre>
+
+<h3>Прерывание цикла - <span id="br">break</span></h3>
+<p>Оператор <code>break</code> прерывает работу цикла:</p>
+<pre class="php">
+&lt;?php
+    $arr = [5, 10, 15];
+
+    foreach($arr as $value)
+    {
+        if($value === 10)
+            break;
+        
+        echo $value;
+    }
+/*
+Результат в браузере:
+
+5
+*/
+
+// <span id="b">Ещё пример: </span>
+
+
+$array = [2, 3, 6, 1, 23, 2, 56, 7, 1, 15];
+$number = 1;
+
+$isNumberFound = false;
+foreach ($array as $item) {
+    echo 'Сравниваем с числом элемент ' . $item . '<br>';
+    if ($item === $number) {
+        $isNumberFound = true;
+        break;
+    }
+}
+
+echo $isNumberFound ? 'Число найдено' : 'Число не найдено';
+
+</pre>
+
+<p>Кроме этого,<code> break</code> позволяет выйти сразу из 
+нескольких циклов, нужно только передать число (иерархию):</p>
+<pre class="php">
+&lt;?php
+    $arr = [5, 10, 15];
+
+    foreach($arr as $value)
+    {
+        for($i = 0; $i &lt; 10; $i++)
+        {
+            if($value === 10)
+                break 2; // Выходит сразу из for и foreach
+            
+            echo $value, $i, '&lt;br>';
+        }
+    }
+?>
+
+</pre>
+ 
+
+
+
+<p><a href="https://yandex.ru/turbo?text=https%3A%2F%2Fwww.internet-technologies.ru%2Farticles%2Fpodrobnoe-rukovodstvo-po-php-massivam.html&lite=1" >использовалась статья Yandex.ru</a></p>
+<p><a href="https://www.programulin.ru/php-manual/break-continue" >использовалась статья programulin.ru</a></p>
+
+	        </div>
+  </div>
+ </body>
+</html>

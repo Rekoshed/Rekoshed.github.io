@@ -127,6 +127,16 @@ margin-top: 30px;
 padding: 10px;
 }
 
+.php-content code {
+    color:#225;
+    font-size: 1.2em;
+    background-color:var(--back-cmd);
+}
+
+.php {
+    color:#225;
+    font-weight;800:
+}
 
 .blue {color:Darkblue;}
 .green {color:rgba(63, 192, 3, 0.945);}
