@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>PhP обзор</title>
+		  <link  href="../../Design/script.css" rel="stylesheet">
+		  <link  href="../../Design/toolbar.css" rel="stylesheet">
+		  <script src ="../../Design/bild.js"></script>
+		  </head>
+     <body>
+	     <script>
+	 		toolbar('../../index.html','../PHP_main.html');
+		 </script>
+		 
+		 <style type="text/css">
+		 
+		 </style>
+			<div class="content php-content">
+                <h1> PHP Web </h1>
+	  
+                <p>PHP, в отличие от всех остальных языков, содержит веб внутри себя. Создание примитивного интерактивного сайта на php не требует
+                    буквально ничего, кроме самого языка. PHP позволяет мешать html и свой код в одном файле, а веб-сервер сразу же
+                    выведет его как готовую веб-страницу.</p>
+                    <pre class="php">
+                            &lt;html>
+                                    &lt:head>
+                                     &lt:title>PHP Test&lt:/title>
+                                    &lt:/head>
+                                    &lt:body>
+                                    &lt:?php echo '&lt:p>Hello World&lt:/p>'; ?>
+                                    &lt:/body>
+                                   &lt:/html>
+                    </pre>
+                    <p>Сохраните код выше в файл <code>index.php</code> и в этой же папке запустите встроенный в php веб-сервер <code>php -S localhost:5555</code>.
+                    Затем откройте в браузере адрес <a href="http://localhost:5555" target="_blank">localhost:5555</a>. Вы увидите, что вывелась строчка <em>Hello
+                    World</em>. Подобное не сработает больше ни в одном другом языке программирования. </p>
+                    
+                    <p>Весь секрет кода выше в том, что php-файлы могут содержать html-разметку, именно по этой причине необходимо использовать
+                    тег <code>&lt;?php ?&gt;</code>. Интерпретатор должен как-то узнавать где разметка, а где код, который нужно обрабатывать.</p>
+                    
+                    <p>Со временем та простая страница превращается в подобный код:</p>
+                    <pre class="php">
+                            &lt:?php
+                            if ($_POST['process'] == 1) {
+                              $first_name = htmlentities($_POST['first_name']);
+                              $last_name = htmlentities($_POST['last_name']);
+                              if (empty($last_name)){
+                                echo "&lt:p class=\"error\">Your last name cannot be blank&lt:/p>";
+                              } else {
+                                echo "&lt:p>Hello there, ".$first_name." ".$last_name."&lt:/p>";
+                              }
+                            }
+                          ?>
+                          
+                          &lt:!DOCTYPE html>
+                          &lt:html>
+                            &lt:head>
+                              &lt:meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+                              &lt:title>Form validation example&lt:/title>
+                              &lt:style>
+                                .error{color:red;}
+                                input{display:block; margin-bottom:10px;}
+                              &lt:/style>
+                            &lt:/head>
+                          
+                            &lt:body>
+                              &lt:h1>Form Validation Example&lt:/h1>
+                              &lt:h2>Please enter your name&lt:/h2>
+                          
+                              &lt:form action="validation_example_2.php" method="post">
+                                &lt:label for="first_name">First name:&lt:/label>
+                                &lt:input name="first_name" id="first_name" type="text" value="&lt:?php echo($first_name); ?>" />
+                          
+                                &lt:label for="last_name">Last name:&lt:/label>
+                                &lt:input name="last_name" id="last_name" type="text" value="&lt:?php echo($last_name); ?>" />
+                          
+                                &lt:input type="hidden" name="process" value="1" />
+                                &lt:input type="submit" value="Submit" />
+                              &lt:/form>
+                            &lt:/body>
+                          &lt:/html>
+                          
+                    </pre>
+                    <p>Сложность резко возросла, хотя код выше выполняет довольно простую задачку. Любой более-менее
+                    живой сайт содержит в сотни и тысячи раз больше кода. На этом этапе преимущества, которые дал нам php при старте,
+                    превращаются в недостатки. Код не структурирован и перемешан с разметкой, его тяжело менять и отлаживать, вся система
+                    быстро деградирует.</p>
+                    
+                    <p>По этой причине рофессиональные разработчики не используют php именно таким образом, как описано выше. Современная
+                    php разработка мало чем отличается от того, как всё происходит в других экосистемах. Почти всё, что нужно для веба,
+                    берётся из сторонних библиотек.</p>
+                    
+                    
+                    <p>Кроме прочего, в php встроено множество функций, предназначенных для работы с исключительно веб-сущностями. Начиная от
+                    экранирования тегов, заканчивая работой с куками (cookies). Некоторые из них удобны и используются в повседневной
+                    практике, другие неудобны, и для них существуют пакеты-заменители.</p>
+                    
+	        </div>
+  </div>
+ </body>
+</html>

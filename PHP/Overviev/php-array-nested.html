@@ -1,0 +1,166 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>PhP обзор</title>
+		  <link  href="../../Design/script.css" rel="stylesheet">
+		  <link  href="../../Design/toolbar.css" rel="stylesheet">
+		  <script src ="../../Design/bild.js"></script>
+		  </head>
+     <body>
+	     <script>
+	 		toolbar('../../index.html','../PHP_main.html');
+		 </script>
+		 
+		 <style type="text/css">
+		 
+		 </style>
+			<div class="content php-content">
+                    <p>Значением массива может быть всё, что угодно, в том числе массив. В этом случае синтаксис может выглядеть немного
+                            необычно, поэтому разберём его отдельным уроком. Создать массив в массиве можно так:</p>
+                            <pre class="hljs"><code><span style="color: #999999;font-weight: bold">&lt;?php</span>
+                            
+                            <span style="color: #008080">$arr1</span> <span style="color: #000000;font-weight: bold">=</span> <span style="background-color: #f8f8f8">[[</span><span style="color: #009999">3</span><span style="background-color: #f8f8f8">]];</span>
+                            <span style="color: #0086B3">count</span><span style="background-color: #f8f8f8">(</span><span style="color: #008080">$arr1</span><span style="background-color: #f8f8f8">);</span> <span style="color: #999988;font-style: italic">// 1</span>
+                            
+                            <span style="color: #008080">$arr2</span> <span style="color: #000000;font-weight: bold">=</span> <span style="background-color: #f8f8f8">[</span><span style="color: #009999">1</span><span style="background-color: #f8f8f8">,</span> <span style="background-color: #f8f8f8">[</span><span style="color: #009999">3</span><span style="background-color: #f8f8f8">,</span> <span style="color: #009999">2</span><span style="background-color: #f8f8f8">],</span> <span style="background-color: #f8f8f8">[</span><span style="color: #009999">3</span><span style="background-color: #f8f8f8">,</span> <span style="background-color: #f8f8f8">[</span><span style="color: #009999">4</span><span style="background-color: #f8f8f8">]]];</span>
+                            <span style="color: #0086B3">count</span><span style="background-color: #f8f8f8">(</span><span style="color: #008080">$arr2</span><span style="background-color: #f8f8f8">);</span> <span style="color: #999988;font-style: italic">// 3</span>
+                            </code></pre>
+                            <p>Каждый элемент, являющийся массивом, рассматривается как единое целое, что видно по размеру второго массива. Вложенность
+                            никак не ограничивается. Можно создавать массив массивов массивов и т. д.</p>
+                            
+                            <p>Обращение ко вложенным массивам выглядит уже немного необычно, хотя и логично:</p>
+                            <pre class="hljs"><code><span style="color: #999999;font-weight: bold">&lt;?php</span>
+                            
+                            <span style="color: #008080">$arr1</span> <span style="color: #000000;font-weight: bold">=</span> <span style="background-color: #f8f8f8">[[</span><span style="color: #009999">3</span><span style="background-color: #f8f8f8">]];</span>
+                            <span style="color: #008080">$arr1</span><span style="background-color: #f8f8f8">[</span><span style="color: #009999">0</span><span style="background-color: #f8f8f8">][</span><span style="color: #009999">0</span><span style="background-color: #f8f8f8">];</span> <span style="color: #999988;font-style: italic">// 3</span>
+                            
+                            <span style="color: #008080">$arr2</span> <span style="color: #000000;font-weight: bold">=</span> <span style="background-color: #f8f8f8">[</span><span style="color: #009999">1</span><span style="background-color: #f8f8f8">,</span> <span style="background-color: #f8f8f8">[</span><span style="color: #009999">3</span><span style="background-color: #f8f8f8">,</span> <span style="color: #009999">2</span><span style="background-color: #f8f8f8">],</span> <span style="background-color: #f8f8f8">[</span><span style="color: #009999">3</span><span style="background-color: #f8f8f8">,</span> <span style="background-color: #f8f8f8">[</span><span style="color: #009999">4</span><span style="background-color: #f8f8f8">]]];</span>
+                            <span style="color: #008080">$arr2</span><span style="background-color: #f8f8f8">[</span><span style="color: #009999">2</span><span style="background-color: #f8f8f8">][</span><span style="color: #009999">1</span><span style="background-color: #f8f8f8">][</span><span style="color: #009999">0</span><span style="background-color: #f8f8f8">];</span> <span style="color: #999988;font-style: italic">// 4</span>
+                            </code></pre>
+                            <p>Возможно, с непривычки вы не всегда сразу точно увидите, как добраться до нужного элемента, но это всего лишь вопрос
+                            тренировок.</p>
+                            
+
+                            <p> Также можно использовать ассоциативный массив в качестве многомерного массива. Следующий пример демонстрирует создание индексированного массива, который содержит 3 ассоциативных массива: </p>
+<pre class="php">$movies = array(
+  array(
+    "title" =&gt; "Rear Window",
+    "director" =&gt; "Alfred Hitchcock",
+    "year" =&gt; 1954
+  ),
+  array(
+    "title" =&gt; "Full Metal Jacket",
+    "director" =&gt; "Stanley Kubrick",
+    "year" =&gt; 1987
+  ),
+  array(
+    "title" =&gt; "Mean Streets",
+    "director" =&gt; "Martin Scorsese",
+    "year" =&gt; 1973
+  )
+);
+</pre>
+
+
+<h3> Доступ к элементам в многомерном массиве </h3>
+<p> Для получения доступа к элементам многомерного массива можно использовать синтаксис "квадратных скобок", который используется для работы с обычным массивом. Если нужно получить доступ к элементам  второго уровня в двумерном массиве нужно просто использовать второй набор квадратных скобок, например:  </p>
+<pre class="brush:php">$myArray = array(
+  array( "один", "два", "три" ),
+  array( "четыре", "пять", "шесть" )
+);
+
+// Выводим "шесть"
+echo $myArray[1][2];
+?&gt;
+
+</pre>
+<p> А вот пример, который демонстрирует доступ к различным элементам многомерного массива <code>$movies</code>, который мы создали раньше: </p>
+<pre class="brush:php">echo "Название первого фильма:&lt;br /&gt;";
+echo $movies[0]["title"] . "&lt;br /&gt;&lt;br /&gt;";
+
+echo "Режисер третьего фильма:&lt;br /&gt;";
+echo $movies[2]["director"] . "&lt;br /&gt;&lt;br /&gt;";
+
+echo "Вложенный массив, который содержится в первом элементе:&lt;br /&gt;";
+print_r( $movies[0] );
+echo "&lt;br /&gt;&lt;br /&gt;";
+</pre>
+<p>Выполнение кода: </p>
+<pre class="cmd">Название первого фильма:
+Rear Window
+
+Режисер третьего фильма:
+Martin Scorsese
+
+Вложенный массив, который содержится в первом элементе:
+Array ( [title] =&gt; Rear Window [director] =&gt; Alfred Hitchcock [year] =&gt; 1954 )
+</pre>
+<p> Последний пример использует <code>$movies[0]</code> для организации доступа ко всему вложенному массиву в первом элементе массива верхнего уровня, а затем используется функция <code>print_r()</code> для вывода содержимого массива. </p>
+<h3> Организация перебора всех элементов многомерного массива в цикле </h3>
+<p> Так же, как и для обычного одномерного массива можно использовать <code>foreach</code> для организации перебора всех элементов многомерного массива. Нужно создать вложенный цикл <code>foreach</code>, то есть один цикл внутри другого: </p>
+<ol>
+<li>Внешний цикл берет каждый элемент массива верхнего уровня..</li>
+<li>Для каждого элемента верхнего уровня внутренний цикл перебирает вложенный массив, и так далее.</li>
+</ol>
+<p> В примере создаётся 2-у мерный массив с информацией по фильмам, а затем организуется цикл по элементам массива для вывода информации на страницу: </p>
+<pre class="brush:php">$movies = array(
+  array(
+    "title" =&gt; "Rear Window",
+    "director" =&gt; "Alfred Hitchcock",
+    "year" =&gt; 1954
+  ),
+  array(
+    "title" =&gt; "Full Metal Jacket",
+    "director" =&gt; "Stanley Kubrick",
+    "year" =&gt; 1987
+  ),
+  array(
+    "title" =&gt; "Mean Streets",
+    "director" =&gt; "Martin Scorsese",
+    "year" =&gt; 1973
+  )
+);
+
+foreach ( $movies as $movie ) {
+
+  echo '&lt;dl style="margin-bottom: 1em;"&gt;';
+
+  foreach ( $movie as $key =&gt; $value ) {
+    echo "&lt;dt&gt;$key&lt;/dt&gt;&lt;dd&gt;$value&lt;/dd&gt;";
+  }
+
+  echo '&lt;/dl&gt;';
+}
+</pre>
+<p>Выполнение данного кода:</p>
+<pre class="cmd">title
+    Rear Window
+director
+    Alfred Hitchcock
+year
+    1954
+
+title
+    Full Metal Jacket
+director
+    Stanley Kubrick
+year
+    1987
+
+title
+    Mean Streets
+director
+    Martin Scorsese
+year
+    1973
+</pre>
+
+      
+	        
+	        </div>
+  </div>
+ </body>
+</html>
