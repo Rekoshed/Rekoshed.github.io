@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>PhP array</title>
+		  <link  href="../../Design/script.css" rel="stylesheet">
+		  <link  href="../../Design/toolbar.css" rel="stylesheet">
+		  <script src ="../../Design/bild.js"></script>
+		  </head>
+     <body>
+	     <script>
+	 		toolbar('../../index.html','../PHP_main.html');
+		 </script>
+		 
+		 <style type="text/css">
+		 
+		 </style>
+			<div class="content php-content">
+                    <h1> Преобразование строк в массивы и наоборот </h1>
+
+                <p>PHP умеет преобразовывать данные из строки в массив и наоборот, для этого в PHP есть функция <code>implode</code> и <code>explode</code>.</p>
+                <p><code>implode</code> - формирует строку из массива.</p>
+                <p><code>explode</code> - формирует массив из строки.</p>
+                
+                <p>Использование функции <code>implode</code>:</p>
+                
+                <pre class="php">&lt;?php
+                $arr[0] = "PHP"; 
+                $arr[1] = "HTML"; 
+                $arr[2] = "CSS";
+                
+                $string = implode(", ", $arr);
+                echo $string; 
+                ?></code></pre>
+                
+                <p>Отображение в браузере:</p>
+                <pre><code class="cmd">PHP, HTML, CSS</code></pre>
+                
+                <p>Использование функции <code>explode</code>:</p>
+                
+                <pre class="php">&lt;?php
+                $string = "PHP, HTML, CSS";
+                $arr = explode(", ", $string);
+                print_r($arr); 
+                ?></code></pre>
+                
+                <p>Отображение в браузере:</p>
+                <pre><code class="php">Array ( [0] => PHP [1] => HTML [2] => CSS )</code></pre>
+            
+                
+                <p>Генерация строк в циклах — задача, часто возникающая на практике. Типичный пример в вебе — функция-хелпер, помогающая
+                        генерировать HTML-списки в шаблонах. Она принимает на вход коллекцию элементов и возвращает список из них:</p>
+                        <pre class="php">&lt;?php                        
+                        <span style="color: #008080">$coll</span> <span style="color: #000000;font-weight: bold">=</span> <span style="background-color: #f8f8f8">[</span><span style="color: #d14">'milk'</span><span style="background-color: #f8f8f8">,</span> <span style="color: #d14">'butter'</span><span style="background-color: #f8f8f8">,</span> <span style="color: #d14">'eggs'</span><span style="background-color: #f8f8f8">,</span> <span style="color: #d14">'bread'</span><span style="background-color: #f8f8f8">];</span>
+                        <span style="background-color: #f8f8f8">buildList</span><span style="background-color: #f8f8f8">(</span><span style="color: #008080">$coll</span><span style="background-color: #f8f8f8">);</span>
+                        <span style="color: #999988;font-style: italic">// &lt;ul&gt;&lt;li&gt;milk&lt;/li&gt;&lt;li&gt;butter&lt;/li&gt;&lt;li&gt;eggs&lt;/li&gt;&lt;li&gt;bread&lt;/li&gt;&lt;/ul&gt;</span>
+                        </pre>
+                        <p>Самый примитивный алгоритм, который приходит в голову. Пройтись циклом по элементам коллекции и дописать в
+                        результирующую строку очередной элемент <code>li</code>. В начале и конце добавить <code>ul</code> и вернуть строчку наружу.</p>
+                        <pre class="php"> &lt;?php                        
+                        <span style="color: #008080">$result</span> <span style="color: #000000;font-weight: bold">=</span> <span style="color: #d14">''</span><span style="background-color: #f8f8f8">;</span>
+                        <span style="color: #000000;font-weight: bold">foreach</span> <span style="background-color: #f8f8f8">(</span><span style="color: #008080">$coll</span> <span style="color: #000000;font-weight: bold">as</span> <span style="color: #008080">$item</span><span style="background-color: #f8f8f8">)</span> <span style="background-color: #f8f8f8">{</span>
+                            <span style="color: #008080">$result</span> <span style="color: #000000;font-weight: bold">.=</span> <span style="color: #d14">"&lt;li&gt;</span><span style="color: #d14">{</span><span style="color: #008080">$item</span><span style="color: #d14">}</span><span style="color: #d14">&lt;/li&gt;"</span><span style="background-color: #f8f8f8">;</span>
+                            <span style="color: #999988;font-style: italic">// либо так</span>
+                            <span style="color: #999988;font-style: italic">// $result = "{$result}&lt;li&gt;{$item}&lt;/li&gt;";</span>
+                        <span style="background-color: #f8f8f8">}</span>
+                        <span style="color: #008080">$result</span> <span style="color: #000000;font-weight: bold">=</span> <span style="color: #d14">"&lt;ul&gt;</span><span style="color: #d14">{</span><span style="color: #008080">$result</span><span style="color: #d14">}</span><span style="color: #d14">&lt;/ul&gt;"</span><span style="background-color: #f8f8f8">;</span>
+                        </pre>
+                        <p>Такой способ вполне рабочий, но для большинства языков программирования максимально неэффективный. Дело в том, что
+                        конкатенация и интерполяция порождают новую строчку вместо старой и подобная ситуация повторяется на каждой
+                        итерации. Причём строка становится все больше и больше. Копирование строк приводит к серьёзному расходу памяти и
+                        может влиять на производительность.</p>
+	        
+             </div>
+ </body>
+</html>

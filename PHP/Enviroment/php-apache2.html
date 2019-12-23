@@ -1,0 +1,201 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>PhP окружение</title>
+		  <link  href="../../Design/script.css" rel="stylesheet">
+		  <link  href="../../Design/toolbar.css" rel="stylesheet">
+		  <script src ="../../Design/bild.js"></script>
+		  </head>
+     <body>
+	     <script>
+	 		toolbar('../../index.html','../PHP_main.html');
+		 </script>
+		 
+		 <style type="text/css">
+		 
+		 </style>
+			<div class="content php-content">
+               <h1> Apache2 </h1>
+               <h2> Установка </h2>
+             начнём с обновления локального индекса пакетов:
+
+               sudo apt update
+               Далее установим пакет apache2:
+               
+               sudo apt install apache2
+
+               Если вы не знаете IP адрес вашего сервера, вы можете найти его несколькими способами с помощью командной строки.
+
+Введите следующую команду:
+
+hostname -I
+
+После того, как вы найдёте IP адрес вашего сервера, введите его в свой веб-браузер:
+
+http://IP_адрес_вашего_сервера
+Вы должны увидеть дефолтную страницу Apache для Ubuntu 18.04
+
+<h2 id="Шаг-4-Управление-процессом-apache">Шаг 4 - Управление процессом Apache</h2>
+
+<p>Теперь, когда у вас есть работающий веб-сервер, рассмотрим некоторые базовые команды для управления им.</p>
+
+<p>Для остановки себ-сервера наберите:</p>
+<pre class="code-pre command"><code langs=""><ul class="prefixed"><li class="line" prefix="$">sudo systemctl stop apache2
+</li></ul></code></pre>
+<p>Для запуска остановленного сервера наберите:</p>
+<pre class="code-pre command"><code langs=""><ul class="prefixed"><li class="line" prefix="$">sudo systemctl start apache2
+</li></ul></code></pre>
+<p>Для перезапуска сервиса наберите:</p>
+<pre class="code-pre command"><code langs=""><ul class="prefixed"><li class="line" prefix="$">sudo systemctl restart apache2
+</li></ul></code></pre>
+<p>Если вы вносите какие-то изменения в конфигурацию, Apache зачастую может перезагружаться без потери открытых соединений. Для этого наберите команду:</p>
+<pre class="code-pre command"><code langs=""><ul class="prefixed"><li class="line" prefix="$">sudo systemctl reload apache2
+</li></ul></code></pre>
+<p>По умолчанию Apache сконфигурирован на запуск при загрузке сервера. Вы можете отключить такое поведение следующей командой:</p>
+<pre class="code-pre command"><code langs=""><ul class="prefixed"><li class="line" prefix="$">sudo systemctl disable apache2
+</li></ul></code></pre>
+<p>Для повторного включения сервиса при загрузке сервера наберите:</p>
+<pre class="code-pre command"><code langs=""><ul class="prefixed"><li class="line" prefix="$">sudo systemctl enable apache2
+</li></ul></code></pre>
+<p>Теперь Apache должен опять запускаться автоматически при загрузке сервера.</p>
+
+
+<h2 id="Шаг-5-Настройка-виртуальных-хостов-рекомендуется">Шаг 5 - Настройка виртуальных хостов (рекомендуется)</h2>
+
+<p>При использовании веб-сервера Apache вы можете использовать <em>виртуальные хосты</em> (аналог серверных блоков в Nginx) для хранения конфигурационных настроек разных сайтов. Это позволяет иметь более одного сайта на одном сервере. В этом руководстве мы будем для примера использовать доменное имя <strong>example.com</strong>, но вам <strong>следует заменить его вашим собственным доменным именем</strong>. Для того, чтобы узнать больше о настройке доменных имён в DigitalOcean, рекомендуем ознакомиться с нашим <a href="https://www.digitalocean.com/community/tutorials/an-introduction-to-digitalocean-dns">Введением в DNS DigitalOcean</a>.</p>
+
+<p>Apache для Ubuntu 18.04 уже имеет один виртуальный хост, включенный по умолчанию, который настроен на отдачу документов из директории <code>/var/www/html</code>. Хотя это и удобно для обслуживания одного сайта, это становится неудобным, когда сайтов несколько. Вместо того, чтобы изменять <code>/var/www/html</code>, давайте создадим новую структуру директорий внутри <code>/var/www</code> для нашего сайта <strong>example.com</strong>, оставив <code>/var/www/html</code> для показа дефолтной страницы пользователям в случаях, когда клиентский запрос не совпадает ни с одним из настроенных доменных имён.</p>
+
+<p>Создайте директорию для <strong>example.com</strong> используя флаг <code>-p</code> для создания необходимых родительских директорий:</p>
+<pre class="code-pre command"><code langs=""><ul class="prefixed"><li class="line" prefix="$">sudo mkdir -p /var/www/<span class="highlight">example.com</span>/html
+</li></ul></code></pre>
+<p>Далее настройте владельца директории с помощью переменной окружения <code>$USER</code>:</p>
+<pre class="code-pre command"><code langs=""><ul class="prefixed"><li class="line" prefix="$">sudo chown -R $USER:$USER /var/www/<span class="highlight">example.com</span>/html
+</li></ul></code></pre>
+<p>Теперь права должны для корневой директории быть настроены правильным образом при условии, что вы не меняли своё значение <code>umask</code>. На всякий случай мы можем удостовериться в этом командой:</p>
+<pre class="code-pre command"><code langs=""><ul class="prefixed"><li class="line" prefix="$">sudo chmod -R 755 /var/www/<span class="highlight">example.com</span>
+</li></ul></code></pre>
+<p>Далее создадим страницу <code>index.html</code> в <code>nano</code> или любом другом текстовом редакторе:</p>
+<pre class="code-pre command"><code langs=""><ul class="prefixed"><li class="line" prefix="$">nano /var/www/<span class="highlight">example.com</span>/html/index.html
+</li></ul></code></pre>
+<p>Добавим в файл следующий HTML:</p>
+<div class="code-label " title="/var/www/example.com/html/index.html">/var/www/example.com/html/index.html</div><pre class="code-pre "><code langs="">&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;Welcome to <span class="highlight">Example.com</span>!&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1&gt;Success!  The <span class="highlight">example.com</span> server block is working!&lt;/h1&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>Сохраните и закройте файл.</p>
+
+<p>Для того, чтобы Apache мог отдавать этот контент, нам необходимо настроить виртуальный хост с корректными настройками. Вместо того, чтобы редактировать существующий файл виртуального хоста <code>/etc/apache2/sites-available/000-default.conf</code>, создадим новый файл для нашего сайта - <code>/etc/apache2/sites-available/<span class="highlight">example.com</span>.conf</code>:</p>
+<pre class="code-pre command"><code langs=""><ul class="prefixed"><li class="line" prefix="$">sudo nano /etc/apache2/sites-available/<span class="highlight">example.com</span>.conf
+</li></ul></code></pre>
+<p>Скопируйте следующий текст настроек виртуального хоста в созданный файл:</p>
+<div class="code-label " title="/etc/apache2/sites-available/example.com.conf">/etc/apache2/sites-available/example.com.conf</div><pre class="code-pre "><code langs="">&lt;VirtualHost *:80&gt;
+    ServerAdmin <span class="highlight">admin@example.com</span>
+    ServerName <span class="highlight">example.com</span>
+    ServerAlias <span class="highlight">www.example.com</span>
+    DocumentRoot /var/www/<span class="highlight">example.com</span>/html
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+&lt;/VirtualHost&gt;
+</code></pre>
+<p>Обратите внимание, что мы обновили <code>DocumentRoot</code> на адрес нашей новой директории, и <code>ServerAdmin</code> на адрес электронной почты, доступный для администратора <strong>example.com</strong>. Мы также добавили две директивы: <code>ServerName</code>, которая устанавливает базовое доменное имя, которое должно использоваться для хоста, а также <code>ServerAlias</code>, которая определяет другие имена, которые должны использоваться для отображения хоста так же, как и базовое доменное имя.</p>
+
+<p>Сохраните и закройте файл после внесения изменений.</p>
+
+<p>Теперь активируем профиль сайта с помощью утилиты <code>a2ensite</code>:</p>
+<pre class="code-pre command"><code langs=""><ul class="prefixed"><li class="line" prefix="$">sudo a2ensite <span class="highlight">example.com</span>.conf
+</li></ul></code></pre>
+<p>Деактивируем дефолтный сайт, определённый в <code>000-default.conf</code>:</p>
+<pre class="code-pre command"><code langs=""><ul class="prefixed"><li class="line" prefix="$">sudo a2dissite 000-default.conf
+</li></ul></code></pre>
+<p>Далее проверим наши настройки на наличие ошибок:</p>
+<pre class="code-pre command"><code langs=""><ul class="prefixed"><li class="line" prefix="$">sudo apache2ctl configtest
+</li></ul></code></pre>
+<p>Вы должны увидеть следующий вывод:</p>
+<pre class="code-pre "><code langs=""><div class="secondary-code-label " title="Вывод">Вывод</div>Syntax OK
+</code></pre>
+<p>Перезапустите Apache для применения внесённых изменений:</p>
+<pre class="code-pre command"><code langs=""><ul class="prefixed"><li class="line" prefix="$">sudo systemctl restart apache2
+</li></ul></code></pre>
+<p>Теперь Apache должен работать с вашим доменным именем. Вы можете проверить это введя <code>http://<span class="highlight">example.com</span></code> в вашем браузере, где в результате вы должны увидеть что-то в этом роде:</p>
+
+<p><img src="https://assets.digitalocean.com/articles/apache_virt_hosts_1404/example.png" alt="Успешная работа Apache"></p>
+
+<h2 id="Шаг-6-Важные-файлы-и-директории-apache">Шаг 6 - Важные файлы и директории Apache</h2>
+
+<p>Теперь, когда вы знаете, как управлять сервисом Apache, вам стоит ознакомиться с важными файлами и директориями Apache.</p>
+
+<h3 id="Контент">Контент</h3>
+
+<ul>
+<li><code>/var/www/html</code>: фактический веб-контент, который по умолчанию состоит только из дефолтной страницы Apache, которую мы видели ранее, хранится в директории <code>/var/www/html</code>. Это может быть изменено в конфигурационных файлах Apache.</li>
+</ul>
+
+<h3 id="Конфигурация-сервера">Конфигурация сервера</h3>
+
+<ul>
+<li><code>/etc/apache2</code>: это конфигурационная директория Apache. Все файлы конфигурации Apache находятся здесь.</li>
+<li><code>/etc/apache2/apache2.conf</code>: главный конфигурационный файл Apache. Изменения в этом файле влияют на глобальную конфигурацию Apache. Этот файл отвечает за загрузку многих других файлов из конфигурационной директории.</li>
+<li><code>/etc/apache2/ports.conf</code>: этот файл определяет порты, которые Apache будет слушать. По умолчанию Apache слушает порт 80, а также порт 443 при условии, что модуль для работы с SSL включен.</li>
+<li><code>/etc/apache2/sites-available/</code>: в этой директории хранятся файлы виртуальных хостов. Apache не использует файлы из этой директории, если ссылки на них нет в директории <code>sites-enabled</code>. Обычно настройка всех файлов виртуальных хостов осуществляется в этой директории, а активация хоста происходит путём создания ссылки в другой директории командой <code>a2ensite</code>.</li>
+<li><code>/etc/apache2/sites-enabled/</code>: директория, в которой хранятся активированные виртуальные хосты. Обычно это делается путём создания ссылки на файл конфигурации хоста из директории <code>sites-available</code> с помощью команды <code>a2ensite</code>. Apache читает конфигурационный файлы и ссылки из этой директории при запуске или перезапуске.</li>
+<li><code>/etc/apache2/conf-available/</code>, <code>/etc/apache2/conf-enabled/</code>: эти директории связаны друг с другом так же, как и <code>sites-available</code> и <code>sites-enabled</code> связаны друг с другом, но используются для хранения фрагментов конфигурации, которые не принадлежат виртуальным хостам. Файлы в директории <code>conf-available</code> могут быть включены командой <code>a2enconf</code> и выключены командой <code>a2disconf</code>.</li>
+<li><code>/etc/apache2/mods-available/</code>, <code>/etc/apache2/mods-enabled/</code>: эти директории содержат, соответственно, доступные и активные модули. Файлы, оканчивающиеся на <code>.load</code>, содержат фрагменты для загрузки конкретных модулей, а файлы, оканчивающиеся на <code>.conf</code>, содержат настройки этих модулей. Модули можно активировать командой <code>a2enmod</code> и деактивировать командой <code>a2dismod</code>.</li>
+</ul>
+
+<h3 id="Серверные-логи">Серверные логи</h3>
+
+<ul>
+<li><code>/var/log/apache2/access.log</code>: по умолчанию каждый запрос к вашему веб-серверу записывается в этом файле, если только Apache не настроен на другое поведение.</li>
+<li><code>/var/log/apache2/error.log</code>: по умолчанию все ошибки записываются в этот файл. Директива <code>LogLevel</code> в конфигурации Apache определяет, насколько детальными должны быть записи об ошибках.</li>
+</ul>
+
+<h2 id="Заключение">Заключение</h2>
+
+<p>Теперь, когда ваш веб-сервер установлен, у вас есть множество вариантов того, что делать дальше. Если вы хотите построить более полный стек приложений, вы можете ознакомиться с нашим <a href="https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-ubuntu-18-04">руководством по установке и настройке стека LAMP на Ubuntu 18.04</a>.</p>
+
+               
+               <h2> Удвление apache2 </h2>
+                <p> Удаляю апач и всё что с ним связано</p>
+	  <pre class="cmd">
+            rekoshed@rekoshed:~$ service apache2 stop
+            rekoshed@rekoshed:~$ dpkg -l | grep -i apache2
+            ii  apache2                                       2.4.38-2ubuntu2.3                         amd64        Apache HTTP Server
+            ii  apache2-bin                                   2.4.38-2ubuntu2.3                         amd64        Apache HTTP Server (modules and other binary files)
+            ii  apache2-data                                  2.4.38-2ubuntu2.3                         all          Apache HTTP Server (common files)
+            ii  apache2-utils                                 2.4.38-2ubuntu2.3                         amd64        Apache HTTP Server (utility programs for web servers)
+            ii  libapache2-mod-php                            2:7.2+69ubuntu1                           all          server-side, HTML-embedded scripting language (Apache 2 module) (default)
+            ii  libapache2-mod-php7.2                         7.2.24-0ubuntu0.19.04.1                   amd64        server-side, HTML-embedded scripting language (Apache 2 module)
+            rekoshed@rekoshed:~$ sudo apt-get remove --purge apache2 apache2-bin apache2-data apache2-utils libapache2-mod-php libapache2-mod-php7.2 
+     
+      </pre>
+    
+      <p> На всякий случай проделываем это, чтобы вычистить оставшийся связанные пакеты наверняка.</p>
+
+<span class="cmd"> sudo apt-get autoremove</span>
+
+<p>Удаляем оставшийся папки и файлы, связанные с Apache</p>
+<pre class="cmd">
+whereis apache2
+
+# Здесь идёт перечисление папок с Apache. Обычно они удаляются, но "хвосты" могут остаться:
+
+/etc$ whereis apache2 apache2: /usr/sbin/apache2 /etc/apache2 /usr/lib/apache2 /usr/share/apache2 /usr/share/man/man8/apache2.8.gz
+
+# Удаляем теперь всё ручками своими ненужное, командой rm -rf /:
+
+sudo rm -rf /etc/apache2
+</pre>
+	        
+	        </div>
+  </div>
+ </body>
+</html>
