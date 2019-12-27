@@ -11,11 +11,22 @@
 	vertical-align: baseline;
 	}
 
+	:root {
+	--code-color: #073470;
+	--a-link: white;
+	--a-visited: pink;
+	--a-hover: red;
+	--a-active: yellow;
+	
+	
+	}
+	
+	
 	span {color:red;}
-	a:link    {color:white; text-decoration:none}
-	a:visited {color:pink; text-decoration:none}
-	a:hover   {color:red; text-decoration:underline}
-	a:active  {color:yellow; text-decoration:underline}
+	a:link    {color:var(--a-link); text-decoration:none}
+	a:visited {color:var(--a-visited); text-decoration:none}
+	a:hover   {color:var(--a-hover); text-decoration:underline}
+	a:active  {color:var(--a-active); text-decoration:underline}
 	
 		div{
 			
@@ -83,7 +94,7 @@ font-family:Lucida Sans Unicode;
 			background-color:rgb(4, 0, 39);
 		}
 		#main p{
-		font-size: 16px;
+		font-size: 20px;
 		}
 		#footer p{
 		font-size: 13px;
@@ -130,7 +141,7 @@ font-family:Lucida Sans Unicode;
 		.item1 {background-color: #455a64; flex-basis: auto; width:auto;}
 		.item2 {background-color: #607d8b; flex-basis: auto; width:auto;}
 		
-		@media screen and (min-width: 600px) {
+		@media screen and (min-width: 700px) {
 		
 		.content {
 		flex-direction: row;

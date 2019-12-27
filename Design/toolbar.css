@@ -5,6 +5,7 @@
 		left: 0;
 		right: 0;
 		background-color: #222;
+		height:auto;
 		border-bottom: 1px solid #ccc;
 		z-index:100;
 		}
