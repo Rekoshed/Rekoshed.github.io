@@ -93,9 +93,12 @@ font-family:Lucida Sans Unicode;
 			width: 100%;
 			background-color:rgb(4, 0, 39);
 		}
-		#main p{
-		font-size: 20px;
-		}
+		 p {font-size: 16px;}
+		
+		 h2 {font-size:1.5rem ;}
+		
+		 h3 {font-size:1.2rem;}
+		
 		#footer p{
 		font-size: 13px;
 		}
@@ -141,7 +144,7 @@ font-family:Lucida Sans Unicode;
 		.item1 {background-color: #455a64; flex-basis: auto; width:auto;}
 		.item2 {background-color: #607d8b; flex-basis: auto; width:auto;}
 		
-		@media screen and (min-width: 700px) {
+		@media screen and (min-width: 810px) {
 		
 		.content {
 		flex-direction: row;
