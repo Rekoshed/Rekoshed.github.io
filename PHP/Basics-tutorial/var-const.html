@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>PhP основной материал</title>
+		  <link  href="../../Design/script.css" rel="stylesheet">
+		  <link  href="../../Design/toolbar.css" rel="stylesheet">
+		  <script src ="../../Design/bild.js"></script>
+		  </head>
+     <body>
+	     <script>
+	 		toolbar('../../index.html','../PHP_main.html');
+		 </script>
+		 
+		 <style type="text/css">
+		 
+		 </style>
+			<div class="content php-content">
+	  <h2>Переменные. variables</h2>
+	  <p> Переменной в PHP называют локацию в памяти которая содержит данные.</p>
+	  <p> Переменная является временным хранилищем, по этому используется
+	  для хранения временных данных</p>
+	   <p> В PHP переменная объявляется  с использованием <code>$</code> , за которым следует имя переменной</p>
+	   <p> Синтаксис:</p>
+	   <p><span class="cmd">  $variablename=value; </span></p>  
+	    <p> Давайте рассмотрим пример хранения строковых, целочисленных и дробных
+	    переменных:</p>    
+<pre class="php">    
+&lt;?php  
+ $str="hello string";  
+ $x=200;  
+ $y=44.6;  
+ echo "строка: $str &lt;br/>";  
+ echo "целое число: $x &lt;br/>";  
+ echo "дробное число: $y &lt;br/>";  
+?>
+    </pre>
+<p> сумма двух переменных:</p>
+<pre class="php">	        
+  &lt;?php  
+  $x=5;  
+  $y=6;  
+  $z=$x+$y;  
+  echo $z;  
+  ?>
+</pre>
+	        
+  <p> Имена переменных в PHP чувствительны к регистру:</p>
+  <pre class="php">
+  <?php  
+  $color="red";  
+  echo "My car is " . $color . "<br>";  
+  echo "My house is " . $COLOR . "<br>";  
+  echo "My boat is " . $coLOR . "<br>";  
+  ?>    
+  </pre>
+  
+  <p> В примере выше  имена <b>color, Color, COLOR, COLor</b> являются разными именами.
+  По этому в выводе на экран получите примерно вот это:</p>
+ 
+	<pre class="php">
+	Output:
+	My car is red 
+	Notice: Undefined variable: COLOR in C:\wamp\www\variable.php on line 4 
+	My house is 
+	Notice: Undefined variable: coLOR in C:\wamp\www\variable.php on line 5 
+	My boat is
+	</pre>
+<p> Имена переменных в РНР начинаются трлько с прописных букв и нижнего прдчёркивания.
+Нельзя именовать переменные начиная с цифр или специалных символов</p>
+	
+	
+<p> Так правильно:</p>
+<pre class="php">
+	&lt;?php  
+	$a="hello";//letter (valid)  
+	$_b="hello";//underscore (valid)  
+	echo "$a &lt;br/> $_b";  
+	?>  
+</pre>	
+<p>А так не правильно:</p>
+<pre class="php">
+	&lt;?php  
+	$4c="hello";//number (invalid)  
+	$*d="hello";//special symbol (invalid)  
+	echo "$4c &lt;br/> $*d";  
+	?>
+</pre>
+<p> РНР это слабо типизированный язык. Это значит что РНР автоматически конвертирует 
+переменные прл корректный тип данных</p>
+
+<h2> Константы. const</h2>
+<p> Константы это имена или идентефикаторы, которые не могут быть
+изменены во время выполнения сценария</p>
+
+<p> PHP  константы определяются двумя способами:</p>
+<ul>
+  <li>Использование функции define()</li>
+  <li>Использование ключевого слова</li>
+  </ul>
+  
+  <p> PHP константы следуют некоторым правилам переменных<br>.
+  Их имена также начинаются с латинских символов или с нижнего подчёркивания.
+  Условно РНР константы именуются в верхнем регистре</p>
+<p>Давайте рассмотрим синтаксис функции define():</p>
+
+<p><span class="cmd">define(name, value, case-insensitive)</span> 
+<p>name: указывает имя константы<br>
+value: указывает значение константы<br>
+case-insensitive: значение по умоочанию равно<code> false</code>.
+Это значение пеняет чувствительность к регистру.</p>
+<p> Давайте рассмотрим примеры определения констант с использованием
+define():</p>
+
+<pre class="php">
+&lt;?php  
+ define("MESSAGE","Hello PHP Developer");  
+ echo MESSAGE;  
+?>
+
+File: constant2.php
+
+&lt;?php  
+ define("MESSAGE","Hello PHP Developer",true);//not case sensitive  
+ echo MESSAGE;  
+ echo message;  
+?>
+
+File: constant3.php
+
+&lt;?php  
+ define("MESSAGE","Hello PHP Developer",false);//case sensitive  
+ echo MESSAGE;  
+ echo message;  
+?>
+</pre>
+	        </div>
+  </div>
+ </body>
+</html>
+<!--
+
+PHP Variables
+A variable in PHP is a name of memory location that holds data(содержит данные).
+ A variable is a temporary storage that is used to store data temporarily.
+In PHP, a variable is declared using $ sign followed by variable name.
+Syntax of declaring a variable in PHP is given below:
+
+$variablename=value;
+PHP Variable: Declaring string, integer and float
+Let's see the example to store string, integer and float values in PHP variables.
+File: variable1.php
+
+
+PHP Variable: Sum of two variables
+
+PHP Variable: case sensitive
+
+In PHP, variable names are case sensitive.
+ So variable name "color" is different from Color, COLOR, COLor etc.
+
+PHP Variable: Rules
+PHP variables must start with letter or underscore only.
+PHP variable can't be start with numbers and special symbols.
+
+PHP: Loosely typed language
+PHP is a loosely typed language, it means PHP automatically converts the variable to its correct data type.
+
+
+&&&&&&&&&&&&&======================
+
+PHP Constants
+PHP constants are name or identifier that can't be changed during the execution(во время выполнения) of the script.
+ PHP constants can be defined by 2 ways(могут быть определены двумя способами):
+
+Using define() function(использование функции определения)
+Using const keyword
+PHP constants follow the same PHP variable rules. 
+For example, it can be started with letter or underscore only.
+Conventionally(условно), PHP constants should(могут быть) be defined in uppercase letters.
+
+PHP constant: define()
+Let's see the syntax of define() function in PHP.
+
+define(name, value, case-insensitive) 
+name: specifies(указывает) the constant name
+value: specifies the constant value
+case-insensitive(не чувствительный к регистру): Default value is false.
+ It means(это означает) it is case sensitive by default.
+Let's see the example to define PHP constant using define().
+File: constant1.php
+
+<?php  
+ define("MESSAGE","Hello PHP Developer");  
+ echo MESSAGE;  
+?>
+Output:
+Hello PHP Developer
+File: constant2.php
+
+<?php  
+ define("MESSAGE","Hello PHP Developer",true);//not case sensitive  
+ echo MESSAGE;  
+ echo message;  
+?>
+Output:
+Hello PHP DeveloperHello PHP Developer
+File: constant3.php
+
+<?php  
+ define("MESSAGE","Hello PHP Developer",false);//case sensitive  
+ echo MESSAGE;  
+ echo message;  
+?>
+Output:
+Hello PHP Developer Notice: Use of undefined constant message - assumed 'message' in C:\wamp\www\vconstant3.php on line 4 message
+PHP constant: const keyword
+The const keyword defines constants at compile time. It is a language construct not a function.
+It is bit faster than define().
+It is always case sensitive.
+File: constant4.php
+
+<?php  
+ const MESSAGE="Hello const by PHP Developer";  
+ echo MESSAGE;  
+?>
+Output:
+          Hello const by PHP Developer
+       
