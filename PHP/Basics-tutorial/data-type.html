@@ -1,0 +1,433 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>PhP основной материал</title>
+		  <link  href="../../Design/script.css" rel="stylesheet">
+		  <link  href="../../Design/toolbar.css" rel="stylesheet">
+		  <script src ="../../Design/bild.js"></script>
+		  </head>
+     <body>
+	     <script>
+	 		toolbar('../../index.html','../PHP_main.html');
+		 </script>
+		 
+		 <style type="text/css">
+		 
+		 </style>
+			<div class="content php-content">
+	  
+	       <h2>Типы Данных в РНР.<span> PHP Data Types</span></h2>
+	   <p> Типы Данных РНР используются для хранения различных типов данных или значений.
+	   </p>
+	   <p> PHP поддерживает 8 примитивных типов данных, 
+	   которые делятся на три категории типов:</p>
+	        <!--
+	        PHP data types are used to hold different types of data or values.
+	         PHP supports 8 primitive data types that can be categorized further in 3 types:
+	        -->
+	        <ol>
+	       <li> Scalar Types (скалярные типы)</li>
+	       <li> Compound Types (смешанные типы)</li>
+	       <li>Special Types (специальные типы)</li>
+	        </ol>
+	        <h3>Скалярные типы. <span>Scalar Types</span></h3>
+	   <ul>
+	       <li> boolean (булевые)</li>
+	       <li> integer (целочисленные)</li>
+	       <li>float (с плавабщей точкой)</li>
+	       <li>string (строчные)</li>
+	   </ul>
+	        <h3>Смешанные типы <span> Compound Types</span></h3>
+	   <ul>
+	       <li> array (массивы)</li>
+	       <li> object (объекты)</li>
+	        </ul>
+	  <h3>Специальные типы.<span> Special Types</span></h3>
+	  <ul> 
+	     <li> resource (ресурсы)</li>
+	     <li>  NULL (пустрй тип)</li>
+	  </ul>
+	  
+	        
+	      
+  <!-- 
+  PHP Boolean
+  These data types provide output as 0 or 1.
+   In PHP, value of True is one and the value of False is nothing. Syntax
+  
+  <?php  
+  $foo = True; // assign the value TRUE to $foo  
+  ?>
+  Example 1
+  
+  -->
+  <h3> Логический (boolean) тип</h3>
+  <p> Этот тип данных обеспечивает вывод нуля или еденицы.<br>
+  В РНР значение еденицы является <code>true</code>
+  , a  значение <code>false</code> это ноль, либо отсутствие значения</p>
+  
+  <pre class="php">
+  &lt;?php  
+  $a=true;  
+  echo $a;  
+  ?>
+  Output:
+  1
+  
+  </pre>
+  
+  <h3> Функция <span> is_bool()</span></h3>
+  
+  <p> Используя эту функцию, мы можем проверить, является ли переменная
+  логическим типом или нет.</p>
+  
+  <p><span class="cmd">bool is_bool ( mixed $var )</span></p>
+  
+  <p> <b>is_bool()</b> возвращает <code>true</code> если переменная
+  логическая, в противном cлучае возвращает <code>false</code></p>
+  
+  <p>Примеры:</p>
+  <pre class="php">
+  Example 1
+  
+  &lt;?php  
+  $x=false;  
+  echo is_bool($x);  
+  ?>
+  Output:
+  1
+  Example 2
+  
+  &lt;?php  
+  $y=false;  
+  if (is_bool($y))  
+  echo 'This is a boolean type.';  
+  else  
+  echo 'This is not a boolean type.';  
+  ?>
+  Output:
+  This is a boolean type.
+  
+  </pre>
+  
+  <!--
+  PHP is_bool() function
+  By using this function, we can check whether(является ли,будь то) the variable is boolean variable or not.
+  Syntax
+  
+  bool is_bool ( mixed $var )
+  Parameters
+  
+  Parameter	Description(описание)	Is compulsory
+  var_name	The variable being evaluated.	compulsory
+  Returns
+  It return True if var is boolean, False otherwise.(иначе)
+
+
+
+==
+PHP is_int() function
+By using this function, we can check the input variable is integer or not.
+ This function was introduced in PHP 4.0.
+Syntax
+
+bool is_int (mixed $var)
+Parameters
+Parameter	Description	Is compulsory
+var_name	The variable being checked.	compulsory
+Return type
+This function returns true if var_name is an integer, Otherwise false.
+
+  -->
+  
+  <h3> Функция <span>is_int()</span></h3>
+  
+  <p>
+  Используя эту функцию, мы можем проверить вводную переменную,
+  целочисленная  она или нет.
+  </p>
+  <p><span class="cmd">bool is_int (mixed $var)</span></p>
+  <p>Примеры:</p>
+  <pre class="php">
+  Example 1
+  
+  &lt;?php  
+  $x=123;  
+  echo is_int($x);  
+  ?>
+  <span>
+  Output:
+  1
+  </span>
+  Example 2
+  
+  &lt;?php   
+  $x = 56;   
+  $y = "xyz";   
+  
+  if (is_int($x))   
+  {   
+  echo "$x is Integer \n" ;   
+  }   
+  else  
+  {   
+  echo "$x is not an Integer \n" ;   
+  }   
+  if (is_int($y))   
+  {   
+  echo "$y is Integer \n" ;   
+  }   
+  else  
+  {   
+  echo "$y is not Integer \n" ;   
+  }   
+  ?>
+  <span>
+  Output:
+  56 is not an Integer
+  </span>
+  Example 3
+  
+  &lt;?php   
+  $check = 12345;  
+  if( is_int($check ))   
+  {  
+  echo $check . " is an int!";  
+  }   
+  else   
+  {  
+  echo $check . " is not an int!";  
+  }  
+  ?>
+  <span>
+  Output:
+  12345 is an int!
+  </span>
+  </pre>
+  </p>
+  <h3>Числа с плавающей точкой (float)</h3>
+  <p>
+  Этот тип данных представляет десятичные значения.
+  Число с плавающей точкой - это десятичная дробь,
+  или число в экспоненциальной форме
+  </p>
+  <p><span class="cmd">
+  
+  $a=1.234; <br> 
+  $x=1.2e4;  <br>
+  $y=7E-10;
+  </span></p>
+  <p>Примеры:</p>
+  
+  <pre class="php">
+  Example 1
+  
+  &lt;?php  
+  $x=22.41;  
+  echo $x;  
+  ?>
+  <span>
+  Output:
+  22.41
+  </span>
+  Example 2
+  
+  &lt;?php   
+  $a = 11.365;  
+  var_dump($a);  
+  ?>
+  <span>
+  Output:
+  11.365
+  </span>
+  Example 3
+  &lt;?php  
+  $a = 6.203;  
+  $b = 2.3e4;  
+  $c = 7E-10;  
+  var_dump($a);  
+  var_dump($b);  
+  var_dump($c);  
+  ?>
+  <span>
+  Output:
+  float 6.203 
+  float 23000 
+  float 7.0E-10
+  </span>
+  </pre>
+  
+  <!--
+  PHP Float
+  This data type represents(представляет) decimal(десятичные) values.
+   The float (floating point number) is a number with a decimal point
+    or a number in exponential form.
+  
+  =
+  PHP is_float Function
+  By using this function, we can check that the input value is float or not. This function was introduced in PHP 4.0.
+  Syntax
+  
+  bool is_float ( mixed $var )
+  
+  The is_float() function returns TRUE if the var_name is float, otherwise false.
+  
+  
+  -->
+  <h3>Функция <span>is_float</span></h3>
+  <p>Используя эту функцию, вы можете проверить
+  наличие числа с плавающей точкой в вводимых данных.
+  </p>
+  <p><span class="cmd">  bool is_float ( mixed $var )</span></p>
+  <p> <b>is_float()</b> возвращает <code>true</code> если число дробное, и <code>false</code> в противном случае.</p>
+  <p>Примеры:</p>
+  
+  <pre class="php">
+  Example 1
+  
+  &lt;?php  
+  $x=123.41;  
+  echo is_float($x);  
+  ?>
+  Example 2
+  
+  &lt;?php  
+  $a=123.41;  
+  $b=12;  
+  var_dump (is_float($a));  
+  var_dump (is_float($b));  
+  ?>
+  Example 3
+  
+  &lt;?php  
+  $var_name=126.56;  
+  if (is_float($var_name))  
+  echo 'This is a float value.&lt;br>';  
+  else  
+  echo 'This is not a float value.&lt;br>';  
+  var_dump(is_float('javatpoint'));  
+  echo '&lt;br>';  
+  var_dump(is_float(85));  
+  ?>  
+  
+  <span>Output:
+  This is a float value.
+  boolean false
+  boolean false</span>
+  </pre>
+  <h3>Массив(<span>array</span>)</h3>
+  <p> Массив это коллекция гетерогенных(разнотипных) типов данных.
+  РНР, как нам известно, слабо типизированный язык,
+  по этому мы можем хранить разные типы значений в массивах.
+  Нормаоьная переменная хранит одно значение, массив может хранить множество значений.
+  Массив содержит ряд элементов,а каждый элемент комбинацию:
+   ключ - значение.</p>
+   <p><span class="cmd">  Variable_name = array (element1, element2, element3, element4......)</span></p>
+   <p>Примеры:</p>
+   
+   <pre class="php">
+   Example 1
+   
+   &lt;?php  
+   $arr= array(10,20,30);  
+   print_r($arr);  
+   ?>
+   <span>
+   Output:
+   Array ( [0] => 10 [1] => 20 [2] => 30 )
+   </span>
+   Example 2
+   
+   &lt;?php  
+   $arr= array(10,'Hitesh',30);  
+   print_r($arr);  
+   ?>
+   <span>
+   Output:
+   Array ( [0] => 10 [1] => Hitesh [2] => 30 )
+    </span>
+    </pre>
+    
+    <!--
+    Object:
+    An object is a data type which (который) accumulates data 
+    and information on how to process(обрабатывать) that data.
+     An object is a specific instance of a class
+      which delivers(доставляет) as templates for objects.
+    
+    SYNTAX:
+    At first, we must declare a class of object. A class is a structure which consists of properties and methods. Classes are specified with the class keyword. We specify the data type in the object class, and then we use the data type in instances of that class.
+    -->
+    <h3>Объект</h3>
+    <p> Объект представляет из себя тип данных, который накапливает в себе
+    данные и информацию о том, как эти данные обрабатывать.
+    Объект является определённым экземпляром класса,
+    который применяется как шаблон для объектов.</p>
+    <pre class="php">
+    Example 1
+   
+   &lt;?php class vehicle  
+   {  
+   function car()  
+   {           
+   echo "Display tata motors";  
+   }  
+   }  
+   $obj1 = new vehicle;  
+   $obj1->car();   
+   ?>  
+   Output:
+   Display tata motors
+   Example 2
+   
+   &lt;?php  
+   class student   
+   {  
+   function student()   
+   {  
+   $this->jsk = 100;  
+   }  
+   }     
+   $obj = new student();  
+   echo $obj->jsk;  
+   ?>
+   Output:
+   100
+   Example 3
+   
+   &lt;?php  
+   class greeting  
+   {  
+   public $str = "Hello Developer";  
+   function show_greeting()  
+   {  
+   return $this->str;  
+   }  
+   }  
+   $obj = new greeting;  
+   var_dump($obj);  
+   ?>  
+   Output:
+   object(greeting)[1] 
+   public 'str' => string 'Hello Developer' (length=15)
+   
+   </pre>
+  <!--
+  
+  Array:
+  The array is a collection of heterogeneous(гетерогенный) (dissimilar(разнотипный)) data types.
+   PHP is a loosely(свободно) typed language 
+   that?s why we can store any type of values in arrays.
+  Normal variable can store single value, array can store multiple values.
+  The array contains a number(содержит ряд) of elements, and each(каждый)
+   element is a combination of element key and element value.
+  
+  SYNTAX OF ARRAY DECLARATION:
+  Variable_name = array (element1, element2, element3, element4......)
+    -->
+  </div>
+ </body>
+</html>

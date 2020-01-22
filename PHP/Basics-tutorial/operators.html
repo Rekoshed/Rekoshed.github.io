@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>PhP основной материал</title>
+		  <link  href="../../Design/script.css" rel="stylesheet">
+		  <link  href="../../Design/toolbar.css" rel="stylesheet">
+		  <script src ="../../Design/bild.js"></script>
+		  </head>
+     <body>
+	     <script>
+	 		toolbar('../../index.html','../PHP_main.html');
+		 </script>
+		 
+		 <style type="text/css">
+		 
+		 </style>
+			<div class="content php-content">
+	  <h2>PHP Операторы</h2>
+	   <p>  Оператор это символ, который выполняет операции над операндами</p>
+	     
+	      <!-- PHP Operator is a symbol(символ) i.e used to perform(выполнять) operations on operands.
+	       
+	       $num=10+20;//+ is the operator and 10,20 are operands
+	       In the above example, + is the binary + operator, 10 and 20 are operands and $num is variable.
+	       PHP Operators can be categorized in following forms:
+	       -->
+	       <p>Пример:</p>
+	       <p><span class="cmd">$num=10+20;//+ это оператор, а 10,20 операнды.
+	       $num - переменная.</span></p>
+	       <p>Операторы PHP могут быть классифицированы в следующих формах:</p>
+	      <ul> 
+	      <li> Арифметические Операторы</li>
+	      <li> Операторы сравнения</li>
+	      <li> Битовые операторы</li>
+	      <li> Логические Операторы</li>
+	      <li> Строковые операторы</li>
+	   	  <li> Операторы дикремента и инкремента.</li>
+	      <li> Операторы массива</li>
+	      <li> Операторы типа</li>
+	      <li> Операторы исполнения</li>
+	      <li>Операторы контроля ошибок</li>
+	      <li> Операторы присваивания</li>
+	      </ul>
+	      
+	     <!--  We can also(также) categorized(класифицировать) operators on behalf(от имени) of operands.
+	        They can be categorized in 3 forms:
+	       
+	       Unary Operators: works on single operands such(такие) as ++, -- etc.
+	       Binary Operators: works on two operands such as binary +, -, *, / etc.
+	       Ternary Operators: works on three operands such as "?:".
+	       -->
+	       <p>Так же мы можем классифицировать операторы от имени операндов</p>
+	       <ul>
+	       <li>	Унарные операторы: работает с одиночными операндами такими  как<code> ++, --</code> и т. Д.</li>
+	       <li>	Двоичные операторы: работают с двумя операндами, такими как двоичные<code> +, -, *, /</code> и т. Д.</li>
+	       <li>	Тернарные операторы: работает с тремя операндами, такими как <code>«?:».</code></li>
+	       </ul>
+	      <!--
+	       Let's see the precedence(старшинство,приоритет) of PHP operators with associativity(асоциативность).
+	       
+	       Operators	Additional Information(дополнительная иформация)	Associativity
+	       -->
+	       <table>
+	       <tr><th>Операторы</th>	<th>Допоонительная информацмя</th> 	<th>Ассоциативность</th></tr>
+	      <tr><td> clone new</td>	<td>clone and new</td>	<td>non-associative</td></tr>
+	      <tr><td> [</td>	<td>array()</td>	<td>left</td></tr>
+	       **	arithmetic	right
+	       ++ -- ~ (int) (float) (string) (array) (object) (bool) @	increment/decrement and types	right
+	       instanceof	types	non-associative
+	       !	logical (negation)	right
+	       * / %	arithmetic	left
+	       + - .	arithmetic and string concatenation	left
+	       << >>	bitwise (shift)	left
+	       < <= > >=	comparison	non-associative
+	       == != === !== <>	comparison	non-associative
+	       &	bitwise AND	left
+	       ^	bitwise XOR	left
+	       |	bitwise OR	left
+	       &&	logical AND	left
+	       ||	logical OR	left
+	       ?:	ternary	left
+	       = += -= *= **= /= .= %= &= |= ^= <<= >>= =>	assignment	right
+	       and	logical	left
+	       xor	logical	left
+	       or	logical	left
+	       ,	many uses (comma)	left
+	       </table>
+  </div>
+ </body>
+</html>
