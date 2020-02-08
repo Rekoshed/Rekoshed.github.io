@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>PhP основной материал</title>
+		  <link  href="../../Design/script.css" rel="stylesheet">
+		  <link  href="../../Design/toolbar.css" rel="stylesheet">
+		  <script src ="../../Design/bild.js"></script>
+		  </head>
+     <body>
+	     <script>
+	 		toolbar('../../index.html','../PHP_main.html');
+		 </script>
+		 
+		 <style type="text/css">
+		 
+		 </style>
+			<div class="content php-content">
+<h1>Условие</h1>
+<h2> <span>if else</span></h2>
+<p>Инструкция <code>if else</code> используется для
+проверки условия. Есть различные способы использования
+иструкций <code>if</code></p>
+<p><span class="cmd">
+if<br>
+	  if-else<br>
+	  if-else-if<br>
+	  nested if<br>
+	  </span></p>
+<h3>If</h3>
+<p><code>if</code> выполняется если условие верно.</p>
+<p> <span class="cmd">if (condition){  <br>
+	  //code to be executed  <br>
+	  }  </span></p>
+	  
+	  <pre class="php">
+	  Пример:
+	  
+	  &lt;?php  
+	  $num=12;  
+	  if($num&lt;100){  
+	  echo "$num is less than 100";  
+	  }  
+	  ?>
+	  <span>
+	  Output:
+	  12 is less than 100</span>
+	  </pre>
+	  
+	  <h3>Switch</h3>
+	  <!--
+	  PHP switch statement is used to execute (исполнять) one statement from multiple conditions.
+	   It works like PHP if-else-if statement.
+	  Syntax
+	  
+	  switch(expression){      
+	  case value1:      
+	  //code to be executed  
+	  break;  
+	  case value2:      
+	  //code to be executed  
+	  break;  
+	  ......      
+	  default:       
+	  code to be executed if all cases are not 
+	  matched;    
+	  }
+	  PHP Switch Example
+	  
+	  <?php    
+	  $num=20;    
+	  switch($num){    
+	  case 10:    
+	  echo("number is equals to 10");    
+	  break;    
+	  case 20:    
+	  echo("number is equal to 20");    
+	  break;    
+	  case 30:    
+	  echo("number is equal to 30");    
+	  break;    
+	  default:    
+	  echo("number is not equal to 10, 20 or 30");    
+	  }   
+	  ?>    
+	  
+	  Output:
+	  number is equal to 20
+	  
+<!-- 
+	  PHP If Else
+	  PHP if else statement is used to test condition.
+	   There are various ways to use if statement in PHP.
+	  
+	  if
+	  if-else
+	  if-else-if
+	  nested if
+	  PHP If Statement
+	  PHP if statement is executed (выполненый) if condition is true.
+	  Syntax
+	  
+	  
+	  
+	  PHP If-else Statement
+	  PHP if-else statement is executed whether condition is true or false.
+	  Syntax
+	  
+	  if (condition){  
+	  //code to be executed if true  
+	  }
+	  else {  
+	  //code to be executed if false  
+	  } 
+	  Example
+	  
+	  <?php  
+	  $num=12;  
+	  if($num%2==0){  
+	  echo "$num is even number";  
+	  }else{  
+	  echo "$num is odd number";  
+	  }  
+	  ?>
+	  Output:
+	  12 is even number
+-->
+
+  </div>
+ </body>
+</html>

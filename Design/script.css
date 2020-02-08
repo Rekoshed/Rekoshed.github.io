@@ -74,7 +74,7 @@ overflow:auto;
 
 }
 .helloWorld span {color:Magenta;}	
-#blockSpan, #bs{/*выделение однострочной записи блоком*/
+#blockSpan, #bs, .blockSpan {/*выделение однострочной записи блоком*/
 color: black;
 display: block;
 font-weight:800;
@@ -152,3 +152,39 @@ padding: 10px;
 .color7 {background-color: #F15B2A;}
 .color5 {background-color: #4e342e;}
 .color6 {background-color: black;}
+
+
+input[type=button] {
+    /* Width and position */
+   
+    padding: 8px 5px;
+   
+    /* Styles */
+    border: 1px solid #0273dd; /* Fallback */
+    border: 1px solid rgba(0,0,0,0.4);
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.3),
+        inset 0 10px 10px rgba(255,255,255,0.1);
+    border-radius: 3px;
+    background: #38a6f0;
+    cursor:pointer;
+   
+    /* Font styles */
+    font-family: 'Ubuntu', 'Lato', sans-serif;
+    color: white;
+    font-weight: 700;
+    font-size: 15px;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.8);
+}
+ 
+input[type=button]:hover {
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
+}
+ 
+input[type=button]:active {
+    background: #287db5;
+    box-shadow: inset 0 0 3px rgba(0,0,0,0.6);
+    border-color: #000; /* Fallback */
+    border-color: rgba(0,0,0,0.9);
+}
+ 

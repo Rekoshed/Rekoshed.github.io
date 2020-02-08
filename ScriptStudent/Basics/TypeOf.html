@@ -6,15 +6,17 @@
 		<meta name="viewport" content="width=device-width">
 		<title>Java Script</title>
 		<link  href="script.css" rel="stylesheet">
+		<link  href="../../Design/script.css" rel="stylesheet">
+		<link  href="../../Design/toolbar.css" rel="stylesheet">
+		<script src ="../../Design/bild.js"></script>
+		<script src = '../js/StudentScript.js' ></script>
+		</head>
 		
-		<script src ="./js/StudentScript.js"></script>
-		<script src ="./js/TypeOfOut.js"></script>
-	<script src ="js/bild.js"></script>	
-	</head>
-	<body>
-	<script>
-	toolbar('../index.html','ScriptMain.html');
-	</script>
+		<body>
+		
+		<script>
+		toolbar('../../index.html','../ScriptMain.html');
+		</script>
 	<div class="content">
 <p>
    В JavaScript имеется пять примитивных типов данных:
@@ -38,7 +40,7 @@
         </span>
         Объект может иметь различные свойства и методы:
         </p>
-<pre><span class="green">
+<pre><span class="kod">
  var user = {name: "Tom", age:24};
  console.log(user.name);
     </span>
@@ -49,7 +51,7 @@
  
  С помощью оператора typeof можно получить тип переменной:
  </p>
- <pre><span class="green">
+ <pre><span class="kod">
  var name = "Tom";
  console.log(typeof name); // string
  
@@ -63,12 +65,12 @@
  console.log(typeof undefVariable); // undefined
  </span></pre> 
  
-     <input type="button" onclick="typeOfOut()( './js/StudentScript.js' )" value="Вывод в консоль" />
+     <input type="button" onclick="typeOfOut()( '../js/StudentScript.js' )" value="Вывод в консоль" />
  
  <p>
  Для преобразования строки в число применяется функция <span>parseInt()</span>:
  </p>
- <pre><span class="green">
+ <pre><span class="kod">
  var number1 = "46";
  var number2 = "4";
  var result = parseInt(number1) + parseInt(number2);
@@ -82,7 +84,7 @@
  <p>
  Для преобразования строк в дробные числа применяется функция <span>parseFloat()</span>:
  </p>
- <pre><span class="green">
+ <pre><span class="kod">
  var number1 = "46.07";
  var number2 = "4.98";
  var result = parseFloat(number1) + parseFloat(number2);
@@ -92,9 +94,10 @@
  
  <p>
  
- С помощью специальной функции <span>isNaN()</span> можно проверить, представляет ли строка число:
+ С помощью специальной функции <span>isNaN()</span> можно проверить, 
+ представляет ли строка число:
  </p>
- <pre><span class="green">
+ <pre><span class="kod">
  var num1 = "javascript";
  var num2 = "22";
  var result = isNaN(num1);
@@ -107,19 +110,33 @@
  <p>
  преобразование в число в двоичной системе:
  </p>
- <pre><span class="green">
+ <pre><span class="kod">
  var num1 = "110";
  var num2 = parseInt(num1, 2)
  console.log(num2); // 6
  </span>
  </pre>
  <p>
+ А теперь напишем простенький конвектор. В нём мы попросил
+ пользователя ввести начальное число и систему исчисления, в которой
+ это число нам представлено. Затем переведён его в десятеричнуб систему и выведем результат на дисплей.
+ </p>
+ <pre class="kod">
+ var num1 = prompt("Укажите числовой ряд:", 110);
+ var sys = prompt("Укажите начальную систему исчисления")
+ var num2 = parseInt(num1, sys);
+ document.write("&lt;h2>Взятое число : " + num1 +'&lt;br> Система исчисления: ' + sys + " &lt;br> Переведено в десятеричную систему: " + num2 + " &lt;/h2>");	
+ </pre>
+ 
+      <input type="button" onclick="getDigit()( '../js/StudentScript.js' )" value="Конвертировать число" />
+ 
+ <p>
  
  С помощью функции <span>prompt() </span> в браузере выводится диалоговое окно с предложением ввести некоторое значение.
  Функция <span>prompt()</span> возвращает строку. Поэтому эту строку нам надо преобразовать в число, чтобы выполнить с ней операции:
  </p>
  
- <pre><span class="green">
+ <pre><span class="kod">
  var strSum = prompt("Введите сумму вклада", 1000);
  var strPercent = prompt("Введите процентную ставку", 10);
  var sum = parseInt(strSum);
@@ -127,7 +144,7 @@
  sum = sum + sum * procent / 100;
  alert("После начисления процентов сумма вклада составит: " + sum);
 </span> </pre>
-<input type="button" onclick="promtProcent()( './js/StudentScript.js' )" value="Запустить код" />
+<input type="button" onclick="promtProcent()( '../js/StudentScript.js' )" value="Запустить код" />
  
 
 

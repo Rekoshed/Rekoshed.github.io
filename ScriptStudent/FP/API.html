@@ -5,13 +5,16 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width">
 		<title>Java Script</title>
-		<link  href="script.css" rel="stylesheet">
-		<script src ="./js/bild.js"></script>
-		
+		<link  href="../../Design/script.css" rel="stylesheet">
+		<link  href="../../Design/toolbar.css" rel="stylesheet">
+		<script src ="../../Design/bild.js"></script>
+		<!--<script src ="../js/StudentScript.js"></script-->
 		</head>
+		
 		<body>
+		
 		<script>
-		toolbar('../index.html','ScriptMain.html');
+		toolbar('../../index.html','../ScriptMain.html');
 		</script>
 	<div class="content">
 	
@@ -35,22 +38,21 @@
 	
 	</pre>
 	<script type="text/javascript">
-	function displai(){
 	
-	var foo = (function(){
-	var obj = {greeting: "hello"};
+	
+	let foo = (function(){
+	let obj = {greeting: "hello"};
 	
 	return {
 	display: function(){
-	document.write(obj.greeting);
+	console.log(obj.greeting);
 	}
 	}
 	})();
-	foo.display();	// hello
 	
-	}
+	
 	</script>
-	   <input type="button" onklick="displai()" value="Вывести в консоль">
+	   <input type="button" onclick="foo.display()" value="Вывести в консоль">
 	   
 	<p>
 	Здесь определена переменная <span class="blue">foo</span>, которая представляет результат анонимной функции. Внутри подобной функции определен объект <span class="blue">obj</span> с некоторыми данными.
@@ -92,7 +94,8 @@
 	<p>
 	Данный модуль представляет примитивный калькулятор, который выполняет три операции: сложение, вычитание и вывод результата.
 	<br>
-	Все данные инкапсулированы в объекте <span>data</span>, который хранит результат операции. Все операции представлены тремя возвращаемыми функциями: <span>sum, subtract и display</span>. Через эти функции мы можем управлять результатом калькулятора извне.
+	Все данные инкапсулированы в объекте <span>data</span>, который хранит результат операции. Все операции представлены тремя возвращаемыми функциями: <span>sum, subtract и display</span>.
+	 Через эти функции мы можем управлять результатом калькулятора извне.
 </p>
 <script type="text/javascript">
 function calk() {
@@ -120,7 +123,7 @@ function calk() {
 	}
 </script>
 
-	<input type="button" onklick="calk()" value="Вывести в консоль">
+
 
   </div>
  </body>

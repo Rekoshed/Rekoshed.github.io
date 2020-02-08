@@ -5,16 +5,17 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width">
 		<title>Java Script</title>
-		<link  href="script.css" rel="stylesheet">
-		<script src ="./js/AddScript.js"></script>
-		<script src ="./js/StudentScript.js"></script>
-		<script src ="./js/bild.js"></script>
+		<link  href="../../Design/script.css" rel="stylesheet">
+		<link  href="../../Design/toolbar.css" rel="stylesheet">
+		<script src ="../../Design/bild.js"></script>
+		<script src ="../js/StudentScript.js"></script>
+		</head>
 		
-	</head>
-	<body>
-	<script>
-	toolbar('../index.html','ScriptMain.html');
-	</script>
+		<body>
+		
+		<script>
+		toolbar('../../index.html','../ScriptMain.html');
+		</script>
 	<div class="content">
 	<h3>Функции</h3>
 	<p>
@@ -26,7 +27,7 @@
 	document.write("функция в JavaScript");
 	}
 </pre>
-<input type="button" onclick="display()( './js/StudentScript.js' )" value="Вывести в консоль" />
+<input type="button" onclick="display()( '../js/StudentScript.js' )" value="Вывести  результат на экран" />
  
 <p>
 Можно использовать анонимные функции:
@@ -34,11 +35,11 @@
 <pre id="kod">
 var display = function(){  // определение функции
 
-	document.write("функция в JavaScript");
+	document.write("анонимная функция в JavaScript");
 }
 display();
 </pre>
-<input type="button" onclick="display1()( './js/StudentScript.js' )" value="Вывести в консоль" />
+<input type="button" onclick="display1()( '../js/StudentScript.js' )" value="Вывести  результат на экран" />
  
 <p>
 
@@ -58,7 +59,7 @@ message(); // Доброе утро
 message = goodEvening;
 message(); // Добрый вечер
 </pre>
-<input type="button" onclick="display2()( './js/StudentScript.js' )" value="Вывести в консоль" />
+<input type="button" onclick="display2()( '../js/StudentScript.js' )" value="Вывести  результат на экран" />
  
 <p>
 
@@ -73,7 +74,7 @@ function display3(x){  // определение функции
 
 display(5); // вызов функции
 </pre>
-<input type="button" onclick="display3()( './js/StudentScript.js' )" value="Вывести в консоль" />
+<input type="button" onclick="display3()( '../js/StudentScript.js' )" value="Вывести  результат на экран" />
  
 
 <p>
@@ -82,14 +83,17 @@ display(5); // вызов функции
 <pre id="kod">
 function sum(a, b, c){
 	let d = a + b + c;
-	console.log(d);
+	document.write(d);
 }
+document.write("&lt;br>&lt;p> Значение переданные в функцию напрямую:&lt;p/>&lt;br>")
 sum(1, 2, 3);
-let nums = [4, 5, 6];
+var nums = [4, 5, 6];
+document.write("&lt;br>&lt;p> Значение переданные в функцию из массива:&lt;p/>&lt;br>")
+
 sum(...nums);
 </pre>
 
-<input type="button" onclick="display4()( './js/StudentScript.js' )" value="Вывести в консоль" />
+<input type="button" onclick="display4()( './js/StudentScript.js' )" value="Вывести  результат на экран" />
  
 <p> Параметры по умолчанию:</p>
 <pre id="kod">
@@ -104,7 +108,7 @@ display();	// 40
 display(6); // 30
 display(6, 4) // 24
 </pre>
-<input type="button" onclick="display5()( './js/StudentScript.js' )" value="Вывести в консоль" />
+
  
 
 <p> Параметры по умолчанию:</p>
@@ -117,7 +121,7 @@ display();		// 50
 display(6); 	// 60
 display(6, 4) 	// 24
 </pre>
-<input type="button" onclick="display6()( './js/StudentScript.js' )" value="Вывести в консоль" />
+
  
 <p>
 
@@ -126,7 +130,7 @@ display(6, 4) 	// 24
 <pre id="kod">
 function display(){
 	var z = 1;
-	for(var i=0; i<.arguments.length; i++)
+	for(var i=0; i&lt;arguments.length; i++)
 		z *= arguments[i];
     console.log(z);
 }
@@ -134,22 +138,22 @@ display(6); // 6
 display(6, 4) // 24
 display(6, 4, 5) // 120
 </pre>
-<input type="button" onclick="display7()( './js/StudentScript.js' )" value="Вывести в консоль" />
+
  
 <p>
 переменное количество значений:
 </p>
 <pre id="kod">
 function display(season, ...temps){
-	console.log(season);
+	document.write(season);
 	for(index in temps){
-		console.log(temps[index]);
+	document.write(temps[index]);
 	}
 }
 display("Весна", -2, -3, 4, 2, 5);
 display("Лето", 20, 23, 31);
 </pre>
-<input type="button" onclick="display8()( './js/StudentScript.js' )" value="Вывести в консоль" />
+<input type="button" onclick="display8()( '../js/StudentScript.js' )" value="Вывести  результат на экран" />
  
 <p>
 
@@ -164,7 +168,7 @@ function square(x) {
   return x * x;
 }
 </pre>
-<input type="button" onclick="display9()( './js/StudentScript.js' )" value="Вывести в консоль" />
+
  
 <p>
 
@@ -191,7 +195,7 @@ operation(10, 6, sum);	// 16
 console.log("Subtract");
 operation(10, 6, subtract);	// 4
 </pre>
-<input type="button" onclick="display10()( './js/StudentScript.js' )" value="Вывести в консоль" />
+<input type="button" onclick="display10()( '../js/StudentScript.js' )" value="Вывести  результат в консоль" />
  
 <p>
 
@@ -206,7 +210,7 @@ function menu(n){
 	return undefined;
 }
 
-for(var i=1; i <. 5; i++){
+for(var i=1; i &lt; 5; i++){
 	var action = menu(i);
 	if(action!==undefined){
 		var result = action(5, 4);
@@ -214,7 +218,7 @@ for(var i=1; i <. 5; i++){
 	}
 }
 </pre>
-<input type="button" onclick="display11()( './js/StudentScript.js' )" value="Вывести в консоль" />
+<input type="button" onclick="display11()( './js/StudentScript.js' )" value="Вывести  результат на экран" />
  
   </div>
  </body>

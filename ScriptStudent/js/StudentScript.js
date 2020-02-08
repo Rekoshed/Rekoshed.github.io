@@ -1,20 +1,65 @@
 alert ("StudentScript.js");
 
+function toolbar(main, back){// toolbar для контентовых и тестовых  страниц сайта
+document.write("<div class='toolbar'><a href='" + main + "'>Главная</a><a href='" + back + "'>Назад</a><a href='#'>Контакты</a><a href='#'>О сайте</a></div>");
+}
+function head(){//  шапка сайта
+document.write("<!DOCTYPE html><html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width'><title>JS test</title> <link  href='../../Design/script.css' rel='stylesheet'><link  href='../../Design/toolbar.css' rel='stylesheet'> </head><body><div class='content'><br>")
+}
+function footer(){// закрыввющие теги страницы. футер
+document.write("</div></body></html>")
+}
 
-/* river*/
-function Fact(n){
-alert ("$$$$$$$");
+/* --------------- river ---------------- */
+
+function getFactorial(){
+
+head();
+toolbar('../ScriptMain.html', 'River.html');
+
+	var digit = prompt("Введите число", 4);
+function factori(n){
+
 if (n === 1){
 	return 1;
 	}
 	else{
 	
-	 fact = n * Fact(n - 1);
+	 return  n * factori(n - 1);
+	}
+	}
+	var factorial = factori(digit);
+	document.write("<h2>Факториал от числа: " + digit + " равен: " + factorial + " </h2>");	
 	
+	footer();
+}
+
+// число фибоначи
+function fiba(){
+
+head();
+toolbar('../ScriptMain.html', 'River.html');
+
+	var digit = prompt("Введите число", 4);
+
+	function getFibonachi(n)
+	{
+	if (n == 0){
+	return 0;
 	}
-	alert (fact);
+	if (n == 1){
+	return 1;
 	}
-		
+	else{
+	return getFibonachi(n - 1) + getFibonachi(n - 2);
+	}
+	}
+	var result = getFibonachi(digit); //21 
+		document.write("<h2>Число Фибаначи от числа : " + digit + " равно: " + result + " </h2>");	
+	footer();
+	}
+
+// -----+------------------
 
 function promtProcent(){
 	var strSum = prompt("Введите сумму вклада", 1000);
@@ -25,9 +70,10 @@ function promtProcent(){
 	alert("После начисления процентов сумма вклада составит: " + sum);
 }
 
-// Типы данных
+// -------------- Типы данных
+
 function typeOfOut() {
-alert ("???????????");
+alert ("Результат кода отображён в консоли");
  var name = "Tom";
  console.log(typeof name); // string
  
@@ -42,7 +88,18 @@ alert ("???????????");
 
 	}
 	
-	
+function getDigit()	{
+
+head();
+toolbar('../ScriptMain.html', 'TypeOf.html');
+
+var num1 = prompt("Укажите числовой ряд:", 110);
+var sys = prompt("Укажите начальную систему исчисления")
+ var num2 = parseInt(num1, sys);
+ 		document.write("<h2>Взятое число : " + num1 +'<br> Система исчисления: ' + sys + " <br> Переведено в десятеричную систему: " + num2 + " </h2>");	
+ console.log(num2); // 6
+ footer();
+}
 
 /*Условные конструкции*/
 
@@ -82,22 +139,30 @@ for(var i = 0; i<people.length; i++){
 
 
 function display(){
-document.write("<!DOCTYPE html><html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width'><title>JS test</title><link  href='./script.css' rel='stylesheet'></head><body>")
-document.write("<div class='toolbar'><a href='./ScriptMain.html'>Главная</a><a href='./Func.html'>Назад</a><a href='#'>Контакты</a><a href='#'>О сайте</a></div><div class='content'><br>" + "<p>функция в JavaScript</p>");
-document.write("</div></body></html>")
+head();
+toolbar('../ScriptMain.html', 'Func.html');
+document.write("<p>функция в JavaScript</p>");
+footer();
 
 }
 
 function display1(){
+head();
+toolbar('../ScriptMain.html', 'Func.html');
+
 var display = function(){  // определение функции
 
-	document.write("функция в JavaScript");
+	document.write("анонимная функция в JavaScript");
 }
 display();
+footer();
 }
 
 
 function display2(){
+head();
+toolbar('../ScriptMain.html', 'Func.html');
+
 function goodMorning(){
 
 	document.write("Доброе утро");
@@ -110,8 +175,13 @@ var message = goodMorning;
 message(); // Доброе утро
 message = goodEvening;
 message(); // Добрый вечер
+footer();
 }
+
 function display3(){
+head();
+toolbar('../ScriptMain.html', 'Func.html');
+
 function display(x){  // определение функции
 
 	var z = x * x;
@@ -119,48 +189,79 @@ function display(x){  // определение функции
 }
 
 display(5); // вызов функции
+footer();
 }
-/*
 
 function display4(){
+head();
+toolbar('../ScriptMain.html', 'Func.html');
+
+
 function sum(a, b, c){
 	var d = a + b + c;
-	console.log(d);
+	document.write(d);
 }
+document.write("<br><p> Значение переданные в функцию напрямую:<p/><br>")
 sum(1, 2, 3);
 var nums = [4, 5, 6];
-
+document.write("<br><p> Значение переданные в функцию из массива:<p/><br>")
 sum(...nums);
+footer();
 }
 
-/*
-function display5(){
-function display(x, y){
 
-	if(y === undefined) y = 5;
-	if(x === undefined) x = 8;
-    let z = x * y
-    console.log(z);
+function display8(){
+head();
+toolbar('../ScriptMain.html', 'Func.html');
+
+function display(season, ...temps){
+	document.write(season);
+	for(index in temps){
+		document.write(temps[index]);
+	}
 }
-display();	// 40
-display(6); // 30
-display(6, 4) // 24
+display("Весна", -2, -3, 4, 2, 5);
+display("Лето", 20, 23, 31);
 }
 
-function display5() {
-function display(x, y)
-{
-
-	if(y === undefined) y = 5;
-	if(x === undefined) x = 8;
-    let z = x * y;
-    console.log(z);
+function display10() {
+function sum(x, y){
+	return x + y;
 }
-display();	// 40
-display(6); // 30
-display(6, 4) // 24
-}
-*/
 
+function subtract(x, y){
+	return x - y;
+}
+
+function operation(x, y, func){
+ 
+	var result = func(x, y);
+	console.log(result);
+}
+
+console.log("Sum");
+operation(10, 6, sum);	// 16
+
+console.log("Subtract");
+operation(10, 6, subtract);	// 4
+}
 	
+	
+function display11(){
+function menu(n){
+ 
+	if(n==1) return function(x, y){ return x+y;}
+	else if(n==2) return function(x, y){ return x - y;}
+	else if(n==3) return function(x, y){ return x * y;}
+	return undefined;
+}
+
+for(var i=1; i < 5; i++){
+	var action = menu(i);
+	if(action!==undefined){
+		var result = action(5, 4);
+		console.log(result);
+	}
+}
+}
 	

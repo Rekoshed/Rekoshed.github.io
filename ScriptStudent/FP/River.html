@@ -5,15 +5,16 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width">
 		<title>Java Script</title>
-		<link  href="script.css" rel="stylesheet">
-		
-	
-		<script src ="js/StudentScript.js"></script>
-		<script src ="js/bild.js"></script>	
+		<link  href="../../Design/script.css" rel="stylesheet">
+		<link  href="../../Design/toolbar.css" rel="stylesheet">
+		<script src ="../../Design/bild.js"></script>
+		<script src ="../js/StudentScript.js"></script>
 		</head>
+		
 		<body>
+		
 		<script>
-		toolbar('../index.html','ScriptMain.html');
+		toolbar('../../index.html','../ScriptMain.html');
 		</script>
 	<div class="content">
 	
@@ -24,20 +25,23 @@
 	Например факториал числа:
 	</p>
 	<pre id="kod">
-	function getFactorial(n){
-	if (n === 1){
-	return 1;
-	}
-	else{
-	
-	return n * getFactorial(n - 1);
-	}
-	}
-	var result = getFactorial(4); 
-	console.log(result); // 24
+var digit = prompt("Введите число", 4);
+function getFactorial(n){
+
+if (n === 1){
+return 1;
+}
+else{
+
+ return  n * getFactorial(n - 1);
+}
+}
+var factorial = getFactorial(digit);
+document.write("&lt;h2>Факториал от числа: " + digit + " равен: " + factorial + "&lt;/h2>");	
+
 	</pre>
 	
-		<input type="button" onclick="Fact(4)( './js/StudentScript.js' )" value="проверка" />
+		<input type="button" onclick="getFactorial()( '../js/StudentScript.js' )" value="Вычислить факториал" />
 	
 	<p>
 	Функция <span>getFactorial()</span> возвращает значение 1, 
@@ -59,6 +63,8 @@
 	Другой пример - определение чисел Фибоначчи:
 	</p>
 	<pre id="kod">
+	var digit = prompt("Введите число", 4);
+	
 	function getFibonachi(n)
 	{
 	if (n == 0){
@@ -71,28 +77,12 @@
 	return getFibonachi(n - 1) + getFibonachi(n - 2);
 	}
 	}
-	var result = getFibonachi(8); //21 
-	console.log(result); // 21
+	var result = getFibonachi(digit); //21 
+	document.write("&lt;h2>Число Фибаначи от числа : " + digit + " равно: " + result + " &lt;/h2>");	
+	
 </pre>
-<script type="text/javascript">
-function fiba(){
 
-	function getFibonachi(n)
-	{
-	if (n == 0){
-	return 0;
-	}
-	if (n == 1){
-	return 1;
-	}
-	else{
-	return getFibonachi(n - 1) + getFibonachi(n - 2);
-	}
-	}
-	var result = getFibonachi(8); //21 
-	console.log(result); // 21
-	}</script>
-	<input type="button" onklick="fiba()" value="Вывести в консоль">
+	<input type="button" onclick="fiba()('../js/StudentScript.js')" value="Вычислить число фибоначи">
 
   </div>
  </body>

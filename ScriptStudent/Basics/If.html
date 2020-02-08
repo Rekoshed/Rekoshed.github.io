@@ -6,14 +6,17 @@
 		<meta name="viewport" content="width=device-width">
 		<title>Java Script</title>
 		<link  href="script.css" rel="stylesheet">
-		<script src ="./js/AddScript.js"></script>
-		<script src ="./js/StudentScript.js"></script>
-		<script src ="js/bild.js"></script>	
-		</head>
-		<body>
-		<script>
-		toolbar('../index.html','ScriptMain.html');
-		</script>
+		
+	<link  href="../../Design/script.css" rel="stylesheet">
+	<link  href="../../Design/toolbar.css" rel="stylesheet">
+	<script src ="../../Design/bild.js"></script>
+	</head>
+	
+	<body>
+	
+	<script>
+	toolbar('../../index.html','../ScriptMain.html');
+	</script>
 	<div class="content">
 <h3>	Выражение if</h3>
 <p>
@@ -44,7 +47,7 @@ if(income > 50){
 <pre id="kod">
 var income = 100;
 var age = 19;
-if(income < 150 && age > 18){
+if(income &lt; 150 && age > 18){
 
 	var message = "доход больше 50";
 	alert(message);
@@ -59,7 +62,7 @@ if(myVar){
 	// действия
 }
 </pre>
-
+<h3><span class="br">Else</span></h3>
 <p>
 Блок else. Данный блок содержит инструкции, которые выполняются, если условие после if равно false:
 </p>
@@ -73,12 +76,13 @@ else{
 	alert("Вы не можете участвовать в программе, так как возраст меньше 18");
 }
 </pre>
+<h3><span class="br">Else if</span></h3>
 <p>
 С помощью конструкции <span>else if </span>мы можем добавить альтернативное условие к блоку <span>if</span>:
 </p>
 <pre id="kod">
 var income = 300;
-if(income < 200){
+if(income &lt; 200){
 
 	alert("Доход ниже среднего");
 }
@@ -96,15 +100,15 @@ else{
 </p>
 
 <pre id="kod">
-    if(income < 200){
+    if(income &lt; 200){
 
 	alert("Доход ниже среднего");
      }
-     else if(income>=200 && income<300){
+     else if(income>=200 && income&lt;300){
 	
 	alert("Чуть ниже среднего");
      }
-    else if(income >=300 && income< 400){
+    else if(income >=300 && income &lt; 400){
 	
 	alert("Средний доход");
      }
@@ -115,7 +119,7 @@ else{
 
 
 <h3>
-Конструкция switch..case
+Конструкция <span class="br">switch..case</span>
 </h3>
 <p>
 Конструкция switch..case является альтернативой использованию конструкции if..else if..else и также позволяет обработать сразу несколько условий:
@@ -135,6 +139,8 @@ switch(income){
 		break;
 }
 </pre>
+
+<h3><span class="br">Default</span></h3>
 
 <p>
 
@@ -157,7 +163,7 @@ switch(income){
         console.log("Доход неизвестной величины");
         break;
 }
-<input type="button" onclick="ifswich()( './js/StudentScript.js' )" value="Вывести в консоль" />
+
  
 </pre>
   
@@ -170,7 +176,7 @@ switch(income){
  <pre id="kod">
  var a = 1;
  var b = 2;
- var result = a < b ? a + b : a - b;
+ var result = a &lt; b ? a + b : a - b;
  console.log(result); // 3
  </pre>
  

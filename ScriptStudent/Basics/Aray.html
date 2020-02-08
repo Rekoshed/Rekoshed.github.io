@@ -5,16 +5,16 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width">
 		<title>Java Script</title>
-		<link  href="script.css" rel="stylesheet">
+		<link  href="../../Design/script.css" rel="stylesheet">
+		<link  href="../../Design/toolbar.css" rel="stylesheet">
+		<script src ="../../Design/bild.js"></script>
+		</head>
 		
-	</head>
-	<body>
-	<div class="toolbar">
-	<a href="ScriptMain.html">Главная</a>
-	<a href="#">Блог</a>
-	<a href="#">Контакты</a>
-	<a href="#">О сайте</a>
-	</div>
+		<body>
+		
+		<script>
+		toolbar('../../index.html','../ScriptMain.html');
+		</script>
 	<div class="content">
 	<h3>Массивы данных</h3>
 <p>Для создания массива применяется выражение <span>new Array():</span>
@@ -113,7 +113,7 @@ numbers[0][0][0] = 5; // первый элемент трехмерного ма
 console.log(numbers[0][0][0]);
 </pre>
 
-<h3>spread-оператор ...</h3>
+<h3>spread-оператор <span>...</span></h3>
 <p>
 spread-оператор <span>...</span> позволяет взять значения из массива по отдельности:
 </p>

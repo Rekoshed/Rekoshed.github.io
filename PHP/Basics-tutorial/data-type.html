@@ -359,13 +359,34 @@ This function returns true if var_name is an integer, Otherwise false.
       which delivers(доставляет) as templates for objects.
     
     SYNTAX:
-    At first, we must declare a class of object. A class is a structure which consists of properties and methods. Classes are specified with the class keyword. We specify the data type in the object class, and then we use the data type in instances of that class.
+    At first, we must declare a class of object.
+     A class is a structure which consists( состоит из)
+      of properties and methods. 
+      Classes are specified(указывает) with the class keyword.
+       We specify the data type in the object class,
+        and then we use the data type in instances(экземпляры) of that class.
+    
+    Сначала мы должны объявить класс объекта.
+     Класс представляет собой структуру, которая состоит из (состоит из)
+      свойств и методов.
+       Указываются классы (указывают) с ключевым словом класса.
+        Мы указываем тип данных в классе объекта, а затем мы используем тип данных в экземплярах (экземплеры) этого класса. - >>
+    
     -->
     <h3>Объект</h3>
     <p> Объект представляет из себя тип данных, который накапливает в себе
     данные и информацию о том, как эти данные обрабатывать.
     Объект является определённым экземпляром класса,
     который применяется как шаблон для объектов.</p>
+    
+    <p><span>Синтаксис:</span>Сначало вы должны  объявить класс объекта.
+    Класс это структура, которая состоит из свойств и методов.
+    Классы указывают с ключевым словом class. мы указываем тип данных
+    в классе объекта, а затем мы исплоьзуем тип данных в 
+    экземплярах этого класса</p>
+    
+    <p> Примеры:</p>
+    
     <pre class="php">
     Example 1
    
@@ -427,6 +448,185 @@ This function returns true if var_name is an integer, Otherwise false.
   
   SYNTAX OF ARRAY DECLARATION:
   Variable_name = array (element1, element2, element3, element4......)
+    
+    =====
+    
+    Resource Data type:
+    It refers (относится к)the external (внешний)resources like database(баща данных) connection(соединение),
+     FTP connection, file pointers (указатели), etc. 
+     In simple terms, a resource is a special variable
+      which carrying (несущий)a reference to an external resource.
+    
+    Null Data Type:
+    A variable of type Null is a variable without any data. In PHP, null is not a value, and we can consider it as a null variable based on 3 condition.
+    
+    If the variable is not set with any value.
+    If the variable is set with a null value.
+    If the value of the variable is unset.
+    
+    -->
+    <h3>Тип данных <span>resource</span></h3>
+    
+    <p>К ним относятся внешние ресурсы, такие как  соединение с базой данных,
+    FTP-соединение,указатели файла и т.д.
+    Проще говоря, <code>resource</code> представляет собой специальную переменную,
+     которая несет ссылку на внешний ресурс.</p>
+     
+     <p>Примеры:</p>
+     
+     <pre class="php">
+     Example 1
+     
+     &lt;?php  
+     $conn = ftp_connect("127.0.0.1") or die("Could not connect");  
+     echo get_resource_type($conn);  
+     ?><span>
+     Output:
+     FTP Buffer
+     </span>
+     Example 2
+     
+     &lt;?php  
+     $conn= ftp_connect("127.0.0.1") or die("could not connect");  
+     echo $conn;  
+     ?>  <span>
+     Output:
+     Resource id #2
+     </span>
+     Example 3
+     
+     &lt;?php  
+     $handle = fopen("code.txt", "r");  
+     var_dump($handle);  
+     echo "&lt;br>";  
+     $conn= ftp_connect("127.0.0.1") or die("could not connect");  
+     var_dump($conn);  
+     ?>
+     <span>
+     Output:
+     resource(3, stream) 
+     resource(4, FTP Buffer)
+     </span>
+     </pre>
+    <h3>Тип данных  <span>Null</span></h3>
+    <p>Переменная типа <code>NULL</code> является переменной без каких-либо данных.
+     В PHP <code>NULL</code> не является значением, и мы можем рассмотреть его как нулевую
+      переменную на основе трёх состояний:</p>
+       <ul>
+       <li>Если переменная не установлена с каким-либо
+       значением.</li>
+       <li> Если переменная установлена с нулевым значением.</li>
+       <li> Если значение переменной является <code>unset.</code></li>
+       </ul>
+    </p> 
+     
+    <p>Примеры:</p>
+    
+    <pre class="php">
+    Example 1
+    
+    &lt;?php    
+    $empty=null;  
+    var_dump($empty);  
+    ?><span>
+    Output:
+    null
+    </span>
+    Example 2
+    
+    &lt;?php  
+    $a1 = " ";  
+    var_dump($a1);  
+    echo "&lt;br />";  
+    $a2 = null;  
+    var_dump($a2);  
+    ?><span>
+    Output:
+    string ' ' (length=1) 
+    null</span>
+    Example 3
+    
+    &lt;?php  
+    $x = NULL;  
+    var_dump($x);  
+    echo "&lt;br>";  
+    $y = "Hello Developer!";  
+    $y = NULL;  
+    var_dump($y);  
+    ?><span>
+    Output:
+    null 
+    null
+    </span>
+    </pre>
+    
+   <h3> Функция <span>is_null</span></h3>
+   <p> Использзуя эту функцию, мы можем проверить,
+   является ли переменная нулём или нет.</p>
+   
+   <p><span class="cmd">    bool is_null ( mixed $var )</span>
+   
+   <p> Мы можем заменить значение переменной
+   используя функцию <code>unset</code></p>
+   
+   <p> Функция <code> is_null()</code> возвращает<code>true</code>
+   eсли значение равно <code>Null</code>, и <code>false</code>
+   в противном случае.</p>
+   <p>Примеры:</p>
+   <pre cclass="php">
+   Example 1
+   
+   &lt;?php  
+   $var1 = TRUE;  
+   if (is_null($var1))  
+   {  
+   echo 'Variable is  NULL';  
+   }  
+   else  
+   {  
+   echo 'Variable is not NULL';  
+   }  
+   ?><span>
+   Output:
+   Variable is not NULL
+   </span>
+   Example 2
+   
+   &lt;?php  
+   $x= 100;  
+   unset($x);  
+   echo is_null($x);  
+   ?><span>
+   Output:
+   1
+   </span>
+   Example 3
+   
+   &lt;?php    
+   $x = NULL;   
+   $y = "\0";  
+   is_null($x) ? print_r("True\n") : print_r("False\n");  
+   echo "&lt;br/>";  
+   is_null($y) ? print_r("True\n") : print_r("False\n");  
+   ?><span>
+   Output:
+   True 
+   False
+   </span>
+   </pre>
+    <!--
+    PHP is_null() function
+    By using the is_null function, we can check whether the variable is NULL or not. This function was introduced in PHP 4.0.4.
+    SYNATX:
+    
+    bool is_null ( mixed $var )
+        Return Type:
+    The PHP is_null() function returns true if var is null, otherwise false.
+    
+    Important Note:
+    We can unset the variable value by using 
+    the unset function.
+
     -->
   </div>
  </body>
