@@ -96,8 +96,8 @@ toolbar('../ScriptMain.html', 'TypeOf.html');
 var num1 = prompt("Укажите числовой ряд:", 110);
 var sys = prompt("Укажите начальную систему исчисления")
  var num2 = parseInt(num1, sys);
- 		document.write("<h2>Взятое число : " + num1 +'<br> Система исчисления: ' + sys + " <br> Переведено в десятеричную систему: " + num2 + " </h2>");	
- console.log(num2); // 6
+ document.write("<h2>Взятое число : " + num1 +'<br> Система исчисления: ' + sys + " <br> Переведено в десятеричную систему: " + num2 + " </h2>");	
+ 
  footer();
 }
 
@@ -123,15 +123,20 @@ switch(income){
 }
 }
 
-/* Циклы        */
+/*---------------+--++ Циклы        */
 
 function forout() {
+
+head();
+toolbar('../ScriptMain.html', 'Loop.html');
+
 
 var people = ["Tom", "Alice", "Bob", "Sam"];
 for(var i = 0; i<people.length; i++){
 	
 	console.log(people[i]);
 }
+footer();
 }
 
 
