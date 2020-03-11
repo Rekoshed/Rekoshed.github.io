@@ -1,0 +1,459 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>PhP основной материал</title>
+		  <link  href="../../Design/script.css" rel="stylesheet">
+		  <link  href="../../Design/toolbar.css" rel="stylesheet">
+		  <script src ="../../Design/bild.js"></script>
+		  </head>
+     <body>
+	     <script>
+	 		toolbar('../../index.html','../PHP_main.html');
+		 </script>
+		 
+		 <style type="text/css">
+		 
+		 </style>
+<div class="content php-content">
+
+<h1>Основные типы данных</h1>
+<p>
+Типы данных PHP используются для хранения различных типов данных или значений.
+  PHP поддерживает 8 примитивных типов данных, которые можно разделить на 3 типа:
+</p>
+<ol>
+<li>Скалярный тип</li>
+<li>Смешанный тип</li>
+<li>Специальный тип</li>
+</ol>
+<h2>Скалярный тип</h2>
+<p>
+В PHP есть 4 скалярных типа данных:
+</p>
+<ol>
+<li>boolean(булевые)</li>
+<li>integer(целочисленные)</li>
+<li>float(числа с плавающей точкой)</li>
+<li>string(символические или строковые)</li>
+</ol>
+<!--
+hold - держать
+categorized - класифицировать
+further - в дальнейшем
+-->
+
+		<h3>PHP Boolean</h3>
+		<p>
+	Эти типы данных обеспечивают вывод в виде 0 или 1.
+		</p>
+		<p>
+В PHP значение True равно единице, а значение False равно нулю.
+		 </p>
+<p>Синтаксис</p>
+<pre class="cmd">
+&lt;?php  
+$foo = True; // assign the value TRUE to $foo  
+?>
+</pre>
+<pre class="kod">	
+Example 1:
+
+&lt;?php  
+$a=true;  
+echo $a;  
+?>
+Output:
+1
+</pre>
+		
+		<h4>функция <span> is_bool()</span> </h4>
+		<p>	Используя эту функцию, мы можем проверить,
+	является ли переменная логической  или нет.</p>
+	<p><span class="blickSpan cmd">
+		bool is_bool ( mixed $var )
+	</span></p>			
+<p>
+Возвращает <code>True</code>, если значение <code>$var</code> логическое, иначе <code>False</code>.
+</p>
+		
+<pre class="kod">		
+<span class="black">Example 1</span>
+
+&lt;?php  
+$x=false;  
+echo is_bool($x);  
+?>
+<span class="red">
+Output:
+1
+</span>
+Example 2
+
+&lt;?php  
+$y=false;  
+if (is_bool($y))  
+echo 'This is a boolean type.';  
+else  
+echo 'This is not a boolean type.';  
+?>
+Output:
+This is a boolean type.
+</pre>
+		
+		PHP is_int() function
+		By using this function, we can check the input variable is integer or not. This function was introduced in PHP 4.0.
+		Syntax
+		
+		<h4>bool is_int (mixed $var)</h4>
+		Parameters
+		Parameter	Description	Is compulsory
+		var_name	The variable being checked.	compulsory
+		Return type
+		This function returns true if var_name is an integer, Otherwise false.
+		Example 1
+		
+		<?php  
+		$x=123;  
+		echo is_int($x);  
+		?>
+		Output:
+		1
+		Example 2
+		
+		<?php   
+		$x = 56;   
+		$y = "xyz";   
+		
+		if (is_int($x))   
+		{   
+		echo "$x is Integer \n" ;   
+		}   
+		else  
+		{   
+		echo "$x is not an Integer \n" ;   
+		}   
+		if (is_int($y))   
+		{   
+		echo "$y is Integer \n" ;   
+		}   
+		else  
+		{   
+		echo "$y is not Integer \n" ;   
+		}   
+		?>
+		Output:
+		56 is not an Integer
+		Example 3
+		
+		<?php   
+		$check = 12345;  
+		if( is_int($check ))   
+		{  
+		echo $check . " is an int!";  
+		}   
+		else   
+		{  
+		echo $check . " is not an int!";  
+		}  
+		?>
+		Output:
+		12345 is an int!
+<!--
+	provide - предоставлять	
+	whether - будь то, является ли
+-->
+		<h3>PHP Float</h3>
+		This data type represents decimal values. The float (floating point number) is a number with a decimal point or a number in exponential form.
+		Syntax
+		
+		$a=1.234;  
+		$x=1.2e4;  
+		$y=7E-10;
+		Example 1
+		
+		<?php  
+		$x=22.41;  
+		echo $x;  
+		?>
+		Output:
+		22.41
+		Example 2
+		
+		<?php   
+		$a = 11.365;  
+		var_dump($a);  
+		?>
+		Output:
+		11.365
+		Example 3
+		<?php  
+		$a = 6.203;  
+		$b = 2.3e4;  
+		$c = 7E-10;  
+		var_dump($a);  
+		var_dump($b);  
+		var_dump($c);  
+		?>
+		Output:
+		float 6.203 
+		float 23000 
+		float 7.0E-10
+		
+		PHP is_float Function
+		By using this function, we can check that the input value is float or not. This function was introduced in PHP 4.0.
+		Syntax
+		
+		<h4>bool is_float ( mixed $var )</h4>
+		Parameters
+		Parameter	Description	Is compulsory
+		var	The variable being evaluated.	compulsory
+		Return type:
+		The is_float() function returns TRUE if the var_name is float, otherwise false.
+		
+		Example 1
+		
+		<?php  
+		$x=123.41;  
+		echo is_float($x);  
+		?>
+		Example 2
+		
+		<?php  
+		$a=123.41;  
+		$b=12;  
+		var_dump (is_float($a));  
+		var_dump (is_float($b));  
+		?>
+		Example 3
+		
+		<?php  
+		$var_name=126.56;  
+		if (is_float($var_name))  
+		echo 'This is a float value.<br>';  
+		else  
+		echo 'This is not a float value.<br>';  
+		var_dump(is_float('javatpoint'));  
+		echo '<br>';  
+		var_dump(is_float(85));  
+		?>  
+		
+		Output:
+		This is a float value.
+		boolean false
+		boolean false
+		
+		
+<h2>PHP Data Types: Compound Types</h2>
+
+	Compound Types
+	There are 2 compound data types in PHP.
+	
+	Array
+	Object
+	Array:
+	The array is a collection of heterogeneous (dissimilar) data types. PHP is a loosely typed language that?s why we can store any type of values in arrays.
+	Normal variable can store single value, array can store multiple values.
+	The array contains a number of elements, and each element is a combination of element key and element value.
+	
+	SYNTAX OF ARRAY DECLARATION:
+	Variable_name = array (element1, element2, element3, element4......)
+	Example 1
+	
+	<?php  
+	$arr= array(10,20,30);  
+	print_r($arr);  
+	?>
+	Output:
+	Array ( [0] => 10 [1] => 20 [2] => 30 )
+	Example 2
+	
+	<?php  
+	$arr= array(10,'Hitesh',30);  
+	print_r($arr);  
+	?>
+	Output:
+	Array ( [0] => 10 [1] => Hitesh [2] => 30 )
+	Object:
+	An object is a data type which accumulates data and information on how to process that data. An object is a specific instance of a class which delivers as templates for objects.
+	
+	SYNTAX:
+	At first, we must declare a class of object. A class is a structure which consists of properties and methods. Classes are specified with the class keyword. We specify the data type in the object class, and then we use the data type in instances of that class.
+	Example 1
+	
+	<?php class vehicle  
+	{  
+	function car()  
+	{           
+	echo "Display tata motors";  
+	}  
+	}  
+	$obj1 = new vehicle;  
+	$obj1->car();   
+	?>  
+	Output:
+	Display tata motors
+	Example 2
+	
+	<?php  
+	class student   
+	{  
+	function student()   
+	{  
+	$this->jsk = 100;  
+	}  
+	}     
+	$obj = new student();  
+	echo $obj->jsk;  
+	?>
+	Output:
+	100
+	Example 3
+	
+	<?php  
+	class greeting  
+	{  
+	public $str = "Hello Developer";  
+	function show_greeting()  
+	{  
+	return $this->str;  
+	}  
+	}  
+	$obj = new greeting;  
+	var_dump($obj);  
+	?>  
+	Output:
+	object(greeting)[1] 
+	public 'str' => string 'Hello Developer' (length=15)
+<h2>PHP Data Types: Special Types</h2>
+
+There are 2 special data types in PHP
+
+Resource
+Null
+Resource Data type:
+It refers the external resources like database connection, FTP connection, file pointers, etc. In simple terms, a resource is a special variable which carrying a reference to an external resource.
+Example 1
+
+<?php  
+    $conn = ftp_connect("127.0.0.1") or die("Could not connect");  
+    echo get_resource_type($conn);  
+?>
+Output:
+FTP Buffer
+Example 2
+
+<?php  
+    $conn= ftp_connect("127.0.0.1") or die("could not connect");  
+    echo $conn;  
+?>  
+Output:
+Resource id #2
+Example 3
+
+<?php  
+    $handle = fopen("code.txt", "r");  
+    var_dump($handle);  
+    echo "<br>";  
+    $conn= ftp_connect("127.0.0.1") or die("could not connect");  
+    var_dump($conn);  
+?>
+Output:
+resource(3, stream) 
+resource(4, FTP Buffer)
+Null Data Type:
+A variable of type Null is a variable without any data. In PHP, null is not a value, and we can consider it as a null variable based on 3 condition.
+
+If the variable is not set with any value.
+If the variable is set with a null value.
+If the value of the variable is unset.
+Example 1
+
+<?php    
+    $empty=null;  
+    var_dump($empty);  
+?>
+Output:
+null
+Example 2
+
+<?php  
+    $a1 = " ";  
+    var_dump($a1);  
+    echo "<br />";  
+    $a2 = null;  
+    var_dump($a2);  
+?>
+Output:
+string ' ' (length=1) 
+null
+Example 3
+
+<?php  
+    $x = NULL;  
+    var_dump($x);  
+    echo "<br>";  
+    $y = "Hello Developer!";  
+    $y = NULL;  
+    var_dump($y);  
+?>
+Output:
+null 
+null
+
+<h3>PHP is_null() function</h3>
+By using the is_null function, we can check whether the variable is NULL or not. This function was introduced in PHP 4.0.4.
+SYNATX:
+
+bool is_null ( mixed $var )
+Parameter
+
+Parameter	Description	Is compulsory
+var	The variable being evaluated.	compulsory
+Return Type:
+The PHP is_null() function returns true if var is null, otherwise false.
+
+Important Note:
+We can unset the variable value by using the unset function.
+Example 1
+
+<?php  
+    $var1 = TRUE;  
+    if (is_null($var1))  
+        {  
+            echo 'Variable is  NULL';  
+        }  
+        else  
+        {  
+            echo 'Variable is not NULL';  
+        }  
+?>
+Output:
+Variable is not NULL
+Example 2
+
+<?php  
+    $x= 100;  
+    unset($x);  
+    echo is_null($x);  
+?>
+Output:
+1
+Example 3
+
+<?php    
+    $x = NULL;   
+    $y = "\0";  
+    is_null($x) ? print_r("True\n") : print_r("False\n");  
+    echo "<br/>";  
+    is_null($y) ? print_r("True\n") : print_r("False\n");  
+?>
+Output:
+True 
+False
+
+  </div>
+ </body>
+</html>

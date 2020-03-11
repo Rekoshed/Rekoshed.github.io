@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Hello-World.</title>
+		<link  href="../Design/script.css" rel="stylesheet">
+		<link  href="../Design/toolbar.css" rel="stylesheet">
+		<script src ="../Design/bild.js"></script>
+     </head>
+     <body>
+	     <script>
+	 		toolbar('../index.html','Title.html');
+		 </script>
+		 
+			<div class="content helloWorld">
+    Круговой сегмент — часть круга ограниченная дугой и секущей (хордой).
+    
+    На рисунке:
+    L — длина дуги сегмента
+    c — хорда
+    R — радиус
+    a — угол сегмента
+    h — высота
+    
+    Первый калькулятор рассчитывает параметры сегмента, если известен радиус и угол по следующим формулам:
+    
+    Формулы вычисления параметров сегмента
+    Площадь сегмента:
+    <p><span class="cmd">S = (1/2)*R^2*(alpha - sin{alpha})</span> <b>[1]</b></p>
+    Длина дуги:
+   <p><span class="cmd"> L = {alpha} * R</span></p>
+    Длина хорды:
+    <p><span class="cmd">c = 2 * R * sin * ({alpha} / 2)</span></p>
+    Высота сегмента:
+    <p><span class="cmd">h = R * (1 - cos * ({alpha} / 2))</span></p>
+    
+    Калькулятор вычисляет радиус круга по длине хорды и высоте сегмента по следующей формуле:
+    
+    <p><span class="cmd">R = (h / 2) + (c^2 / 8h)</span></p>
+    
+    Далее, зная радиус и длину хорды, легко найти угол сегмента по формуле:
+    
+    <p><span class="cmd">alpha = 2 * arcsin(c / 2*R)</span></p>
+    
+    Остальные параметры сегмента вычисляются аналогично первому калькулятору, по формулам, приведенным в начале статьи.
+    
+    Следующий калькулятор вычисляет площадь сегмента по высоте и радиусу:
+    
+    Этот калькулятор вычисляет угол из высоты и радиуса по следующей формуле:
+    <p><span class="cmd">alpha = 2 * arccos(1 - (h / R))</span></p>
+    далее используется формула [1] для получения площади.
+    
+    <p>ссылка на сайт <a href="https://planetcalc.ru/1421/#" >planetcalc.ru</a></p>
+            </div>
+  </div>
+ </body>
+</html>

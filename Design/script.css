@@ -81,7 +81,7 @@ font-weight:800;
 margin-top:4px;
 }
 
-#boltRed, #br{/* выделение впжной записи в заголовке*/
+#boltRed, #br, .boltRed{/* выделение впжной записи в заголовке*/
 color: red;
 font-weight:800;
 font-family:Arial;
@@ -101,7 +101,7 @@ letter-spacing: 1px;
 font-family:Courier New;
 font-size:0.8 rem;
 }
-#block, #b{
+#block, #b, .blockBlue{
 display:block;
 color:blue;
 
@@ -140,7 +140,7 @@ padding: 10px;
 
 .blue {color:Darkblue;}
 .green {color:rgba(63, 192, 3, 0.945);}
-.black>p {color:black;}
+.black {color:black;}
 .red {color:darkred}
 
 .roundgreen {background-color: green;}

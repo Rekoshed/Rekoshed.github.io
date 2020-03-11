@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>PhP продвинутый материал</title>
+		  <link  href="../../Design/script.css" rel="stylesheet">
+		  <link  href="../../Design/toolbar.css" rel="stylesheet">
+		  <script src ="../../Design/bild.js"></script>
+		  </head>
+     <body>
+	     <script>
+	 		toolbar('../../index.html','../PHP_main.html');
+		 </script>
+		 
+		 <style type="text/css">
+		 
+		 </style>
+			<div class="content php-content">
+			<!--
+		piece - кусок, часть
+		reused - повторять
+		define - определять	
+		Conditional - условный	
+		within - в
+			-->
+	 <h1>Функции PHP</h1>
+<p>Функция PHP - это кусок кода, который можно многократно использовать. 
+ Может принимать входные данные как список аргументов и возвращать значение. 
+  В PHP есть тысячи встроенных функций.
+  </p>
+  <p>
+В PHP мы можем определить условную функцию,
+ функцию внутри функции а так же рекурсивную функцию.
+ </p>
+	  Advantage of PHP Functions
+	  Code Reusability: PHP functions are defined only once and can be invoked many times, like in other programming languages.
+	  Less Code: It saves a lot of code because you don't need to write the logic many times. By the use of function, you can write the logic only once and reuse it.
+	  Easy to understand: PHP functions separate the programming logic. So it is easier to understand the flow of the application because every logic is divided in the form of functions.
+	  PHP User-defined Functions
+	  We can declare and call user-defined functions easily. Let's see the syntax to declare user-defined functions.
+	  Function name must be start with letter and underscore only like other labels in PHP. It can't be start with numbers or special symbols.
+	  Syntax
+	  
+	  function functionname(){  
+	  //code to be executed  
+	  }  
+	  PHP Functions Example
+	  
+	  <?php  
+	  function sayHello(){  
+	  echo "Hello PHP Function";  
+	  }  
+	  sayHello();//calling function  
+	  ?>  
+	  
+	  Output:
+	  Hello PHP Function
+	  PHP Function Arguments
+	  We can pass the information in PHP function through arguments which is separated by comma.
+	  PHP supports Call by Value (default), Call by Reference, Default argument values and Variable-length argument list.
+	  Let's see the example to pass single argument in PHP function.
+	  File: functionarg.php
+	  
+	  <?php  
+	  function sayHello($name){  
+	  echo "Hello $name<br/>";  
+	  }  
+	  sayHello("Arjun");  
+	  sayHello("Krishna");  
+	  sayHello("Radha");  
+	  ?>
+	  Output:
+	  Arjun
+	  Krishna
+	  Radha
+	  
+	  Let's see the example to pass two argument in PHP function.
+	  
+	  <?php  
+	  function sayHello($name,$age){  
+	  echo "Hello $name, you are $age years old<br/>";  
+	  }  
+	  sayHello("Arjun",21);  
+	  sayHello("Krishna",29);  
+	  sayHello("Radha",23);  
+	  ?>
+	  Output:
+	  Hello Arjun, you are 21 years old
+	  Hello Krishna, you are 29 years old
+	  Hello Radha, you are 23 years old
+	  PHP Call By Reference
+	  Value passed to the function doesn't modify the actual value by default (call by value). But we can do so by passing value as a reference. By default, value passed to the function is call by value. To pass value as a reference, you need to use ampersand (&) symbol before the argument name. Let's see a simple example of call by reference in PHP.
+	  
+	  <?php  
+	  function adder(&$str2)  
+	  {  
+	  $str2 .= 'Call By Reference';  
+	  }  
+	  $str = 'Hello ';  
+	  adder($str);  
+	  echo $str;  
+	  ?>
+	  Output:
+	  Hello Call By Reference
+	  PHP Function: Default Argument Value
+	  We can specify a default argument value in function. While calling PHP function if you don't specify any argument, it will take the default argument. Let's see a simple example of using default argument value in PHP function.
+	  
+	  <?php  
+	  function sayHello($name="Krishna"){  
+	  echo "Hello $name<br/>";  
+	  }  
+	  sayHello("Arjun");  
+	  sayHello();//passing no value  
+	  sayHello("Radha");  
+	  ?>
+	  Output:
+	  Hello Arjun
+	  Hello Krishna
+	  Hello Radha
+	  
+	  PHP Function: Returning Value
+	  Let's see an example of PHP function that returns value.
+	  
+	  <?php  
+	  function cube($n){  
+	  return $n*$n*$n;  
+	  }  
+	  echo "Cube of 3 is: ".cube(3);  
+	  ?>
+	  Output:
+	  Cube of 3 is: 27
+	        
+	        </div>
+  
+ </body>
+</html>

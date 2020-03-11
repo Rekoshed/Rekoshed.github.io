@@ -17,28 +17,26 @@
 
 			
 <h2>Создание и настройка ssh ключей</h2>
+<ol>
+<li> Запустите  Bash и введите:
 
-1. Запустите Git Bash и введите
+<span class="blockSpan cmd">ssh-keygen -t rsa -C "your@email.ru"</span></li>
 
-ssh-keygen -t rsa -C "your@email.ru"
+<li>На вопрос “Enter file in which to save the key” введите <code>id_rsa</code> и нажмите “Enter”</li>
 
-2. На вопрос “Enter file in which to save the key” введите id_rsa и нажмите “Enter”
+ <li>Далее введите любой пароль, и подтвердите его (лучше пропустить, потому что каждый раз при соединении с github, придется вводить его)</li>
 
-3. Далее введите любой пароль, и подтвердите его (лучше пропустить, потому что каждый раз при соединении с github, придется вводить его)
+<li>Скопируйте созданные в директории пользователя файлы “id_rsa” и “id_rsa.pub” в папку \home\Username\.ssh . При необходимости создайте эту папку с помощью команды
 
-4. Скопируйте созданные в директории пользователя файлы “id_rsa” и “id_rsa.pub” в папку c:\Documents and Settings\Username\.ssh (XP) или c:\Users\Username\.ssh (Vista). При необходимости создайте эту папку с помощью команды
+<code>mkgir ".ssh"</code></li>
 
-mkgir ".ssh"
+<li>Откройте страницу настроек Вашего аккаунта github <b>https://github.com/account</b></li>
 
-в консоли Windows
+ <li>Добавьте содержимое публичного ключа из файла “id_rsa.pub”, воспользовавшись ссылкой “add public key” в разделе “SSH Public Keys”</li>
 
-5. Откройте страницу настроек Вашего аккаунта github https://github.com/account
+<li>Проверьте работоспособность ключа, введя в  Bash:
 
-6. Добавьте содержимое публичного ключа из файла “id_rsa.pub”, воспользовавшись ссылкой “add public key” в разделе “SSH Public Keys”
-
-7. Проверьте работоспособность ключа, введя в Git Bash:
-
-ssh git@github.com
+<span class="blockSpan cmd"> ssh git@github.com</span></li>
   </div>
  </body>
 </html>
