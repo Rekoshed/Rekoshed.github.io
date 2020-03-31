@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+		<meta name="viewport" content="width=device-width" />
+        <link href="../style-master-pro.css" rel="stylesheet">
+        <script src ="../js-master-pro.js"></script>	
+        <script src ="../js-master-calc.js"></script>	
+        <title>Частный сварщик.</title>
+
+    </head>
+    <body>
+		<header>
+		
+		<script> header() </script>
+	
+        </header>
+        <main>
+            <article>
+              <h2>Строительный калькулятор</h2>
+				<h5>Вычислить количество изделий в кубе и цену за куб.
+				<br>
+				Известно: размер изделия и цена за штуку</h5>
+				
+				<table class="separated">
+				<tr><th colspan=2><h3>Количество блоков в кубе и цена за куб.</h3>
+				<h6>еденица измерения: <b>см</b></h6></th></tr>
+				<tr><td>длинна:</td>		<td><input id="long" type="number"  value="600" /></td></tr>
+				
+				<tr><td>ширина:</td><td><input id="width" type="number"  value="10" /></td></tr>
+				
+				<tr><td>высота или толщина:</td>	<td><input id="height" type="number"  value="2.5" /></td></tr>
+				
+				<tr><td>цена за штуку:</td><td><input id="stuff" type="number" value="100" /></td></tr>
+				
+				<tr><b> <td>количество в кубе:</td>	<td><font id="numberInCube"></font>	</td></b></tr>
+				
+				
+				<tr><b><td> цена за куб: </td><td><font id="pricePerCube"></font></td></b></tr>	
+				</table>
+		
+				<input type ="button" value="вычислить" onclick="math()" />
+						
+				</div>
+				
+				<h5>Вычислить количество изделий в кубе и цену за штуку.
+				<br>
+				Известно: Размер изделия и цена за куб</h5>
+			
+			
+			<table class="separated">
+			<tr><th colspan = 2><h3>Количество блоков в кубе и цена за штуку.</h3>
+			<h6>еденица измерения: <b>см</b></h6></th></tr>
+			<tr><td>длинна:</td>		<td><input id="long2" type="number"  value="600" /></td></tr>
+			
+			<tr><td>ширина:</td><td><input id="width2" type="number"  value="10" /></td></tr>
+			
+			<tr><td>высота или толщина:</td>	<td><input id="height2" type="number"  value="2.5" /></td></tr>
+			
+			<tr><td>цена за куб:</td><td><input id="pricePerCube2" type="number" value="6600" /></td></tr>
+			
+			<tr><b> <td>количество в кубе:</td>	<td><font id="numberInCube2"></font>	</td></b></tr>
+			
+			
+			<tr><b><td> цена за штуку: </td><td><font id="pricePerStuff2"></font></td></b></tr>	
+			</table>
+			
+			<input type ="button" value="вычислить" onclick="math2()" />
+			
+			
+
+			</div>
+			</article>
+            <nav>
+                <script> toolbar('../index.html') </script>
+            </nav>
+            <aside>
+				<script> aside('../')</script>
+            </aside>
+        </main>
+        <footer>
+            <script> footer() </script>
+        </footer>
+        
+        <script src ="../js-master-decor.js"></script>	
+	</body>

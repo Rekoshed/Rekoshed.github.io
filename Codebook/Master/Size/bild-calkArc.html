@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+		<meta name="viewport" content="width=device-width" />
+        <link href="../style-master-pro.css" rel="stylesheet">
+        <script src ="../js-master-pro.js"></script>	
+        <script src ="../js-master-calc.js"></script>	
+        <title>Частный сварщик.</title>
+
+    </head>
+    <body>
+		<header>
+		
+		<script> header() </script>
+	
+        </header>
+        <main>
+            <article>
+              <h2>Строительный калькулятор</h2>
+
+			
+<h5>Вычислить длину дуги
+<br>
+Известно: Длинна хорды и высота от хорды до вершины дуги</h5>
+			
+			
+			<table class="separated">
+			<tr><th colspan = 2><h3>Длина дуги и её радиус.</h3>
+			<h6>еденица измерения: <b>см</b></h6></th></tr>
+			<tr><td>хорда:</td>		<td><input id="long3" type="number"  value="160" /></td></tr>			
+			
+			<tr><td>высота <span>h</span>:</td>	<td><input id="height3" type="number"  value="20" /></td></tr>
+			
+			<tr><b><td> Длинна дуги: </td><td><font id="arcLenght"></font></td></b></tr>	
+			
+			<tr><b><td> Радиус дуги: </td><td><font id="arcRadius"></font></td></b></tr>			
+			
+			</table>
+			
+			<input type ="button" value="вычислить" onclick="arcLen()" />
+			
+			</div>
+			</article>
+            <nav>
+                <script> toolbar('../index.html') </script>
+            </nav>
+            <aside>
+				<script> aside('../')</script>
+            </aside>
+        </main>
+        <footer>
+            <script> footer() </script>
+        </footer>
+        
+        <script src ="../js-master-decor.js"></script>	
+	</body>

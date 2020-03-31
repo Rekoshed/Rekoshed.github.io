@@ -35,7 +35,8 @@
 В PHP мы можем определить условную функцию,
  функцию внутри функции а так же рекурсивную функцию.
  </p>
-	  <h2>Преимущества функций РНР
+	  <h2>Преимущества функций РНР</h2>
+	  
 	  Code Reusability: PHP functions are defined only once and can be invoked many times, like in other programming languages.
 	  Less Code: It saves a lot of code because you don't need to write the logic many times. By the use of function, you can write the logic only once and reuse it.
 	  Easy to understand: PHP functions separate the programming logic. So it is easier to understand the flow of the application because every logic is divided in the form of functions.
@@ -43,58 +44,66 @@
 	  We can declare and call user-defined functions easily. Let's see the syntax to declare user-defined functions.
 	  Function name must be start with letter and underscore only like other labels in PHP. It can't be start with numbers or special symbols.
 	  Syntax
-	  
+<pre class="cmd">	  
 	  function functionname(){  
 	  //code to be executed  
 	  }  
 	  PHP Functions Example
 	  
-	  <?php  
+	  &lt;?php  
 	  function sayHello(){  
 	  echo "Hello PHP Function";  
 	  }  
 	  sayHello();//calling function  
 	  ?>  
-	  
+</pre>  
+
+<pre class="output">
 	  Output:
 	  Hello PHP Function
+</pre>
 	  PHP Function Arguments
 	  We can pass the information in PHP function through arguments which is separated by comma.
 	  PHP supports Call by Value (default), Call by Reference, Default argument values and Variable-length argument list.
 	  Let's see the example to pass single argument in PHP function.
 	  File: functionarg.php
-	  
-	  <?php  
+<pre class="cmd">	  
+	  &lt;?php  
 	  function sayHello($name){  
-	  echo "Hello $name<br/>";  
+	  echo "Hello $name&lt;br/>";  
 	  }  
 	  sayHello("Arjun");  
 	  sayHello("Krishna");  
 	  sayHello("Radha");  
 	  ?>
+</pre>
+<pre class="output">
 	  Output:
 	  Arjun
 	  Krishna
 	  Radha
-	  
+</pre>	  
 	  Let's see the example to pass two argument in PHP function.
-	  
-	  <?php  
+<pre class="cmd">	  
+	  &lt;?php  
 	  function sayHello($name,$age){  
-	  echo "Hello $name, you are $age years old<br/>";  
+	  echo "Hello $name, you are $age years old&lt;br/>";  
 	  }  
 	  sayHello("Arjun",21);  
 	  sayHello("Krishna",29);  
 	  sayHello("Radha",23);  
 	  ?>
+</pre>
+<pre class="output">
 	  Output:
 	  Hello Arjun, you are 21 years old
 	  Hello Krishna, you are 29 years old
 	  Hello Radha, you are 23 years old
+</pre>
 	  PHP Call By Reference
 	  Value passed to the function doesn't modify the actual value by default (call by value). But we can do so by passing value as a reference. By default, value passed to the function is call by value. To pass value as a reference, you need to use ampersand (&) symbol before the argument name. Let's see a simple example of call by reference in PHP.
 	  
-	  <?php  
+	  &lt;?php  
 	  function adder(&$str2)  
 	  {  
 	  $str2 .= 'Call By Reference';  
@@ -108,9 +117,9 @@
 	  PHP Function: Default Argument Value
 	  We can specify a default argument value in function. While calling PHP function if you don't specify any argument, it will take the default argument. Let's see a simple example of using default argument value in PHP function.
 	  
-	  <?php  
+	  &lt;?php  
 	  function sayHello($name="Krishna"){  
-	  echo "Hello $name<br/>";  
+	  echo "Hello $name&lt;br/>";  
 	  }  
 	  sayHello("Arjun");  
 	  sayHello();//passing no value  
@@ -124,7 +133,7 @@
 	  PHP Function: Returning Value
 	  Let's see an example of PHP function that returns value.
 	  
-	  <?php  
+	  &lt;?php  
 	  function cube($n){  
 	  return $n*$n*$n;  
 	  }  
@@ -132,6 +141,87 @@
 	  ?>
 	  Output:
 	  Cube of 3 is: 27
+	  
+	  
+	 <h2> PHP Parameterized Function</h2>
+	  
+	  PHP Parameterized functions are the functions with parameters. You can pass any number of parameters inside a function.
+	  These passed parameters act as variables inside your function.
+	  They are specified inside the parentheses, after the function name.
+	  The output depends upon the dynamic values passed as the parameters into the function.
+	  PHP Parameterized Example 1
+	  Addition and Subtraction
+	  In this example, we have passed two parameters $x and $y inside two functions add() and sub().
+	  
+<pre class="cmd">
+  &lt;!DOCTYPE html>  
+  &lt;html>  
+  &lt;head>  
+  &lt;title>Parameter Addition and Subtraction Example&lt;/title>  
+  &lt;/head>  
+  &lt;body>  
+  &lt;?php  
+  //Adding two numbers  
+  function add($x, $y) {  
+  $sum = $x + $y;  
+  echo "Sum of two numbers is = $sum &lt;br>&lt;br>";  
+  }   
+  add(467, 943);  
+  
+  //Subtracting two numbers  
+  function sub($x, $y) {  
+  $diff = $x - $y;  
+  echo "Difference between two numbers is = $diff";  
+  }   
+  sub(943, 467);  
+  ?>  
+  &lt;/body>  
+  &lt;/html>
+</pre>
+
+<pre class="output">
+  Output:
+  Sum of two numbers is = 1410
+  
+  Difference between two numbers is = 476
+</pre>
+  PHP Parameterized Example 2
+  Addition and Subtraction with Dynamic number
+  In this example, we have passed two parameters $x and $y inside two functions add() and sub().
+  
+  <pre class="cmd">
+  &lt;?php  
+  //add() function with two parameter  
+  function add($x,$y)    
+  {  
+  $sum=$x+$y;  
+  echo "Sum = $sum &lt;br>&lt;br>";  
+  }  
+  //sub() function with two parameter  
+  function sub($x,$y)    
+  {  
+  $sub=$x-$y;  
+  echo "Diff = $sub &lt;br>&lt;br>";  
+  }  
+  //call function, get  two argument through input box and click on add or sub button  
+  if(isset($_POST['add']))  
+  {  
+  //call add() function  
+  add($_POST['first'],$_POST['second']);  
+  }     
+  if(isset($_POST['sub']))  
+  {  
+  //call add() function  
+  sub($_POST['first'],$_POST['second']);  
+  }  
+  ?>  
+  &lt;form method="post">  
+  Enter first number: &lt;input type="number" name="first"/>&lt;br>&lt;br>  
+  Enter second number: &lt;input type="number" name="second"/>&lt;br>&lt;br>  
+  &lt;input type="submit" name="add" value="ADDITION"/>  
+  &lt;input type="submit" name="sub" value="SUBTRACTION"/>  
+  &lt;/form>
+ </pre>
 	        
 	        </div>
   
