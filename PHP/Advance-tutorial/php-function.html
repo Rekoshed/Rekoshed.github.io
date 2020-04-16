@@ -19,12 +19,20 @@
 		 </style>
 			<div class="content php-content">
 			<!--
-		piece - кусок, часть
-		reused - повторять
-		define - определять	
-		Conditional - условный	
-		within - внутри
-		Advantage - преимущество
+		piece - кусок, часть ::   pass - передовать
+		reused - повторять.  ::   comma - запятая
+		define - определять	 ::   Reference - ссылка
+		Conditional - условный	::  actual value - фактическое значение
+		within - внутри 		:: specify - уточнить
+		Advantage - преимущество :: While - пока, в то время как
+		Reusability - повторное использование
+		once - один раз.        :: while calling - при вызове
+		invoked - вызвать, прибегнуть, испоьзовать
+		Less - меньше			:: parentheses - скобки
+		separate отделить
+		easier проще
+		declare - объявить
+		easily легко
 			-->
 	 <h1>Функции PHP</h1>
 <p>Функция PHP - это кусок кода, который можно многократно использовать. 
@@ -36,18 +44,37 @@
  функцию внутри функции а так же рекурсивную функцию.
  </p>
 	  <h2>Преимущества функций РНР</h2>
-	  
-	  Code Reusability: PHP functions are defined only once and can be invoked many times, like in other programming languages.
-	  Less Code: It saves a lot of code because you don't need to write the logic many times. By the use of function, you can write the logic only once and reuse it.
-	  Easy to understand: PHP functions separate the programming logic. So it is easier to understand the flow of the application because every logic is divided in the form of functions.
-	  PHP User-defined Functions
-	  We can declare and call user-defined functions easily. Let's see the syntax to declare user-defined functions.
-	  Function name must be start with letter and underscore only like other labels in PHP. It can't be start with numbers or special symbols.
-	  Syntax
-<pre class="cmd">	  
+	  <ul>
+	   <li> <strong>Повторное использование кода:</strong>
+	   <p>PHP функции определяются один раз, и могут быть вызваны многократно,
+	   как и собственно в других языках программирования.</p></li>
+	   	  
+	  <li><strong>Меньше кода:</strong>
+	   
+	   <p>Вам не нужно многократно писать одну и ту же логику.
+Используя функцию, вы можете написать логику только один раз и повторно использовать ее.
+	  </p></li>
+	  <li><strong>Легко понять:</strong>
+	  <p>
+Функции PHP отделяют логику программирования.
+Поэтому легче понимать код приложения, потому что каждая логика разделена в виде функций.
+	  </p></li>
+	  </ul>
+	 <h2> PHP функции определённые пользователем</h2>
+	 <p>
+Мы можем легко объявить и вызвать функцию определённую пользователем.
+Давайте посмотрим синтаксис, чтобы объявить пользовательские функции.
+мя функции может начинаться только с прописного латинского символа
+и нижнего подчёркивания.
+нельзя начинать имена с цифр или спец символов.
+</p>
+	  <p>синтаксис:</p>
+<pre class="example">	  
 	  function functionname(){  
 	  //code to be executed  
 	  }  
+</pre>
+<pre class="cmd">
 	  PHP Functions Example
 	  
 	  &lt;?php  
@@ -62,11 +89,20 @@
 	  Output:
 	  Hello PHP Function
 </pre>
-	  PHP Function Arguments
-	  We can pass the information in PHP function through arguments which is separated by comma.
-	  PHP supports Call by Value (default), Call by Reference, Default argument values and Variable-length argument list.
-	  Let's see the example to pass single argument in PHP function.
-	  File: functionarg.php
+	  <h2>Аргумент PHP функции</h2>
+<p>
+Мы можем передавать информацию в функции PHP через аргументы,
+ которые разделены запятой.</p>
+	<p>  
+PHP поддерживает вызов по значению (по умолчанию),
+ вызов посредством ссылки, значения аргумента по умолчанию 
+ и список аргументов с переменной длиной.
+ </p>
+ 
+  <p>Пример передачи одного аргумента в функции PHP:</p>
+
+</p>  
+	
 <pre class="cmd">	  
 	  &lt;?php  
 	  function sayHello($name){  
@@ -83,7 +119,7 @@
 	  Krishna
 	  Radha
 </pre>	  
-	  Let's see the example to pass two argument in PHP function.
+	<p>  Пример передачи двухаргументов в функцию  PHP</p>
 <pre class="cmd">	  
 	  &lt;?php  
 	  function sayHello($name,$age){  
@@ -100,9 +136,16 @@
 	  Hello Krishna, you are 29 years old
 	  Hello Radha, you are 23 years old
 </pre>
-	  PHP Call By Reference
-	  Value passed to the function doesn't modify the actual value by default (call by value). But we can do so by passing value as a reference. By default, value passed to the function is call by value. To pass value as a reference, you need to use ampersand (&) symbol before the argument name. Let's see a simple example of call by reference in PHP.
-	  
+	<h2>PHP вызов посредством ссылки </h2>
+	  <p>
+	  Значение, передаваемое в функцию, не изменяет фактическое значение по умолчанию (вызов по значению).
+	  Но мы можем сделать это передав значение в качестве ссылки.
+	  По умолчанию значение, передаваемое нв функцию, является вызовом по значению. 
+	  Чтобы пройти значение в качестве ссылки, вам необходимо использовать символ аперсанд (&) перед именем аргумента.<br>
+	  Рассмотрим простой пример вызова посредством ссылки в PHP:
+	  </p>
+
+<pre class="cmd">	  
 	  &lt;?php  
 	  function adder(&$str2)  
 	  {  
@@ -112,46 +155,62 @@
 	  adder($str);  
 	  echo $str;  
 	  ?>
+</pre>
+<pre class="output">
 	  Output:
 	  Hello Call By Reference
-	  PHP Function: Default Argument Value
-	  We can specify a default argument value in function. While calling PHP function if you don't specify any argument, it will take the default argument. Let's see a simple example of using default argument value in PHP function.
+</pre>
+	<h2> Значение аргумента по умолчанию</h2>
+	<p>
+	Мы можем указать значение аргумента по умолчанию в функции. 
+	При вызове функции PHP, если вы не укажете какой-либо аргумент, функция примет этот аргумент по умолчанию.
+	<br>
+	Рассмотрим простой пример использования значения аргумента по умолчанию в функции PHP.
+	</p>
+<pre class="cmd">
+  &lt;?php  
+  function sayHello($name="Krishna"){  
+  echo "Hello $name&lt;br/>";  
+  }  
+  sayHello("Arjun");  
+  sayHello();//passing no value  
+  sayHello("Radha");  
+?>
+</pre>
+<pre class="output">
+  Output:
+  Hello Arjun
+  Hello Krishna
+  Hello Radha
+</pre>	  
+		<h2> Возвратное значение <span>return</span> </h2>
+		 <p> 
+		 Рассмотрим пример функции PHP, которая возвращает значение.
+		 </p>
+<pre class="cmd">	  
+  &lt;?php  
+  function cube($n){  
+  return $n*$n*$n;  
+  }  
+  echo "Cube of 3 is: ".cube(3);  
+  ?>
+</pre>
+<pre class="output">
+  Output:
+  Cube of 3 is: 27
+</pre>	  
 	  
-	  &lt;?php  
-	  function sayHello($name="Krishna"){  
-	  echo "Hello $name&lt;br/>";  
-	  }  
-	  sayHello("Arjun");  
-	  sayHello();//passing no value  
-	  sayHello("Radha");  
-	  ?>
-	  Output:
-	  Hello Arjun
-	  Hello Krishna
-	  Hello Radha
-	  
-	  PHP Function: Returning Value
-	  Let's see an example of PHP function that returns value.
-	  
-	  &lt;?php  
-	  function cube($n){  
-	  return $n*$n*$n;  
-	  }  
-	  echo "Cube of 3 is: ".cube(3);  
-	  ?>
-	  Output:
-	  Cube of 3 is: 27
-	  
-	  
-	 <h2> PHP Parameterized Function</h2>
-	  
-	  PHP Parameterized functions are the functions with parameters. You can pass any number of parameters inside a function.
-	  These passed parameters act as variables inside your function.
-	  They are specified inside the parentheses, after the function name.
-	  The output depends upon the dynamic values passed as the parameters into the function.
-	  PHP Parameterized Example 1
-	  Addition and Subtraction
-	  In this example, we have passed two parameters $x and $y inside two functions add() and sub().
+<h2>  Параметризованная функция </h2>
+	  <p>
+	  Параметр излучения функция это функция с параметрами.
+	  Вы можете переживать любое количество параметров в функцию
+	  Переданные параметры действуют в качестве переменных внутри вашей функции.
+	  Они указаны внутри скобок, после имени функции.
+	  Вывод информации  зависит от динамических значений, переданных в качестве параметров в функцию.
+	  </p>
+	  <p> Пример 1. Сложение и вычитание:</p>
+
+<p>В этом примере мы передали два параметра $ x и $ y внутрь двух функций add () и sub (). </p>
 	  
 <pre class="cmd">
   &lt;!DOCTYPE html>  
@@ -185,8 +244,8 @@
   
   Difference between two numbers is = 476
 </pre>
-  PHP Parameterized Example 2
-  Addition and Subtraction with Dynamic number
+ <p>Пример 2. Сложение и вычитание с динамическим числом: </p>
+
   In this example, we have passed two parameters $x and $y inside two functions add() and sub().
   
   <pre class="cmd">
@@ -222,7 +281,262 @@
   &lt;input type="submit" name="sub" value="SUBTRACTION"/>  
   &lt;/form>
  </pre>
-	        
+<!--
+	allows - позволяет        
+	both   -   обе 
+	reflect - отражать  
+	through - через  
+	another - ещё один
+	In such case - в таком случае
+	represents - представляет собой
+	means - средства, означает
+	  To do so - для этого
+	  ellipses (dots) - элипсы(точки)
+	  implemented - реализоманный
+	  current- текущий
+	  avoid - избегать
+	  smash разбивать
+	  cause причина, привести к
+	  termination - расторжение, прекращение
+-->	        
+<h2> Вызов по значению</h2>
+<p>
+PHP позволяет вам вызывать функцию по значению и ссылке.
+В случае вызова PHP по значению фактическое значение не изменяется, 
+если оно модифицировано внутри функции.
+Понять концепцию вызова по значению можно при помощи примера.
+</p>
+<p>
+Пример 1.
+</p>
+
+<p>
+В этом примере переменная $str была передана в функцию <code>adder</code> где она объединилась со строкой 'Call By Value'.
+Но в результате вывода  переменной только'Hello'.
+Это потому что изменения произошли только в локальной переменной $str2,
+и не отразились на переменной $str.
+</p>
+
+<pre class="cmd">
+&lt;?php  
+function adder($str2)  
+{  
+    $str2 .= 'Call By Value';  
+}  
+$str = 'Hello ';  
+adder($str);  
+echo $str;  
+?>
+</pre>
+
+<pre class="output">
+Output:
+Hello
+</pre>
+<p>Пример2.<br>
+ Попробуем понять концепцию вызова по значению
+через другой пример.
+</p>
+
+<pre class="cmd">
+&lt;?php  
+function increment($i)  
+{  
+    $i++;  
+}  
+$i = 10;  
+increment($i);  
+echo $i;  
+?>
+</pre>
+
+:<pre class="output">
+Output:
+10
+</pre>
+
+<h2> Вызов по ссылке </h2>
+<p>
+В случае вызова PHP по ссылке, фактическое значение  изменяется, 
+если оно модифицировано внутри функции.
+В таком случае вам нужно использовать символ & (амперсанд) с формальными аргументами.
+Аперсанд(&) представляет собой ссылку на переменную.
+<br>
+Рассмотрим концепцию вызова по ссылке при помощи примера:
+</p>
+
+<p>
+Пример1.<br>
+В этом примере переменная $str передана функции <code>adder</code>,
+ где онаобъеденилась со строкой 'This is Call By Reference'.
+Здесь  результат вывода преременной<code>$str</code> является 'This is Call By Reference'.
+Это потому, что изменения произошли в фактической переменной <code>$str</code>.
+</p>
+
+
+<pre class="cmd">
+&lt;?php    
+function adder(&$str2)  
+{  
+    $str2 .= 'Call By Reference';  
+}  
+$str = 'This is ';  
+adder($str);  
+echo $str;  
+?>  
+</pre>
+
+ <pre class="output">
+Output:
+This is Call By Reference
+</pre>
+<p>Пример 2: </p>
+<pre class="cmd">
+&lt;?php    
+ function increment(&$i)  
+ {  
+    $i++;  
+ }  
+ $i = 10;  
+ increment($i);  
+ echo $i;  
+?>
+</pre>
+
+ <pre class="output">
+Output:
+11
+</pre>
+
+<h2> Значение аргумента функции по умолчанию</h2>
+<p>
+ PHP позволяет определить значения аргумента стилей C ++ по умолчанию.
+В том случае, если вы не передадите никакого значения функции,
+будет использован аргумент значения по умолчанию.
+</p>
+<p>Пример 1:</p>
+<pre class="cmd">
+&lt;?php    
+function sayHello($name="Krishna"){  
+echo "Hello $name<br/>";  
+}  
+sayHello("Arjun");  
+sayHello();//passing no value  
+sayHello("Radha");  
+?>
+</pre>
+
+ <pre class="output">
+Output:
+Hello Arjun
+Hello Krishna
+Hello Radha
+</pre>
+
+<p>Пример 2:</p>
+
+<pre class="cmd">
+&lt;?php    
+  function add($n1=10,$n2=10){  
+    $n3=$n1+$n2;  
+    echo "Addition is: $n3<br/>";  
+  }  
+add();  
+add(20);  
+add(40,40);  
+?>
+</pre>
+
+ <pre class="output">
+Output:
+Addition is: 20
+Addition is: 30
+Addition is: 80
+</pre>
+
+<h2>Переменное количество аргументов.</h2>
+
+<p>
+PHP поддерживает переменное количество аргументов функции.
+Это значит, что вы можете передавать 0 ,1 или n-е количество аргументов в функцию.
+Для этого вам нужно использовать троеточие перед именем аргумента.
+Концепция троеточия для переменной длинны аргумента реализована в РНР начиная с версии 5.6.
+</p>
+  
+<p> Пример:</p>
+
+<pre class="cmd">
+&lt;?php    
+function add(...$numbers) {  
+    $sum = 0;  
+    foreach ($numbers as $n) {  
+        $sum += $n;  
+    }  
+    return $sum;  
+}  
+  
+echo add(1, 2, 3, 4);  
+?>
+ </pre>
+ <pre class="output">
+Output:
+10
+</pre>
+
+<h2>Рекурсивная функция</h2>
+
+<p>
+ Подобно как в С\С++, РНР так же поддерживает рекурсивные функции.
+В таком случае мы вызываем текущую функцию внутри функции.
+Это так же называется рекурсией.
+Рекомендуется избегать вызова рекурсивной функции с уровнем более 200-т повторений,
+ потому что это может разбить стек и  привести к прекращению скрипта.
+</p>
+
+<p> Пример 1: <br> Вывод чисел</p>
+
+<pre class="cmd">
+&lt;?php      
+function display($number) {    
+    if($number<=5){    
+     echo "$number &lt;br/>";    
+     display($number+1);    
+    }  
+}    
+    
+display(1);    
+?>
+</pre>
+
+ <pre class="output">
+Output:
+1
+2
+3
+4
+5
+</pre>
+<p> Пример 2: <br>Факториал числа</p>
+
+<pre class="cmd">
+&lt;?php      
+function factorial($n)    
+{    
+    if ($n &lt; 0)    
+        return -1; /*Wrong value*/    
+    if ($n == 0)    
+        return 1; /*Terminating condition*/    
+    return ($n * factorial ($n -1));    
+}    
+    
+echo factorial(5);    
+?>  
+</pre>
+  
+ <pre class="output">
+Output:
+120
+</pre>
 	        </div>
   
  </body>

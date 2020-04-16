@@ -1,0 +1,468 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>PhP продвинутый материал</title>
+		  <link  href="../../Design/script.css" rel="stylesheet">
+		  <link  href="../../Design/toolbar.css" rel="stylesheet">
+		  <script src ="../../Design/bild.js"></script>
+		  </head>
+     <body>
+	     <script>
+	 		toolbar('../../index.html','../PHP_main.html');
+		 </script>
+		 
+		 <style type="text/css">
+		 
+		 </style>
+			<div class="content php-content">
+			<!--
+		piece - кусок, часть
+		reused - повторять
+		define - определять	
+		Conditional - условный	
+		within - в
+			-->
+<h1>РНР массивы</h1>
+<p>PHP Array - перечень данных (содержит значения на основе ключа).
+Массив используется для содержания множества аналогичных
+значений в одной переменной.
+
+</p>
+
+<h2>Преимущество массивов</h2>
+	<ul>
+		<li><strong>Меньше кода: </strong> Вам не нужно определять несколько переменных.</li>
+		<li><strong>Простота в работе</strong>: С помощью одного цикла, вы можете пройти все элементы массива.</li>
+		<li><strong>Сортировка</strong>: Вы можете сортировать элементы массива применяя к ним различные фильтры.</li>
+	</ul>
+<h2>Типы массивов</h2>
+<p> Существует три типа РНР массивов:</p>
+<ul>
+
+<li>Индексированный массив</li>
+<li>Ассоциативный массив</li>
+<li>Многомерный массив</li>
+</ul>
+
+<h2>Индексированный массив</h2>
+<p> Индексированный массив, это массив, который по умолчанию представлен числовым индексом
+Все элементы массива представлены индексом который начинается с 0.
+Индексированные массивы могут хранить числа, строки или любые объекты.
+Проиндексированный массив PHP также известен как числовой массив.
+</p>
+<p>Существует два способа определить индексируемый массив:</p>
+<p>1-й способ:</p>
+<pre class="example">
+$size=array("Big","Medium","Short");
+</pre>
+
+<p>2-й способ:</p>
+
+<pre class="example">
+$size[0]="Big";  
+$size[1]="Medium";  
+$size[2]="Short";
+</pre>
+<p><strong>Примеры индексированных массивов:</strong></p>
+<p>Пример 1:</p>
+
+<pre class="cmd">
+&lt;?php  
+$size=array("Big","Medium","Short");  
+echo "Size: $size[0], $size[1] and $size[2]";  
+?>
+</pre>
+<pre class="output"> 
+Output:
+Size: Big, Medium and Short
+</pre>
+		<p>Пример 2:</p>
+<pre class="cmd">
+&lt;?php  
+$size[0]="Big";  
+$size[1]="Medium";  
+$size[2]="Short";  
+echo "Size: $size[0], $size[1] and $size[2]";  
+?>
+</pre>
+<pre class="output"> 
+Output:
+Size: Big, Medium and Short
+</pre>
+ <h2> Перебор числовых РНР массивов</h2>
+ <p>Мы можем легко перебрать массив с помощью цикла<span>foreach</span> </p>
+<p> Пример:</p>
+
+<pre class="cmd">
+&lt;?php    
+$size=array("Big","Medium","Short");  
+foreach( $size as $s )  
+{  
+  echo "Size is: $s&lt;br />";  
+}  
+?>
+</pre>
+<pre class="output"> 
+Output:
+Size is: Big
+Size is: Medium
+Size is: Short
+</pre>
+<h2>Счётчик длинны числового массива</h2>
+<p>PHP предоставляет функцию COUNT (), которая возвращает длину массива.</p>
+
+
+<pre class="cmd">
+&lt;?php    
+$size=array("Big","Medium","Short");  
+echo count($size);  
+?>
+</pre>
+<pre class="output"> 
+Output:
+3
+</pre>
+<h2>Ассоциативный масив</h2>
+<p>PHP позволяет связать имя / ярлык с каждым элементами массива в PHP, используя => символ.
+Таким способом, мы можете с лёгкостью вспомнить элемент, потому что 
+каждый элемент представляет собой лейбол, а не числовой список.
+</p>
+
+<p> Есть два способа определения ассоциативного массива:
+<br>
+Первый способ:
+</p>
+<pre class="example">
+$salary=array("Arjun"=>"550000","Krishna"=>"2500000","Radha"=>"2000000");
+</pre>
+<p>Второй способ:</p>
+<pre class="example">
+$salary["Arjun"]="900000";  
+$salary["Krishna"]="3500000";  
+$salary["Radha"]="3000000";
+</pre>
+<p><strong>Примеры ассоциативного массива</strong></p>
+
+<pre class="cmd">
+&lt;?php      
+$salary=array("Arjun"=>"550000","Krishna"=>"250000","Radha"=>"200000");  
+echo "Arjun salary: ".$salary["Arjun"]."&lt;br/>";  
+echo "Krishna salary: ".$salary["Krishna"]."&lt;br/>";  
+echo "Radha salary: ".$salary["Radha"]."&lt;br/>";  
+?>
+</pre>
+<pre class="output"> 
+Output:
+Arjun salary: 550000
+Krishna salary: 250000
+Radha salary: 200000
+</pre>
+
+<pre class="cmd">
+&lt;?php      
+$salary["Arjun"]="900000";  
+$salary["Krishna"]="3500000";  
+$salary["Radha"]="3000000";
+echo "Arjun salary: ".$salary["Arjun"]."&lt;br/>";  
+echo "Krishna salary: ".$salary["Krishna"]."&lt;br/>";  
+echo "Radha salary: ".$salary["Radha"]."&lt;br/>";  
+?>
+</pre>
+<pre class="output"> 
+Output:
+Arjun salary: 900000
+Krishna salary: 3500000
+Radha salary: 3000000
+</pre>
+ <h2> Перебор ассоциативных РНР массивов</h2>
+<p>Мы можем легко перебрать массив с помощью цикла<span>foreach</span> </p>
+<p> Пример:</p>
+<pre class="cmd">
+&lt;?php      
+$salary=array("A"=>"550000","B"=>"250000","C"=>"200000");  
+foreach($salary as $k => $v) {  
+echo "Key: ".$k." Value: ".$v."&lt;br/>";  
+}  
+?>
+</pre>
+<pre class="output"> 
+Output:
+Key: A Value: 550000
+Key: B Value: 250000
+Key: C Value: 200000
+</pre>
+<h2>Многомерный массив</h2>
+<p>Многомерный РНР массив также известен как массив в массиве.
+Это позволяет вам хранить табличные данные в массивах.
+PHP multidimensional array is also known as array of arrays.
+Многоуровневый массив можно представить в форме матрицы с колонками и столбцами.
+</p> 
+<p> Определение массива:</p>
+<pre class="example">
+$emp = array  
+          (  
+          array(1,"abc",400000),  
+          array(2,"pqr",500000),  
+          array(3,"xyz",300000)  
+          );  
+ </pre>
+ <p> Примеры многоуровневых РНР массивов:</p>
+ 
+Let's see a simple example of PHP multidimensional array to display following tabular data. 
+In this example, we are displaying 3 rows and 3 columns.
+<pre class="">
+Id	Name	Salary
+1	abc	400000
+2	pqr	500000
+3	xyz	300000
+</pre>
+
+<pre class="cmd">
+&lt;?php      
+        $emp = array  
+          (  
+          array(1,"abc",400000),  
+          array(2,"pqr",500000),  
+          array(3,"xyz",300000)  
+          );  
+          
+        for ($row = 0; $row &lt; 3; $row++) {  
+          for ($col = 0; $col &lt; 3; $col++) {  
+            echo $emp[$row][$col]."  ";  
+          }  
+          echo "&lt;br/>";  
+        }  
+        ?>    
+        
+</pre>
+<pre class="output"> 
+Output:
+1 abc 400000
+2 pqr 500000
+3 xyz 300000
+</pre>
+
+PHP Array Functions
+PHP provides various array functions to access and manipulate the elements of array. The important PHP array functions are given below
+
+1) PHP array() function
+PHP array() function creates and returns an array. It allows you to create indexed, associative and multidimensional arrays.
+Syntax
+
+array array ([ mixed $... ] )
+Example
+
+
+<pre class="cmd">
+&lt;?php      
+$season=array("summer","winter","spring","autumn");    
+echo "Season are: $season[0], $season[1], $season[2] and $season[3]";    
+?> 
+</pre>
+<pre class="output"> 
+Output:
+Season are: summer, winter, spring and autumn
+</pre>
+2) PHP array_change_key_case() function
+PHP array_change_key_case() function changes the case of all key of an array.
+Note: It changes case of key only.
+Syntax
+
+array array_change_key_case ( array $array [, int $case = CASE_LOWER ] )
+Example 1 :
+
+
+<pre class="cmd">
+&lt;?php      
+       $salary=array("a"=>"550000","b"=>"250000","c"=>"200000");    
+       print_r(array_change_key_case($salary,CASE_UPPER));   
+      ?>
+</pre>
+<pre class="output"> 
+Output:
+Array ( [A] => 550000 [B] => 250000 [C] => 200000 )
+</pre>
+Example 2 :
+
+
+<pre class="cmd">
+&lt;?php      
+ $salary=array("A"=>"550000","B"=>"250000","C"=>"200000");    
+ print_r(array_change_key_case($salary,CASE_LOWER));   
+?>
+</pre>
+<pre class="output"> 
+Output:
+Array ( [a] => 550000 [b] => 250000 [c] => 200000 )
+</pre>
+3) PHP array_chunk() function
+PHP array_chunk() function splits array into chunks. By using array_chunk() method, you can divide array into many parts.
+Syntax
+
+array array_chunk ( array $array , int $size [, bool $preserve_keys = false ] )      
+Example
+
+<pre class="cmd">
+&lt;?php      
+ $salary=array("Sonoo"=>"550000","Vimal"=>"250000","Ratan"=>"200000");    
+ print_r(array_chunk($salary,2));   
+?>
+</pre>
+<pre class="output"> 
+Output:
+Array (
+[0] => Array ( [0] => 550000 [1] => 250000 )
+[1] => Array ( [0] => 200000 )
+)   
+</pre>  
+4) PHP count() function
+PHP count() function counts all elements in an array.
+Syntax
+
+int count ( mixed $array_or_countable [, int $mode = COUNT_NORMAL ] ) 
+Example
+
+
+<pre class="cmd">
+&lt;?php      
+ $season=array("summer","winter","spring","autumn");    
+ echo count($season);    
+?>
+</pre>
+<pre class="output"> 
+Output:
+4
+</pre>
+5) PHP sort() function
+PHP sort() function sorts all the elements in an array.
+Syntax
+
+bool sort ( array &$array [, int $sort_flags = SORT_REGULAR ] )  
+Example
+
+<pre class="cmd">
+&lt;?php      
+      $season=array("summer","winter","spring","autumn");    
+      sort($season);  
+      foreach( $season as $s )    
+      {    
+        echo "$s&lt;br />";    
+      }    
+      ?>   
+      
+</pre>
+<pre class="output"> 
+Output:
+autumn
+spring
+summer
+winter
+</pre>
+6) PHP array_reverse() function
+PHP array_reverse() function returns an array containing elements in reversed order.
+Syntax
+
+array array_reverse ( array $array [, bool $preserve_keys = false ] ) 
+Example
+
+<pre class="cmd">
+&lt;?php      
+$season=array("summer","winter","spring","autumn");    
+$reverseseason=array_reverse($season);  
+foreach( $reverseseason as $s )    
+{    
+  echo "$s&lt;br />";    
+}    
+?>
+</pre>
+<pre class="output"> 
+Output:
+autumn
+spring
+winter
+summer
+</pre>
+7) PHP array_search() function
+PHP array_search() function searches the specified value in an array. It returns key if search is successful.
+Syntax
+
+mixed array_search ( mixed $needle , array $haystack [, bool $strict = false ] ) 
+Example
+
+
+<pre class="cmd">
+&lt;?php      
+$season=array("summer","winter","spring","autumn");    
+$key=array_search("spring",$season);  
+echo $key;    
+?>  
+</pre>  
+</pre>
+<pre class="output"> 
+Output:
+2
+</pre>
+8) PHP array_intersect() function
+PHP array_intersect() function returns the intersection of two array. In other words, it returns the matching elements of two array.
+Syntax
+
+array array_intersect ( array $array1 , array $array2 [, array $... ] )  
+Example
+
+<pre class="cmd">
+&lt;?php      
+        $name1=array("abc","pqr","xyz","mno");    
+        $name2=array("def","abc","stu","xyz");    
+        $name3=array_intersect($name1,$name2);  
+        foreach( $name3 as $n )    
+        {    
+          echo "$n&lt;br />";    
+        }    
+?>   
+</pre>
+<pre class="output"> 
+Output:
+abc
+xyz   
+</pre>  
+	        </div>
+  
+ </body>
+</html>
+<!--
+		piece - кусок, часть ::   pass - передовать
+		reused - повторять.  ::   comma - запятая
+		define - определять	 ::   Reference - ссылка
+		Conditional - условный	::  actual value - фактическое значение
+		within - внутри 		:: specify - уточнить
+		Advantage - преимущество :: While - пока, в то время как
+		Reusability - повторное использование
+		once - один раз.        :: while calling - при вызове
+		invoked - вызвать, прибегнуть, испоьзовать
+		Less - меньше			:: parentheses - скобки
+		separate отделить
+		easier проще
+		declare - объявить
+		easily легко
+-->
+<!--
+	allows - позволяет        
+	both   -   обе 
+	reflect - отражать  
+	through - через  
+	another - ещё один
+	In such case - в таком случае
+	represents - представляет собой
+	means - средства, означает
+	  To do so - для этого
+	  ellipses (dots) - элипсы(точки)
+	  implemented - реализоманный
+	  current- текущий
+	  avoid - избегать
+	  smash разбивать
+	  cause причина, привести к
+	  termination - расторжение, прекращение
+-->	        
