@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>PhP продвинутый материал</title>
+		  <link  href="../../Design/script.css" rel="stylesheet">
+		  <link  href="../../Design/toolbar.css" rel="stylesheet">
+		  <script src ="../../Design/bild.js"></script>
+		  </head>
+     <body>
+	     <script>
+	 		toolbar('../../index.html','../PHP_main.html');
+		 </script>
+		 
+		 <style type="text/css">
+		 
+		 </style>
+			<div class="content php-content">
+<h1>PHP <span ckass="boltRed">Cookie</span></h1>
+<p>
+PHP <span>cookie</span> - это небольшая часть информации, которая хранится в клиентском браузере.
+Они используются для распознавания пользователя.
+<code>Cookie</code> создается на стороне сервера и сохраняется в браузере клиента.
+Каждый раз, когда клиент отправляет запрос на сервер, <code>cookie</code> добавляется вместе с запросом.
+Таким образом, <code>cookie</code> можно получить на стороне сервера.
+</p>
+<img alt="cookie">
+<p>Короче говоря, куки могут быть созданы, отправлены и получены на стороне сервера.</p>
+
+<div class="info">
+<p><strong>Заметка:</strong> PHP <span>Cookie</span> должен использоваться перед тегом <code> &lt;html></code>.</p>
+</div>
+<h2>Функция <span class="boktRed">setcookie()</span></h2>
+<p>Функция PHP <span>setcookie()</span>  используется для установки  <b>cookie</b> с ответом  HTTP . 
+После того, как cookie установлен, вы можете получить к нему доступ через суперглобальную переменную<code> $ _COOKIE.</code>
+</p>
+<p>Синтаксис:</p>
+<pre class="example">
+bool setcookie ( string $name [, string $value [, int $expire = 0 [, string $path   
+[, string $domain [, bool $secure = false [, bool $httponly = false ]]]]]] )
+</pre>
+
+<p>Пример:</p>
+<pre class="cmd">
+setcookie("CookieName", "CookieValue");/* определение только имени и значения*/  
+setcookie("CookieName", "CookieValue", time()+1*60*60);// использование в течении одного часа (1 * 60 * 60 секунд или 3600 секунд)
+setcookie("CookieName", "CookieValue", time()+1*60*60, "/mypath/", "mydomain.com", 1); 
+</pre>
+
+<h2>PHP <span class="boltRed">$_COOKIE</span></h2>
+
+<p>PHP <span>$_COOKIE</span> это суперглобальная переменная
+ исползуемая для получения <code> cookie.</code></p>
+ <p>Пример:</p>
+<pre class="cmd">
+$value=$_COOKIE["CookieName"];// возвращает значение cookie 
+ </pre>      
+
+<p>File: cookie1.php</p>
+<pre class="kod">
+&lt;?php  
+ setcookie("user", "Code Jupiter");  
+?>  
+&lt;html>  
+ &lt;body>  
+  &lt;?php  
+   if(!isset($_COOKIE["user"])) {  
+     echo "Sorry, cookie is not found!";  
+   } else {  
+     echo "&lt;br/>Cookie Value: " . $_COOKIE["user"];  
+     }  
+?>  
+ &lt;/body>  
+&lt;/html>
+</pre>
+<pre class="output">
+Output:
+Sorry, cookie is not found!
+</pre>
+<p>Во-первых, cookie не установлен.
+Но если вы обновите страницу, вы увидите, что cookie уже установлен.
+</p>
+<pre class="output">
+Output:
+Cookie Value: Code Jupiter
+</pre>
+
+<h2> Удаление <span class="boltRed">Cookie</span></h2>
+<p>
+<p>Если вы установили дату истечения срока действия в прошлом, куки будут удалены.</p>
+File: cookie1.php
+<pre class="kod">
+&lt;?php  
+// установить дату истечения на час назад
+ setcookie ("CookieName", "", time() - 3600);
+?>  
+</pre>
+	        </div>
+  
+ </body>
+</html>

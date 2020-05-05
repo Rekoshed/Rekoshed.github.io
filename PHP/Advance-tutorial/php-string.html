@@ -1,0 +1,342 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>PhP продвинутый материал</title>
+		  <link  href="../../Design/script.css" rel="stylesheet">
+		  <link  href="../../Design/toolbar.css" rel="stylesheet">
+		  <script src ="../../Design/bild.js"></script>
+		  </head>
+     <body>
+	     <script>
+	 		toolbar('../../index.html','../PHP_main.html');
+		 </script>
+		 
+		 <style type="text/css">
+		 
+		 </style>
+			<div class="content php-content">
+<h1>PHP Строки.(string)</h1>
+<p> Строки РНР это последовательность символов, используется
+для хранения и  манипуляций с текстом. 
+Есть как минимум два способа  указать строку,
+это одинарные кавычки и двойные кавычки.</p>
+
+<h2> Строка в одинарных кавычках</h2>
+<p> Вы можете создать строку заключив текст в одинарные кавычки.
+Это простой способ указания строк в РНР</p>
+<pre class="cmd">
+&lt;?php  
+ $str='Hello text within single quote';  
+ echo $str;  
+?>
+  </pre>
+<pre class="output">
+Output
+Hello text within single quote
+</pre>
+<p>В одинарные кавычки вы можете заключить многострочный текст, 
+специальные символы и эскейп-последовательность:</p>
+
+<pre class="cmd">
+&lt;?php    
+ $str1='Hello text   
+ multiple line  
+ text within single quoted string';  
+ $str2='Using double "quote" directly inside single quoted string';  
+ $str3='Using escape sequences \n in single quoted string';  
+ echo "$str1 <br/> $str2 <br/> $str3";  
+?>
+  </pre>
+<pre class="output">
+Output:
+Hello text multiple line text within single quoted string
+Using double "quote" directly inside single quoted string
+Using escape sequences \n in single quoted string 
+</pre>
+<p>
+Примечание. В строках PHP с одинарными кавычками большинство escape-последовательностей 
+и переменных не будут интерпретироваться. Но мы можем использовать
+обратный след для экранирования кавычки <code>\'</code>
+ и для экранирования самого обратного слеша <code>\\</code>.
+</p>
+<pre class="cmd">
+&lt;?php    
+$num1=10;   
+$str1='trying variable $num1';  
+$str2='trying backslash n and backslash t inside single quoted string \n \t';  
+$str3='Using single quote \'my quote\' and \\backslash';  
+echo "$str1 <br/> $str2 <br/> $str3";  
+?>
+  </pre>
+<pre class="output">
+Output:
+trying variable $num1 
+trying backslash n and backslash t inside single quoted string \n \t 
+Using single quote 'my quote' and \backslash
+</pre>
+<h2> Строка в двойных кавычках</h2>
+<p> В РНР мы так же можем заключать текст в двойные кавычки.
+Но escape-последовательности и переменные будут интерпретироваться с использованием строк PHP с двойными кавычками.
+</p>
+
+<pre class="cmd">
+&lt;?php    
+$str="Hello text within double quote";  
+echo $str;  
+?>
+  </pre>
+<pre class="output">
+Output:
+Hello text within double quote
+</pre>
+<p> Сейчас вы не можете использовать двойные кавычки непосредственно
+в строке заключённой в двойные кавычки</p>
+
+<pre class="cmd">
+&lt;?php    
+$str1="Using double "quote" directly inside double quoted string";  
+echo $str1;  
+?>
+  </pre>
+<pre class="output">
+Output:
+Parse error: syntax error, unexpected 'quote' (T_STRING) in C:\wamp\www\string1.php on line 2
+</pre>
+<p> Мы можем хранить многострочный текст, специальные символы и эскейп-последовательности
+в строках заключённых двойными кавычками.</p> 
+<pre class="cmd">
+&lt;?php    
+$str1="Hello text   
+multiple line  
+text within double quoted string";  
+$str2="Using double \"quote\" with backslash inside double quoted string";  
+$str3="Using escape sequences \n in double quoted string";  
+echo "$str1 <br/> $str2 <br/> $str3";  
+?>
+  </pre>
+<pre class="output">
+Output:
+Hello text multiple line text within double quoted string
+Using double "quote" with backslash inside double quoted string
+Using escape sequences in double quoted string
+</pre>
+<p>В двойных кавычках переменная будет интерпретироваться.</p>
+
+<pre class="cmd">
+&lt;?php    
+$num1=10;   
+echo "Number is: $num1";  
+?> 
+  </pre>
+<pre class="output">
+Output:
+Number is: 10
+</pre>
+<h2> Функции РНР строки</h2>
+<p> PHP предоставляет функции  для доступа и управления строками.
+Ниже дан список некоторых важных строковых функций:</p>
+
+<table class="windov">
+<tr><th colspan = 2><h3>Строковые функции РНР.</h3></th></tr>
+<tr><th>Функция</th>	<th>Описание</th></tr>
+<tr><td>addcslashes()</td>	<td>Используется для возврата строки с обратными слешами.</td></tr>
+<tr><td>addslashes()</td> <td>	Используется для возврата строки с обратными слешами.</td></tr>
+<tr><td>bin2hex()</td><td>	Он используется для преобразования строки символов ASCII в шестнадцатеричные значения.</td></tr>
+<tr><td>chop()</td><td>	Удаляет пробелы или другие символы с правого конца строки</td></tr>
+<tr><td>chr()</td><td>	Используется для возврата символов со специальными ASCII значениями.</td></tr>
+<tr><td>chunk_split()</td><td>	It is used to split a string into a series of smaller parts.</td></t is used to convert a string from one Cyrillic character-set to another.</td></tr>
+ is used to decode a uuencoded string.</td></tr>
+<tr><td>convert_uuencode()</td><td>	It is used to encode a string using the uuencode algorithm.</td></tr>
+<tr><td>count_chars()</td><td>	It is used to return information about characters used in a string.</td></tr>
+<tr><td>crc32()</td><td>	It is used to calculate a 32-bit CRC for a string.</td></tr>
+<tr><td>crypt()</td><td>	It is used to create hashing string One-way.</td></tr>
+<tr><td>echo()</td><td>	It is used for output one or more strings.</td></tr>
+<tr><td>explode()</td><td>	It is used to break a string into an array.</td></tr>
+<tr><td>hebrev()</td><td>	It is used to convert Hebrew text to visual text.</td></tr>
+<tr><td>hebrevc()</td><td>	It is used to convert Hebrew text to visual text and new lines (\n) into &lt;br>.</td></tr>
+<tr><td>hex2bin()</td><td>	It is used to convert string of hexadecimal values to ASCII characters.</td></tr>
+<tr><td>print()	</td><td>It is used for output one or more strings.</td></tr>
+<tr><td>fprint()</td><td>	It is used to write a formatted string to a stream.</td></tr>
+<tr><td>nl2br()	</td><td>It is used to insert HTML line breaks in front of each newline in a string.</td></tr>
+<tr><td>number_format()	</td><td>It is used to format a number with grouped thousands.</td></tr>
+<tr><td>htmlentities()</td><td>	It is used to convert character to HTML entities.</td></tr>
+<tr><td>html_entity_decode()</td><td>	It is used to convert HTML entities to characters.</td></tr>
+ord()	It is used to return ASCII value of the first character of a string.
+parse_str()	It is used to parse a query string into variables.
+Implode()	It is used to return a string from the elements of an array.
+Lcfirst()	It is used to convert the first character of a string to lowercase.
+Join()	It is the Alias of implode() function.
+Levenshtein()	It is used to return the Levenshtein distance between two strings.
+trim()	It is used to remove whitespace.
+ltrim()	It is used to remove whitespace from the left side of a string.
+rtrim()	It is used to remove whitespace from the right side of a string.
+md5()	It is used to calculate the MD5 hash of a string.
+md5_files()	It is used to calculate MD5 hash of a file.
+metaphone()	It is used to calculate the metaphone key of a string.
+Soundex()	It is is used to calculate the soundex key of a string.
+setlocale()	It is used to set locale information.
+money_format()	It is used to return a string formatted as a currency string.
+printf()	It is used to show output as a formatted string.
+sha1()	It is used to return the SHA-1 hash of a string.
+sscanf()	It is used to parse input from a string according to a format.
+str_getcsv()	It is used to parse a CSV string into an array.
+sha1_file()	It is used to return the SHA-1 hash of a file.
+similar_text()	It is used to compare the similarity between two strings.
+str_pad()	It is used to pad a string to a new length.
+str_ireplace()	It is used to replace some characters in a string (case-insensitive).
+str_repeat()	It is used to repeat a string a specified number of times.
+str_rot13()	It is used to perform the ROT13 encoding on a string.
+str_shuffle()	It is used to randomly shuffle all characters in a string.
+str_split()	It is used to split a string into an array.
+str_word_count()	It is used to count the number of words in a string.
+strcasecmp()	It is used to compare two strings.
+strchr()	It is used to find the first occurrence of a string inside another string.
+stscroll()	It is locale based string comparison.
+strcmp()	It is binary safe string comparison.
+strcspn()	It is used to reverses a string.
+strip_tags()	It is used to strip HTML and PHP tags from a string.
+stripcslashes()	It is used to unquote a string quoted with addcslashes().
+stripos()	It is used to return the position of the first occurrence of a string inside another string.
+strlen()	It is used to return the length of a string.
+strnatcasecmp()	It is used to compare two strings using a "natural order" algorithm.
+strnatcmp()	It is used to compare two strings using a "natural order" algorithm.
+strncmp()	It is used to compare of the first n characters.
+strpbrk()	It is used to search a string for any of a set of characters.
+strpos()	It is used to return the position of the first occurrence of a string inside another string.
+strrchr()	It is used to find the last occurrence of a string inside another string.
+strrev()	It is used to reverse a string.
+</table>
+<h2> PHP функция <span>strtolower() </span></h2>
+<p> Функция strtolower() возвращает строку буквами в нижнем регистре.</p>
+<p>Синтаксис:</p>
+<pre class="example">
+string strtolower ( string $string ) 
+</pre>
+ <p>Пример:</p>
+
+<pre class="cmd">
+&lt;?php    
+ $str="My name is KARAN";  
+ $str=strtolower($str);  
+ echo $str;  
+?>
+  </pre>
+<pre class="output">
+Output:
+my name is karan
+</pre>
+2) PHP strtoupper() function
+The strtoupper() function returns string in uppercase letter.
+Syntax
+
+string strtoupper ( string $string ) 
+Example
+
+<pre class="cmd">
+&lt;?php    
+$str="My name is KARAN";  
+$str=strtoupper($str);  
+echo $str;  
+?> 
+  </pre>
+<pre class="output">
+Output:
+MY NAME IS KARAN
+</pre>
+3) PHP ucfirst() function
+The ucfirst() function returns string converting first character into uppercase. It doesn't change the case of other characters.
+Syntax
+
+string ucfirst ( string $str ) 
+Example
+
+<pre class="cmd">
+&lt;?php    
+$str="my name is KARAN";  
+$str=ucfirst($str);  
+echo $str;  
+?>
+  </pre>
+<pre class="output">
+Output:
+My name is KARAN
+</pre>
+4) PHP lcfirst() function
+The lcfirst() function returns string converting first character into lowercase. It doesn't change the case of other characters.
+Syntax
+
+string lcfirst ( string $str )        
+Example
+
+<pre class="cmd">
+&lt;?php    
+ $str="MY name IS KHAN";  
+ $str=lcfirst($str);  
+ echo $str;  
+?>
+  </pre>
+<pre class="output">
+Output:
+mY name IS KHAN
+</pre>
+5) PHP ucwords() function
+The ucwords() function returns string converting first character of each word into uppercase.
+Syntax
+
+string ucwords ( string $str )
+Example
+
+<pre class="cmd">
+&lt;?php  
+ $str="my name is Khan karan";  
+ $str=ucwords($str);  
+ echo $str;  
+?>
+  </pre>
+<pre class="output">
+Output:
+My Name Is Khan Karan
+</pre>
+6) PHP strrev() function
+The strrev() function returns reversed string.
+Syntax
+
+string strrev ( string $string )      
+Example
+
+<pre class="cmd">
+&lt;?php    
+$str="my name is karan";  
+$str=strrev($str);  
+echo $str;  
+?>
+</pre>
+<pre class="output">
+Output:
+narak si eman ym
+</pre>
+7) PHP strlen() function
+The strlen() function returns length of the string.
+Syntax
+
+int strlen ( string $string ) 
+Example
+
+<pre class="cmd">
+&lt;?php    
+$str="my name is karan";  
+$str=strlen($str);  
+echo $str;  
+?>
+  </pre>
+<pre class="output">
+Output:
+16
+</pre>
+	        </div>
+  
+ </body>
+</html>

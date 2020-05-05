@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>PhP продвинутый материал</title>
+		  <link  href="../../Design/script.css" rel="stylesheet">
+		  <link  href="../../Design/toolbar.css" rel="stylesheet">
+		  <script src ="../../Design/bild.js"></script>
+		  </head>
+     <body>
+	     <script>
+	 		toolbar('../../index.html','../PHP_main.html');
+		 </script>
+		 
+		 <style type="text/css">
+		 
+		 </style>
+			<div class="content php-content">
+<h1> Включение файлов </h1>
+<p>
+PHP позволяет вам включать файл, чтобы содержимое страницы можно было многократно использовать.
+Есть два пути включения файла в РНР:
+</p>
+<ul>
+<li>include</li>
+<li>require</li>
+</ul>
+<p>Преимущество:</p>
+<p>
+Повторное использование кода:
+Повторное использование кода: с помощью конструкций include и require,
+  мы можем повторно использовать HTML-код или PHP-скрипт во многих PHP-скриптах.
+</p>
+
+<h2>Пример PHP <span class="boltRed">include</span>:</h2>
+<p>
+PHP include используется для включения файла на основе заданного пути.
+Вы можете использовать относительный и абсолютный путь к файлу.
+Рассмотрим простой пример включения <span>include</span>.
+</p>
+<p>File: menu.html</p>
+<pre class="kod">
+&lt;a href="http://www.google.com">Google Home&lt;/a> |   
+&lt;a href="http://https://www.google.com/maps/">Google Map&lt;/a> |   
+&lt;a href="https://translate.google.com">Google Translate&lt;/a> |    
+&lt;a href="https://play.google.com/store/apps/developer?id=Code+Jupiter">Code Jupiter's APP&lt;/a> 
+</pre>
+<p>File: include1.php</p>
+<pre class="cmd">
+&lt;?php include("menu.html"); ?>  
+&lt;h1>This is Main Page&lt;/h1>
+</pre>
+
+<p>Output:</p>
+<pre class="example">
+Google Home | Google Map | Google Translate | Code Jupiter's APP
+This is Main Page
+</pre>
+<h2>Пример PHP <span>require</span></h2>
+<p> <span>require </span>аналогичен<span> include</span>.
+<br>
+Простой прммер:
+</p>
+<p>File: menu.html</p>
+<pre class="kod">
+&lt;a href="http://www.google.com">Google Home&lt;/a> |   
+&lt;a href="http://https://www.google.com/maps/">Google Map&lt;/a> |   
+&lt;a href="https://translate.google.com">Google Translate&lt;/a> |    
+&lt;a href="https://play.google.com/store/apps/developer?id=Code+Jupiter">Code Jupiter's APP&lt;/a> 
+</pre>
+<p>File: require1.php</p>
+<pre class="cmd">
+&lt;?php require("menu.html"); ?>  
+      &lt;h1>This is Main Page&lt;/h1>
+ </pre>
+<p>Output:</p>
+<pre class="example">
+Google Home | Google Map | Google Translate | Code Jupiter's APP
+This is Main Page
+</pre>
+<h2>PHP include vs PHP require</h2>
+<p>
+Если файл отсутствует или не удается включить, <span class="boltRed">include</span>
+ позволяет сценарию продолжить работу, но <span class="boltRed"> require</span> остановливает сценарий, 
+ приводящий к фатальной ошибке уровня<code> E_COMPILE_ERROR.</code>
+</p>
+
+	        </div>
+  
+ </body>
+</html>

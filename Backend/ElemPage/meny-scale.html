@@ -1,0 +1,231 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Back end</title>
+		  <link  href="../../Design/script.css" rel="stylesheet">
+		  <link  href="../../Design/toolbar.css" rel="stylesheet">
+		  <script src ="../../Design/bild.js"></script>
+		  </head>
+     <body>
+	     <script>
+	 		toolbar('../../index.html','../back_main.html');
+		 </script>
+			<div class="content">
+			<style type="text/css">
+			body {margin:0;}
+			h2 {
+			font-family: monospace;
+			color: #606060;
+			}
+			nav {
+			width: 660px;
+			margin: 0 auto 30px;
+			}
+			ul {
+			list-style: none; 
+			margin: 0;
+			padding: 0;
+			}
+			.topmenu > li {
+			display: inline-block;
+			margin-right: 20px;
+			position: relative;
+			}
+			.topmenu > li:last-child {
+			margin-right: 0;
+			}
+			a {
+			display: block;
+			padding: 10px 15px;
+			text-decoration: none;
+			outline: none;
+			font-family: 'Lora', serif;
+			transition: .5s linear;
+			}
+			.fa {
+			font-family: "FontAwesome";
+			color: inherit;
+			padding-left: 10px;
+			}
+			.submenu {
+			position: absolute;
+			top: 100%;
+			left: 0;
+			width: 100%;
+			z-index: 10;
+			-webkit-transition: 0.5s ease-in-out;
+			-moz-transition: 0.5s ease-in-out;
+			-o-transition: 0.5s ease-in-out;
+			transition: 0.5s ease-in-out;
+			}
+			.one ul {
+			background: #ECDAD6;
+			}
+			.one ul a {
+			color: #695753;
+			}
+			.one .submenu {
+			display: none;
+			background: #b19891;
+			}
+			.one ul li:hover .submenu {
+			display: block;
+			}
+			.two ul {
+			background: #D4E7EE;
+			}
+			.two ul a {
+			color: #29838C;
+			}
+			.two .submenu {
+			visibility: hidden;
+			background: #ADC0CE;
+			}
+			.two ul li:hover .submenu {
+			visibility: visible;
+			}
+			.three ul {
+			background: #E4EFD1;
+			}
+			.three ul a {
+			color: #74924C;
+			}
+			.three .submenu {
+			visibility: hidden;
+			opacity: 0;
+			background: #BAD78B;
+			}
+			.three ul li:hover .submenu {
+			visibility: visible;
+			opacity: 1;
+			}
+			.four ul {
+			background: #FFD7A7;
+			}
+			.four .submenu {
+			-webkit-transform: scaleY(0);
+			-ms-transform: scaleY(0);
+			transform: scaleY(0);
+			-webkit-transform-origin: 0 0;
+			-ms-transform-origin: 0 0;
+			transform-origin: 0 0;
+			background: #FFAB51;
+			}
+			.four ul li:hover .submenu {
+			-webkit-transform: scaleY(1);
+			-ms-transform: scaleY(1);
+			transform: scaleY(1);
+			}
+			.four ul a {
+			color: #9B4222;
+			}
+			.five ul {
+			background: #FFE075;
+			}
+			.five ul a {
+			color: #A87B31;
+			}
+			.five .submenu {
+			background: #EEBD1A;
+			}
+			.submenu li a {
+			border-bottom: 1px solid rgba(255,255,255,.3);
+			color: white;
+			}
+			</style>
+<nav class="one">
+  <h2>1) .submenu {display: none;}</h2>
+  <ul class="topmenu">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Work</a></li>
+    <li><a href="#">About<i class="fa fa-angle-down"></i></a>
+      <ul class="submenu">
+        <li><a href="">Item 1</a></li>
+        <li><a href="">Item 2</a></li>
+      </ul>
+    </li>
+    <li><a href="#">Blog</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</nav>
+
+<nav class="two">
+  <h2>2) .submenu {visibility: hidden;}</h2>
+  <ul class="topmenu">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Work</a></li>
+    <li><a href="#">About<i class="fa fa-angle-down"></i></a>
+      <ul class="submenu">
+        <li><a href="">Item 1</a></li>
+        <li><a href="">Item 2</a></li>
+      </ul>
+    </li>
+    <li><a href="#">Blog</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</nav>
+
+<nav class="three">
+  <h2>3) .submenu {opacity: 0;}</h2>
+  <ul class="topmenu">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Work</a></li>
+    <li><a href="#">About<i class="fa fa-angle-down"></i></a>
+      <ul class="submenu">
+        <li><a href="">Item 1</a></li>
+        <li><a href="">Item 2</a></li>
+      </ul>
+    </li>
+    <li><a href="#">Blog</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</nav>
+
+<nav class="four">
+  <h2>4) .submenu {transform: scaleY(0);}</h2>
+  <ul class="topmenu">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Work</a></li>
+    <li><a href="#">About<i class="fa fa-angle-down"></i></a>
+      <ul class="submenu">
+        <li><a href="">Item 1</a></li>
+        <li><a href="">Item 2</a></li>
+      </ul>
+    </li>
+    <li><a href="#">Blog</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</nav>
+
+<nav class="five">
+  <h2>5) .submenu с помощью jQuery</h2>
+  <ul class="topmenu">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Work</a></li>
+    <li><a href="#">About<i class="fa fa-angle-down"></i></a>
+      <ul class="submenu">
+        <li><a href="">Item 1</a></li>
+        <li><a href="">Item 2</a></li>
+      </ul>
+    </li>
+    <li><a href="#">Blog</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</nav>
+<script type="text/javascript">
+$(".five li ul").hide();
+$(".five li:has('.submenu')").hover(
+  function(){
+  $(".five li ul").stop().fadeToggle(300);}
+);
+
+</script>
+
+			
+        </div>
+  </div>
+ </body>
+</html>

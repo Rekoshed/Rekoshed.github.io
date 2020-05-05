@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>PhP продвинутый материал</title>
+		  <link  href="../../Design/script.css" rel="stylesheet">
+		  <link  href="../../Design/toolbar.css" rel="stylesheet">
+		  <script src ="../../Design/bild.js"></script>
+		  </head>
+     <body>
+	     <script>
+	 		toolbar('../../index.html','../PHP_main.html');
+		 </script>
+		 
+		 <style type="text/css">
+		 
+		 </style>
+			<div class="content php-content">
+
+<h1> Обработка форм РНР </h1>
+<p> Мы можем создавать и использовать формы в РНР.
+Что бы использовать данные форм нам нужно использовать супер глобальные
+ переменные $_GET и $_POST.Форму запроса можно получить или отправить.
+ Что бы извлечь данные формы из запроса <code>get</code>, нам нужно использовать<span class="boltRed"> $_GET</span>,
+для <code>post</code>-запроса <span class="boltRed"> $_POST</span>
+
+</p>
+<h2> Форма <span class="boltRed"> GET</span> </h2>
+<p>
+<code>Get</code>-запрос, это запрос по умолчанию.
+Данные передаваемые через <code>get</code>- запрос видны в адресной строке браузера,
+по этому они не защищены. Мы можете передать ограниченный объём данных
+через get-запрос.
+</p>
+<p> Рассмотрим простой пример получения данных из <code>get</code> запроса:</p>
+<p>File: form1.html</p>
+<pre class="kod">
+&lt;form action="welcome.php" method="get">  
+Name: &lt;input type="text" name="name"/>  
+&lt;input type="submit" value="visit"/>  
+&lt;/form> 
+</pre> 
+File: welcome.php
+
+<pre class="cmd">
+&lt;?php  
+$name=$_GET["name"];//receiving name field value in $name variable  
+echo "Welcome, $name";  
+?>
+</pre>
+<h2> Форма <span class="boltRed"> POST</span></h2>
+<p><code>post</code> запрос широко используется для отправки формы с большим объемом данных, таких как загрузка файла,
+загрузка изображений, форма входа, форма регистрации и т. д.
+Данные передаваемые через <code>post</code> запрос не видны в адресной
+строке браузера, и по этому защищены.
+Вы можете передать большой объём данных через <code>post</code> запрос.</p>
+
+</p>
+<p> Рассмотрим простой пример получения данных из <code>post</code> запроса:</p>
+
+<p>File: form1.html</p>
+<pre class="kod">
+&lt;form action="login.php" method="post">   
+&lt;table>   
+&lt;tr>&lt;td>Name:&lt;/td>&lt;td> &lt;input type="text" name="name"/>&lt;/td>&lt;/tr>  
+&lt;tr>&lt;td>Password:&lt;/td>&lt;td> &lt;input type="password" name="password"/>&lt;/td>&lt;/tr>   
+&lt;tr>&lt;td colspan="2">&lt;input type="submit" value="login"/>  &lt;/td>&lt;/tr>  
+&lt;/table>  
+&lt;/form>  
+</pre> 
+<p>File: login.php</p>
+<pre class="cmd">
+&lt;?php  
+$name=$_POST["name"];//receiving name field value in $name variable  
+$password=$_POST["password"];//receiving password field value in $password variable  
+  
+echo "Welcome: $name, your password is: $password";  
+?>
+</pre>
+	        </div>
+  
+ </body>
+</html>

@@ -191,6 +191,9 @@
 			table{
 			width:95%;
 			}
+			main, article, header, nav, aside, footer {
+			width:100%;
+			}
 			@media screen and (min-width: 900px) {
 			 nav a {padding-bottom: 1em;}
 				

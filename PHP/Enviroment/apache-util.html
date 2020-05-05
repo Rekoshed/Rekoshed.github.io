@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>PhP окружение</title>
+		  <link  href="../../Design/script.css" rel="stylesheet">
+		  <link  href="../../Design/toolbar.css" rel="stylesheet">
+		  <script src ="../../Design/bild.js"></script>
+		  </head>
+     <body>
+	     <script>
+	 		toolbar('../../index.html','../PHP_main.html');
+		 </script>
+		 
+		 <style type="text/css">
+		 
+		 </style>
+			<div class="content php-content">
+	  Как полностью удалить Apache из Ubuntu
+	  Konstantin Komelin  ○  Dec 23, 2012
+	  Apache 2 часто предустановлен на Ubuntu, и это прекрасно. Но что делать, когда нам нужно его удалить? За несколько простых шагов мы сделаем это вместе.
+	  
+	  1. Удалим Apache и его компоненты
+	  
+	  sudo apt-get purge apache2 apache2-utils apache2.2-bin apache2-common
+	  Система сама остановит apache2 сервис в процессе деинсталляции.
+	  
+	  2. [Опционально] Удалим все, что не удалено предыдущей командой
+	  
+	  Будьте осторожны и не удалите лишнего.
+	  
+	  sudo apt-get autoremove
+	  3. [Опционально] Удалим «брошенные» папки и файлы
+	  
+	  Если вы что-то устанавливали вручную или изменяли, apt-get может не удалить эти файлы и папки. Это нужно сделать вручную.
+	  
+	  Найдем все, что осталось командой:
+	  
+	  whereis apache2
+	  В ответе получим список директорий (в нашем случае одну /etc/apache2). Зайдем в них и посмотрим, нет ли там чего-то важного. Если нет, то удаляем командой:
+	  
+	  sudo rm -Rf /etc/apache2
+	  Итак, мы полностью удалили Apache 2 и его компоненты. Теперь наша система готова к установке другого веб-сервера, например Lighttpd или Nginx. Читайте о том, как установить Lighttpd в специальной статье.
+	        
+	        </div>
+  </div>
+ </body>
+</html>
