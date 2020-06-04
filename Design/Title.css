@@ -20,7 +20,7 @@
 		}
 	
 		.color1 {background-color: #675BA7;}
-		.color2 {background-color: #9BC850;}
+		.color2 {background-color: green;}
 		.color3 {background-color: #A62E5C;}
 		.color4 {background-color: rgb(10, 172, 158);}
 		.color5 {background-color: #F15B2A;}
@@ -31,6 +31,7 @@
 		.color10 {background-color: rgb(110, 33, 7);}
 		.color11{background-color: rgba(122, 120, 124, 0.973);}
 		.color6  * {color:yellow;}
+		.color3 * {color:black;}
 	
 	.container {
 	display: flex;
