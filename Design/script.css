@@ -25,7 +25,7 @@ p {
 strong {
     color: var(--strong-color);
 }
-kbd {
+kod {
     color: var(--back-cmd);
     background-color: var(--code-color);
 }
