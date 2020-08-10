@@ -1,0 +1,13 @@
+.c-black {
+color:black;
+}
+
+td:last-child {width: 30%;}
+
+#menu > ul.links > ul > li > a:not(.button) {
+
+				color: inherit;
+				display: block;
+				line-height: 1.5em;
+				text-decoration: none;
+			}

@@ -1,0 +1,232 @@
+<!DOCTYPE HTML>
+<!--
+	Road Trip by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>Строительный калькулятор</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/style.css" />
+	
+	</head>
+	<body class="subpage">
+
+		<!-- Header -->
+			<header id="header" class="alt">
+				<div class="logo"><a href="Calc.html">г. Струнино <span>+79056190962</span></a></div>
+				<a href="#menu"><span>Menu</span></a>
+			</header>
+
+		<!-- Nav -->
+			<nav id="menu">
+				<ul class="links">
+					<li ><a href="index.html">Главная</a></li>
+					<li><a href="stair.html">Лестницы</a></li>
+					<li><a href="calk.html">Калькулятор</a></li>
+						<ul class="">
+						 <li><a href="#volumCalc">Объёмы</a></li>
+						 <li><a href="#arkCalc" >Дуги, радиуса</a></li>
+						 <li><a href="#areaCalc">Площадь</a></li>						
+						 <li><a href="#lineCalc">Геометрия</a></li>				
+						</ul>
+					<li><a href="elements.html">Elements</a></li>
+				</ul>
+			</nav>
+
+		<!-- Main -->
+			<div id="main" class="container">
+
+				<!-- Content -->
+		
+				<h1>Строительный калькулятор</h1>
+			<section id="volumCalc">	
+					<h2>Объёмы</h2>
+	
+		<div class="table-wrapper">
+				<table class="alt">
+				<thead>
+					<tr>
+					<th colspan=2>
+					<p><code>Вычислить:</code> количество изделий в кубе и цену за куб.
+					<br>
+					<code>Известно: </code>размер изделия и цена за штуку</p>
+					
+					<p>еденица измерения: <b>см</b></p>
+					</th>
+					</tr>
+				</thead>
+					<tr><td>длинна:</td>		<td><input id="long" class="button fit small" type="number"  value="600" /></td></tr>
+					
+					<tr><td>ширина:</td><td><input id="width" class="button fit small" type="number"  value="10" /></td></tr>
+					
+					<tr><td>высота или толщина:</td>	<td><input id="height" class="button fit small" type="number"  value="2.5" /></td></tr>
+					
+					<tr><td>цена за штуку:</td><td><input id="stuff" class="button fit small" type="number" value="100" /></td></tr>
+					
+					<tr><b> <td>количество в кубе:</td>	<td><font id="numberInCube"></font>	</td></b></tr>
+					
+					
+					<tr><b><td> цена за куб: </td><td><font id="pricePerCube"></font></td></b></tr>	
+					<tr>
+					 <td colspan=2>
+					<input class="button special fit small" type ="button" value="вычислить" onclick="math()" />
+					 </td>
+					</tr>
+				</table>
+			</div>
+					
+	
+<div class="table-wrapper">
+	<table class="alt">
+					
+					<tr>
+					<th colspan = 2>
+					<p><code>Вычислить:</code> количество изделий в кубе и цену за штуку.
+					<br>
+					<code>Известно:</code> Размер изделия и цена за куб</p>
+					
+					<p>еденица измерения: <b>см</b></p></th></tr>
+					
+					<tr><td>длинна:</td>		<td><input id="long2" class="button fit small" type="number"  value="600" /></td></tr>
+					
+					<tr><td>ширина:</td><td><input id="width2" class="button fit small" type="number"  value="10" /></td></tr>
+					
+					<tr><td>высота или толщина:</td>	<td><input id="height2" class="button fit small" type="number"  value="2.5" /></td></tr>
+					
+					<tr><td>цена за куб:</td><td><input id="pricePerCube2" class="button fit small" type="number" value="6600" /></td></tr>
+					
+					<tr><b> <td>количество в кубе:</td>	<td><font id="numberInCube2"></font>	</td></b></tr>
+					
+					
+					<tr><b><td> цена за штуку: </td><td><font id="pricePerStuff2"></font></td></b></tr>	
+			<tr>
+				 <td colspan=2>
+				<input class="button special fit small" type ="button" value="вычислить" onclick="math2()" />
+				 </td>
+				</tr>
+			</table>
+		</div>	
+			</section>
+					
+			<section id="arkCalc">
+			
+			<h2>Дуги и радиуса</h2>
+	<div class="table-wrapper">
+			<table class="alt">
+			<tr><th colspan = 2>
+			<p><code>Вычислить:</code> длину дуги
+			<br>
+			<code>Известно: </code>Длинна хорды и высота от хорды до вершины дуги</p>
+			
+			<h6>еденица измерения: <b>см</b></h6></th></tr>
+			<tr><td>хорда:</td>		<td><input class="button fit small" id="long3" type="number"  value="160" /></td></tr>			
+			
+			<tr><td>высота <span>h</span>:</td>	<td><input class="button fit small" id="height3" type="number"  value="20" /></td></tr>
+			
+			<tr><b><td> Длинна дуги: </td><td><font id="arcLenght"></font></td></b></tr>	
+			
+			<tr><b><td> Радиус дуги: </td><td><font id="arcRadius"></font></td></b></tr>			
+			
+	<tr>
+		 <td colspan=2>
+		<input class="button special fit small" type ="button" value="вычислить" onclick="arcLen()" />
+		 </td>
+		</tr>
+	</table>
+</div>
+			</section>
+			
+		<section id="areaCalc">
+		<h2>Площадь</h2>
+	<div class="table-wrapper">
+		  <table class="alt">
+		  <tr><th colspan = 2><h3>Площадь прямоугольника.</h3>
+		  <h6>еденица измерения: <b>метр</b></h6></th></tr>
+		  <tr><td>длинна:</td>		<td><input class="button fit small" id="long4" type="number"  value="2.8" /></td></tr>			
+		  
+		  <tr><td>ширина:</td>	<td><input class="button fit small" id="width4" type="number"  value="17" /></td></tr>
+		  
+		  <tr><b><td> площадь: </td><td><font id="areaLW"></font></td></b></tr>			
+<tr>
+	 <td colspan=2>
+	<input class="button special fit small" type ="button" value="вычислить" onclick="areaLW()" />
+	 </td>
+	</tr>
+</table>
+		  </div>
+		
+		</section>
+		<section id="lineCalc">
+		<h2>Геометрия</h2>
+			<div class="table-wrapper">
+		  <table class="alt">
+		  <tr><th colspan = 2><h3>Диагональ.</h3>
+		  <h6>еденица измерения: <b>метр</b></h6></th></tr>
+		  <tr><td>Сторона <b>A</b>:</td>		<td><input class="button fit small" id="lineA" type="number"  value="5.1" /></td></tr>			
+		  
+		  <tr><td>Сторона<b>B</b>:</td>	<td><input class="button fit small" id="lineB" type="number"  value="3.1" /></td></tr>
+		  
+		  <tr><b><td> Диагональ: </td><td><font id="lineC"></font></td></b></tr>			
+		<tr>
+			 <td colspan=2>
+			<input class="button special fit small" type ="button" value="вычислить" onclick="lineC()" />
+			 </td>
+			</tr>
+		</table>
+		  </div>
+		
+		</section>
+	
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+
+					<h2>Contact Me</h2>
+
+					<form action="#" method="post">
+
+						<div class="field half first">
+							<label for="name">Name</label>
+							<input name="name" id="name" type="text" placeholder="Name">
+						</div>
+						<div class="field half">
+							<label for="email">Email</label>
+							<input name="email" id="email" type="email" placeholder="Email">
+						</div>
+						<div class="field">
+							<label for="message">Message</label>
+							<textarea name="message" id="message" rows="6" placeholder="Message"></textarea>
+						</div>
+						<ul class="actions">
+							<li><input value="Send Message" class="button alt" type="submit"></li>
+						</ul>
+					</form>
+
+					<ul class="icons">
+						<li><a href="#" class="icon round fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon round fa-facebook"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon round fa-instagram"><span class="label">Instagram</span></a></li>
+					</ul>
+
+					<div class="copyright">
+						&copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com">Unsplash</a>.
+					</div>
+
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+	   		<script src="assets/js/calc.js"></script>
+	</body>
+</html>
