@@ -32,6 +32,7 @@
 						 <li><a href="#arkCalc" >Дуги, радиуса</a></li>
 						 <li><a href="#areaCalc">Площадь</a></li>						
 						 <li><a href="#lineCalc">Геометрия</a></li>				
+						 <li><a href="#markerCalc">Разметка</a></li>				
 						</ul>
 					<li><a href="elements.html">Elements</a></li>
 				</ul>
@@ -181,6 +182,30 @@
 		
 		</section>
 	
+	<section id="markerCalc">
+	<h2>Разметка</h2>
+		<div class="table-wrapper">
+	  <table class="alt">
+	  <tr><th colspan = 2><h3>Линейная разметка по центрам.</h3>
+	  <h6>еденица измерения: <b>мм</b></h6></th></tr>
+	  <tr><td>Общая длинна от первой до крайней точки:</td>		<td><input class="button fit small" id="markerA_len" type="number"  value="1000" /></td></tr>			
+	  
+	  <tr><td>Количество точек:</td>	<td><input class="button fit small" id="markerA_amountPoint" type="number"  value="5" /></td></tr>
+	  
+	 <tr><b><td> Расстояние между точками: </td><td><font id="markerA_segment"></font></td></b></tr>			
+	 <tr><b><td> Количество отрезков: </td><td><font id="markerA_amountsegment"></font></td></b></tr>			
+	 <tr><td colspan = 2> <font id="markerA_read"></font></td></tr>			
+	
+	<tr>
+		 <td colspan=2>
+		<input class="button special fit small" type ="button" value="вычислить" onclick="markerA()" />
+		 </td>
+		</tr>
+	</table>
+	  </div>
+	
+	</section>
+		
 
 		<!-- Footer -->
 			<footer id="footer">

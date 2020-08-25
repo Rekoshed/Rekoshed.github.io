@@ -75,3 +75,27 @@ document.getElementById("lineC").innerHTML = (parseInt(c * 1000)) / 1000;
 
 
 }
+
+
+function markerA(){
+let markerA_a = document.getElementById('markerA_len').value;
+let markerA_b = document.getElementById('markerA_amountPoint').value;
+
+let markerA_c = 0;
+let markerA_segment = 0;
+let markerA_read = " ";
+let count = 1;
+
+markerA_segment = markerA_b -1
+
+markerA_c = markerA_a / markerA_segment
+
+while (count <= markerA_b ) {
+	markerA_read = markerA_read + count + "-" + ((count - 1) * markerA_c) + "; ";
+	count = count + 1;
+}
+
+document.getElementById("markerA_segment").innerHTML = (parseInt(markerA_c * 10)) / 10;
+document.getElementById("markerA_amountsegment").innerHTML = parseInt(markerA_segment);
+document.getElementById("markerA_read").innerHTML = markerA_read;
+}
