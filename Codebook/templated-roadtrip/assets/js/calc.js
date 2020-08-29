@@ -1,4 +1,4 @@
-function math() {
+function math1() {
 		var longEl = document.getElementById('long').value; 
 		var widthEl = document.getElementById('width').value; 
 		var heightEl = document.getElementById('height').value; 
@@ -24,7 +24,7 @@ function math() {
 	
 	numberInCube2 = parseInt(1000000 / (longEl2 * widthEl2 * heightEl2));
 //	volumeStuff = longEl * widthEl * heightEl;
-	pricePerStuff2 = pricePerCube2 / numberInCube2;
+	pricePerStuff2 =parseInt( pricePerCube2 / numberInCube2);
 	document.getElementById("numberInCube2").innerHTML = numberInCube2;
 	document.getElementById("pricePerStuff2").innerHTML = pricePerStuff2;
 	
@@ -91,7 +91,7 @@ markerA_segment = markerA_b -1
 markerA_c = markerA_a / markerA_segment
 
 while (count <= markerA_b ) {
-	markerA_read = markerA_read + count + "-" + ((count - 1) * markerA_c) + "; ";
+	markerA_read = markerA_read + parseInt(count + "-" + ((count - 1) * markerA_c) + "; ");
 	count = count + 1;
 }
 
