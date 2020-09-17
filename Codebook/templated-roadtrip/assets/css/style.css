@@ -89,10 +89,10 @@ body {
 }
 
 .slider__item>div {
-  height: 350px;
-  line-height: 250px;
-  font-size: 1rem;
+  height: auto;
+
   text-align: center;
+
 }
 
 .slider_img {
