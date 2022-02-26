@@ -34,7 +34,115 @@
  </td>
  <td><p>Rekoshed</p></td>
 </table>
+
+<form name="myForm">
+	<input type="radio" name="stepStyle" checked="checked" value="step"/> Ступень в подступёнок
+	<input type="radio" name="stepStyle" value="sub_step" />Подступёнок на ступени
+	<input type="radio" name="stepStyle" value="C++" />C++
+	</form>
+	
+	<div id="printBlock"></div>
+	
+<canvas id="clip" width="350" height="450"
+style="background-color:#eee; border:1px solid #ccc;">
+Ваш браузер не поддерживает Canvas
+</canvas>
   
+  <script type="text/javascript">
+  var country = {
   
+  name: "Швейцария",
+  languages: ["немецкий", "французский", "итальянский"],
+  capital:{
+  
+  name: "Берн",
+  population: 126598
+  },
+  cities: [
+  { name: "Цюрих", population: 378884},
+  { name: "Женева", population: 188634},
+  { name: "Базель", population: 164937}
+  ]
+  };
+
+count=5
+x=0
+y=0
+x1=x
+y1=y
+
+width=4
+width2=2,5
+lenght=30
+height=18
+i=0
+
+
+var step = []; // объявляем массив
+// step = [{test:console.log("test")}]
+var pod_step = []; // объявляем массив
+
+for(i=0; i< count; i++){ 
+ 
+ 
+  step[i] = {
+    start_x: x1,
+    start_y: y1,
+    finish_x: lenght,
+    finish_y: width,
+
+  }
+   x1 = x1 + lenght;	
+  pod_step[i] = {
+    start_x: x1-width,
+    start_y: y1+width,
+    finish_x: width2,
+    finish_y: height,
+  }
+
+  y1 = y1 + width+
+  height;	
+}
+
+
+
+var canvas = document.getElementById("clip"), 
+context = canvas.getContext("2d");
+context.beginPath();
+context.moveTo(x, y);
+
+var i = 0;
+
+ for(i=0; i<count; i++) {// старт цикла отрисовки ступеней
+	
+	context.strokeStyle = "red";
+	context.fillStyle = "blue";
+   //ступень
+	context.fillRect( step[i].start_x, step[i].start_y, step[i].finish_x,step[i].finish_y);
+	context.strokeRect(step[i].start_x, step[i].start_y, step[i].finish_x,step[i].finish_y);
+	
+   //подсtупёнок
+	context.fillStyle = "gray";
+    context.fillRect( pod_step[i].start_x, pod_step[i].start_y, pod_step[i].finish_x, pod_step[i].finish_y);
+    context.strokeRect(pod_step[i].start_x, pod_step[i].start_y, pod_step[i].finish_x, pod_step[i].finish_y);
+} // finish цикла отрисовки ступеней
+
+sp = " ; "
+alert( step[2].start_x + sp + pod_step[2].start_x)
+//alert( stair.step[0].start_x + sp + stair.pod_step[0].start_x)
+
+	
+	function onclick(e){
+	
+	var printBlock = document.getElementById("printBlock");
+	var language = e.target.value;
+	printBlock.textContent = "Вы выбрали: " + language;
+	}
+	for (var i = 0; i < myForm.stepStyle.length; i++) {
+	myForm.stepStyle[i].addEventListener("click", onclick);
+	}
+
+	
+  </script>
   </body>
  </html>
