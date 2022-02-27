@@ -15,7 +15,7 @@ case 2:
 clear("clip");
 test_display();
 scale_()
-
+stair_step_w()
 math_test()
 break;}
 
@@ -279,7 +279,47 @@ contrPoint()
  if (visual_ttva == 1) {ttva_drow()};// условие функции отрисовки
 } // end function math_ttva_w()
 
+function stair_step_w(){ // расчёт ступеней и подступёнков
+test_work ("ssw",0)
 
+step_style=0; // коррекция размера ступени
+substep_style=0;// коррекция размера подступёнка
+if (stepstyle == "step") { substep_style = data.width;}// первичные данные стыка ступени
+
+
+step = []; // объявляем массив ступени
+pod_step = []; // объявляем массив подступёнка
+
+for(i=0; i<data.number; i++){ 
+ 
+ if (stepstyle == "step" && i==data.number-1) {substep_style = 0;} //вторичные данные стыка ступени
+ if (stepstyle == "sub_step" && i==1) {step_style = data.width2;}
+  step[i] = {
+    start_x: x1-step_style*scale,
+    start_y: y1,
+    finish_x: (data.lenght+step_style +data.going ) *scale,
+    finish_y: data.width*scale,
+  }
+   x1 = x1 + data.lenght*scale;
+
+  y1 = y1 + (data.width+data.height)*scale;
+// if(stepstyle2 == "step" ){y2 = y2 - data.width*scale}
+  } // end for
+
+  max_x = x1// край по ступени
+  max_y = y1// низ по подсупёнку
+  
+ // test_work("test3", "max x:"+ parseInt(max_x) );
+ // test_work("test3.1","max y:"+ parseInt(max_y) );
+  
+  test_work("test2",0);
+  test_work ("ssw",1)
+ // count_stair_step++
+ // test_work ("test5.1",'запуск:'+ count_stair_step );
+
+if (visual_stair_step == 1) {stair_step_w_drow()};// условие функции отрисовки
+
+} // end stair_step_w()
 
 
 function math_grid(){
@@ -289,41 +329,3 @@ function math_grid(){
 grid_drow()
 }
 
-/*
-fase_ksur_g = triangle_alfa (data.s_ksur ,data.height+data.width, data.lenght );//срез подступёнка косоура
-fase_ksur_v = triangle_alfa (data.s_ksur , data.lenght,data.height+data.width);//срез подступёнка косоура
-
-ksur_g1ax = data.lenght*scale - data.width2*scale
-ksur_g2ay = (data.width+data.height)* scale + data.width * scale
-ksur_g1dx 
-
-ksur_g[i] = {
-  ax: x2-ksur_g_start*scale,
-  bx: pod_step[i].start_x,
-  cx: pod_step[i].start_x,
-  dx: x2-data.width2*scale + fase_ksur_g*scale,
-  
-  
-  ay: y2+data.width*scale,
-  by: y2+data.width*scale,
-  cy: y2+ (data.width+data.s_ksur) *scale,
-  dy: y2+ (data.width+data.s_ksur) *scale,
-  
-}
- x2 = x2 + data.lenght*scale;
-
-ksur_v[i] = {
-ax: x2- (data.width2+data.s_ksur) *scale,
-bx: pod_step[i].start_x,
-cx: pod_step[i].start_x,
-dx: x2- (data.width2+data.s_ksur) *scale,
-
-
-ay: y2+ (data.width+data.s_ksur) *scale,
-by: y2+ (data.width+data.s_ksur) *scale,
-cy: y2+data.width*scale+(data.width+data.height)*scale,
-dy: y2+data.width*scale -fase_ksur_v*scale+(data.width+data.height)*scale,
-};//ksur_v
-
- 
-y2 = y2 + (data.width+data.height)* scale;*/

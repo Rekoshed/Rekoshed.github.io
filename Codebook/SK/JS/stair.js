@@ -168,3 +168,29 @@ context.lineTo(bx,by);
 context.lineTo(cx,cy);
 context.lineTo(dx,dy);
 }
+
+
+///wwwwww
+function stair_step_w_drow(){ 
+canvas = document.getElementById("clip"), 
+context = canvas.getContext("2d");
+
+context.beginPath();
+context.moveTo(50, 0);
+
+var i = 0;
+
+ for(i=0; i<data.number; i++) {// старт цикла отрисовки ступеней
+
+	context.strokeStyle = "red";
+	context.fillStyle = "blue";
+   //ступень
+	context.fillRect( step[i].start_x, step[i].start_y, step[i].finish_x,step[i].finish_y);
+	context.strokeRect(step[i].start_x, step[i].start_y, step[i].finish_x,step[i].finish_y);
+   //подсtупёнок
+    context.closePath()	
+//test_work("test2",1);
+//test_work("test2.1","i="+i);
+} // finish цикла отрисовки ступеней
+
+} // end function stair_step_drow
