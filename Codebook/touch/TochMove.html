@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+ <html>
+  <head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width">
+    <title>Никитосику </title>
+    <style type="text/css">
+    div{
+    display:flex;
+    margin:5px;
+    }
+    .itemColor{
+    margin:5px;
+    border:1px solid #aaa;
+    width:40px;
+    height:40px;
+    
+    }
+    
+    .itemPoint{
+    margin:5px;
+    border:1px solid #aaa;
+    background:black;
+    }
+    .p1{width:50px; height:50px;}
+    .p2{width:45px; height:45px;}
+    .p3{width:40px; height:40px;}
+    .p4{width:35px; height:35px;}
+    .p5{width:30px; height:30px;}
+    .p6{width:26px; height:26px;}
+    .p7{width:22px; height:23px;}
+    .p8{width:18px; height:18px;}
+    .p9{width:14px; height:14px;}
+    .p10{width:10px; height:10px;}
+    .p11{width:5px; height:5px;}
+
+
+    
+    </style>
+  </head>
+  <body>
+<div id="cont">
+  <p style="font-size:20px;">Какой то Цвет🎨</p>
+</div>
+<canvas id="reko" width="370" height="450"
+style="background-color:#ccc; border:1px solid #aaa;">
+Ваш браузер не поддерживает Canvas
+</canvas>
+<div>
+<div class="itemColor acc" style="background-color:#acc; "></div>
+<div class="itemColor bcc" style="background-color:#bcc; "></div>
+<div  class="itemColor ccc"style="background-color:#ccc; "></div>
+<div  class="itemColor dcc"style="background-color:#dcc; "></div>
+<div  class="itemColor ecc"style="background-color:#ecc;"></div>
+<div  class="itemColor fcc"style="background-color:#fcc;"></div>
+<div  class="itemColor fac"style="background-color:#fac;"></div>
+</div>
+
+<div class="point">
+<div class="itemPoint p1" ></div>
+<div class="itemPoint p2" ></div>
+<div class="itemPoint p3" ></div>
+<div class="itemPoint p4" ></div>
+<div class="itemPoint p5" ></div>
+<div class="itemPoint p6" ></div>
+<div class="itemPoint p7" ></div>
+<div class="itemPoint p8" ></div>
+<div class="itemPoint p9" ></div>
+<div class="itemPoint p10" ></div>
+<div class="itemPoint p11" ></div>
+
+</div>
+
+<script>
+sz=50
+clr="rgba(13,15,240,0.9)"
+count=0
+document.querySelector('#cont').addEventListener('touchstart', function(){
+	document.querySelector('#cont').style.color = 'red';
+	document.querySelector('#cont').style.background = clr;
+	document.querySelector('.point').style.background = clr;
+	count = count+1
+	if(count==1){clr= "rgba(130,150,200,0.2)" ;}
+	if(count==2){clr="rgba(100,150,200,0.9)";}
+	if(count==3){clr="rgba(30,150,200,0.5)";}
+	if(count==4){clr="rgba(130,50,200,0.5)";}	
+	if(count==5){clr="rgba(130,150,20,0.2)";}
+	if(count==7){clr="rgba(30,150,20,0.9)";}
+	if(count==9){clr="red";}
+	if(count==10){clr="yellow";}								
+	if(count==11){count=0}
+//	document.getElementById("#cont").style["background-color"] = clr
+});
+  
+  document.querySelector('#cont').addEventListener('touchend', function(){
+	document.querySelector('#cont').style.color = '#fff';
+	
+	
+});
+
+
+ document.querySelector('#reko').addEventListener('touchmove', function(evt){
+      x=evt.changedTouches[0].pageX-40
+      y=evt.changedTouches[0].pageY-130
+      rec (x,y,clr,sz)
+});
+
+function rec(x,y,color,size){
+canvas = document.getElementById("reko"), 
+ctx = canvas.getContext("2d");
+
+ctx.beginPath();
+//ctx.strokeStyle = "DarkOrange";
+ctx.fillStyle = color
+
+
+
+ctx.moveTo (x,y);
+ctx.lineTo(x+size, y);
+ctx.lineTo(x+size, y+size);
+ctx.lineTo(x, y+size);
+ctx.lineTo(x, y);
+ctx.fill()
+}
+document.querySelector('.acc').addEventListener('touchstart', function(){
+	document.querySelector('.acc').style.background = "red";
+	clr= "#acc"
+	document.querySelector('.point').style.background = clr;
+});
+
+document.querySelector('.acc').addEventListener('touchend', function(){
+	document.querySelector('.acc').style.background = '#acc';
+});
+document.querySelector('.bcc').addEventListener('touchstart', function(){
+	document.querySelector('.bcc').style.background = "red";
+	clr= "#bcc"
+	document.querySelector('.point').style.background = clr;
+});
+document.querySelector('.bcc').addEventListener('touchend', function(){
+	document.querySelector('.bcc').style.background = '#bcc';
+	
+});
+//
+document.querySelector('.ecc').addEventListener('touchstart', function(){
+	document.querySelector('.ecc').style.background = "red";
+	clr= "#ecc"
+	document.querySelector('.point').style.background = clr;
+});
+document.querySelector('.ecc').addEventListener('touchend', function(){
+	document.querySelector('.ecc').style.background = '#ecc';	
+});
+//
+document.querySelector('.ccc').addEventListener('touchstart', function(){
+	document.querySelector('.ccc').style.background = "red";
+	clr= "#ccc"
+	document.querySelector('.point').style.background = clr;
+});
+document.querySelector('.ccc').addEventListener('touchend', function(){
+	document.querySelector('.ccc').style.background = '#ccc';	
+});
+//
+document.querySelector('.dcc').addEventListener('touchstart', function(){
+	document.querySelector('.dcc').style.background = "red";
+	clr= "#dcc"
+	document.querySelector('.point').style.background = clr;
+});
+document.querySelector('.dcc').addEventListener('touchend', function(){
+	document.querySelector('.dcc').style.background = '#bcc';
+	
+});
+//
+document.querySelector('.fcc').addEventListener('touchstart', function(){
+	document.querySelector('.fcc').style.background = "red";
+	clr= "#fcc"
+	document.querySelector('.point').style.background = clr;
+});
+document.querySelector('.fcc').addEventListener('touchend', function(){
+	document.querySelector('.fcc').style.background = '#bcc';	
+});
+document.querySelector('.fac').addEventListener('touchstart', function(){
+	document.querySelector('.fac').style.background = "red";
+	clr= "#fac"
+	document.querySelector('.point').style.background = clr;
+});
+document.querySelector('.fac').addEventListener('touchend', function(){
+	document.querySelector('.fac').style.background = '#fac';
+	
+});
+//////hhhhh
+document.querySelector('.p1').addEventListener('touchstart', function(){
+sz=50
+});
+document.querySelector('.p2').addEventListener('touchstart', function(){
+sz=45
+});
+document.querySelector('.p3').addEventListener('touchstart', function(){
+sz=40
+});
+document.querySelector('.p4').addEventListener('touchstart', function(){
+sz=35
+});
+document.querySelector('.p5').addEventListener('touchstart', function(){
+sz=30
+});
+document.querySelector('.p6').addEventListener('touchstart', function(){
+sz=26
+});
+document.querySelector('.p7').addEventListener('touchstart', function(){
+sz=22
+});
+document.querySelector('.p8').addEventListener('touchstart', function(){
+sz=18
+});
+document.querySelector('.p9').addEventListener('touchstart', function(){
+sz=14
+});
+document.querySelector('.p10').addEventListener('touchstart', function(){
+sz=10
+});
+document.querySelector('.p11').addEventListener('touchstart', function(){
+sz=5
+});
+
+</script>
+</body>
+</html>
