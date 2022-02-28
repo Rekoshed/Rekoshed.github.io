@@ -40,7 +40,7 @@ navGNum=0;// инициализация навигации
 navVNum=0;
 
 sensitivity = 400; //свайп
-goout = 0; // напуск ступеней
+
 //Получение поля, в котором будут выводиться сообщения
 msgBox = document.getElementById("msg-box");
 
@@ -76,6 +76,8 @@ data_radio(); //данные радиокнопок
  	visual_stair_step=1// отображение элемента лестницы.1 или 0
  	visual_ksur=1// отображение элемента лестницы.1 или 0
  	
+ 	goout = 0; // w напуск ступеней
+ 	
  	data = {
  	x: 20,
  	y: 10,
@@ -88,11 +90,14 @@ data_radio(); //данные радиокнопок
 	s_ttva: parseFloat( document.getElementById('s_ttva').value), // сечение профиля тетевы			
 	s_ksur: parseFloat( document.getElementById('s_ksur').value), // сечение профиля косоура	
 	indent: parseFloat( document.getElementById('indent').value), // длинна сноски размерной линии
-	lng: parseInt( document.getElementById('long').value), // длинна марша
-	big: parseInt( document.getElementById('big').value), // высота марша
+	lng: parseFloat( document.getElementById('long').value), // длинна марша
+	big: parseFloat( document.getElementById('big').value), // высота марша
 	}
+
 	if (dataCtrl == 1) {data_control()}
+
 	if (stepstyle2 == "step") { data.height = data.height - data.width;} // высота шага
+	  
 	}// end
 
 function data_control (){

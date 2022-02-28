@@ -120,8 +120,8 @@ if (ay > by){  b = (ay - by) / scale}
 if (ay < by){  b = (by - ay ) / scale}
 if (ay == by){  b = 0}
 
-a = Math.floor(a * 10) / 10;// выравнивание/округление числа
-b = Math.floor(b * 10) / 10;
+//a = Math.floor(a * 10) / 10;// выравнивание/округление числа
+//b = Math.floor(b * 10) / 10;
 
 size_AB = {//  точки размерной линии🆎
 	ax: ax+move_x-movesize_x,
@@ -268,7 +268,10 @@ case 2:
 end = data.number - 1;
 size_( stepw[0].start_x, stepw[0].start_y+stepw[0].finish_y, stepw[0].finish_x+stepw[0].start_x, stepw[0].finish_y +stepw[0].start_y,0,1,data.indent); // ступень
 size_( stepw[1].start_x+ stepw[1].finish_x, stepw[0].start_y+ stepw[0].finish_y ,stepw[1].start_x+ stepw[1].finish_x, stepw[1].start_y,1,0,data.indent); // подступень
-size_( stepw[0].start_x, stepw[0].start_y, stepw[0].start_x, stepw[data.number].finish_y +stepw[data.number].start_y,0,1,data.indent); // ступень
+size_( stepw[1].start_x+ stepw[1].finish_x, stepw[2].start_y,stepw[2].start_x+ stepw[2].finish_x, stepw[2].start_y,0,-1,data.indent); // шаг
+
+size_( stepw[0].start_x, stepw[end].start_y+stepw[end].finish_y, stepw[end].start_x + stepw[end].finish_x, stepw[end].finish_y +stepw[end].start_y ,0,1,data.indent); // марш
+size_( stepw[0].start_x, stepw[data.number].start_y+stepw[data.number].finish_y, stepw[data.number].start_x + stepw[data.number].finish_x, stepw[data.number].finish_y +stepw[data.number].start_y ,0,1,data.indent); // марш
 break;
 	
 	}// swith

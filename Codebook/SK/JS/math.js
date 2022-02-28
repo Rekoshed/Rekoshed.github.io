@@ -281,7 +281,14 @@ contrPoint()
 
 function stair_step_w(){ // расчёт ступеней и подступёнков
 test_work ("ssw",0)
-goout = data.lenght-(data.lenght*(data.lng/(data.lenght*data.number+data.going)))
+ 	goout = 0; 
+ 	goout_diff=0;
+
+goout=data.lenght- (data.lng/(data.number+2))
+
+goout_diff= (goout-(data.lenght-goout)) /(data.number);
+
+
 step_style=0; // коррекция размера ступени
 substep_style=0;// коррекция размера подступёнка
 if (stepstyle == "step") { substep_style = data.width;}// первичные данные стыка ступени
@@ -292,17 +299,17 @@ stepw = []; // объявляем массив ступени
 for(i=0; i<data.number+1; i++){ 
  
  if (stepstyle == "step" && i==data.number-1) {substep_style = 0;} //вторичные данные стыка ступени
- if (stepstyle == "sub_step" && i==1) {step_style = data.width2;}
+// if (stepstyle == "sub_step" && i==1) {step_style = data.width2;}
   stepw[i] = {
-    start_x: x1-step_style*scale,
+    start_x: x1,
     start_y: y1,
-    finish_x: (data.lenght+step_style +data.going ) *scale,
+    finish_x: data.lenght *scale,
     finish_y: data.width*scale,
   }
-   x1 = x1 + (data.lenght-goout) *scale;
+   x1 = x1 + (data.lenght-goout-goout_diff) *scale;
 
   y1 = y1 + (data.width+data.height)*scale;
-// if(stepstyle2 == "step" ){y2 = y2 - data.width*scale}
+size_( stepw[0].start_x, stepw[i].start_y+stepw[i].finish_y, stepw[i].start_x + stepw[i].finish_x, stepw[i].finish_y +stepw[i].start_y ,0,1,data.indent); // марш
   } // end for
 
   max_x = x1// край по ступени
@@ -310,7 +317,16 @@ for(i=0; i<data.number+1; i++){
   
  // test_work("test3", "max x:"+ parseInt(max_x) );
  // test_work("test3.1","max y:"+ parseInt(max_y) );
-  test_work ("goout", (parseInt(goout*10))/10);
+  
+  goout_step=0 // for test
+  goout_step= data.lenght-goout;
+  goout_size = goout_step* (data.number+2);
+  goout_w=  goout-(data.lenght-goout);
+  goout_wn= (goout-(data.lenght-goout)) /(data.number+2);
+  console.log("width="+ goout_w ,"wn="+goout_wn)
+  test_work ("goout", 'diff:'+goout_diff+' goout:'+(parseInt(goout*10))/10);
+  test_work ("goout.2", "step"+(parseInt(goout_step*10))/10);
+  test_work ("goout.3","size" +(parseInt(goout_size*10))/10);
   test_work("test2",0);
   test_work ("ssw",1)
  // count_stair_step++
