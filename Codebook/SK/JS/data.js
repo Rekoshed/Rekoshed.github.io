@@ -79,15 +79,15 @@ data_radio(); //данные радиокнопок
  	data = {
  	x: 20,
  	y: 10,
-	width: parseInt( document.getElementById('width').value), //толщина ступени
-	going: parseInt( document.getElementById('going').value), // выпуск ступени
-	width2: parseInt( document.getElementById('width2').value), //толщина подcтупёнка	
-	lenght: parseInt( document.getElementById('step').value), //ширина ступени		
-	height: parseInt( document.getElementById('height').value), //высота подступёнка			
-	number: parseInt( document.getElementById('number').value), //количество ступеней			
-	s_ttva: parseInt( document.getElementById('s_ttva').value), // сечение профиля тетевы			
-	s_ksur: parseInt( document.getElementById('s_ksur').value), // сечение профиля косоура	
-	indent: parseInt( document.getElementById('indent').value), // длинна сноски размерной линии
+	width: parseFloat( document.getElementById('width').value), //толщина ступени
+	going: parseFloat( document.getElementById('going').value), // выпуск ступени
+	width2: parseFloat( document.getElementById('width2').value), //толщина подcтупёнка	
+	lenght: parseFloat( document.getElementById('step').value), //ширина ступени		
+	height: parseFloat( document.getElementById('height').value), //высота подступёнка			
+	number: parseFloat( document.getElementById('number').value), //количество ступеней			
+	s_ttva: parseFloat( document.getElementById('s_ttva').value), // сечение профиля тетевы			
+	s_ksur: parseFloat( document.getElementById('s_ksur').value), // сечение профиля косоура	
+	indent: parseFloat( document.getElementById('indent').value), // длинна сноски размерной линии
 	lng: parseInt( document.getElementById('long').value), // длинна марша
 	big: parseInt( document.getElementById('big').value), // высота марша
 	}
