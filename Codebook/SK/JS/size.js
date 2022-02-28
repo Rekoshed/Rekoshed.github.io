@@ -163,11 +163,12 @@ test_work("sizeb","b "+b);
 test_work("sizeABL","size_AB.l "+size_AB.l);
 	}; // end function size_
 	
-function size_ttva(){
+function size_ttva(visual){
 test_work("sizea",0);
 test_work("sizeb",0);
 test_work("sizeABL",0);
-
+switch(visual){
+ case 1:
 size_(ttva.ax,ttva.ay,ttva.bx,ttva.by,1,0,data.indent); // высота проекции тетевы
 size_(ttva.ax,ttva.ay,ttva.bx,ttva.by,1,-1,indent); // внешняя длинна тетевы
 size_(ttva.ax,ttva.ay,ttva.bx,ttva.by,0,-1,indent); // длинна преекции тетевы
@@ -179,14 +180,20 @@ l_fase_ttva_v = size_AB.l // срез тетевы вертикальный
 size_(ttva_back.cx,ttva_back.cy,ttva.bx,ttva.by,0,-1,data.indent); // нижний срез длинна
 size_(ttva.bx,ttva.by,ttva_Point_bcx,ttva_Point_bcy,1,-1,data.indent); // нижний срез глубина
 l_fase_ttva_g = size_AB.l // срез тетевы горизонтальный
-}
+break;
+case 2:
 
-function size_ksur(){
+break;
+	} // end switch
+} // end size_ttva()
+
+function size_ksur(visual){
 test_work("sizea",0);
 test_work("sizeb",0);
 test_work("sizeABL",0);
 var end = data.number - 1;
-
+switch(visual){
+ case 1:
 size_(ksur_v[0].ax,ksur_v[0].ay, ksur_v[0].dx,ksur_v[0].dy, 1,0,data.indent); // b
 if(ksur_day > ksur_g[0].dy){ //полноценный угол верхнего косоура
 size_( ksur_dax+data.s_ksur*scale, ksur_g[0].dy, ksur_dax+data.s_ksur*scale,ksur_day+fase_ksur_v*scale,1,0,data.indent); // общая высота добавыша
@@ -206,7 +213,7 @@ l_fase_ksur_v = size_AB.l //длинна среза косоура вертик�
 
 if(ksur_day <= ksur_g[0].cy ){//угол срезан верхнего косоура
  size_( ksur_g[0].dx,ksur_g[0].dy, ksur_dax,ksur_day,-1,1,data.indent ); //L cрез угла верхнего косоура
-console.log('угол'+size_AB.l)
+//console.log('угол'+size_AB.l)
 }
 
  size_( ksur_g[end].bx, ksur_g[end].by , ksur_g[end].cx,max_y,1,0,data.indent ); //высота нижнего  косоура
@@ -230,20 +237,45 @@ cut_g=l_fase_ksur_g/data.s_ksur;
 
 test_work("ksurCut", "cut_v: "+ cut_v );
 test_work("ksurCut.2", "cut_g: "+cut_g);
-}
+break;
+case 2:
+
+break;
+	} // swith
+} // end size_ksur()
 
 
-function size_stair_step(){
+function size_stair_step(visual){
+end = data.number - 1;
+switch(visual){
+ case 1:
 test_work("sizea",0);
 test_work("sizeb",0);
 test_work("sizeABL",0);
-end = data.number - 1;
 size_( step[0].start_x, step[0].start_y+step[0].finish_y, step[0].finish_x+step[0].start_x, step[0].finish_y +step[0].start_y,0,1,data.indent); // ступень
-size_( step[1].start_x, step[1].start_y+step[1].finish_y,pod_step[1].start_x, pod_step[1].start_y,0,1,data.indent); // до подступёнка ступень
-size_(step[0].start_x+step[0].finish_x,step[0].start_y,step[0].start_x+step[0].finish_x,step[1].start_y,1,0,data.indent);//  высота шага
+size_( step[1].start_x, step[1].start_y+ step[1].finish_y ,pod_step[1].start_x, pod_step[1].start_y,0,1,data.indent); // до подступёнка ступень
+size_(step[0].start_x+ step[0].finish_x ,step[0].start_y,step[0].start_x+ step[0].finish_x,step[1].start_y,1,0,data.indent);//  высота шага
+size_(pod_step[1].start_x+pod_step[1].finish_x,pod_step[1].start_y,pod_step[1].start_x+pod_step[1].finish_x,step[2].start_y,1,0,data.indent);//  высота шподступенка
+size_( pod_step[end].start_x+pod_step[end].finish_x,pod_step[end].start_y ,pod_step[end].start_x+pod_step[end].finish_x,max_y,1,0,data.indent);//  высота шподступенка end
+size_( pod_step[end-1].start_x, pod_step[end-1].start_y ,pod_step[end-1].start_x,pod_step[end-1].start_y+pod_step[end-1].finish_y,-1,0,data.indent);//  высота шподступенка back
+
+size_( pod_step[end-1].start_x+pod_step[end-1].finish_x,pod_step[end-1].start_y, step[end-1].finish_x+step[end-1].start_x, step[end-1].finish_y +step[end-1].start_y,0,1,data.indent); // выпуск
+
 size_( step[0].start_x, max_y, step[end].finish_x+step[end].start_x,max_y,0,1,data.indent); // длинна марша
 size_(step[end].start_x+step[end].finish_x,step[0].start_y,step[end].start_x+step[end].finish_x,max_y,1,0,data.indent);//  высота марша
+break;
+case 2:
+end = data.number - 1;
+size_( stepw[0].start_x, stepw[0].start_y+stepw[0].finish_y, stepw[0].finish_x+stepw[0].start_x, stepw[0].finish_y +stepw[0].start_y,0,1,data.indent); // ступень
+size_( stepw[1].start_x+ stepw[1].finish_x, stepw[0].start_y+ stepw[0].finish_y ,stepw[1].start_x+ stepw[1].finish_x, stepw[1].start_y,1,0,data.indent); // подступень
+size_( stepw[0].start_x, stepw[0].start_y, stepw[0].start_x, stepw[data.number].finish_y +stepw[data.number].start_y,0,1,data.indent); // ступень
+break;
+	
+	}// swith
 } // end size
+
+
+
 
 function math_test(){
 ksur_A = (ksur_v[0].ax-ksur_g[0].dx)/scale ;

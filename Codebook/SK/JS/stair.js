@@ -48,11 +48,14 @@ test_work("ttvaDrow",1);
 
 } // end function ttva_drow()
 
-function control_ttva_drow(){ 
+function control_ttva_drow(visual){ 
+var end = data.number
 canvas = document.getElementById("clip"), 
 context = canvas.getContext("2d");
 context.beginPath();
 context.strokeStyle = "green";
+switch (visual){
+ case 1:
 context.moveTo (control_ttva.ax,control_ttva.ay);
 context.lineTo(control_ttva.bx, control_ttva.by);
 // верхнее сечение для среза
@@ -61,7 +64,11 @@ context.lineTo(ttva_Point_acx, ttva_Point_acy);
 // нижнее сечение для среза
 context.moveTo (ttva_back.cx,ttva_back.cy);
 context.lineTo(ttva_Point_bcx, ttva_Point_bcy);
-
+break;
+case 2:
+	context.strokeRect(stepw[end].start_x, stepw[end].start_y, stepw[end].finish_x,stepw[end].finish_y);
+break;
+	} // switch
 context.stroke();	
 
 //console.log("ax: "+control_ttva.ax+" ay: " +control_ttva.ay )	
@@ -100,6 +107,8 @@ if(i==0 && ksur_day > ksur_g[i].dy){// полноценный угол верх�
 		 			ksur_g[i].dy,ksur_g[i].dy, ksur_day+fase_ksur_v*scale, ksur_day)
 		 };  
          context.lineTo(ksur_g[i].ax, ksur_g[i].ay);
+         
+         context.strokeText( i+1 ,ksur_g[i].ax+ data.lenght*0.1, ksur_g[i].ay);
 } // finish цикла отрисовки ksur_g
 context.fill()
 	
@@ -185,8 +194,8 @@ var i = 0;
 	context.strokeStyle = "red";
 	context.fillStyle = "blue";
    //ступень
-	context.fillRect( step[i].start_x, step[i].start_y, step[i].finish_x,step[i].finish_y);
-	context.strokeRect(step[i].start_x, step[i].start_y, step[i].finish_x,step[i].finish_y);
+	context.fillRect( stepw[i].start_x, stepw[i].start_y, stepw[i].finish_x,stepw[i].finish_y);
+	context.strokeRect(stepw[i].start_x, stepw[i].start_y, stepw[i].finish_x,stepw[i].finish_y);
    //подсtупёнок
     context.closePath()	
 //test_work("test2",1);

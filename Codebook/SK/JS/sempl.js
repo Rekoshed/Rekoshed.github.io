@@ -44,10 +44,12 @@ navSize=0;
 count_vis_back = 0 ;
 count_vis_front = count_vis_front + 1;
 if (count_vis_front == 3) {
- navSize=0;
- navGNum= data.lenght * data.number*scale; // инициализация навигации
- navVNum= ((data.width+data.height)*data.number) *scale + data.width*scale;
-
+navGNum=data.lenght*scale_2* (data.number-2)
+navVNum=(data.height + data.width)*scale_2* (data.number-2.5)
+// if(max_x>300){navGNum=max_x-300}
+// if(max_y>450){navVNum=max_y-450}
+console.log( "navGNum="+navGNum,"navVNum="+navVNum, " number="+data.number, "i=" +i);
+ 
  };
 if (count_vis_front == 4) {count_vis_front = 0 };
 math(2);
@@ -55,9 +57,22 @@ math(2);
 
 function vis_back(){
 count_math_fun = count_math_fun + 1;
-if (count_math_fun > 2) {count_math_fun = 1 };
+if (count_math_fun ==1) { 
+document.getElementById("long").style["display"] = 'none';
+document.getElementById("big").style["display"] = 'none';
+};
+if (count_math_fun ==2) { 
+document.getElementById("long").style["display"] = 'inline';
+document.getElementById("big").style["display"] = 'inline';
+};
+if (count_math_fun > 2) {count_math_fun = 1 
+document.getElementById("long").style["display"] = 'none';
+document.getElementById("big").style["display"] = 'none';
+
+};
 math(2);
 }//end vis_back
+
 function visual_sizeElem(){//Исходное положение размерного режима.Используется в функциях vis_....переключатели кнопок sizeElem
 test_vis()
 document.getElementById("sizeStairStep").style["background"] = '#00a6a0';
@@ -87,6 +102,12 @@ document.getElementById("test1").innerHTML = " ❌   ";
 document.getElementById("test1.1").innerHTML = 'запуск:'+ test_display_main ;
 switch(display){
   case 'main': // видимость элементов при старте
+  document.getElementById("long").style["display"] = 'none';
+  document.getElementById("big").style["display"] = 'none';
+  if (count_math_fun ==2) { 
+  document.getElementById("long").style["display"] = 'inline';
+  document.getElementById("big").style["display"] = 'inline';
+  };
 document.getElementById("test").style["display"] = 'none';
 document.getElementById("tabl").style["display"] = 'none';
 document.getElementById("navElem").style["display"] = 'none';
@@ -112,7 +133,7 @@ document.getElementById("test").style["display"] = "none" };
 if (count_test == 2) {
 dataCtrl = 0;
 document.getElementById("test").style["display"] = "inline"
-math_control_ttva()
+math_control_ttva(count_math_fun)
 };
   break;
   
@@ -142,23 +163,21 @@ data.x = data.x - max_x;
 data.y = data.y - max_y;
 };*/
 scale_1 = (350 - (15) - data.x) / (data.lenght * data.number); //индекс масштаба первого холста;
+scale_2= (scale_1*data.number/2) 
 scale=scale_1 + navSize;
  
+if( count_vis_front ==1) {scale= scale_2 + navSize}
+if( count_vis_front ==3) {scale= scale_2 + navSize}
 
-if( count_vis_front ==1){scale= (scale_1*data.number/2) + navSize}
-if( count_vis_front ==3){scale= (scale_1*data.number/2) + navSize}
-
-if( count_vis_back ==1){
-scale= (scale_1*data.number/2) + navSize}
- 
- 
- 
- 
  x1=data.x - navGNum;
  y1=data.y - navVNum;
  x2=data.x - navGNum;
  y2=data.y - navVNum;
- 
+   test_work("navS", 'navSize ' + (parseInt(navSize*10))/10);
+   test_work("navG", 'navGNum ' + (parseInt(navGNum*10))/10);
+   test_work("navV", 'navVNum ' + (parseInt(navVNum*10))/10);
+   test_work ("navClipTest.2",'scale:'+(parseInt(scale*10))/10 );
+   
 }; //end scale
  function clear(okno){
  var canvas = document.getElementById(okno), 
@@ -176,7 +195,7 @@ scale= (scale_1*data.number/2) + navSize}
  
  test_work ("navClipTest",1)
  count_navClipTest++
- test_work ("navClipTest.2",'запуск:'+ count_navClipTest );
+
  
  };// end function
  
@@ -195,31 +214,37 @@ scale= (scale_1*data.number/2) + navSize}
  
  function navLeft() {
 navGNum = navGNum + 20
+  test_work("navV", 'navVNum ' + navVNum);
 math(2);
  };
  
  function navRight() {
 navGNum = navGNum - 20
+  test_work("navG", 'navGNum ' + navGNum);
 math(2);
  };
  
  function navUp() {
 navVNum = navVNum + 20
+  test_work("navV", 'navVNum ' + navVNum);
 math(2);
  };
  
  function navDown() {
 navVNum = navVNum - 20
+  test_work("navV", 'navVNum ' + navVNum);
 math(2);
  };
  
  function navLarge() {
 navSize = navSize + .5
+  test_work("navS", 'navSize ' + navSize);
 math(2);
  };
  
  function navSmall() {
 navSize = navSize - .5
+  test_work("navS", 'navSize ' + navSize);
 math(2);
  };
  
@@ -304,5 +329,4 @@ function control_bb(c,b){
 function size_indent_x (indent) {
 
 }
-
 

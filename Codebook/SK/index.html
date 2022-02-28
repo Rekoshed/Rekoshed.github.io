@@ -19,22 +19,22 @@
 
 <div id="setting">
 <table class="alt inline">
-<tr><td>глубина марша:</td><td><input id="long" class="buttons" type="number"  value="74" /></td></tr>		
-<tr><td>высота марша:</td><td><input id="big" class="buttons" type="number"  value="100" /></td></tr>
+<tr><td>глубина марша:</td><td><input id="long" class="buttons" type="number"  value="740" /></td></tr>		
+<tr><td>высота марша:</td><td><input id="big" class="buttons" type="number"  value="1000" /></td></tr>
 
-<tr><td>глубина ступени:</td><td><input id="step" class="buttons" type="number"  value="18" /></td></tr>		
-<tr><td>толщина ступени:</td><td><input id="width" class="buttons" type="number"  value="5" /></td></tr>			
-<tr><td>вылет ступени:</td><td><input id="going" class="buttons" type="number"  value="2.5" /></td></tr>		
+<tr><td>глубина ступени:</td><td><input id="step" class="buttons" type="number"  value="180" /></td></tr>		
+<tr><td>толщина ступени:</td><td><input id="width" class="buttons" type="number"  value="50" /></td></tr>			
+<tr><td>вылет ступени:</td><td><input id="going" class="buttons" type="number"  value="25" /></td></tr>		
 <tr><td> <form name="myForm2" id="printStyle2">
 		<table>
 		<tr> <td> <input type="radio" name="stepStyle2" checked="checked" value="step"/> высота шага</td></tr>
 		<tr> <td> <input type="radio" name="stepStyle2" value="sub_step" />высота подступёнка </td> </tr>
 		</table></form>
-	</td><td><input id="height" class="buttons" type="number"  value="20" /></td></tr>
-<tr><td>толщина подступёнка:</td><td><input id="width2" class="buttons" type="number"  value="3" /></td></tr>						
-<tr><td>количество ступеней:</td><td><input id="number" class="buttons" type="number"  value="4" /></td></tr>				
-<tr><td>профиль тетевы:</td><td><input id="s_ttva" class="buttons" type="number"  value="8" /></td></tr>					
-<tr><td>профиль косоура:</td><td><input id="s_ksur" class="buttons" type="number"  value="5" /></td></tr>											
+	</td><td><input id="height" class="buttons" type="number"  value="200" /></td></tr>
+<tr><td>толщина подступёнка:</td><td><input id="width2" class="buttons" type="number"  value="30" /></td></tr>						
+<tr><td>количество ступеней:</td><td><input id="number" class="buttons" type="number"  value="8" /></td></tr>				
+<tr><td>профиль тетевы:</td><td><input id="s_ttva" class="buttons" type="number"  value="80" /></td></tr>					
+<tr><td>профиль косоура:</td><td><input id="s_ksur" class="buttons" type="number"  value="50" /></td></tr>											
 </table>
 <form name="myForm" id="printStyle">
 		<table>
@@ -44,7 +44,7 @@
 		</form>
 
 <table  class="inline">	
-<tr><td>длинна сноски размерной линии:</td><td><input id="indent" class="buttons" type="number"  value="3" /></td></tr>		
+<tr><td>длинна сноски размерной линии:</td><td><input id="indent" class="buttons" type="number"  value="30" /></td></tr>		
 <tr><td>:</td><td><input id="" class="buttons" type="number"  value="" /></td></tr>			
 
 </table>
@@ -125,7 +125,7 @@
 	<tr><td> нижняя точка лестницы:</td>	<td><font id="test3"></font>	</td> <td> <font id="test3.1"></font>	</td></b></tr>
 				
 	<tr><td>(radio)stepStyle:</td>	<td><font id="printBlock">not</font></td> <td><font id="printBlock.2"></font>	</td>  </b></tr>
-	<tr><td> navClip():</td>	<td><font id="navClipTest">not</font></td> <td><font id="navClipTest.2"></font>	</td></b></tr>
+	<tr><td> navClip():</td>	<td><font id="navClipTest">not</font></td> <td><font style="color:red" id="navClipTest.2"></font>	</td></b></tr>
 	<tr><td> ksur_drow():</td>	<td><font id="ksur_drow">not</font>	</td> <td><font id="ksur_drow.2"></font>	</td></b></tr>
 	<tr><td> ksur A:   ksur B:</td>	<td><font id="ksurDrow_a">not</font>	</td> <td><font id="ksurDrow_b"></font>	</td></b></tr>
 	<tr><td> ttva_bx:   ksur_v_cx:</td>	<td><font id="ttva_bx">not</font>	</td> <td><font id="ksur_v_dx"></font>	</td></b></tr>
@@ -138,7 +138,9 @@
 		<tr><td> size_: смещение и размер</td>	<td><font id="sizea">not</font>	</td> <td><font id="sizeb">not</font></td>  <td><font id="sizeABL">not</font></td></b></tr>
 	<tr><td> ttva_cutX & Y:</td>	<td><font id="ttvaCut">not</font></td><td><font id="ttvaCut.2">not</font>	</td></b></tr>
 	<tr><td> коэффициенты ksur:</td>	<td><font id="ksurCut">not</font></td><td><font id="ksurCut.2">not</font>	</td></b></tr>
-	<tr><td> stair_step_w:</td>	<td><font id="ssw">неиспользуется</font></td> <td><font id="ssw.2">not</font>	</td> <td><font id="ssw.3">not</font>	</td></b></tr>
+	<tr><td> stair_step_w:</td>	<td><font id="ssw">not</font></td> <td><font id="ssw.2">not</font>	</td> <td><font id="ssw.3">not</font>	</td></b></tr>
+	<tr><td> nav:</td>	<td><font id="navV">not</font></td> <td><font id="navG">not</font>	</td> <td><font id="navS">not</font>	</td></b></tr>
+	<tr><td> goout:</td>	<td><font id="goout">not</font></td> <td><font id="navG">not</font>	</td> <td><font id="navS">not</font>	</td></b></tr>
 	</table>
 	
 

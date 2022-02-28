@@ -40,6 +40,7 @@ navGNum=0;// инициализация навигации
 navVNum=0;
 
 sensitivity = 400; //свайп
+goout = 0; // напуск ступеней
 //Получение поля, в котором будут выводиться сообщения
 msgBox = document.getElementById("msg-box");
 
@@ -87,6 +88,8 @@ data_radio(); //данные радиокнопок
 	s_ttva: parseInt( document.getElementById('s_ttva').value), // сечение профиля тетевы			
 	s_ksur: parseInt( document.getElementById('s_ksur').value), // сечение профиля косоура	
 	indent: parseInt( document.getElementById('indent').value), // длинна сноски размерной линии
+	lng: parseInt( document.getElementById('long').value), // длинна марша
+	big: parseInt( document.getElementById('big').value), // высота марша
 	}
 	if (dataCtrl == 1) {data_control()}
 	if (stepstyle2 == "step") { data.height = data.height - data.width;} // высота шага

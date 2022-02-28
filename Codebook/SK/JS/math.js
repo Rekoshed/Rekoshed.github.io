@@ -37,7 +37,7 @@ visual_ttva=1// отображение элемента лестницы.
 visual_stair_step=0 // отображение элемента лестницы.
 visual_ksur=0// отображение элемента лестницы.
 math_fun(count_math_fun)
-size_ttva();
+size_ttva(count_math_fun);
 };
 if (count_vis_ttva == 2) {
 visual_sizeElem()// показываем исходное состояние кнопок sizeElem
@@ -53,7 +53,7 @@ visual_ttva=0// отображение элемента лестницы.
 visual_stair_step=0 // отображение элемента лестницы.
 visual_ksur=1// отображение элемента лестницы.
 math_fun(count_math_fun)
-size_ksur();
+size_ksur(count_math_fun);
 };
 if (count_vis_ksur == 2) {
 visual_sizeElem()// показываем исходное состояние кнопок sizeElem
@@ -69,7 +69,7 @@ visual_ttva=0// отображение элемента лестницы.
 visual_stair_step=1 // отображение элемента лестницы.
 visual_ksur=0// отображение элемента лестницы.
 math_fun(count_math_fun)
-size_stair_step();
+size_stair_step(count_math_fun);
 };
 if (count_vis_stair_step == 2) {
 visual_sizeElem()// показываем исходное состояние кнопок sizeElem
@@ -174,7 +174,7 @@ function math_control_ttva(){//контрольная линия для тете
 	by: max_y+(data.width*scale),
   }
  // test_work("CttvaDrow",0);
-  control_ttva_drow()
+  control_ttva_drow(count_math_fun)
 } // end function math_ttva()
 
 function math_ksur(){ // расчёт ступеней и подступёнков
@@ -281,26 +281,25 @@ contrPoint()
 
 function stair_step_w(){ // расчёт ступеней и подступёнков
 test_work ("ssw",0)
-
+goout = data.lenght-(data.lenght*(data.lng/(data.lenght*data.number+data.going)))
 step_style=0; // коррекция размера ступени
 substep_style=0;// коррекция размера подступёнка
 if (stepstyle == "step") { substep_style = data.width;}// первичные данные стыка ступени
 
 
-step = []; // объявляем массив ступени
-pod_step = []; // объявляем массив подступёнка
+stepw = []; // объявляем массив ступени
 
-for(i=0; i<data.number; i++){ 
+for(i=0; i<data.number+1; i++){ 
  
  if (stepstyle == "step" && i==data.number-1) {substep_style = 0;} //вторичные данные стыка ступени
  if (stepstyle == "sub_step" && i==1) {step_style = data.width2;}
-  step[i] = {
+  stepw[i] = {
     start_x: x1-step_style*scale,
     start_y: y1,
     finish_x: (data.lenght+step_style +data.going ) *scale,
     finish_y: data.width*scale,
   }
-   x1 = x1 + data.lenght*scale;
+   x1 = x1 + (data.lenght-goout) *scale;
 
   y1 = y1 + (data.width+data.height)*scale;
 // if(stepstyle2 == "step" ){y2 = y2 - data.width*scale}
@@ -311,7 +310,7 @@ for(i=0; i<data.number; i++){
   
  // test_work("test3", "max x:"+ parseInt(max_x) );
  // test_work("test3.1","max y:"+ parseInt(max_y) );
-  
+  test_work ("goout", (parseInt(goout*10))/10);
   test_work("test2",0);
   test_work ("ssw",1)
  // count_stair_step++
