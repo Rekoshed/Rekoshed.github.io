@@ -40,7 +40,7 @@ navGNum=0;// инициализация навигации
 navVNum=0;
 
 sensitivity = 400; //свайп
-
+s_ttva_w = 30; // ,w значени
 //Получение поля, в котором будут выводиться сообщения
 msgBox = document.getElementById("msg-box");
 

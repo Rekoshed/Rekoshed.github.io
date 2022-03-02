@@ -176,6 +176,7 @@ context.moveTo (ax,ay);
 context.lineTo(bx,by);
 context.lineTo(cx,cy);
 context.lineTo(dx,dy);
+context.lineTo(ax,ay);
 }
 
 
@@ -203,3 +204,20 @@ var i = 0;
 } // finish цикла отрисовки ступеней
 
 } // end function stair_step_drow
+function ttva_w_drow(){ 
+canvas = document.getElementById("clip"), 
+context = canvas.getContext("2d");
+context.beginPath();
+context.strokeStyle = "black";
+four_Angle(ttvaw.ax,ttvaw.bx,ttvaw.cx,ttvaw.dx,ttvaw.ay,ttvaw.by,ttvaw.cy,ttvaw.dy);
+context.stroke();
+context.closePath()	
+//test_work("ttvaDrow_a","ax:"+ (parseInt(ttva.ax*10))/10 +" ay:" + (parseInt(ttva.ay*10))/10 );
+//test_work("ttvaDrow_b","bx:"+ (parseInt(ttva.bx*10))/10 +" by:" + (parseInt(ttva.by*10))/10 );		
+//console.log( "ax: "+ttva.ax+" ay: " +ttva.ay )	
+//console.log("bx: "+ttva.bx+" by: " +ttva.by )	
+/test_work("ttvaDrow",1);
+//test_work("test2",1);
+//test_work("test2.1","i="+i);
+
+} // end function ttva_drow()

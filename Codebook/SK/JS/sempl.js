@@ -64,6 +64,8 @@ document.getElementById("big").style["display"] = 'none';
 if (count_math_fun ==2) { 
 document.getElementById("long").style["display"] = 'inline';
 document.getElementById("big").style["display"] = 'inline';
+document.getElementById('s_ttva').value= s_ttva_w;
+math(1)
 };
 if (count_math_fun > 2) {count_math_fun = 1 
 document.getElementById("long").style["display"] = 'none';

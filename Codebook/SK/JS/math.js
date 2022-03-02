@@ -16,6 +16,7 @@ clear("clip");
 test_display();
 scale_()
 stair_step_w()
+math_ttva_w()
 math_test()
 break;}
 
@@ -246,7 +247,7 @@ ksur_day = data.y -navVNum+data.width*scale+triangle_alfa(data.width2, data.leng
 } // end stair_step()
 
 
-function math_ttva_w(){//расчёт тетевы
+function math_ttva_w() {//расчёт тетевы
 // срезы концов тетевы:расчёт верен
 
 
@@ -254,29 +255,26 @@ function math_ttva_w(){//расчёт тетевы
   ttva_cutY = cut ( ksur_v[0].cx,ksur_v[0].cy, ksur_v[0].dx,ksur_v[0].dy,data.s_ksur,data.s_ttva);
 
 
-  ttva = {
-	ax: step[0].start_x,
-	ay: pod_step[0].start_y + triangle_alfa(data.width2, data.lenght, data.height+data.width) *scale,// triangle_alfa (min_a,max_a,max_b)
-	bx: max_x - (data.width2*scale) - triangle_alfa (data.width, data.height + data.width , data.lenght )*scale,
-	by: max_y,
+  ttvaw = {
+	ax: stepw[0].start_x,
+	ay: stepw[0].start_y, // triangle_alfa(data.width2, data.lenght, data.height+data.width) *scale,// triangle_alfa (min_a,max_a,max_b)
+	bx: stepw[0].start_x + ttva_cutX*scale, //(data.width2*scale) - triangle_alfa (data.width, data.height + data.width , data.lenght )*scale,
+	by: stepw[0].start_y ,
 	
-  }
-
-  ttva_back = {//отрисовка обратной стороны тетевы
-  	cx: ttva.bx - ttva_cutX*scale,
-	cy: max_y,
-	dx: ttva.ax,
-  	dy: ttva.ay + ttva_cutY*scale,
+  	cx: stepw[data.number].start_x + ttva_cutX*scale,
+	cy: stepw[data.number].start_y,
+	dx: stepw[data.number].start_x,
+  	dy: stepw[data.number].start_y,
   	
   };
 
 
-  test_work("ttvaCut", (parseInt(ttva_cutX*10))/10);
+ /* test_work("ttvaCut", (parseInt(ttva_cutX*10))/10);
   test_work("ttvaCut.2", (parseInt(ttva_cutY*10))/10);
   test_work("ttvaDrow",0);
   test_work("ttva_bx", (parseInt(ttva.bx*10))/10 );
-contrPoint()
- if (visual_ttva == 1) {ttva_drow()};// условие функции отрисовки
+contrPoint()*/
+ if (visual_ttva == 1) {ttva_w_drow()};// условие функции отрисовки
 } // end function math_ttva_w()
 
 function stair_step_w(){ // расчёт ступеней и подступёнков
