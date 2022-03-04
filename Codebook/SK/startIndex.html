@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>of code </title>
+		
+	<meta name="viewport" content="width=device-width">
+<style type="text/css">
+
+body {
+  padding: 20px;
+  font: 1em Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+* {box-sizing: border-box;}
+
+p {
+  margin: 0 0 1em 0;
+}
+
+
+.container {  
+  border: 5px solid rgb(111,41,97);
+  border-radius: .5em;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+ }
+.item {
+ width: 40px;
+ height: 8em;
+ padding: 10px;
+ background-color: rgba(111,41,97,.3);
+ border: 2px solid rgba(111,41,97,.5);
+ }
+ #c_elem{
+ width:200px;
+ }
+ 
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="item" id="c_elem">
+  <canvas id="clip"
+  style="background-color:#ccc; border:1px solid #aaa;">
+  Ваш браузер не поддерживает Canvas
+  </canvas>
+  </div>
+  <div class="item">2</div>
+</div>
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+</div>
+<script type="text/javascript">
+ c_elem = document.querySelector("#c_elem"),
+ canvas = document.querySelector("#clip"),
+  ctx = canvas.getContext("2d");
+  
+console.log ("c_elem.width:"+c_elem.innerWidth)
+canvas.width =  (c_elem.innerWidth * 90) / 100;
+canvas.height = (c_elem.innerHeight * 90) / 100;
+console.log ("canvas.width:"+canvas.width)
+ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+</script>
+
+
+</body>
+</html>
