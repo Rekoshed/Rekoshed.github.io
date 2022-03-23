@@ -1,6 +1,6 @@
 
 function stair_step_drow(){ 
-canvas = document.getElementById("clip"), 
+canvas = document.getElementById(view), 
 context = canvas.getContext("2d");
 
 context.beginPath();
@@ -20,14 +20,14 @@ var i = 0;
     context.fillRect( pod_step[i].start_x, pod_step[i].start_y, pod_step[i].finish_x, pod_step[i].finish_y);
     context.strokeRect(pod_step[i].start_x, pod_step[i].start_y, pod_step[i].finish_x, pod_step[i].finish_y);
     context.closePath()	
-test_work("test2",1);
+test_work("test2",1); 
 test_work("test2.1","i="+i);
 } // finish цикла отрисовки ступеней
 
 } // end function stair_step_drow
 
 function ttva_drow(){ 
-canvas = document.getElementById("clip"), 
+canvas = document.getElementById(view), 
 context = canvas.getContext("2d");
 context.beginPath();
 context.strokeStyle = "black";
@@ -50,7 +50,7 @@ test_work("ttvaDrow",1);
 
 function control_ttva_drow(visual){ 
 var end = data.number
-canvas = document.getElementById("clip"), 
+canvas = document.getElementById(view), 
 context = canvas.getContext("2d");
 context.beginPath();
 context.strokeStyle = "green";
@@ -81,7 +81,7 @@ test_work("ttvaDrow",1);
 } // end function control_ttva_drow()
 
 function ksur_drow(){ 
-canvas = document.getElementById("clip"), 
+canvas = document.getElementById(view), 
 context = canvas.getContext("2d");
 
 context.beginPath();
@@ -150,7 +150,7 @@ test_work("ksur_drow.2","i="+i);
 } // end function  ksur_drow()
 
 function  grid_drow(){ 
-canvas = document.getElementById("clip"), 
+canvas = document.getElementById(view), 
 context = canvas.getContext("2d");
 context.beginPath();
 context.strokeStyle = "black";
@@ -182,7 +182,7 @@ context.lineTo(ax,ay);
 
 ///wwwwww
 function stair_step_w_drow(){ 
-canvas = document.getElementById("clip"), 
+canvas = document.getElementById(view), 
 context = canvas.getContext("2d");
 
 context.beginPath();
@@ -203,14 +203,19 @@ var i = 0;
 //test_work("test2.1","i="+i);
 } // finish цикла отрисовки ступеней
 
-} // end function stair_step_drow
+} // end function stair_step_w_drow
 function ttva_w_drow(){ 
-canvas = document.getElementById("clip"), 
+canvas = document.getElementById(view), 
 context = canvas.getContext("2d");
 context.beginPath();
 context.strokeStyle = "black";
+context.fillStyle = "rgba(0,0,0,0.6)";
 four_Angle(ttvaw.ax,ttvaw.bx,ttvaw.cx,ttvaw.dx,ttvaw.ay,ttvaw.by,ttvaw.cy,ttvaw.dy);
+four_Angle(ttvaw2.ax,ttvaw2.bx,ttvaw2.cx,ttvaw2.dx,ttvaw2.ay,ttvaw2.by,ttvaw2.cy,ttvaw2.dy);
+four_Angle(ttvaw_elem.ax,ttvaw_elem.bx,ttvaw_elem.cx,ttvaw_elem.dx,ttvaw_elem.ay,ttvaw_elem.by,ttvaw_elem.cy,ttvaw_elem.dy);
+four_Angle(ttvaw_elem2.ax,ttvaw_elem2.bx,ttvaw_elem2.cx,ttvaw_elem2.dx,ttvaw_elem2.ay,ttvaw_elem2.by,ttvaw_elem2.cy,ttvaw_elem2.dy);
 context.stroke();
+context.fill() 
 context.closePath()	
 //test_work("ttvaDrow_a","ax:"+ (parseInt(ttva.ax*10))/10 +" ay:" + (parseInt(ttva.ay*10))/10 );
 //test_work("ttvaDrow_b","bx:"+ (parseInt(ttva.bx*10))/10 +" by:" + (parseInt(ttva.by*10))/10 );		

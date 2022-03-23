@@ -43,8 +43,22 @@ navVNum=0;
 navSize=0;
 count_vis_back = 0 ;
 count_vis_front = count_vis_front + 1;
+switch(count_math_fun){
+case 1:
 if (count_vis_front == 3) {
 navGNum=data.lenght*scale_2* (data.number-2)
+navVNum= (data.height + data.width) *scale_2* (data.number-2.5)
+// if(max_x>300){navGNum=max_x-300}
+// if(max_y>450){navVNum=max_y-450}
+console.log( "navGNum="+navGNum,"navVNum="+navVNum, " number="+data.number, "i=" +i);
+ 
+ };
+if (count_vis_front == 4) {count_vis_front = 0 };
+math(2);
+break;
+case 2:
+if (count_vis_front == 3) {
+navGNum=goout_step*scale_2* (data.number-2)
 navVNum=(data.height + data.width)*scale_2* (data.number-2.5)
 // if(max_x>300){navGNum=max_x-300}
 // if(max_y>450){navVNum=max_y-450}
@@ -53,26 +67,28 @@ console.log( "navGNum="+navGNum,"navVNum="+navVNum, " number="+data.number, "i="
  };
 if (count_vis_front == 4) {count_vis_front = 0 };
 math(2);
+break;
+} // end swith
 } // end vis_front
 
 function vis_back(){
-count_math_fun = count_math_fun + 1;
-if (count_math_fun ==1) { 
+count_math_fun =2
+/*if (count_math_fun ==1) { 
 document.getElementById("long").style["display"] = 'none';
 document.getElementById("big").style["display"] = 'none';
 };
-if (count_math_fun ==2) { 
+if (count_math_fun ==2) { */
 document.getElementById("long").style["display"] = 'inline';
 document.getElementById("big").style["display"] = 'inline';
 document.getElementById('s_ttva').value= s_ttva_w;
 math(1)
-};
+/*};
 if (count_math_fun > 2) {count_math_fun = 1 
 document.getElementById("long").style["display"] = 'none';
 document.getElementById("big").style["display"] = 'none';
 
-};
-math(2);
+};*/
+//math(2);
 }//end vis_back
 
 function visual_sizeElem(){//Исходное положение размерного режима.Используется в функциях vis_....переключатели кнопок sizeElem
@@ -106,6 +122,8 @@ switch(display){
   case 'main': // видимость элементов при старте
   document.getElementById("long").style["display"] = 'none';
   document.getElementById("big").style["display"] = 'none';
+  document.getElementById("staircad").style["display"] = 'none';
+  document.getElementById("content").style["display"] = 'inline';
   if (count_math_fun ==2) { 
   document.getElementById("long").style["display"] = 'inline';
   document.getElementById("big").style["display"] = 'inline';
@@ -115,6 +133,8 @@ document.getElementById("tabl").style["display"] = 'none';
 document.getElementById("navElem").style["display"] = 'none';
 document.getElementById("sizeElem").style["display"] = 'none';
  document.getElementById("setting").style["display"] = "none" 
+  test_work("test1",1);
+  test_work("test1.1", display + ' ; '+ test_display_main) ;
   break;
   case 'tabl':
 // переключатель видимости списка
@@ -122,7 +142,8 @@ document.getElementById("sizeElem").style["display"] = 'none';
  if (count_tabl == 3) {count_tabl = 1 };
  if (count_tabl == 1) {document.getElementById("tabl").style["display"] = "none" };
  if (count_tabl == 2) {document.getElementById("tabl").style["display"] = "inline"};
-
+test_work("test1",1);
+test_work("test1.1", display + ' ; '+ test_display_main) ;
   break;
   
   case 'test':
@@ -137,6 +158,8 @@ dataCtrl = 0;
 document.getElementById("test").style["display"] = "inline"
 math_control_ttva(count_math_fun)
 };
+test_work("test1",1);
+
   break;
   
   case 'setting':
@@ -146,24 +169,31 @@ if (count_setting == 1) { document.getElementById("setting").style["display"] = 
 if (count_setting == 2) {
 document.getElementById("setting").style["display"] = "inline"
 }
+test_work("test1",1);
+test_work("test1.1", display + ' ; '+ test_display_main) ;
   break;
   
   case 'hand':
   count_hand = count_hand + 1;
   if (count_hand == 3) {count_hand = 1 };
+  test_work("test1",1);
+  test_work("test1.1", display + ' ; '+ test_display_main) ;
   break;
   
+  case 'staircad':
+    document.getElementById("staircad").style["display"] = 'inline';
+    document.getElementById("content").style["display"] = 'none';
+  test_work("test1",1);
+  test_work("test1.1", display + ' ; '+ test_display_main) ;
+  break;
   
   } // end switch display
-document.getElementById("test1").innerHTML = " ✅  ";
-document.getElementById("test1.1").innerHTML = display + ' ; '+ test_display_main ;
+  
+
  } // end function display_visible()
 
 function scale_ (){// масштаб и позиционирование
-/*if( count_vis_back ==1){
-data.x = data.x - max_x;
-data.y = data.y - max_y;
-};*/
+
 scale_1 = (350 - (15) - data.x) / (data.lenght * data.number); //индекс масштаба первого холста;
 scale_2= (scale_1*data.number/2) 
 scale=scale_1 + navSize;
@@ -175,13 +205,14 @@ if( count_vis_front ==3) {scale= scale_2 + navSize}
  y1=data.y - navVNum;
  x2=data.x - navGNum;
  y2=data.y - navVNum;
-   test_work("navS", 'navSize ' + (parseInt(navSize*10))/10);
-   test_work("navG", 'navGNum ' + (parseInt(navGNum*10))/10);
-   test_work("navV", 'navVNum ' + (parseInt(navVNum*10))/10);
-   test_work ("navClipTest.2",'scale:'+(parseInt(scale*10))/10 );
+   test_work("navS", 'navSize <b style="color:LimeGreen">' + (parseInt(navSize*10))/10);
+   test_work("navG", 'navGNum <b style="color:LimeGreen">' + (parseInt(navGNum*10))/10);
+   test_work("navV", 'navVNum <b style="color:LimeGreen">' + (parseInt(navVNum*10))/10);
+   test_work ("navClipTest.2",'scale:<b style="color:DeepPink">'+(parseInt(scale*10))/10 );
    
 }; //end scale
  function clear(okno){
+ view=okno;
  var canvas = document.getElementById(okno), 
  context = canvas.getContext("2d");
  context.clearRect(0,0,400,650); // очистка фона
@@ -194,7 +225,7 @@ if( count_vis_front ==3) {scale= scale_2 + navSize}
  if (count_navClip == 3) {count_navClip = 1 };
  if (count_navClip == 2) { document.getElementById("navElem").style["display"] = 'none';};
  if (count_navClip == 1) {document.getElementById("navElem").style["display"] = "block";};
- 
+
  test_work ("navClipTest",1)
  count_navClipTest++
 
@@ -239,13 +270,13 @@ math(2);
  };
  
  function navLarge() {
-navSize = navSize + .5
+navSize = navSize + .2
   test_work("navS", 'navSize ' + navSize);
 math(2);
  };
  
  function navSmall() {
-navSize = navSize - .5
+navSize = navSize - .2
   test_work("navS", 'navSize ' + navSize);
 math(2);
  };
@@ -291,15 +322,14 @@ math(2);
  	return a;
  }
  
- function cut (ax,ay,bx,by,cut_s){ // выдаёт длинну среза по оси
+ function cut_l (ax,ay,bx,by){ // выдаёт длинну
  var cut_a = (bx - ax ) / scale;
- console.log("cut_a: "+cut_a);
+ //console.log("cut_a: "+cut_a);
  var cut_b = (by - ay ) / scale;
- console.log("cut_a: "+cut_a);
- var cut_l = Math.sqrt(Math.pow(cut_a,2) + Math.pow(cut_b,2));//расстояние между точками
- console.log("cut_l: "+cut_l);
- var cut = cut_l * cut_s;
- return cut;
+// console.log("cut_a: "+cut_a);
+ var cut_L = Math.sqrt(Math.pow(cut_a,2) + Math.pow(cut_b,2));//расстояние между точками
+ //console.log("cut_l: "+cut_l);
+ return cut_L;
  }
  
  function cut (ax,ay,bx,by,cut_s,s){ //вводим координаты линии среза, сечение для вычисленя(коэффициент) и производства среза(катет).выдаёт длинну среза по оси

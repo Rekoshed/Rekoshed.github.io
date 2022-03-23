@@ -7,56 +7,80 @@
 		<script src ="JS/stair.js"></script>
 		<script src ="JS/test.js"></script>
 		<script src ="JS/math.js"></script>
+		<script src ="JS/math_w.js"></script>
 		<script src ="JS/sempl.js"></script>
 		<script src ="JS/size.js"></script>
 		<script src ="JS/data.js"></script>
 
 	   	<link rel="stylesheet" href="CSS/main.css">
 		  </head>
-     <body>
-
-			<div class="content">
-
-<div id="setting">
-<table class="alt inline">
-<tr><td>глубина марша:</td><td><input id="long" class="buttons" type="number"  value="740" /></td></tr>		
-<tr><td>высота марша:</td><td><input id="big" class="buttons" type="number"  value="1000" /></td></tr>
-
-<tr><td>глубина ступени:</td><td><input id="step" class="buttons" type="number"  value="180" /></td></tr>		
-<tr><td>толщина ступени:</td><td><input id="width" class="buttons" type="number"  value="50" /></td></tr>			
-<tr><td>вылет ступени:</td><td><input id="going" class="buttons" type="number"  value="25" /></td></tr>		
-<tr><td> <form name="myForm2" id="printStyle2">
-		<table>
-		<tr> <td> <input type="radio" name="stepStyle2" checked="checked" value="step"/> высота шага</td></tr>
-		<tr> <td> <input type="radio" name="stepStyle2" value="sub_step" />высота подступёнка </td> </tr>
-		</table></form>
-	</td><td><input id="height" class="buttons" type="number"  value="200" /></td></tr>
-<tr><td>толщина подступёнка:</td><td><input id="width2" class="buttons" type="number"  value="30" /></td></tr>						
-<tr><td>количество ступеней:</td><td><input id="number" class="buttons" type="number"  value="8" /></td></tr>				
-<tr><td>профиль тетевы:</td><td><input id="s_ttva" class="buttons" type="number"  value="80" /></td></tr>					
-<tr><td>профиль косоура:</td><td><input id="s_ksur" class="buttons" type="number"  value="40" /></td></tr>											
-</table>
+     <body onload=" math(3) ">
+ <section id="staircad">
+ <section id="header">
+ <div id="title">
+ <h1>Расчёт лестниц </h1>
+ <p> StairCad </p>
+ </div>
+ </section>
+ <div class="container">
+ <div class="item" id="c_elem"  >
+ <canvas id="c"
+ style="background-color:yellow;">
+ Ваш браузер не поддерживает Canvas
+ </canvas>
+ </div>
+ 
+ <div class="item" id="d_elem"> 
+ <canvas id="d"
+ style="background-color:pink;">
+ Ваш браузер не поддерживает Canvas
+ </canvas>
+ </div>
+ </div>
+ 
+ <div class="container">
+ <div class="item" id="a_elem" >
+ <canvas id="a"
+ style="background-color:purple; ">
+ Ваш браузер не поддерживает Canvas
+ </canvas>
+ </div>
+ <div class="item" id="b_elem" >
+ <canvas id="b"
+ style="background-color:lime;">
+ Ваш браузер не поддерживает Canvas
+ </canvas>
+ </div>
+ </div>
+ 
+ </section>
+ 
+<div id="content">
+<section id="setting">
 <form name="myForm" id="printStyle">
 		<table>
 		<tr> <td> <input type="radio" name="stepStyle" checked="checked" value="step"/> Ступень в подступёнок</td></tr>
 		<tr> <td> <input type="radio" name="stepStyle" value="sub_step" />Подступёнок на ступени </td> </tr>
-		</table>
+		</table>	
+</form>
+
+<div class="container">
+<form name="myForm2" id="printStyle2">
+		<input type="radio" name="stepStyle2" checked="checked" value="step"/> высота шага<br>
+		<input type="radio" name="stepStyle2" value="sub_step" />высота подступёнка 
 		</form>
-
-<table  class="dev">	
-<tr><td>длинна сноски размерной линии:</td><td><input id="indent" class="buttons" type="number"  value="30" /></td></tr>		
-<tr><td>:</td><td><input id="" class="buttons" type="number"  value="" /></td></tr>			
-
-</table>
-
-</div>		
-		<div id="button_main">
-		<input class="button special fit small" type ="button" value=" 🟢✅🟩" onclick="math(1)" />
-		<input class="button special fit small" type ="button" value="🗒abc" onclick="display_visible('tabl')" />
-		<input class="button special fit small" type ="button" value="🔸🔸🔸" onclick="display_visible('setting')" />
-		<input class="button special fit small" type ="button" value="⚠️⚠️ " onclick="display_visible('test')" />
-		<input class="button special fit small" type ="button" value="🖐 " onclick="display_visible('hand')" />
-		</div>	
+	<input id="height" class="buttons" type="number"  value="200" />
+	</div>
+	<div  class="dev">	</div>
+</section>		
+<section id="button_main">
+		<input class="" type ="button" value="🔙" onclick="math(3)"/>
+		<input class="" type ="button" value=" ✅"" onclick="math(1)" />
+		<input class="" type ="button" value="🗒abc" onclick="display_visible('tabl')" />
+		<input class="" type ="button" value="🔸🔸🔸" onclick="display_visible('setting')" />
+		<input class="" type ="button" value="⚠️ " onclick="display_visible('test')" />
+		<input class="" type ="button" value="🖐 " onclick="display_visible('hand')" />
+</section>	
 			<canvas id="clip" width="370" height="500"
 			style="background-color:#ccc; border:1px solid #aaa;">
 			Ваш браузер не поддерживает Canvas
@@ -65,12 +89,12 @@
 				
 <!--Блок навигации для масштабирования   -->
 <div id="navElem">
-   <div class="SmallClick inline " id="left">left</div>
+   <div class="SmallClick inline" id="left">left</div>
    <div class="SmallClick inline" id="right">right</div>
    <div class="SmallClick inline" id="up">up</div>
    <div class="SmallClick inline" id="down">down</div>
-   <div class="inline SmallClick" id="large">+</div>
-   <div class="inline SmallClick" id="small">-</div>
+   <div class="SmallClick inline" id="large">+</div>
+   <div class="SmallClick inline" id="small">-</div>
 </div>
 
 <!--Блок размеров   -->
@@ -79,74 +103,78 @@
    <div class="SmallClick inline size" id="sizeksur">.ksur.</div>
    <div class="SmallClick inline size" id="sizeStairStep">.step.</div>
    <div class="SmallClick inline size" id="sizeFront">💢</div>
-   <div class="inline SmallClick size" id="sizeBack">B..</div>
+   <div class="SmallClick inline size" id="sizeBack">B..</div>
 
 </div>
-
-				
-
-	
-				 </div>
-	<div id="tabl">		 
-		<table class="alt">
-		<th>Перечень деталей на 1 комплект</th>
-		<tr><td> L косоур:</td>	<td><font id=" spisok-lKsur "></font>	</td></b></tr>
-		<tr><td> H косоур:</td>	<td><font id=" spisok-hKsur "></font>	</td></b></tr>
-		<tr><td> Нижний Н-косоур:</td>	<td><font id=" spisok-downKsur "></font>	</td></b></tr>
-					
-		<tr><td>L тетевы  наружний:</td>	<td><font id="LfrontTtva"></font>	</td></b></tr>
-
-								
-		<tr><td>метраж для косоура:</td>	<td><font id="spisok-ksurTotal"></font>	</td></b></tr>
-		</table>
-
 				 
-				<table class="alt">
-				<tr><td>Длинна марша:</td>	<td><font id="l_stair"></font>	</td></b></tr>
-				<tr><td>Высота марша:</td>	<td><font id="h_stair"></font>	</td></b></tr>
-				<tr><td>Высота шага:</td>	<td><font id="h_step"></font>	</td></b></tr>
-			
-				<tr><td>Глубина ступени косоура:</td>	<td><font id="long_x_ksur"></font>	</td></b></tr>
-				<tr><td>Высота ступени косоура:</td>	<td><font id="long_y_ksur"></font>	</td></b></tr>
-				<tr><td>Шаг ступени на тетиве:</td>	<td><font id="long_ksur"></font>	</td></b></tr>
-				</table>
+				 
+	<div id="tabl">		 
+		<th>Перечень деталей на 1 комплект</th>								 	
 	</div>
 	
-	<div id="test">
+ <div id="test">
 	<div class="info__content">
 	<b>действие: </b> <span id="msg-box"></span>
 	</div>
-	<table class="test">
-	<tr><td>display_visible(): </td>	<td><font id="test1"></font> <td><font id="test1.1"></font>	</td>	</td></b></tr>
-	<tr><td> stair_step():</td>	<td><font id="test5"></font>	</td> <td><font id="test5.1"></font>	</td></b></tr>
-	<tr><td> ttva_drow():</td>	<td><font id="ttvaDrow">not</font>	</td> <td><font id="ttvaDrow.2"></font>	</td></b></tr>
-	<tr><td> ttva A:   ttva B:</td>	<td><font id="ttvaDrow_a">not</font>	</td> <td><font id="ttvaDrow_b"></font>	</td></b></tr>
-	<tr><td> отрисовка ступеней:</td>	<td><font id="test2"></font>	</td> <td><font id="test2.1"></font>	</td></b></tr>
-	<tr><td> нижняя точка лестницы:</td>	<td><font id="test3"></font>	</td> <td> <font id="test3.1"></font>	</td></b></tr>
-				
-	<tr><td>(radio)stepStyle:</td>	<td><font id="printBlock">not</font></td> <td><font id="printBlock.2"></font>	</td>  </b></tr>
-	<tr><td> navClip():</td>	<td><font id="navClipTest">not</font></td> <td><font style="color:red" id="navClipTest.2"></font>	</td></b></tr>
-	<tr><td> ksur_drow():</td>	<td><font id="ksur_drow">not</font>	</td> <td><font id="ksur_drow.2"></font>	</td></b></tr>
-	<tr><td> ksur A:   ksur B:</td>	<td><font id="ksurDrow_a">not</font>	</td> <td><font id="ksurDrow_b"></font>	</td></b></tr>
-	<tr><td> ttva_bx:   ksur_v_cx:</td>	<td><font id="ttva_bx">not</font>	</td> <td><font id="ksur_v_dx"></font>	</td></b></tr>
-	<tr><td> ksur_A: ksur_B: ksur_C:</td>	<td><font id="ksur_A">not</font>	</td> <td><font id="ksur_B">not</font></td>  <td><font id="ksur_C">not</font></td></b></tr>
-	<tr><td> sizeClip():</td>	<td><font id="sizeClipTest">not</font></td><td><font id="sizeClipTest.2"></font>	</td></b></tr>
-	<tr><td> vis_ttva():</td>	<td><font id="visTtvaTest">not</font></td><td><font id="visTtvaTest.2"></font>	</td></b></tr>
-	<tr><td> vis_ksur():</td>	<td><font id="visKsurTest">not</font></td><td><font id="visKsurTest.2"></font>	</td></b></tr>
-	<tr><td> vis_stair_step():</td>	<td><font id="visStairStepTest">not</font></td><td><font id="visStairStepTest.2"></font>	</td></b></tr>
-	
-		<tr><td> size_: смещение и размер</td>	<td><font id="sizea">not</font>	</td> <td><font id="sizeb">not</font></td>  <td><font id="sizeABL">not</font></td></b></tr>
-	<tr><td> ttva_cutX & Y:</td>	<td><font id="ttvaCut">not</font></td><td><font id="ttvaCut.2">not</font>	</td></b></tr>
-	<tr><td> коэффициенты ksur:</td>	<td><font id="ksurCut">not</font></td><td><font id="ksurCut.2">not</font>	</td></b></tr>
-	<tr><td> stair_step_w:</td>	<td><font id="ssw">not</font></td> <td><font id="ssw.2">not</font>	</td> <td><font id="ssw.3">not</font>	</td></b></tr>
-	<tr><td> nav:</td>	<td><font id="navV">not</font></td> <td><font id="navG">not</font>	</td> <td><font id="navS">not</font>	</td></b></tr>
-	<tr><td> goout:</td>	<td><font id="goout">not</font></td> <td><font id="goout.2">not</font>	</td> <td><font id="goout.3">not</font>	</td></b></tr>
-	</table>
-	
-
-   		 </div>
+ </div>
+ 
+ </div>
 <script>
-enter = true;
+test_addHtml();
+start_Data()
+c_canvas = document.querySelector("#c"),
+ctx = c_canvas.getContext("2d");
+
+c_height = document.getElementById('c_elem').clientHeight;
+c_width = document.getElementById('c_elem').clientWidth;
+c_canvas.width =  c_width;
+c_canvas.height = c_height;
+ctx.fillStyle = "rgba(130,150,200,0.2)";
+ctx.fillRect(0, 0, c_canvas.width, c_canvas.height);
+
+
+d_canvas = document.querySelector("#d"),
+ctx = d_canvas.getContext("2d");
+d_height = document.getElementById('d_elem').clientHeight;
+d_width = document.getElementById('d_elem').clientWidth;
+d_canvas.width =  d_width;
+d_canvas.height = d_height;
+ctx.fillStyle = "rgba(130,150,200,0.2)";
+ctx.fillRect(0, 0, d_canvas.width, d_canvas.height);
+
+a_canvas = document.querySelector("#a"),
+ctx = a_canvas.getContext("2d");
+a_height = document.getElementById('a_elem').clientHeight;
+a_width = document.getElementById('a_elem').clientWidth;
+a_canvas.width =  a_width;
+a_canvas.height = a_height;
+ctx.fillStyle = "rgba(130,150,200,0.2)";
+ctx.fillRect(0, 0, a_canvas.width, a_canvas.height);
+
+b_canvas = document.querySelector("#b"),
+ctx = b_canvas.getContext("2d");
+b_height = document.getElementById('b_elem').clientHeight;
+b_width = document.getElementById('b_elem').clientWidth;
+b_canvas.width =  b_width;
+b_canvas.height = b_height;
+ctx.fillStyle = "rgba(130,150,200,0.2)";
+ctx.fillRect(0, 0, b_canvas.width, b_canvas.height);
+
+
+count_math_fun =1
+view ="c"
+math(1) //math.js
+view ="d"
+count_math_fun=2
+vis_back()//math.js};
+
+
+
+
+
+
+view ="clip"
+enter = 0
 cliper = document.getElementById("clip");
 cliper.addEventListener("click", navClip);
 cliper.addEventListener("click", sizeClip);
@@ -164,17 +192,22 @@ sizeStairStep.addEventListener("click", vis_stair_step);
 sizeFront.addEventListener("click", vis_front);
 sizeBack.addEventListener("click", vis_back);
 
-start_Data();// начальные данные,объявленны доп.переменные
-if (enter = true){
-math(1) //math.js
 
+
+//math(3) //math.js
+
+c_canvas.addEventListener("click", c_entr);
+function c_entr(){
+count_math_fun =1
+math(1)
 };
 
+d_canvas.addEventListener("click", d_entr);
+function d_entr(){
+count_math_fun =2
+vis_back()
 
-
-
-
-
+};
 
 
 

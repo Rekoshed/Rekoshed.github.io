@@ -1,64 +1,56 @@
 <!DOCTYPE html>
-	<html>
-		<head>
+<html>
+	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width">
-		<title>of code </title>
+		<title>Расчёт металической лестницы</title>
 		<script src ="JS/stair.js"></script>
 		<script src ="JS/test.js"></script>
 		<script src ="JS/math.js"></script>
 		<script src ="JS/sempl.js"></script>
 		<script src ="JS/size.js"></script>
 		<script src ="JS/data.js"></script>
-		
-<style type="text/css">
 
-body {
-  padding: 20px;
-  font: 1em Helvetica Neue, Helvetica, Arial, sans-serif;
-}
+	   	<link rel="stylesheet" href="CSS/main.css">
+		  </head>
+     <body>
 
-* {box-sizing: border-box;}
+			<div class="content">
 
-div{
+<div id="setting">
+<table class="alt inline">
+<tr><td>глубина марша:</td><td><input id="long" class="buttons" type="number"  value="740" /></td></tr>		
+<tr><td>высота марша:</td><td><input id="big" class="buttons" type="number"  value="1000" /></td></tr>
 
-}
+<tr><td>глубина ступени:</td><td><input id="step" class="buttons" type="number"  value="180" /></td></tr>		
+<tr><td>толщина ступени:</td><td><input id="width" class="buttons" type="number"  value="50" /></td></tr>			
+<tr><td>вылет ступени:</td><td><input id="going" class="buttons" type="number"  value="25" /></td></tr>		
+<tr><td> <form name="myForm2" id="printStyle2">
+		<table>
+		<tr> <td> <input type="radio" name="stepStyle2" checked="checked" value="step"/> высота шага</td></tr>
+		<tr> <td> <input type="radio" name="stepStyle2" value="sub_step" />высота подступёнка </td> </tr>
+		</table></form>
+	</td><td><input id="height" class="buttons" type="number"  value="200" /></td></tr>
+<tr><td>толщина подступёнка:</td><td><input id="width2" class="buttons" type="number"  value="30" /></td></tr>						
+<tr><td>количество ступеней:</td><td><input id="number" class="buttons" type="number"  value="8" /></td></tr>				
+<tr><td>профиль тетевы:</td><td><input id="s_ttva" class="buttons" type="number"  value="80" /></td></tr>					
+<tr><td>профиль косоура:</td><td><input id="s_ksur" class="buttons" type="number"  value="40" /></td></tr>											
+</table>
+<form name="myForm" id="printStyle">
+		<table>
+		<tr> <td> <input type="radio" name="stepStyle" checked="checked" value="step"/> Ступень в подступёнок</td></tr>
+		<tr> <td> <input type="radio" name="stepStyle" value="sub_step" />Подступёнок на ступени </td> </tr>
+		</table>
+		</form>
 
-p {
-  margin: 0 0 1em 0;
-}
-#title {  
-margin:0.5rem;
-padding: 0.5rem;
-  border: 1px solid rgb(111,41,97);
-  border-radius: 0.5em;
-display:flex;
+<table  class="dev">	
+<tr><td>длинна сноски размерной линии:</td><td><input id="indent" class="buttons" type="number"  value="30" /></td></tr>		
+<tr><td>:</td><td><input id="" class="buttons" type="number"  value="" /></td></tr>			
 
- }
+</table>
 
-.container {  
-overflow-x: auto;
-  border: 1px solid rgb(111,41,97);
- height: 11em;
-display:flex;
- }
- .item {
-margin:.5rem;
-width:45%;
- background-color: rgba(11,41,97,.3);
- border: .4rem solid rgba(111,41,97,.1);
- }
+</div>		
 
- .item:hover {
- background-color: blue;
- }
- .item:after {
- background-color: red;
- }
- 
-</style>
-</head>
-<body>
 <section id="header">
  <div id="title">
    <h1>Расчёт лестниц </h1>
@@ -66,17 +58,21 @@ width:45%;
  </div>
 </section>
 <div class="container">
-  <div class="item" id="c_elem" >
+  <div class="item" id="c_elem"  >
+  <a href="index.html" >
   <canvas id="c"
   style="background-color:yellow;">
   Ваш браузер не поддерживает Canvas
   </canvas>
+  </a>
   </div>
-  <div class="item" id="d_elem">
+  
+  <div class="item" id="d_elem"> 
+  <a href="index.html" >
   <canvas id="d"
   style="background-color:pink;">
   Ваш браузер не поддерживает Canvas
-  </canvas>
+  </canvas></a>
   </div>
 </div>
 
@@ -94,8 +90,59 @@ width:45%;
   </canvas>
   </div>
 </div>
-<section id="test">
+			
+				
+<!--Блок навигации для масштабирования   -->
+<div id="navElem">
+   <div class="SmallClick inline " id="left">left</div>
+   <div class="SmallClick inline" id="right">right</div>
+   <div class="SmallClick inline" id="up">up</div>
+   <div class="SmallClick inline" id="down">down</div>
+   <div class="inline SmallClick" id="large">+</div>
+   <div class="inline SmallClick" id="small">-</div>
+</div>
 
+<!--Блок размеров   -->
+<div id="sizeElem">
+   <div class="SmallClick inline size" id="sizettva">.ttva.</div>
+   <div class="SmallClick inline size" id="sizeksur">.ksur.</div>
+   <div class="SmallClick inline size" id="sizeStairStep">.step.</div>
+   <div class="SmallClick inline size" id="sizeFront">💢</div>
+   <div class="inline SmallClick size" id="sizeBack">B..</div>
+
+</div>
+
+				
+
+	
+				 </div>
+				 
+	<div id="tabl">		 
+		<table class="alt">
+		<th>Перечень деталей на 1 комплект</th>
+		<tr><td> L косоур:</td>	<td><font id=" spisok-lKsur "></font>	</td></b></tr>
+		<tr><td> H косоур:</td>	<td><font id=" spisok-hKsur "></font>	</td></b></tr>
+		<tr><td> Нижний Н-косоур:</td>	<td><font id=" spisok-downKsur "></font>	</td></b></tr>
+					
+		<tr><td>L тетевы  наружний:</td>	<td><font id="LfrontTtva"></font>	</td></b></tr>
+
+								
+		<tr><td>метраж для косоура:</td>	<td><font id="spisok-ksurTotal"></font>	</td></b></tr>
+		</table>
+
+				 
+				<table class="alt">
+				<tr><td>Длинна марша:</td>	<td><font id="l_stair"></font>	</td></b></tr>
+				<tr><td>Высота марша:</td>	<td><font id="h_stair"></font>	</td></b></tr>
+				<tr><td>Высота шага:</td>	<td><font id="h_step"></font>	</td></b></tr>
+			
+				<tr><td>Глубина ступени косоура:</td>	<td><font id="long_x_ksur"></font>	</td></b></tr>
+				<tr><td>Высота ступени косоура:</td>	<td><font id="long_y_ksur"></font>	</td></b></tr>
+				<tr><td>Шаг ступени на тетиве:</td>	<td><font id="long_ksur"></font>	</td></b></tr>
+				</table>
+	</div>
+	
+	<div id="test">
 	<div class="info__content">
 	<b>действие: </b> <span id="msg-box"></span>
 	</div>
@@ -126,12 +173,15 @@ width:45%;
 	<tr><td> goout:</td>	<td><font id="goout">not</font></td> <td><font id="goout.2">not</font>	</td> <td><font id="goout.3">not</font>	</td></b></tr>
 	</table>
 	
-</section>
-<script type="text/javascript">
+
+   		 </div>
+<script>
+
 c_canvas = document.querySelector("#c"),
 ctx = c_canvas.getContext("2d");
-c_height = document.getElementById('d_elem').clientHeight;
-c_width = document.getElementById('d_elem').clientWidth;
+
+c_height = document.getElementById('c_elem').clientHeight;
+c_width = document.getElementById('c_elem').clientWidth;
 c_canvas.width =  c_width;
 c_canvas.height = c_height;
 ctx.fillStyle = "rgba(130,150,200,0.2)";
@@ -165,9 +215,44 @@ b_canvas.height = b_height;
 ctx.fillStyle = "rgba(130,150,200,0.2)";
 ctx.fillRect(0, 0, b_canvas.width, b_canvas.height);
 
+
+count_math_fun =1
+view ="c"
+enter = true;
+start_Data();// начальные данные,объявленны доп.переменные
+if (enter = true){
+math(1) //math.js
+view ="d"
+count_math_fun=2
+math(1) //math.js
+};
+
+c_canvas.addEventListener("click", c_entr);
+function c_entr(){
+count_math_fun =1
+alert("c_entr: "+count_math_fun)
+math(1)
+};
+
+d_canvas.addEventListener("click", d_entr);
+function d_entr(){
+count_math_fun=2
+alert("d_entr: "+count_math_fun)
+math(2)
+};
+
+
+
+
+
+
+
+
+
 </script>
-
-
-</body>
-
+     <a href="../../index.html" > <p> RekosheD </p></a>
+<script src ="JS/touch.js"></script>	
+            </div>
+  
+ </body>
 </html>

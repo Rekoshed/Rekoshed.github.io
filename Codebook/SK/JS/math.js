@@ -3,7 +3,7 @@
 function math_fun(visual){
 switch(visual){
  case 1:
-clear("clip");
+clear(view);
 test_display();
 scale_()
 stair_step()
@@ -12,7 +12,7 @@ math_ttva()
 math_test()
 break;
 case 2:
-clear("clip");
+clear(view);
 test_display();
 scale_()
 stair_step_w()
@@ -80,7 +80,7 @@ math_fun(count_math_fun)
 }; // end if visual_VAR
    break;
    case 3:
-   display_visible("main");
+   display_visible("staircad");
    break;
 
 		}//end switch
@@ -123,8 +123,8 @@ for(i=0; i<data.number; i++){
   max_x = x1// край по ступени
   max_y = y1// низ по подсупёнку
   
-  test_work("test3", "max x:"+ parseInt(max_x) );
-  test_work("test3.1","max y:"+ parseInt(max_y) );
+  test_work("test3", "max x:<b>"+ parseInt(max_x) );
+  test_work("test3.1","max y:<b>"+ parseInt(max_y) );
   
   test_work("test2",0);
   test_work ("test5",1)
@@ -247,92 +247,6 @@ ksur_day = data.y -navVNum+data.width*scale+triangle_alfa(data.width2, data.leng
 } // end stair_step()
 
 
-function math_ttva_w() {//расчёт тетевы
-// срезы концов тетевы:расчёт верен
-
-
-  ttva_cutX = cut (ksur_g[1].ax,ksur_g[1].ay, ksur_g[1].dx,ksur_g[1].dy,data.s_ksur,data.s_ttva);
-  ttva_cutY = cut ( ksur_v[0].cx,ksur_v[0].cy, ksur_v[0].dx,ksur_v[0].dy,data.s_ksur,data.s_ttva);
-
-
-  ttvaw = {
-	ax: stepw[0].start_x,
-	ay: stepw[0].start_y, // triangle_alfa(data.width2, data.lenght, data.height+data.width) *scale,// triangle_alfa (min_a,max_a,max_b)
-	bx: stepw[0].start_x + ttva_cutX*scale, //(data.width2*scale) - triangle_alfa (data.width, data.height + data.width , data.lenght )*scale,
-	by: stepw[0].start_y ,
-	
-  	cx: stepw[data.number].start_x + ttva_cutX*scale,
-	cy: stepw[data.number].start_y,
-	dx: stepw[data.number].start_x,
-  	dy: stepw[data.number].start_y,
-  	
-  };
-
-
- /* test_work("ttvaCut", (parseInt(ttva_cutX*10))/10);
-  test_work("ttvaCut.2", (parseInt(ttva_cutY*10))/10);
-  test_work("ttvaDrow",0);
-  test_work("ttva_bx", (parseInt(ttva.bx*10))/10 );
-contrPoint()*/
- if (visual_ttva == 1) {ttva_w_drow()};// условие функции отрисовки
-} // end function math_ttva_w()
-
-function stair_step_w(){ // расчёт ступеней и подступёнков
-test_work ("ssw",0)
- 	goout = 0; 
- 	goout_diff=0;
-
-goout=data.lenght- (data.lng/(data.number+2))
-
-goout_diff= (goout-(data.lenght-goout)) /(data.number);
-
-
-step_style=0; // коррекция размера ступени
-substep_style=0;// коррекция размера подступёнка
-if (stepstyle == "step") { substep_style = data.width;}// первичные данные стыка ступени
-
-
-stepw = []; // объявляем массив ступени
-
-for(i=0; i<data.number+1; i++){ 
- 
- if (stepstyle == "step" && i==data.number-1) {substep_style = 0;} //вторичные данные стыка ступени
-// if (stepstyle == "sub_step" && i==1) {step_style = data.width2;}
-  stepw[i] = {
-    start_x: x1,
-    start_y: y1,
-    finish_x: data.lenght *scale,
-    finish_y: data.width*scale,
-  }
-   x1 = x1 + (data.lenght-goout-goout_diff) *scale;
-
-  y1 = y1 + (data.width+data.height)*scale;
-size_( stepw[0].start_x, stepw[i].start_y+stepw[i].finish_y, stepw[i].start_x + stepw[i].finish_x, stepw[i].finish_y +stepw[i].start_y ,0,1,data.indent); // марш
-  } // end for
-
-  max_x = x1// край по ступени
-  max_y = y1// низ по подсупёнку
-  
- // test_work("test3", "max x:"+ parseInt(max_x) );
- // test_work("test3.1","max y:"+ parseInt(max_y) );
-  
-  goout_step=0 // for test
-  goout_step= data.lenght-goout;
-  goout_size = goout_step* (data.number+2);
-  goout_w=  goout-(data.lenght-goout);
-  goout_wn= (goout-(data.lenght-goout)) /(data.number+2);
-  console.log("width="+ goout_w ,"wn="+goout_wn)
-  test_work ("goout", 'diff:'+goout_diff+' goout:'+(parseInt(goout*10))/10);
-  test_work ("goout.2", "step"+(parseInt(goout_step*10))/10);
-  test_work ("goout.3","size" +(parseInt(goout_size*10))/10);
-  test_work("test2",0);
-  test_work ("ssw",1)
- // count_stair_step++
- // test_work ("test5.1",'запуск:'+ count_stair_step );
-
-if (visual_stair_step == 1) {stair_step_w_drow()};// условие функции отрисовки
-
-} // end stair_step_w()
 
 
 function math_grid(){

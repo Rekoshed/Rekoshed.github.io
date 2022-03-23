@@ -1,81 +1,4 @@
-function lineStepKsur(x_path, y_path, scale, okno,count,indent,indentLine,ax,ay,bx,by,) { // вынос размера
-globalCalk(width, step, width2,height, scale, number,x,y, okno);
-	clip(okno);
-	var canvas = document.getElementById(okno), 
-	context = canvas.getContext("2d");
-	
-	textAlign = "left"; // позиция текста размера в горизонтали
-	textBaseline = "bottom"; // позиция текста размера в вертикали
-	x_textPoint = 0; // линия подчёркиваюшая текст от размерной линии
-	x_textStep = 5; // x смещение текста от привязки в пикселях
-	y_textStep = -2; // y смещение текста от привязки в пикселях	
-	textStart = 1.5;// коэффициент смещения привязки (2) к размерной линий для текста
-	// позицианирование элементов
-	if (x_path == 1){textAlign = "right"; 
-			 textBaseline = "top";
-			 x_textPoint = 0;
-			 x_textStep = -5;
-			 }
-	 if (y_path == 0) {ax = bx}
-	 if (x_path == 0) {by = ay;
-	 				   textStart = 6;}
-	 if (y_path == 1) {textBaseline = "top";
-	 					y_textStep = +6;
-	 					}
-	// расчёт непосредственного размера между точками
-	if (ax > bx){  a = (ax - bx) / scale}
-	if (ax < bx){  a = (bx - ax ) / scale}
-	if (ax == bx){  a = 0}
-	
-	if (ay > by){  b = (ay - by) / scale}
-	if (ay < by){  b = (by - ay ) / scale}
-	if (ay == by){  b = 0}
-	
-	a = Math.floor(a * 10) / 10;// выравнивание/округление числа
-	b = Math.floor(b * 10) / 10;
-	c = Math.sqrt(Math.pow(a,2) + Math.pow(b,2)); // значение размера
-	// округление размера
-	if (c > 99) {c = Math.round(c);}
-    if (c < 100)  {c = Math.round(c * 10) / 10;} // значение размера
-    // Расчёт точек выноски
-    count = 1;	
-    long_x_ksur = bx_StepKsur[count] - ax_StepKsur[count] ;	// a	 
-    long_y_ksur = cy_ksur[count] - by_ksur[count] ;	// b	 
-    long_ksur = Math.sqrt( Math.pow(long_x_ksur,2) + Math.pow(long_y_ksur,2));// длинна шага ступени комоура на тетеве	/ c /	 
-    h_size = (long_x_ksur * long_y_ksur) / long_ksur; // c
-    x_size = triangle_sin (long_y_ksur,long_ksur, h_size) * x_path; //привязка по Х / b /
-    y_size = Math.sqrt( Math.pow(x_size,2) + Math.pow(h_size,2)) * y_path;// привязка по Y	/ a /	 
-    
-	         function indentSize(indentS) {    // определение линий выноски, длинна отступп   
-	ax_lineStepKsur = ax - x_size /indentS;
-	ay_lineStepKsur = ay + y_size / indentS;
-	bx_lineStepKsur = bx - x_size / indentS;
-	by_lineStepKsur = by + y_size / indentS;
-            	} // end indentSize
-	 
-	 indentSize(indentLine);
-	x_textStepKsur = ax_lineStepKsur + (bx_lineStepKsur - ax_lineStepKsur) / textStart;
-	y_textStepKsur = ay_lineStepKsur + (by_lineStepKsur - ay_lineStepKsur) / textStart;	 
-	 context.beginPath();	 
-	 // размерная линия	 
-	 context.moveTo(ax_lineStepKsur, ay_lineStepKsur);
-	 context.lineTo(bx_lineStepKsur, by_lineStepKsur);	 
-	 // выносные линии _lineStepKsur
-	 indentSize(indent);	 
-	 context.moveTo(ax, ay);// старт первой выноски
-	 context.lineTo(ax_lineStepKsur, ay_lineStepKsur);
-	 context.moveTo(bx,by); // старт второй выноски
-	 context.lineTo(bx_lineStepKsur, by_lineStepKsur);
-	 // положение текста размера
-	 context.moveTo(x_textStepKsur, y_textStepKsur);
-	 context.lineTo(x_textStepKsur + x_textPoint, y_textStepKsur);
-	 context.textAlign = textAlign;
-	 context.textBaseline = textBaseline;
-	 context.fillText( c , x_textStepKsur + x_textStep, y_textStepKsur + y_textStep)	 
-	context.strokeStyle = "grey";
-	context.stroke();
-	} // end lineStepKsur
-	
+
 	
 	function size_(ax,ay,bx,by,posX,posY,indent){
 	//от A до B координаты,
@@ -138,7 +61,7 @@ size_AB = {//  точки размерной линии🆎
 size_AB.l = Math.floor(size_AB.l * 10) / 10;
 //console.log(cc+ " & "+size_AB.l)
 
-canvas = document.getElementById("clip"), 
+canvas = document.getElementById(view), 
 context = canvas.getContext("2d");
 context.beginPath();
 context.strokeStyle = "grey";
@@ -182,7 +105,7 @@ size_(ttva.bx,ttva.by,ttva_Point_bcx,ttva_Point_bcy,1,-1,data.indent); // ниж
 l_fase_ttva_g = size_AB.l // срез тетевы горизонтальный
 break;
 case 2:
-
+size_(ttvaw2.bx,ttvaw2.by,ttvaw2.cx,ttvaw2.cy,1,-1,data.indent); // длинна тетевы
 break;
 	} // end switch
 } // end size_ttva()
@@ -266,12 +189,16 @@ size_(step[end].start_x+step[end].finish_x,step[0].start_y,step[end].start_x+ste
 break;
 case 2:
 end = data.number - 1;
-size_( stepw[0].start_x, stepw[0].start_y+stepw[0].finish_y, stepw[0].finish_x+stepw[0].start_x, stepw[0].finish_y +stepw[0].start_y,0,1,data.indent); // ступень
+size_( stepw[0].start_x, stepw[0].start_y, stepw[data.number].start_x + stepw[data.number].finish_x, stepw[data.number].start_y, 1,0,data.indent); // высота лестницы
 size_( stepw[1].start_x+ stepw[1].finish_x, stepw[0].start_y+ stepw[0].finish_y ,stepw[1].start_x+ stepw[1].finish_x, stepw[1].start_y,1,0,data.indent); // подступень
 size_( stepw[1].start_x+ stepw[1].finish_x, stepw[2].start_y,stepw[2].start_x+ stepw[2].finish_x, stepw[2].start_y,0,-1,data.indent); // шаг
+size_( stepw[0].start_x, stepw[0].start_y, stepw[1].start_x, stepw[1].start_y, -1,1,data.indent); // длинна шага по тетеве
 
-size_( stepw[0].start_x, stepw[end].start_y+stepw[end].finish_y, stepw[end].start_x + stepw[end].finish_x, stepw[end].finish_y +stepw[end].start_y ,0,1,data.indent); // марш
-size_( stepw[0].start_x, stepw[data.number].start_y+stepw[data.number].finish_y, stepw[data.number].start_x + stepw[data.number].finish_x, stepw[data.number].finish_y +stepw[data.number].start_y ,0,1,data.indent); // марш
+size_( stepw[0].start_x, stepw[data.number].start_y+stepw[data.number].finish_y, stepw[data.number].start_x , stepw[data.number].finish_y +stepw[data.number].start_y ,0,1,data.indent); // маршевый малый катет
+//size_( stepw[0].start_x, stepw[data.number].start_y+stepw[data.number].finish_y, stepw[data.number].start_x + stepw[data.number].finish_x, stepw[data.number].finish_y +stepw[data.number].start_y ,0,1,data.indent); // марш
+for(i=0; i<data.number+1; i++){ 
+size_( stepw[0].start_x, stepw[i].start_y, stepw[i].start_x + stepw[i].finish_x, stepw[i].start_y ,0,1,data.indent); // марш
+  } // end for
 break;
 	
 	}// swith

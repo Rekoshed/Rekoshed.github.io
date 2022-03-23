@@ -1,4 +1,17 @@
-function start_Data(){// стартовые инициализации переменных
+function start_Data() {// стартовые инициализации переменных
+// выводим инфу запуска в тест:
+function isset(r) {//проверка  типа
+    return typeof r !== 'undefined';
+}
+var j = isset(window['startData_count']); // присваивает значение,false - если не определена
+if ( j ==false){// инициализируеи лишь при первом запуске кода
+startData_count = 0;
+}    //
+startData_count++;// считаем ввзовы
+test_work("startDt1",  'вызов: '+ startData_count) ;
+test_work("startDt",1);
+
+
 stepstyle = "step"; //вводные данные положения ступени
 stepstyle2 = "step"; // шаг или подступёнок
 count_test = 1;//переключатель видимости
@@ -18,7 +31,7 @@ count_vis_stair_step=0; //переключатель видимости тете
 count_vis_front=0; // переключатель масштаба на первые ступени
 count_vis_back=0; // переключатель масштаба на последние ступени
 
-count_math_fun = 1; // переключатель конструктива лестницы
+count_math_fun =1
 
 dataCtrl = 1; // переключатель режима контроля за неверным вводом
 test_display_main = 0;

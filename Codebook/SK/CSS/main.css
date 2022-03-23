@@ -1,3 +1,6 @@
+
+
+
 span {color:red;}
 h1 {margin-bottom:0;}
 p {margin:0;}
@@ -103,4 +106,97 @@ margin: ;
  
  .block {
  display:block;
+ }
+ 
+
+ 
+ * {box-sizing: border-box;}
+ 
+ div{
+ 
+ }
+ 
+ p {
+ margin: 0 0 1em 0;
+ }
+ #title {  
+ margin:0.5rem;
+ padding: 0.5rem;
+ border: 1px solid rgb(111,41,97);
+ border-radius: 0.5em;
+ display:flex;
+ 
+ }
+ 
+ .container {  
+ overflow-x: auto;
+ border: 1px solid rgb(111,41,97);
+ display:flex;
+ }
+ .item {
+  height: 11em;
+ margin:.5rem;
+ width:45%;
+ background-color: rgba(11,41,97,.3);
+ border: .4rem solid rgba(111,41,97,.1);
+ }
+ 
+ .item:hover {
+ background-color: blue;
+ }
+ .item:after {
+ background-color: red;
+ }
+ 
+ #test p {
+ margin:0px;
+ color:darkBlue;
+ background-color: rgba(11,41,97,.3);
+ }
+ 
+ #tabl p {
+ margin:0px;
+ color:darkRed;
+ background-color: rgba(11,241,97,.3);
+ }
+ #setting .container{
+ margin:2px;
+ width:20em;
+ justify-content: space-between;
+ }
+ }
+  input,form {
+margin:0px;
+  }
+ #setting p {
+ margin:0px;
+ color:darkBlue;
+ background-color: rgba(211,241,97,.3);
+ }
+ #tabl div {
+ color:darkGreen;
+ background-color: rgba(111,41,97,.1);
+ }
+ .tId {
+ color:darkBlue;
+ background-color: rgba(11,41,97,.3);
+ }
+ 
+ .tId2 {
+ color:darkBlue;
+ background-color: rgba(51,31,9,.3);
+ }
+ 
+ .tId3 {
+ color:darkBlue;
+ background-color: rgba(201,151,200,.3);
+ }
+ 
+ .itemTest {
+ margin-left:1rem;
+ }
+ 
+ .inpt{
+ color:green;
+ width:3rem;
  }
